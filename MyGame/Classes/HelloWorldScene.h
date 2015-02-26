@@ -21,7 +21,7 @@ public:
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // Set the view on the given position.
-    /* void setViewPointCenter(CCPoint position); */
+    void setViewPointCenter(Vec2 pos);
 
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);

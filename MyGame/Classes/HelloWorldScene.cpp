@@ -37,34 +37,36 @@ bool HelloWorld::init()
                 return false;
     }
      
-    /* CCDictionary *spawnPoint = objectGroup->getObject("SpawnPoint"); */
+    ValueMap spawnPoint = objectGroup->getObject("SpawnPoint");
      
-    /* int x = ((CCString)*spawnPoint->valueForKey("x")).intValue(); */
-    /* int y = ((CCString)*spawnPoint->valueForKey("y")).intValue(); */
+    int x = spawnPoint.at("x").asInt();
+    int y = spawnPoint.at("y").asInt();
      
-    /* player = new CCSprite(); */
-    /* player->initWithFile("Player.png"); */
-    /* player->setPosition(ccp(x,y)); */
+    Sprite* player = Sprite::create("res/Player.png");
+    player->setPosition(x,y);
      
-    /* this->addChild(player); */
+    this->addChild(player);
 
-    /* this->setViewPointCenter(player->getPosition()); */
+    this->setViewPointCenter(player->getPosition());
  
     return true;
 }
 
-/* void HelloWorld::setViewPointCenter(CCPoint position) { */
+void HelloWorld::setViewPointCenter(Vec2 pos) {
 
-/*     CCSize winSize = CCDirector::sharedDirector()->getWinSize(); */
+    Size winSize = Director::getInstance()->getWinSize();
 
-/*     int x = MAX(position.x, winSize.width/2); */
-/*     int y = MAX(position.y, winSize.height/2); */
-/*     x = MIN(x, (tileMap->getMapSize().width * this->tileMap->getTileSize().width) - winSize.width / 2); */
-/*     y = MIN(y, (tileMap->getMapSize().height * tileMap->getTileSize().height) - winSize.height/2); */
-/*     CCPoint actualPosition = ccp(x, y); */
+    int x = MAX(pos.x, winSize.width/2);
+    int y = MAX(pos.y, winSize.height/2);
+    x = MIN(x, 
+            (tileMap->getMapSize().width * 
+             this->tileMap->getTileSize().width) - winSize.width / 2);
+    y = MIN(y, (tileMap->getMapSize().height * 
+                tileMap->getTileSize().height) - winSize.height/2);
 
-/*     CCPoint centerOfView = ccp(winSize.width/2, winSize.height/2); */
-/*     CCPoint viewPoint = ccpSub(centerOfView, actualPosition); */
-/*     this->setPosition(viewPoint); */
-/* } */
+    Vec2 actualPosition = Vec2(x, y);
+    Vec2 centerOfView = Vec2(winSize.width/2, winSize.height/2);
+    Vec2 viewPoint = centerOfView - actualPosition;
+    this->setPosition(viewPoint);
+}
 
