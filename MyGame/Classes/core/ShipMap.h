@@ -1,8 +1,8 @@
 class ShipMap {
 public:
     ShipMap();
-    ShipMap(int N, int M);
+    ShipMap(int N, int M, int O);
 private:
-    int** map;
-    bool allocateMapMemory(int row, int col);
+    int*** map;
+    bool allocateMapMemory(int N, int M, int O);
 };

@@ -1,2 +1,2 @@
 compile:
-	g++ main.cpp ../core/ShipMap.cpp  -lunittest++
+	g++ -D TESTING main.cpp ../core/ShipMap.cpp  -lunittest++
