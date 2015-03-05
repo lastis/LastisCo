@@ -3,9 +3,9 @@
 
 
 
-SUITE(Helium){
+SUITE(Some){
     TEST(Instantiate){
-
+        double hey = 0;
     }
 }
 int main(int argc, const char *argv[])
