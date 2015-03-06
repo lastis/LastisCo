@@ -1,7 +1,9 @@
 #include <unittest++/UnitTest++.h>
 #include "../core/ShipMap.h"
 #include <iostream>
+#include "../core/Identifiers.h"
 
+using namespace std;
 
 SUITE(Some){
     ShipMap map;
