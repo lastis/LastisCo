@@ -4,18 +4,18 @@
 #include "ShipMap.h"
 
 ShipMap::ShipMap(){
-    map = NULL;
+    ShipMap(0,0,0);
 }
 
 ShipMap::ShipMap(const ShipMap &obj){
     copy(obj);
 }
 
-ShipMap::ShipMap(int M, int N, int O){
+ShipMap::ShipMap(int O, int N, int M){
     this->M = M;
     this->N = N;
     this->O = O;
-    allocateMapMemory(N,M,O);
+    allocateMapMemory(O,N,M);
 }
 
 ShipMap& ShipMap::operator= (const ShipMap& obj){
@@ -24,13 +24,21 @@ ShipMap& ShipMap::operator= (const ShipMap& obj){
 
 void ShipMap::copy(const ShipMap &obj){
     freeMemory();
-    M = obj.M;
-    N = obj.N;
     O = obj.O;
-    allocateMapMemory(M,N,O);
+    N = obj.N;
+    M = obj.M;
+    allocateMapMemory(O,N,M);
+
+    for (int i = 0; i < O; i++) {
+        for (int j = 0; j < N; j++) {
+            for (int k = 0; k < M; k++) {
+                map[i][j][k] = obj.map[i][j][k];
+            }
+        }
+    }
 }
 
-void ShipMap::allocateMapMemory(int M, int N, int O){
+void ShipMap::allocateMapMemory(int O, int N, int M){
 	// Allocate memory for pointers
     // This look strange, but think about it writing
     // letter in a book, from bottom and up. 
