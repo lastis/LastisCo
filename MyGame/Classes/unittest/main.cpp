@@ -5,6 +5,15 @@
 
 using namespace std;
 
+SUITE(Identifiers){
+    TEST(Initialization){
+        ID::initIDs();
+        for (int i = 0; i < ID::COUNT; i++) {
+            CHECK(ID::arrayIDs != 0);
+        }
+    }
+}
+
 SUITE(Some){
     ShipMap map;
 
