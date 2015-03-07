@@ -13,6 +13,7 @@ public:
     bool empty();
     int size();
 private:
+    int N;
     Node* front;
 };
 

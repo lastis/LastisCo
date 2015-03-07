@@ -1,37 +1,40 @@
 #ifdef TESTING
 #include <iostream>
 #endif
-#include "Node.h"
-#include "PriorityQueue.h"
+#include "Pathfinder.h"
 
-int calculateFValue(Node& node, Location goal){
-    // TODO complete these.
-    return 0;
+const int Pathfinder::X_DIR[] = {1, -1, 0, 0, 0, 0};
+const int Pathfinder::Y_DIR[] = {0, 0, 1, -1, 0, 0};
+const int Pathfinder::Z_DIR[] = {0, 0, 0, 0, 1, -1};
+
+int Pathfinder::getHValue(Node& node, Location goal){
+    // Manhatten distance. 
+    int dx = node.x - goal.x;
+    int dy = node.y - goal.y;
+    int dz = node.z - goal.z;
+    if (dx < 0) dx = -dx;
+    if (dy < 0) dy = -dy;
+    if (dx < 0) dz = -dz;
+    return dx + dy + dz;
 }
 
-void updateGValue(Node& node, int direction){
-    // TODO complete these.
+void Pathfinder::setFValue(Node& node, Location goal){
+    node.fValue = node.gValue + getHValue(node, goal);
+}
+
+
+void Pathfinder::updateGValue(Node& node, int direction){
+    // TODO: Accomidate weight. 
+    node.gValue += 10;
     return;
 }
 
-const int DIRECTIONS = 6;
-const int X_DIR[DIRECTIONS] = {1, -1, 0, 0, 0, 0};
-const int Y_DIR[DIRECTIONS] = {0, 0, 1, -1, 0, 0};
-const int Z_DIR[DIRECTIONS] = {0, 0, 0, 0, 1, -1};
-Node node1;
-Node node2;
-int xNext, yNext, zNext;
-PriorityQueue nodeList[2];
-int*** nodesClosed; // TODO Initiate this array.
-int*** nodesOpen; // TODO Initiate this array.
-int*** blocked; // TODO Might not need this. 
-int xDim, yDim, zDim; // TODO get these from the map. Rename maybe. 
 
-void findPath(Location start, Location goal){
+void Pathfinder::findPath(Location start, Location goal){
     int index = 0;
     node1 = Node(start);
 
-    calculateFValue(node1,goal);
+    setFValue(node1,goal);
     // Put the first open node on the list.
     nodeList[index].push(node1);
     // A* search
@@ -63,7 +66,7 @@ void findPath(Location start, Location goal){
                 // Generate a child node.
                 node2 = Node(xNext,yNext,zNext);
                 updateGValue(node2, i);
-                calculateFValue(node2, goal);
+                setFValue(node2, goal);
                 // Add it to the open list if it is not there. 
                 if (nodesOpen[xNext][yNext][zNext] == 0) {
                     nodesOpen[xNext][yNext][zNext] = node2.fValue;

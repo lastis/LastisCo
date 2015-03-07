@@ -4,7 +4,6 @@ struct Node
     int x;
     int y;
     int z;
-    int priority;
     int fValue;
     int gValue;
     struct Node* link;
