@@ -8,29 +8,42 @@ PriorityQueue::PriorityQueue(){
     N = 0;
 }
 
-void PriorityQueue::push(Node& node){
-    N++;
-    if (front == NULL || node.fValue < front->fValue){
-        node.link = front;
-        front = &node;
+bool PriorityQueue::has(Node* node){
+    PriorityNode* tmp = front;
+    while(tmp != NULL){
+        if(node == tmp->item) return true;
+        tmp = tmp->link;
+    }
+    return false;
+}
+
+void PriorityQueue::push(Node* node){
+    /* if (has(node)) std::cout << "HAS NODE, BAD STUFF" << std::endl; */
+    PriorityNode* container = new PriorityNode();
+    container->item = node;
+    if (front == NULL || node->fValue < front->item->fValue){
+        container->link = front;
+        front = container;
     }
     else{
-        Node* tmp = front;
-        while (tmp->link != NULL && tmp->link->fValue <= node.fValue)
+        PriorityNode* tmp = front;
+        while (tmp->link != NULL && tmp->link->item->fValue <= node->fValue)
         tmp = tmp->link;
-        node.link = tmp->link;
-        tmp->link = &node;
+        // Now tmp.link.fValue > node.fValue, put node in here. 
+        container->link = tmp->link;
+        tmp->link = container;
     }
+    N++;
 }
 
 void PriorityQueue::pop(){
-    N--;
-    Node *tmp;
+    PriorityNode *tmp;
     if(front == NULL)
         return; // Queue underflow.
     else{
         tmp = front;
         front = front->link;
+        N--;
     }
 }
 
@@ -38,7 +51,7 @@ Node* PriorityQueue::top(){
     if (front == NULL)
         return NULL;
     else{   
-        return front;
+        return front->item;
     }
 }
 

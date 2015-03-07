@@ -28,6 +28,7 @@ private:
     void initialize();
     void setFValue(Node& node, Location goal);
     void updateGValue(Node& node, int direction);
+    void resetNodes();
 
 private:
     // Variables.
