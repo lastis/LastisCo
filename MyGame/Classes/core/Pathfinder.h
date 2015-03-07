@@ -7,7 +7,8 @@
 class Pathfinder {
     // Functions.
 public:
-    Pathfinder ();
+    Pathfinder();
+    void setMap(int*** map);
     void findPath(Location start, Location goal);
 private:
     int getHValue(Node& node, Location goal);
@@ -20,9 +21,6 @@ private:
     static const int X_DIR[DIRECTIONS];
     static const int Y_DIR[DIRECTIONS];
     static const int Z_DIR[DIRECTIONS];
-    Node node1;
-    Node node2;
-    int xNext, yNext, zNext;
     PriorityQueue nodeList[2];
     int*** nodesClosed; // TODO Initiate this array.
     int*** nodesOpen; // TODO Initiate this array.

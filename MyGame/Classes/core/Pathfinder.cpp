@@ -7,6 +7,10 @@ const int Pathfinder::X_DIR[] = {1, -1, 0, 0, 0, 0};
 const int Pathfinder::Y_DIR[] = {0, 0, 1, -1, 0, 0};
 const int Pathfinder::Z_DIR[] = {0, 0, 0, 0, 1, -1};
 
+void Pathfinder::setMap(int*** map){
+    blocked = map;
+}
+
 int Pathfinder::getHValue(Node& node, Location goal){
     // Manhatten distance. 
     int dx = node.x - goal.x;
@@ -31,7 +35,10 @@ void Pathfinder::updateGValue(Node& node, int direction){
 
 
 void Pathfinder::findPath(Location start, Location goal){
+    Node node1;
+    Node node2;
     int index = 0;
+    int xNext, yNext, zNext;
     node1 = Node(start);
 
     setFValue(node1,goal);
