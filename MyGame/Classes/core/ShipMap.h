@@ -4,8 +4,8 @@ public:
     int N;
     int M;
     unsigned int*** map;
-    // These are used for freeing memeory. 
 private:
+    // These are used for freeing memeory. 
     unsigned int* ref1;
     unsigned int** ref2;
     unsigned int*** ref3;

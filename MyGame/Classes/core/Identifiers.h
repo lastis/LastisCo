@@ -24,7 +24,7 @@ namespace ID{
         arrayIDs[FLOOR]  = LOW;
     }
 
-    static void resetIDs(){
+    static void clearIDs(){
         delete[] arrayIDs;
     }
 }
