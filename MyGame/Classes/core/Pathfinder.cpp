@@ -3,12 +3,33 @@
 #endif
 #include "Pathfinder.h"
 
-const int Pathfinder::X_DIR[] = {1, -1, 0, 0, 0, 0};
-const int Pathfinder::Y_DIR[] = {0, 0, 1, -1, 0, 0};
-const int Pathfinder::Z_DIR[] = {0, 0, 0, 0, 1, -1};
+const int Pathfinder::X_DIR[] = {1, 0, 0, -1, 0, 0};
+const int Pathfinder::Y_DIR[] = {0, 1, 0, 0, -1, 0};
+const int Pathfinder::Z_DIR[] = {0, 0, 1, 0, 0, -1};
 
-void Pathfinder::setMap(int*** map){
-    blocked = map;
+Pathfinder::Pathfinder(){
+
+}
+
+Pathfinder::Pathfinder(Matrix3D& map){
+    setMap(map);
+    initialize();
+}
+
+void Pathfinder::initialize(){
+    containNodesOpen = Matrix3D(zDim, yDim, xDim);
+    containNodesClosed = Matrix3D(zDim, yDim, xDim);
+    containDirMap =  Matrix3D(zDim, yDim, xDim);
+    nodesOpen = containNodesOpen.getMatrix();
+    nodesClosed = containNodesClosed.getMatrix();
+    dirMap = containDirMap.getMatrix();
+}
+
+void Pathfinder::setMap(Matrix3D& map){
+    blocked = map.getMatrix();
+    xDim = map.getM();
+    yDim = map.getN();
+    zDim = map.getO();
 }
 
 int Pathfinder::getHValue(Node& node, Location goal){
@@ -34,7 +55,12 @@ void Pathfinder::updateGValue(Node& node, int direction){
 }
 
 
-void Pathfinder::findPath(Location start, Location goal){
+void Pathfinder::findPath(Location start, Location goal, int N, int* path){
+    // This is a quickfix to fill the path from start to finish.
+    Location temp = start;
+    start = goal;
+    goal = temp;
+
     Node node1;
     Node node2;
     int index = 0;
@@ -47,7 +73,7 @@ void Pathfinder::findPath(Location start, Location goal){
     // A* search
     while(!nodeList[index].empty()){
         // Find the node with the lower f-value.
-        node1 = nodeList[index].top();
+        node1 = *nodeList[index].top();
         // Remove the node from the list and add it to the closed. 
         nodeList[index].pop();
         nodesOpen[node1.x][node1.y][node1.z] = 0;
@@ -55,6 +81,16 @@ void Pathfinder::findPath(Location start, Location goal){
         // Stop searching when the goal is reached.
         if (node1.x == goal.x && node1.y == goal.y && node1.z == goal.z) {
             // Generate map from finish to start.
+            int X = node1.x;
+            int Y = node1.y;
+            int Z = node1.z;
+            int cnt = 0;
+            while(!(X == start.x && Y == start.y && Z == start.z)){
+                // We only have a given array, fill it as much as possible.
+                if (cnt == N) break;
+                int dir = dirMap[X][Y][Z];
+                path[cnt] = dir;
+            }
             // Empty the list
             while (!nodeList[index].empty()) nodeList[index].pop();
             // Return path
@@ -79,21 +115,22 @@ void Pathfinder::findPath(Location start, Location goal){
                     nodesOpen[xNext][yNext][zNext] = node2.fValue;
                     nodeList[index].push(node2);
                     // Mark it's parent node direction
+                    dirMap[xNext][yNext][zNext] = (i + DIRECTIONS/2)%DIRECTIONS;
                 }
                 // Already in the open list.
                 else if (nodesOpen[xNext][yNext][zNext] > node2.fValue) {
                     // Update f-value.
                     nodesOpen[xNext][yNext][zNext] = node2.fValue;
                     // Update the parent directinon info, mark it's parent.
-                    // TODO
+                    dirMap[xNext][yNext][zNext] = (i + DIRECTIONS/2)%DIRECTIONS;
 
                     // Replace the node by emptying one nodeList to the other
                     // except the node to be replaced will be ignored and 
                     // the new node will be pushed instead. 
-                    while (!(nodeList[index].top().x == xNext &&
-                                nodeList[index].top().y == yNext &&
-                                nodeList[index].top().z == zNext)) {
-                        nodeList[1-index].push(nodeList[index].top());
+                    while (!(nodeList[index].top()->x == xNext &&
+                                nodeList[index].top()->y == yNext &&
+                                nodeList[index].top()->z == zNext)) {
+                        nodeList[1-index].push(*nodeList[index].top());
                         nodeList[index].pop();
                     }
 
@@ -104,7 +141,7 @@ void Pathfinder::findPath(Location start, Location goal){
                         index = 1-index;
                     }
                     while (!nodeList[index].empty()) {
-                        nodeList[1-index].push(nodeList[index].top());
+                        nodeList[1-index].push(*nodeList[index].top());
                         nodeList[index].pop();
                     }
                     index = 1-index;

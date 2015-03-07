@@ -4,7 +4,11 @@
 #include "Matrix3D.h"
 
 Matrix3D::Matrix3D(){
-    Matrix3D(0,0,0);
+    O = 0;
+    N = 0;
+    M = 0;
+    allocateMapMemory(O,N,M);
+    reset();
 }
 
 Matrix3D::Matrix3D(const Matrix3D &obj){

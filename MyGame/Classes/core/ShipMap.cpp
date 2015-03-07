@@ -8,13 +8,12 @@ ShipMap::ShipMap(){
 }
 
 ShipMap::ShipMap(int O, int N, int M){
-    map = new Matrix3D(O,N,M);
-    mapBlocking = new Matrix3D(O,N,M);
+    map = Matrix3D(O,N,M);
+    mapBlocking = Matrix3D(O,N,M);
+    pathfinder = Pathfinder(mapBlocking);
 }
 
 ShipMap::~ShipMap(){
-    delete map;
-    delete mapBlocking;
 }
 
 

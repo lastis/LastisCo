@@ -1,4 +1,5 @@
 #include "Pathfinder.h"
+
 class ShipMap {
 public:
     ShipMap();
@@ -8,6 +9,7 @@ private:
 
 public:
 private:
-    Matrix3D* map;
-    Matrix3D* mapBlocking;
+    Matrix3D map;
+    Matrix3D mapBlocking;
+    Pathfinder pathfinder;
 };
