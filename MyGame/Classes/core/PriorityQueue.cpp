@@ -1,17 +1,13 @@
 #ifdef TESTING
 #include <iostream>
 #endif
-#include "Node.h"
+#include "PriorityQueue.h"
 
-class Priority_Queue{
-private:
-    Node* front;
-public:
-    Priority_Queue(){
-            front = NULL;
-    }
+PriorityQueue::PriorityQueue(){
+    front = NULL;
+}
 
-void push(int item, int priority){
+void PriorityQueue::push(int item, int priority){
     Node* tmp, *q;
     tmp = new Node;
     tmp->info = item;
@@ -29,37 +25,32 @@ void push(int item, int priority){
     }
 }
 
-        void pop()
-        {
-            Node *tmp;
-            if(front == NULL);
-                //cout<<"Queue Underflow\n"; 
-            else
-            {
-                tmp = front;
-                /* cout<<"Deleted item is: "<<tmp->info<<endl; */
-                front = front->link;
-                delete tmp;
-            }
-        }
+void PriorityQueue::pop(){
+    Node *tmp;
+    if(front == NULL);
+        //cout<<"Queue Underflow\n"; 
+    else{
+        tmp = front;
+        /* cout<<"Deleted item is: "<<tmp->info<<endl; */
+        front = front->link;
+        delete tmp;
+    }
+}
 
-        void top()
-        {
-            Node *ptr;
-            ptr = front;
-            if (front == NULL);
-                /* cout<<"Queue is empty\n"; */
-            else{   
-                /* cout<<"Queue is :\n"; */
-                /* cout<<"Priority       Item\n"; */
-                while(ptr != NULL)
-                {
-                    /* cout<<ptr->priority<<"                 "<<ptr->info<<endl; */
-                    ptr = ptr->link;
-                }
-            }
+void PriorityQueue::top(){
+    Node *ptr;
+    ptr = front;
+    if (front == NULL);
+    /* cout<<"Queue is empty\n"; */
+    else{   
+        /* cout<<"Queue is :\n"; */
+        /* cout<<"Priority       Item\n"; */
+        while(ptr != NULL){
+            /* cout<<ptr->priority<<"                 "<<ptr->info<<endl; */
+            ptr = ptr->link;
         }
-};
+    }
+}
 /*
  *  * Main
  *   */
