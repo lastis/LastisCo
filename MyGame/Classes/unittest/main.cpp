@@ -1,7 +1,7 @@
 #include <unittest++/UnitTest++.h>
 #include "../core/ShipMap.h"
 #include <iostream>
-#include "../core/Identifiers.h"
+/* #include "../core/Identifiers.h" */
 
 using namespace std;
 
@@ -107,26 +107,27 @@ SUITE(Pathfinder){
     }
 
     TEST(SimplePath){
-        Matrix3D map = Matrix3D(5,5,5);
+        Matrix3D map = Matrix3D(1,5,5);
         Pathfinder pathfinder = Pathfinder(map);
         unsigned int*** ptr = map.getMatrix();
-        Location start = Location(1,2,2);
-        Location goal = Location(4,2,2);
+        Location start = Location(1,2,0);
+        Location goal = Location(4,2,0);
         int N = 20;
-        int* path = new int[N];
+        unsigned int* path = new unsigned int[N];
         pathfinder.findPath(start, goal, N, path);
+        /* pathfinder.printDirMap(0); */
         int sumX = 0;
         int sumY = 0;
         int sumZ = 0;
         for (int i = 0; i < N; i++) {
-            int dir = path[i];
-            if (dir == -1) break;
-            if (dir == 0) sumX++;
-            if (dir == 3) sumX--;
-            if (dir == 1) sumY++;
-            if (dir == 4) sumY--;
-            if (dir == 2) sumZ++;
-            if (dir == 5) sumZ--;
+            unsigned int dir = path[i];
+            if (dir == ID::NO_DIRECTION) break;
+            if (dir == ID::EAST) sumX++;
+            if (dir == ID::WEST) sumX--;
+            if (dir == ID::NORTH) sumY++;
+            if (dir == ID::SOUTH) sumY--;
+            if (dir == ID::UP) sumZ++;
+            if (dir == ID::DOWN) sumZ--;
         }
         CHECK_EQUAL(3, sumX);
         CHECK_EQUAL(0, sumY);
@@ -136,70 +137,117 @@ SUITE(Pathfinder){
     }
 
     TEST(BlockedPath){
-        Matrix3D map = Matrix3D(5,5,5);
+        Matrix3D map = Matrix3D(1,5,5);
         Pathfinder pathfinder = Pathfinder(map);
         unsigned int*** ptr = map.getMatrix();
-        ptr[2][2][3] = 1;
-        ptr[2][2][2] = 1;
-        ptr[2][2][1] = 1;
-        Location start = Location(0,2,2);
-        Location goal = Location(4,2,2);
+        /* ptr[0][2][1] = ID::BLOCK_ALL; */
+        ptr[0][2][2] = ID::BLOCK_ALL;
+        /* ptr[0][2][3] = ID::BLOCK_ALL; */
+        ptr[0][3][2] = ID::BLOCK_ALL;
+        ptr[0][1][2] = ID::BLOCK_ALL;
+        Location start = Location(0,2,0);
+        Location goal = Location(4,2,0);
         int N = 20;
-        int* path = new int[N];
+        unsigned int* path = new unsigned int[N];
+        for (int i = 0; i < N; i++) {
+            path[i] = 0;
+        }
+        /* std::cout << "starting blocked path" << std::endl; */
         pathfinder.findPath(start, goal, N, path);
+        /* pathfinder.printDirMap(0); */
+        /* std::cout << "return from path " << std::endl; */
         int sumX = 0;
         int sumY = 0;
         int sumZ = 0;
         for (int i = 0; i < N; i++) {
-            int dir = path[i];
-            if (dir == -1) break;
-            if (dir == 0) sumX++;
-            if (dir == 3) sumX--;
-            if (dir == 1) sumY++;
-            if (dir == 4) sumY--;
-            if (dir == 2) sumZ++;
-            if (dir == 5) sumZ--;
+            unsigned int dir = path[i];
+            if (dir == ID::NO_DIRECTION) break;
+            if (dir == ID::EAST) sumX++;
+            if (dir == ID::WEST) sumX--;
+            if (dir == ID::NORTH) sumY++;
+            if (dir == ID::SOUTH) sumY--;
+            if (dir == ID::UP) sumZ++;
+            if (dir == ID::DOWN) sumZ--;
         }
         CHECK_EQUAL(4, sumX);
         CHECK_EQUAL(0, sumY);
         CHECK_EQUAL(0, sumZ);
         
         delete[] path;
+        /* std::cout << "finishing blocked path" << std::endl; */
     }
 
-    TEST(ManyPaths){
-        Matrix3D map = Matrix3D(101,101,101);
+    TEST(WallPath){
+        Matrix3D map = Matrix3D(1,5,5);
         Pathfinder pathfinder = Pathfinder(map);
         unsigned int*** ptr = map.getMatrix();
-        ptr[2][2][3] = 1;
-        ptr[2][2][2] = 1;
-        ptr[2][2][1] = 1;
-        Location start = Location(0,2,2);
-        Location goal = Location(4,2,2);
+        ptr[0][2][3] = ID::BLOCK_WEST;
+        ptr[0][2][2] = ID::BLOCK_WEST;
+        ptr[0][2][1] = ID::BLOCK_WEST;
+        Location start = Location(0,2,0);
+        Location goal = Location(4,2,0);
         int N = 20;
-        int* path = new int[N];
-        for (int run = 0; run < 20; run++) {
-            pathfinder.findPath(start, goal, N, path);
-            int sumX = 0;
-            int sumY = 0;
-            int sumZ = 0;
-            for (int i = 0; i < N; i++) {
-                int dir = path[i];
-                if (dir == -1) break;
-                if (dir == 0) sumX++;
-                if (dir == 3) sumX--;
-                if (dir == 1) sumY++;
-                if (dir == 4) sumY--;
-                if (dir == 2) sumZ++;
-                if (dir == 5) sumZ--;
-            }
-            CHECK_EQUAL(4, sumX);
-            CHECK_EQUAL(0, sumY);
-            CHECK_EQUAL(0, sumZ);
+        unsigned int* path1 = new unsigned int[N];
+        for (int i = 0; i < N; i++) {
+            path1[i] = 0;
         }
+        pathfinder.findPath(start, goal, N, path1);
+        /* pathfinder.printDirMap(0); */
+        int sumX = 0;
+        int sumY = 0;
+        int sumZ = 0;
+        for (int i = 0; i < N; i++) {
+            unsigned int dir = path1[i];
+            /* cout << "direction: "<< dir << endl; */
+            if (dir == ID::NO_DIRECTION) break;
+            if (dir == ID::EAST) sumX++;
+            if (dir == ID::WEST) sumX--;
+            if (dir == ID::NORTH) sumY++;
+            if (dir == ID::SOUTH) sumY--;
+            if (dir == ID::UP) sumZ++;
+            if (dir == ID::DOWN) sumZ--;
+        }
+        /* cout << "DID IT" << endl; */
+        CHECK_EQUAL(4, sumX);
+        CHECK_EQUAL(0, sumY);
+        CHECK_EQUAL(0, sumZ);
         
-        delete[] path;
+        delete[] path1;
     }
+
+    /* TEST(ManyPaths){ */
+    /*     Matrix3D map = Matrix3D(50,50,50); */
+    /*     Pathfinder pathfinder = Pathfinder(map); */
+    /*     unsigned int*** ptr = map.getMatrix(); */
+    /*     ptr[2][2][3] = ID::BLOCK_ALL; */
+    /*     ptr[2][2][2] = ID::BLOCK_ALL; */
+    /*     ptr[2][2][1] = ID::BLOCK_ALL; */
+    /*     Location start = Location(0,2,2); */
+    /*     Location goal = Location(4,2,2); */
+    /*     int N = 20; */
+    /*     unsigned int* path = new unsigned int[N]; */
+    /*     for (int run = 0; run < 20; run++) { */
+    /*         pathfinder.findPath(start, goal, N, path); */
+    /*         int sumX = 0; */
+    /*         int sumY = 0; */
+    /*         int sumZ = 0; */
+    /*         for (int i = 0; i < N; i++) { */
+    /*             int dir = path[i]; */
+    /*             if (dir == ID::NO_DIRECTION) break; */
+    /*             if (dir == ID::EAST) sumX++; */
+    /*             if (dir == ID::WEST) sumX--; */
+    /*             if (dir == ID::NORTH) sumY++; */
+    /*             if (dir == ID::SOUTH) sumY--; */
+    /*             if (dir == ID::UP) sumZ++; */
+    /*             if (dir == ID::DOWN) sumZ--; */
+    /*         } */
+    /*         CHECK_EQUAL(4, sumX); */
+    /*         CHECK_EQUAL(0, sumY); */
+    /*         CHECK_EQUAL(0, sumZ); */
+    /*     } */
+        
+    /*     delete[] path; */
+    /* } */
 
 }
 

@@ -4,15 +4,10 @@
 
 #include "PriorityQueue.h"
 #include "Matrix3D.h"
+#include "Identifiers.h"
 
+using namespace ID;
 class Pathfinder {
-    static const int DIRECTIONS = 6;
-    static const int EAST       = 0;
-    static const int NORTH      = 1;
-    static const int UP         = 2;
-    static const int WEST       = 3;
-    static const int SOUTH      = 4;
-    static const int DOWN       = 5;
 
     static const int X_DIR[DIRECTIONS];
     static const int Y_DIR[DIRECTIONS];
@@ -30,7 +25,8 @@ public:
     void freeMemory();
     void freeNodes();
     void setMap(Matrix3D& map);
-    void findPath(Location start, Location goal, int N, int* path);
+    void findPath(Location start, Location goal, int N, unsigned int* path);
+    /* void printDirMap(int zDim); */
 private:
     int getHValue(Node* node, Location goal);
     void initialize();

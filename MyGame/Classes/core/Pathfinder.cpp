@@ -41,6 +41,17 @@ Pathfinder::~Pathfinder(){
     freeMemory();
 }
 
+/* void Pathfinder::printDirMap(int zDim){ */
+/*     std::cout  << "--------------"<< std::endl; */
+/*     for (int j = 0; j < yDim; j++) { */
+/*         for (int k = 0; k < xDim; k++) { */
+/*             std::cout << dirMap[zDim][j][k] << " : "; */
+/*         } */
+/*         std::cout << std::endl; */
+/*     } */
+/*     std::cout  << "--------------"<< std::endl; */
+/* } */
+
 void Pathfinder::freeMemory(){
     for (int i = 0; i < nodeNr; i++) {
         delete nodeHooks[i];
@@ -53,6 +64,7 @@ void Pathfinder::freeNodes(){
     for (int i = 0; i < nodeNr; i++) {
         delete nodeHooks[i];
     }
+    /* std::cout << "freed nodes: " << nodeNr << std::endl; */
     nodeNr = 0;
 }
 
@@ -63,7 +75,8 @@ void Pathfinder::initialize(){
     nodesOpen = containNodesOpen.getMatrix();
     nodesClosed = containNodesClosed.getMatrix();
     dirMap = containDirMap.getMatrix();
-    nodeHooks = new Node*[zDim*yDim*xDim];
+    // TODO: Need many nodes to run, can sometimes be greater than x*y*z
+    nodeHooks = new Node*[zDim*yDim*xDim*10];
     nodeNr = 0;
 }
 
@@ -102,13 +115,14 @@ void Pathfinder::resetNodes(){
             for (int k = 0; k < xDim; k++) {
                 nodesOpen[i][j][k] = 0;
                 nodesClosed[i][j][k] = 0;
+                dirMap[i][j][k] = 9;
             }
         }
     }
 }
 
 
-void Pathfinder::findPath(Location start, Location goal, int N, int* path){
+void Pathfinder::findPath(Location start, Location goal, int N, unsigned int* path){
     // This is a quickfix to fill the path from start to finish.
     Location temp = start;
     start = goal;
@@ -142,36 +156,44 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
         node1->z = nodeList[index].top()->z;
         // Remove the node from the list and add it to the closed. 
         nodeList[index].pop();
-        nodesOpen[node1->x][node1->y][node1->z] = 0;
-        nodesClosed[node1->x][node1->y][node1->z] = 1;
+        nodesOpen[node1->z][node1->y][node1->x] = 0;
+        nodesClosed[node1->z][node1->y][node1->x] = 1;
         // Stop searching when the goal is reached.
         if (node1->x == goal.x && node1->y == goal.y && node1->z == goal.z){
+            /* std::cout << "found goal" << std::endl; */
             // Generate map from finish to start.
             int X = node1->x;
             int Y = node1->y;
             int Z = node1->z;
             int cnt = 0;
+
             while(!(X == start.x && Y == start.y && Z == start.z)){
                 // We only have a given array, fill it as much as possible.
                 if (cnt == N) break;
-                int dir = dirMap[X][Y][Z];
-                path[cnt] = dir;
+                /* std::cout << "cnt: " << cnt << std::endl; */
+                int dir = dirMap[Z][Y][X];
+                /* std::cout << "cnt: " << cnt << std::endl; */
+                path[cnt] = 1 << dir;
                 cnt++;
                 X += X_DIR[dir];
                 Y += Y_DIR[dir];
                 Z += Z_DIR[dir];
             }
-            // Put end of line symbol (-1).
-            if (cnt == N)  cnt = cnt - 1;
-            path[cnt] = -1;
+            // Insert end of path symbol.
+            if (cnt == N) cnt = cnt-1;
+            path[cnt] = 0;
             // Empty the list
             while (!nodeList[index].empty()) nodeList[index].pop();
             // Return path
+            /* std::cout << "dangerous : " << std::endl; */
             freeNodes();
+            /* std::cout << "return from pathfinding" << std::endl; */
             return;
         }
-        // Generate moves in all possible directions.
+        // Generate moves in all possible directions. 
         for (int i = 0; i < DIRECTIONS; i++) {
+            // Get the "real" direction
+            unsigned int dirTrans = 1 << i;
             xNext = node1->x + X_DIR[i];
             yNext = node1->y + Y_DIR[i];
             zNext = node1->z + Z_DIR[i];
@@ -179,8 +201,9 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
             if (xNext < 0 || xNext >= xDim) continue;
             if (yNext < 0 || yNext >= yDim) continue;
             if (zNext < 0 || zNext >= zDim) continue;
-            if (blocked[xNext][yNext][zNext] == 1) continue;
-            if (nodesClosed[xNext][yNext][zNext] == 1) continue;
+            if (nodesClosed[zNext][yNext][xNext] == 1) continue;
+            // Bit operation. Smart math.
+            if (blocked[zNext][yNext][xNext] & dirTrans != 0) continue;
             // Generate a child node.
             node2 = new Node(xNext,yNext,zNext);
             nodeHooks[nodeNr] = node2;
@@ -189,18 +212,18 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
             updateGValue(node2, i);
             setFValue(node2, goal);
             // Add it to the open list if it is not there. 
-            if (nodesOpen[xNext][yNext][zNext] == 0) {
-                nodesOpen[xNext][yNext][zNext] = node2->fValue;
+            if (nodesOpen[zNext][yNext][xNext] == 0) {
+                nodesOpen[zNext][yNext][xNext] = node2->fValue;
                 nodeList[index].push(node2);
                 // Mark it's parent node direction
-                dirMap[xNext][yNext][zNext] = (i + DIRECTIONS/2)%DIRECTIONS;
+                dirMap[zNext][yNext][xNext] = (i + DIRECTIONS/2)%DIRECTIONS;
             }
             // Already in the open list.
-            else if (nodesOpen[xNext][yNext][zNext] > node2->fValue) {
+            else if (nodesOpen[zNext][yNext][xNext] > node2->fValue) {
                 // Update f-value.
-                nodesOpen[xNext][yNext][zNext] = node2->fValue;
+                nodesOpen[zNext][yNext][xNext] = node2->fValue;
                 // Update the parent directinon info, mark it's parent.
-                dirMap[xNext][yNext][zNext] = (i + DIRECTIONS/2)%DIRECTIONS;
+                dirMap[zNext][yNext][xNext] = (i + DIRECTIONS/2)%DIRECTIONS;
 
                 // Replace the node by emptying one nodeList to the other
                 // except the node to be replaced will be ignored and 
@@ -232,7 +255,7 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
         /* delete node1; */
     }
     // Return empty path. 
-    path[0] = -1;
+    path[0] = 0;
     freeNodes();
 }
 
