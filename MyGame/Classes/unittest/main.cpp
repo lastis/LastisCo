@@ -110,10 +110,26 @@ SUITE(Pathfinder){
         Matrix3D map = Matrix3D(5,5,5);
         Pathfinder pathfinder = Pathfinder(map);
         int*** ptr = map.getMatrix();
-        Location start = Location(0,0,0);
-        Location goal = Location(4,4,4);
-        int* path = new int[100];
-        pathfinder.findPath(start, goal, 100, path);
+        Location start = Location(1,2,2);
+        Location goal = Location(4,2,2);
+        int N = 20;
+        int* path = new int[N];
+        pathfinder.findPath(start, goal, N, path);
+        int sumX, sumY, sumZ = 0;
+        for (int i = 0; i < N; i++) {
+            int dir = path[i];
+            if (dir == -1) break;
+            if (dir == 0) sumX++;
+            if (dir == 3) sumX--;
+            if (dir == 1) sumY++;
+            if (dir == 4) sumY--;
+            if (dir == 2) sumZ++;
+            if (dir == 5) sumZ--;
+        }
+        CHECK_EQUAL(3, sumX);
+        CHECK_EQUAL(0, sumY);
+        CHECK_EQUAL(0, sumZ);
+        
         delete[] path;
     }
 }
