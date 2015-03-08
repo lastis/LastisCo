@@ -10,11 +10,19 @@ private:
     void initialize(int O, int N, int M);
 
 public:
+    int O;
+    int N;
+    int M;
 private:
-    Matrix3D map;
-    Matrix3D mapFloor;
-    Matrix3D mapWallsEast;
-    Matrix3D mapWallsNorth;
-    Matrix3D mapAccess;
+    Matrix3D containerMap;
+    Matrix3D containerMapFloor;
+    Matrix3D containerMapWallsEast;
+    Matrix3D containerMapWallsNorth;
+    Matrix3D containerMapAccess;
+    unsigned int*** map;
+    unsigned int*** mapFloor;
+    unsigned int*** mapWallsEast;
+    unsigned int*** mapWallsNorth;
+    unsigned int*** mapAccess;
     Pathfinder pathfinder;
 };
