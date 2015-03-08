@@ -41,16 +41,18 @@ Pathfinder::~Pathfinder(){
     freeMemory();
 }
 
-/* void Pathfinder::printDirMap(int zDim){ */
-/*     std::cout  << "--------------"<< std::endl; */
-/*     for (int j = 0; j < yDim; j++) { */
-/*         for (int k = 0; k < xDim; k++) { */
-/*             std::cout << dirMap[zDim][j][k] << " : "; */
-/*         } */
-/*         std::cout << std::endl; */
-/*     } */
-/*     std::cout  << "--------------"<< std::endl; */
-/* } */
+#ifdef TESTING
+void Pathfinder::printDirMap(int zDim){
+    std::cout  << "--------------"<< std::endl;
+    for (int j = 0; j < yDim; j++) {
+        for (int k = 0; k < xDim; k++) {
+            std::cout << dirMap[zDim][j][k] << " : ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout  << "--------------"<< std::endl;
+}
+#endif
 
 void Pathfinder::freeMemory(){
     for (int i = 0; i < nodeNr; i++) {

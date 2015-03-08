@@ -26,7 +26,9 @@ public:
     void freeNodes();
     void setMap(Matrix3D& map);
     void findPath(Location start, Location goal, int N, unsigned int* path);
-    /* void printDirMap(int zDim); */
+#ifdef TESTING
+    void printDirMap(int zDim);
+#endif
 private:
     int getHValue(Node* node, Location goal);
     void initialize();

@@ -181,9 +181,12 @@ SUITE(Pathfinder){
         Matrix3D map = Matrix3D(1,5,5);
         Pathfinder pathfinder = Pathfinder(map);
         unsigned int*** ptr = map.getMatrix();
-        ptr[0][2][3] = ID::BLOCK_WEST;
+        ptr[0][3][2] = ID::BLOCK_WEST;
         ptr[0][2][2] = ID::BLOCK_WEST;
-        ptr[0][2][1] = ID::BLOCK_WEST;
+        ptr[0][1][2] = ID::BLOCK_WEST;
+        /* ptr[0][3][2] = ID::BLOCK_EAST; */
+        /* ptr[0][2][2] = ID::BLOCK_EAST; */
+        /* ptr[0][1][2] = ID::BLOCK_EAST; */
         Location start = Location(0,2,0);
         Location goal = Location(4,2,0);
         int N = 20;
@@ -215,39 +218,39 @@ SUITE(Pathfinder){
         delete[] path1;
     }
 
-    /* TEST(ManyPaths){ */
-    /*     Matrix3D map = Matrix3D(50,50,50); */
-    /*     Pathfinder pathfinder = Pathfinder(map); */
-    /*     unsigned int*** ptr = map.getMatrix(); */
-    /*     ptr[2][2][3] = ID::BLOCK_ALL; */
-    /*     ptr[2][2][2] = ID::BLOCK_ALL; */
-    /*     ptr[2][2][1] = ID::BLOCK_ALL; */
-    /*     Location start = Location(0,2,2); */
-    /*     Location goal = Location(4,2,2); */
-    /*     int N = 20; */
-    /*     unsigned int* path = new unsigned int[N]; */
-    /*     for (int run = 0; run < 20; run++) { */
-    /*         pathfinder.findPath(start, goal, N, path); */
-    /*         int sumX = 0; */
-    /*         int sumY = 0; */
-    /*         int sumZ = 0; */
-    /*         for (int i = 0; i < N; i++) { */
-    /*             int dir = path[i]; */
-    /*             if (dir == ID::NO_DIRECTION) break; */
-    /*             if (dir == ID::EAST) sumX++; */
-    /*             if (dir == ID::WEST) sumX--; */
-    /*             if (dir == ID::NORTH) sumY++; */
-    /*             if (dir == ID::SOUTH) sumY--; */
-    /*             if (dir == ID::UP) sumZ++; */
-    /*             if (dir == ID::DOWN) sumZ--; */
-    /*         } */
-    /*         CHECK_EQUAL(4, sumX); */
-    /*         CHECK_EQUAL(0, sumY); */
-    /*         CHECK_EQUAL(0, sumZ); */
-    /*     } */
+    TEST(ManyPaths){
+        Matrix3D map = Matrix3D(50,50,50);
+        Pathfinder pathfinder = Pathfinder(map);
+        unsigned int*** ptr = map.getMatrix();
+        ptr[2][2][3] = ID::BLOCK_ALL;
+        ptr[2][2][2] = ID::BLOCK_ALL;
+        ptr[2][2][1] = ID::BLOCK_ALL;
+        Location start = Location(0,2,2);
+        Location goal = Location(4,2,2);
+        int N = 20;
+        unsigned int* path = new unsigned int[N];
+        int sumX = 0;
+        int sumY = 0;
+        int sumZ = 0;
+        for (int run = 0; run < 20; run++) {
+            pathfinder.findPath(start, goal, N, path);
+            for (int i = 0; i < N; i++) {
+                int dir = path[i];
+                if (dir == ID::NO_DIRECTION) break;
+                if (dir == ID::EAST) sumX++;
+                if (dir == ID::WEST) sumX--;
+                if (dir == ID::NORTH) sumY++;
+                if (dir == ID::SOUTH) sumY--;
+                if (dir == ID::UP) sumZ++;
+                if (dir == ID::DOWN) sumZ--;
+            }
+        }
+        CHECK_EQUAL(4*N, sumX);
+        CHECK_EQUAL(0*N, sumY);
+        CHECK_EQUAL(0*N, sumZ);
         
-    /*     delete[] path; */
-    /* } */
+        delete[] path;
+    }
 
 }
 
