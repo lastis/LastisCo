@@ -38,10 +38,10 @@ void Matrix3D::reset(){
     }
 }
 
-int*** Matrix3D::getMatrix(){
+unsigned int*** Matrix3D::getMatrix(){
     return matrix;
 }
-int*   Matrix3D::getMatrixFlat(){
+unsigned int*   Matrix3D::getMatrixFlat(){
     return matrixFlat;
 }
 int Matrix3D::getO(){
@@ -76,9 +76,9 @@ void Matrix3D::allocateMapMemory(int O, int N, int M){
 	// Allocate memory for pointers
     // This look strange, but think about it writing
     // letter in a book, from bottom and up. 
-	int *ptr1	    = new int[M*N*O];
-	int **ptr2 	    = new int*[N*O];
-	int ***ptr3 	= new int**[O];
+	unsigned int *ptr1	    = new unsigned int[M*N*O];
+	unsigned int **ptr2     = new unsigned int*[N*O];
+	unsigned int ***ptr3 	= new unsigned int**[O];
     ref1 = ptr1;
     ref2 = ptr2;
     ref3 = ptr3;

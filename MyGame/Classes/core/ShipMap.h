@@ -14,6 +14,6 @@ private:
     Matrix3D mapFloor;
     Matrix3D mapWallsEast;
     Matrix3D mapWallsNorth;
-    Matrix3D mapBlocking;
+    Matrix3D mapAccess;
     Pathfinder pathfinder;
 };

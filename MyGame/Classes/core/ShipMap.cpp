@@ -17,8 +17,8 @@ void ShipMap::initialize(int O, int N, int M){
     mapWallsEast = Matrix3D(O,N,M);
     mapWallsNorth = Matrix3D(O,N,M);
 
-    mapBlocking = Matrix3D(O,N,M);
-    pathfinder = Pathfinder(mapBlocking);
+    mapAccess = Matrix3D(O,N,M);
+    pathfinder = Pathfinder(mapAccess);
 }
 
 ShipMap::~ShipMap(){

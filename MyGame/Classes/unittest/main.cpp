@@ -76,8 +76,8 @@ SUITE(Matix3D){
 
     TEST(Assignments){
         Matrix3D mat = Matrix3D(3,4,5);
-        int*** pMat = mat.getMatrix();
-        int* pMatFlat = mat.getMatrixFlat();
+        unsigned int*** pMat = mat.getMatrix();
+        unsigned int* pMatFlat = mat.getMatrixFlat();
         int O = mat.getO();
         int N = mat.getN();
         int M = mat.getM();
@@ -109,7 +109,7 @@ SUITE(Pathfinder){
     TEST(SimplePath){
         Matrix3D map = Matrix3D(5,5,5);
         Pathfinder pathfinder = Pathfinder(map);
-        int*** ptr = map.getMatrix();
+        unsigned int*** ptr = map.getMatrix();
         Location start = Location(1,2,2);
         Location goal = Location(4,2,2);
         int N = 20;
@@ -138,7 +138,7 @@ SUITE(Pathfinder){
     TEST(BlockedPath){
         Matrix3D map = Matrix3D(5,5,5);
         Pathfinder pathfinder = Pathfinder(map);
-        int*** ptr = map.getMatrix();
+        unsigned int*** ptr = map.getMatrix();
         ptr[2][2][3] = 1;
         ptr[2][2][2] = 1;
         ptr[2][2][1] = 1;
@@ -170,7 +170,7 @@ SUITE(Pathfinder){
     TEST(ManyPaths){
         Matrix3D map = Matrix3D(101,101,101);
         Pathfinder pathfinder = Pathfinder(map);
-        int*** ptr = map.getMatrix();
+        unsigned int*** ptr = map.getMatrix();
         ptr[2][2][3] = 1;
         ptr[2][2][2] = 1;
         ptr[2][2][1] = 1;

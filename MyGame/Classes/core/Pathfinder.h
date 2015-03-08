@@ -7,15 +7,17 @@
 
 class Pathfinder {
     static const int DIRECTIONS = 6;
-    static const int EAST = 0;
-    static const int NORTH = 1;
-    static const int UP = 2;
-    static const int WEST = 3;
-    static const int SOUTH = 4;
-    static const int DOWN = 5;
+    static const int EAST       = 0;
+    static const int NORTH      = 1;
+    static const int UP         = 2;
+    static const int WEST       = 3;
+    static const int SOUTH      = 4;
+    static const int DOWN       = 5;
+
     static const int X_DIR[DIRECTIONS];
     static const int Y_DIR[DIRECTIONS];
     static const int Z_DIR[DIRECTIONS];
+    
 
 public:
     // Functions.
@@ -42,10 +44,10 @@ private:
     Matrix3D containNodesClosed;
     Matrix3D containNodesOpen;
     Matrix3D containDirMap;
-    int*** nodesClosed; // TODO Initiate this array.
-    int*** nodesOpen; // TODO Initiate this array.
-    int*** blocked; // TODO Might not need this. 
-    int*** dirMap;
+    unsigned int*** nodesClosed; // TODO Initiate this array.
+    unsigned int*** nodesOpen; // TODO Initiate this array.
+    unsigned int*** blocked; // TODO Might not need this. 
+    unsigned int*** dirMap;
     int xDim, yDim, zDim; // TODO get these from the map. Rename maybe. 
     // Used for deleting propertly.
     Node** nodeHooks;
