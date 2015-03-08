@@ -15,14 +15,46 @@ Pathfinder::Pathfinder(){
     initialize();
 }
 
+Pathfinder::Pathfinder(const Pathfinder &obj){
+    copy(obj);
+}
+
+Pathfinder& Pathfinder::operator= (const Pathfinder& obj){
+    copy(obj);
+}
+
+void Pathfinder::copy(const Pathfinder &obj){
+    freeMemory();
+    xDim = obj.xDim;
+    yDim = obj.yDim;
+    zDim = obj.zDim;
+    blocked = obj.blocked;
+    initialize();
+}
+
 Pathfinder::Pathfinder(Matrix3D& map){
     setMap(map);
     initialize();
 }
 
-/* Pathfinder::~Pathfinder(){ */
-/*     ; */
-/* } */
+Pathfinder::~Pathfinder(){
+    freeMemory();
+}
+
+void Pathfinder::freeMemory(){
+    for (int i = 0; i < nodeNr; i++) {
+        delete nodeHooks[i];
+    }
+    nodeNr = 0;
+    delete[] nodeHooks;
+}
+
+void Pathfinder::freeNodes(){
+    for (int i = 0; i < nodeNr; i++) {
+        delete nodeHooks[i];
+    }
+    nodeNr = 0;
+}
 
 void Pathfinder::initialize(){
     containNodesOpen = Matrix3D(zDim, yDim, xDim);
@@ -31,6 +63,8 @@ void Pathfinder::initialize(){
     nodesOpen = containNodesOpen.getMatrix();
     nodesClosed = containNodesClosed.getMatrix();
     dirMap = containDirMap.getMatrix();
+    nodeHooks = new Node*[zDim*yDim*xDim];
+    nodeNr = 0;
 }
 
 void Pathfinder::setMap(Matrix3D& map){
@@ -84,8 +118,9 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
     Node* node2;
     int index = 0;
     int xNext, yNext, zNext;
-    /* Node* nodeStart = new Node(start); */
     node1 = new Node(start);
+    nodeHooks[nodeNr] = node1;
+    nodeNr++;
 
     resetNodes();
 
@@ -98,6 +133,8 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
         // Find the node with the lower f-value.
         /* if (node1 == NULL) node1 = new Node(); */
         node1 = new Node();
+        nodeHooks[nodeNr] = node1;
+        nodeNr++;
         node1->fValue = nodeList[index].top()->fValue;
         node1->gValue = nodeList[index].top()->gValue;
         node1->x = nodeList[index].top()->x;
@@ -108,9 +145,6 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
         nodesOpen[node1->x][node1->y][node1->z] = 0;
         nodesClosed[node1->x][node1->y][node1->z] = 1;
         // Stop searching when the goal is reached.
-        std::cout << "x:" << node1->x << "y:" << node1->y << "z:" << node1->z 
-            << "fValue: " << node1->fValue << "gValue" << node1->gValue 
-            << std::endl;
         if (node1->x == goal.x && node1->y == goal.y && node1->z == goal.z){
             // Generate map from finish to start.
             int X = node1->x;
@@ -122,7 +156,6 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
                 if (cnt == N) break;
                 int dir = dirMap[X][Y][Z];
                 path[cnt] = dir;
-                std::cout << dir << ":" << std::endl;
                 cnt++;
                 X += X_DIR[dir];
                 Y += Y_DIR[dir];
@@ -149,6 +182,8 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
             if (nodesClosed[xNext][yNext][zNext] == 1) continue;
             // Generate a child node.
             node2 = new Node(xNext,yNext,zNext);
+            nodeHooks[nodeNr] = node2;
+            nodeNr++;
             node2->gValue = node1->gValue;
             updateGValue(node2, i);
             setFValue(node2, goal);
@@ -190,13 +225,13 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
                 // Add the better node instead.
                 nodeList[index].push(node2);
             }
-            else delete node2;
+            /* else delete node2; */
         }
         // Else delete node 1. 
-        delete node1;
+        /* delete node1; */
     }
     // Return empty path. 
     path[0] = -1;
-    /* delete nodeStart; */
+    freeNodes();
 }
 

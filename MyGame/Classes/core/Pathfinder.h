@@ -21,7 +21,12 @@ public:
     // Functions.
     Pathfinder();
     Pathfinder(Matrix3D& map);
-    /* ~Pathfinder(); */
+    ~Pathfinder();
+    Pathfinder(const Pathfinder &obj);
+    Pathfinder& operator= (const Pathfinder& obj);
+    void copy(const Pathfinder &obj);
+    void freeMemory();
+    void freeNodes();
     void setMap(Matrix3D& map);
     void findPath(Location start, Location goal, int N, int* path);
 private:
@@ -42,4 +47,7 @@ private:
     int*** blocked; // TODO Might not need this. 
     int*** dirMap;
     int xDim, yDim, zDim; // TODO get these from the map. Rename maybe. 
+    // Used for deleting propertly.
+    Node** nodeHooks;
+    int nodeNr;
 };
