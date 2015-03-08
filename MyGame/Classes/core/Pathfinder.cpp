@@ -8,13 +8,21 @@ const int Pathfinder::Y_DIR[] = {0, 1, 0, 0, -1, 0};
 const int Pathfinder::Z_DIR[] = {0, 0, 1, 0, 0, -1};
 
 Pathfinder::Pathfinder(){
-
+    blocked = NULL;
+    xDim = 1;
+    yDim = 1;
+    zDim = 1;
+    initialize();
 }
 
 Pathfinder::Pathfinder(Matrix3D& map){
     setMap(map);
     initialize();
 }
+
+/* Pathfinder::~Pathfinder(){ */
+/*     ; */
+/* } */
 
 void Pathfinder::initialize(){
     containNodesOpen = Matrix3D(zDim, yDim, xDim);
@@ -76,17 +84,19 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
     Node* node2;
     int index = 0;
     int xNext, yNext, zNext;
+    /* Node* nodeStart = new Node(start); */
     node1 = new Node(start);
 
     resetNodes();
 
+    /* setFValue(nodeStart, goal); */
     setFValue(node1, goal);
     // Put the first open node on the list.
     nodeList[index].push(node1);
     // A* search
     while(!nodeList[index].empty()){
         // Find the node with the lower f-value.
-        /* node1 = *nodeList[index].top(); */
+        /* if (node1 == NULL) node1 = new Node(); */
         node1 = new Node();
         node1->fValue = nodeList[index].top()->fValue;
         node1->gValue = nodeList[index].top()->gValue;
@@ -187,5 +197,6 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
     }
     // Return empty path. 
     path[0] = -1;
+    /* delete nodeStart; */
 }
 

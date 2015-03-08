@@ -17,10 +17,12 @@ struct PriorityNode
 class PriorityQueue{
 public:
     PriorityQueue();
+    ~PriorityQueue();
     void push(Node* node);
     Node* top();
     bool has(Node* node);
     void pop();
+    void clear();
     bool empty();
     int size();
 private:

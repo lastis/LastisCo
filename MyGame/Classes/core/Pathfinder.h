@@ -21,6 +21,7 @@ public:
     // Functions.
     Pathfinder();
     Pathfinder(Matrix3D& map);
+    /* ~Pathfinder(); */
     void setMap(Matrix3D& map);
     void findPath(Location start, Location goal, int N, int* path);
 private:

@@ -8,6 +8,10 @@ PriorityQueue::PriorityQueue(){
     N = 0;
 }
 
+PriorityQueue::~PriorityQueue(){
+    clear();
+}
+
 bool PriorityQueue::has(Node* node){
     PriorityNode* tmp = front;
     while(tmp != NULL){
@@ -41,10 +45,15 @@ void PriorityQueue::pop(){
     if(front == NULL)
         return; // Queue underflow.
     else{
-        tmp = front;
-        front = front->link;
+        tmp = front->link;
+        delete front;
+        front = tmp;
         N--;
     }
+}
+
+void PriorityQueue::clear(){
+    while(!empty()) pop();
 }
 
 Node* PriorityQueue::top(){
