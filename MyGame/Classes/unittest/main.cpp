@@ -134,6 +134,39 @@ SUITE(Pathfinder){
         
         delete[] path;
     }
+
+    TEST(BlockedPath){
+        Matrix3D map = Matrix3D(5,5,5);
+        Pathfinder pathfinder = Pathfinder(map);
+        int*** ptr = map.getMatrix();
+        ptr[2][2][3] = 1;
+        ptr[2][2][2] = 1;
+        ptr[2][2][1] = 1;
+        Location start = Location(0,2,2);
+        Location goal = Location(4,2,2);
+        int N = 20;
+        int* path = new int[N];
+        pathfinder.findPath(start, goal, N, path);
+        int sumX = 0;
+        int sumY = 0;
+        int sumZ = 0;
+        for (int i = 0; i < N; i++) {
+            int dir = path[i];
+            std::cout << dir<< " " << std::endl;
+            if (dir == -1) break;
+            if (dir == 0) sumX++;
+            if (dir == 3) sumX--;
+            if (dir == 1) sumY++;
+            if (dir == 4) sumY--;
+            if (dir == 2) sumZ++;
+            if (dir == 5) sumZ--;
+        }
+        CHECK_EQUAL(4, sumX);
+        CHECK_EQUAL(0, sumY);
+        CHECK_EQUAL(0, sumZ);
+        
+        delete[] path;
+    }
 }
 
 SUITE(ShipMap){
