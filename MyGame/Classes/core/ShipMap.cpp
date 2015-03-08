@@ -21,6 +21,10 @@ void ShipMap::initialize(int O, int N, int M){
     pathfinder = Pathfinder(mapAccess);
 }
 
+void ShipMap::updateMapAccess(){
+
+}
+
 ShipMap::~ShipMap(){
 }
 

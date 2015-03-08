@@ -18,28 +18,30 @@ namespace ID{
     static const unsigned int BLOCK_UP      = 1<<5;//32;
     static const unsigned int BLOCK_ALL  = EAST + WEST + NORTH 
                                            + SOUTH + UP + DOWN;
-    static const int LOW = 1;
-    static const int HIGH = 2;
+    static const int FLOOR = 1;
+    static const int NORMAL = 2;
     static const int BOTH = 3;
-    static const int FULL = 4;
+    static const int WALLS = 4;
 
-    static const int COUNT = 5;
-
-    static const unsigned int SPACE = 0;  
-    static const unsigned int AIR = 1;
-    static const unsigned int THICK_WALL = 2;
-    static const unsigned int WALL = 3;
-    static const unsigned int FLOOR = 4;
+    namespace blocks{
+        static const int COUNT = 5;
+        static const unsigned int SPACE = 0;  
+        static const unsigned int AIR = 1;
+        static const unsigned int WALL_METAL_THICK = 2;
+        static const unsigned int WALL_METAL = 3;
+        static const unsigned int FLOOR_METAL = 4;
+    }
 
     static unsigned int* arrayIDs;
 
     static void initIDs(){
-        arrayIDs = new unsigned int[COUNT];
+        using namespace blocks;
+        arrayIDs = new unsigned int[blocks::COUNT];
         arrayIDs[SPACE]  = BOTH;
         arrayIDs[AIR]    = BOTH;
-        arrayIDs[THICK_WALL]    = FULL;
-        arrayIDs[WALL]   = HIGH;
-        arrayIDs[FLOOR]  = LOW;
+        arrayIDs[WALL_METAL_THICK] = BOTH;
+        arrayIDs[WALL_METAL]   = WALLS;
+        arrayIDs[FLOOR_METAL]  = FLOOR;
     }
 
     static void clearIDs(){

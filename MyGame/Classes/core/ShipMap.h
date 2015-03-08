@@ -5,6 +5,7 @@ public:
     ShipMap();
     ShipMap(int O, int N, int M);
     ~ShipMap();
+    void updateMapAccess();
 private:
     void initialize(int O, int N, int M);
 

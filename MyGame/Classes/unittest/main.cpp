@@ -8,7 +8,7 @@ using namespace std;
 SUITE(Identifiers){
     TEST(Initialization){
         ID::initIDs();
-        for (int i = 0; i < ID::COUNT; i++) {
+        for (int i = 0; i < ID::blocks::COUNT; i++) {
             CHECK(ID::arrayIDs[i] != 0);
         }
         ID::clearIDs();
