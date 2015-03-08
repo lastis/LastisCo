@@ -167,6 +167,7 @@ void Pathfinder::findPath(Location start, Location goal, int N, int* path){
             // Empty the list
             while (!nodeList[index].empty()) nodeList[index].pop();
             // Return path
+            freeNodes();
             return;
         }
         // Generate moves in all possible directions.
