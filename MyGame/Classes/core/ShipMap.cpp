@@ -30,16 +30,41 @@ void ShipMap::initialize(int O, int N, int M){
 
 void ShipMap::updateMapAccess(){
     using namespace blocks::properties;
-    for (int i = 0; i < O; i++) {
-        for (int j = 0; j < N; j++) {
-            for (int k = 0; k < M; k++) {
-                unsigned int ID = map[i][j][k];
-                /* if(arrayIDs[ID] == BOTH) */ 
+    unsigned int ID;
+    for (int z = 0; z < O; z++) {
+        for (int y = 0; y < N; y++) {
+            for (int x = 0; x < M; x++) {
+                // Start with floor.
+                ID = mapFloor[z][y][x];
+                if (access[ID] == true){
+                    mapAccess[z  ][y][x] | directions::BLOCK_DOWN;
+                    mapAccess[z-1][y][x] | directions::BLOCK_UP;
+                }
+                // Center piece
+                ID = map[z][y][x];
+                if (access[ID] == true){
+                    mapAccess[z][y][x] | directions::BLOCK_ALL;
+                    mapAccess[z-1][y][x] | directions::BLOCK_UP;
+                    mapAccess[z][y-1][x] | directions::BLOCK_NORTH;
+                    mapAccess[z][y][x-1] | directions::BLOCK_EAST;
+                    mapAccess[z+1][y][x] | directions::BLOCK_DOWN;
+                    mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
+                    mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+                }
+                // Walls
+                ID = mapWallsEast[z][y][x];
+                if (access[ID] == true){
+                    mapAccess[z][y][x] | directions::BLOCK_EAST;
+                    mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+                }
+                ID = mapWallsNorth[z][y][x];
+                if (access[ID] == true){
+                    mapAccess[z][y][x] | directions::BLOCK_NORTH;
+                    mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
+                }
             }
         }
     }
-    
-
 }
 
 ShipMap::~ShipMap(){
