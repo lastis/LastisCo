@@ -54,11 +54,11 @@ namespace blocks{
             slots[FLOOR_METAL]  = FLOOR;
 
             access = new unsigned int[blocks::COUNT];
-            access[SPACE]  = BOTH;
-            access[AIR]    = BOTH;
-            access[WALL_METAL_THICK] = BOTH;
-            access[WALL_METAL]   = WALL;
-            access[FLOOR_METAL]  = FLOOR;
+            access[SPACE]  = NON_BLOCKING;
+            access[AIR]    = NON_BLOCKING;
+            access[WALL_METAL_THICK] = BLOCKING;
+            access[WALL_METAL]   = BLOCKING;
+            access[FLOOR_METAL]  = BLOCKING;
         }
 
         static void clearIDs(){
