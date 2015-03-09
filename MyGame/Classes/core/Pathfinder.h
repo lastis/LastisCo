@@ -6,12 +6,11 @@
 #include "Matrix3D.h"
 #include "Identifiers.h"
 
-using namespace ID;
 class Pathfinder {
 
-    static const int X_DIR[DIRECTIONS];
-    static const int Y_DIR[DIRECTIONS];
-    static const int Z_DIR[DIRECTIONS];
+    static const int X_DIR[directions::DIRECTIONS];
+    static const int Y_DIR[directions::DIRECTIONS];
+    static const int Z_DIR[directions::DIRECTIONS];
     
 
 public:

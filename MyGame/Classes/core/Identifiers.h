@@ -1,7 +1,7 @@
-namespace ID{
-
+namespace directions{
     static const int DIRECTIONS = 6;
     // These assignments are bit values. 
+    // Used to interpret directions.
     static const unsigned int NO_DIRECTION = 0;
     static const unsigned int EAST       = 1<<0;//1;
     static const unsigned int NORTH      = 1<<1;//4
@@ -10,6 +10,9 @@ namespace ID{
     static const unsigned int SOUTH      = 1<<4;//8
     static const unsigned int DOWN       = 1<<5;//32;
 
+    // Used to block a given direction. Basically
+    // makes a wall in that direction. (Only blocks one way.)
+    static const unsigned int BLOCK_NONE    = 0;//0;
     static const unsigned int BLOCK_WEST    = 1<<0;//1;
     static const unsigned int BLOCK_SOUTH   = 1<<1;//4
     static const unsigned int BLOCK_DOWN    = 1<<2;//16;
@@ -18,33 +21,50 @@ namespace ID{
     static const unsigned int BLOCK_UP      = 1<<5;//32;
     static const unsigned int BLOCK_ALL  = EAST + WEST + NORTH 
                                            + SOUTH + UP + DOWN;
-    static const int FLOOR = 1;
-    static const int NORMAL = 2;
-    static const int BOTH = 3;
-    static const int WALLS = 4;
+}
 
-    namespace blocks{
-        static const int COUNT = 5;
-        static const unsigned int SPACE = 0;  
-        static const unsigned int AIR = 1;
-        static const unsigned int WALL_METAL_THICK = 2;
-        static const unsigned int WALL_METAL = 3;
-        static const unsigned int FLOOR_METAL = 4;
-    }
+namespace blocks{
+    static const unsigned int SPACE = 0;  
+    static const unsigned int AIR = 1;
+    static const unsigned int WALL_METAL_THICK = 2;
+    static const unsigned int WALL_METAL = 3;
+    static const unsigned int FLOOR_METAL = 4;
 
-    static unsigned int* arrayIDs;
+    static const int COUNT = 5;
 
-    static void initIDs(){
-        using namespace blocks;
-        arrayIDs = new unsigned int[blocks::COUNT];
-        arrayIDs[SPACE]  = BOTH;
-        arrayIDs[AIR]    = BOTH;
-        arrayIDs[WALL_METAL_THICK] = BOTH;
-        arrayIDs[WALL_METAL]   = WALLS;
-        arrayIDs[FLOOR_METAL]  = FLOOR;
-    }
+    namespace properties{
+        static const int NON_BLOCKING = 0;
+        static const int BLOCKING = 1;
+        // Is a block floor, ontop of floor, both(eg. rock), or a wall.
+        static const int FLOOR = 0;
+        static const int CENTER = 1;
+        static const int BOTH = 2;
+        static const int WALL = 3;
 
-    static void clearIDs(){
-        delete[] arrayIDs;
+        // TODO: Make this const array.
+        static unsigned int* slots;
+        static unsigned int* access;
+
+        static void initArrays(){
+            slots = new unsigned int[blocks::COUNT];
+            slots[SPACE]  = BOTH;
+            slots[AIR]    = BOTH;
+            slots[WALL_METAL_THICK] = BOTH;
+            slots[WALL_METAL]   = WALL;
+            slots[FLOOR_METAL]  = FLOOR;
+
+            access = new unsigned int[blocks::COUNT];
+            access[SPACE]  = BOTH;
+            access[AIR]    = BOTH;
+            access[WALL_METAL_THICK] = BOTH;
+            access[WALL_METAL]   = WALL;
+            access[FLOOR_METAL]  = FLOOR;
+        }
+
+        static void clearIDs(){
+            delete[] slots;
+            delete[] access;
+        }
+
     }
 }

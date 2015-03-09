@@ -25,11 +25,11 @@ void ShipMap::initialize(int O, int N, int M){
     mapAccess = containerMapAccess.getMatrix();
 
     pathfinder = Pathfinder(containerMapAccess);
-    ID::initIDs();
+    blocks::properties::initArrays();
 }
 
 void ShipMap::updateMapAccess(){
-    using namespace ID;
+    using namespace blocks::properties;
     for (int i = 0; i < O; i++) {
         for (int j = 0; j < N; j++) {
             for (int k = 0; k < M; k++) {
@@ -44,7 +44,7 @@ void ShipMap::updateMapAccess(){
 
 ShipMap::~ShipMap(){
     // TODO: Dont do this here.
-    ID::clearIDs();
+    blocks::properties::clearIDs();
 }
 
 

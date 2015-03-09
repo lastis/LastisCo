@@ -125,6 +125,7 @@ void Pathfinder::resetNodes(){
 
 
 void Pathfinder::findPath(Location start, Location goal, int N, unsigned int* path){
+    using namespace directions;
     // This is a quickfix to fill the path from start to finish.
     Location temp = start;
     start = goal;
