@@ -312,7 +312,25 @@ SUITE(ShipMap){
         map[2][2][2] = 0;
         ship.updateMapAccess();
         CHECK_EQUAL(0,mapAccess[2][2][2]);
-        
+    }
+
+    TEST(BlockCombination){
+        // TODO: Split this code into multiple tests.
+        // Test if both sides of a wall is blocked when one wall is inserted
+        ShipMap ship = ShipMap(5,5,5); 
+        unsigned int*** map = ship.getMap();
+        unsigned int*** mapWallsNorth = ship.getMapNorthWalls();
+        unsigned int*** mapWallsEast = ship.getMapEastWalls();
+        unsigned int*** mapFloor = ship.getMapFloor();
+        unsigned int*** mapAccess = ship.getMapAccess();
+        mapFloor[2][2][2] = blocks::FLOOR_METAL;
+        mapWallsEast[2][2][2] = blocks::WALL_METAL;
+        mapWallsNorth[2][2][2] = blocks::WALL_METAL;
+        ship.updateMapAccess();
+        using namespace directions;
+        CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST);
+        CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST);
+        CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN);
     }
 }
 
