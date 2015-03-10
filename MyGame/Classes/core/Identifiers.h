@@ -57,7 +57,7 @@ namespace blocks{
             access = new unsigned int[blocks::COUNT];
             access[FULL_SPACE]  = NON_BLOCKING;
             access[FULL_AIR]    = NON_BLOCKING;
-            access[FLOOR_METAL] = BLOCKING;
+            access[FULL_METAL] = BLOCKING;
             access[WALL_METAL]   = BLOCKING;
             access[FLOOR_METAL]  = BLOCKING;
         }

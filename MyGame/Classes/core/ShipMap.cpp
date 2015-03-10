@@ -50,6 +50,9 @@ unsigned int*** ShipMap::getMapAccess(){
 
 void ShipMap::updateMapAccess(){
     using namespace blocks::properties;
+    // We cannot simply remove blocked paths the same way as we make them. 
+    // Instead reset the whole map and make it anew.
+    containerMapAccess.reset();
     unsigned int ID;
     // Ignore to surface of the cube to avoid out of bounds errors.
     for (int z = 1; z < O-1; z++) {

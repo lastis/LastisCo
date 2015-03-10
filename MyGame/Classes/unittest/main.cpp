@@ -6,7 +6,10 @@
 using namespace std;
 
 SUITE(Identifiers){
-    // Not sure how to test this further. 
+    // Not sure how to test this further. There might be merit to checking 
+    // this somehow because many methods use these identifiers to do other
+    // tests. It can be hard to trace back if the error comes from this 
+    // code. 
     TEST(Initialization){
         blocks::properties::initArrays();
         blocks::properties::clearIDs();
@@ -262,8 +265,11 @@ SUITE(ShipMap){
     }
 
     TEST(BlockingMovement){
+        // TODO: Split this code into multiple tests.
         // Test if both sides of a wall is blocked when one wall is inserted
         ShipMap ship = ShipMap(5,5,5); 
+        unsigned int*** map = ship.getMap();
+        unsigned int*** mapWallsNorth = ship.getMapNorthWalls();
         unsigned int*** mapWallsEast = ship.getMapEastWalls();
         unsigned int*** mapAccess = ship.getMapAccess();
         mapWallsEast[2][2][2] = blocks::WALL_METAL;
@@ -271,6 +277,40 @@ SUITE(ShipMap){
         ship.updateMapAccess();
         CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]);
         CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
+        // Remove the wall, is the map reset?
+        mapWallsEast[2][2][2] = 0;
+        ship.updateMapAccess();
+        CHECK_EQUAL(0,mapAccess[2][2][2]);
+
+        // Check that the north wall works too.
+        mapWallsNorth[2][2][2] = blocks::WALL_METAL;
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]);
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]);
+        mapWallsNorth[2][2][2] = 0;
+        ship.updateMapAccess();
+        CHECK_EQUAL(0,mapAccess[2][2][2]);
+
+        // Check blocks that block every direction.
+        map[2][2][2] = blocks::FULL_METAL;
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_ALL,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][1]);
+        CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
+        CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][1][2]);
+        CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]);
+        CHECK_EQUAL(directions::BLOCK_UP,mapAccess[1][2][2]);
+        CHECK_EQUAL(directions::BLOCK_DOWN,mapAccess[3][2][2]);
+        map[2][2][2] = 0;
+        ship.updateMapAccess();
+        CHECK_EQUAL(0,mapAccess[2][2][2]);
+        
     }
 }
 
