@@ -73,6 +73,8 @@ SUITE(Matix3D){
         Matrix3D mat1 = Matrix3D(1,1,1);
         Matrix3D mat2 = Matrix3D(0,0,0);
         Matrix3D mat3 = Matrix3D();
+        Matrix3D mat4;
+        mat4 = mat1;
     }
 
     TEST(Assignments){
