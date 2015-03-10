@@ -24,9 +24,10 @@ namespace directions{
 }
 
 namespace blocks{
-    static const unsigned int SPACE = 0;  
-    static const unsigned int AIR = 1;
-    static const unsigned int WALL_METAL_THICK = 2;
+    // Block types
+    static const unsigned int FULL_SPACE = 0;  
+    static const unsigned int FULL_AIR = 1;
+    static const unsigned int FULL_METAL = 2;
     static const unsigned int WALL_METAL = 3;
     static const unsigned int FLOOR_METAL = 4;
 
@@ -47,16 +48,16 @@ namespace blocks{
 
         static void initArrays(){
             slots = new unsigned int[blocks::COUNT];
-            slots[SPACE]  = BOTH;
-            slots[AIR]    = BOTH;
-            slots[WALL_METAL_THICK] = BOTH;
+            slots[FULL_SPACE]  = BOTH;
+            slots[FULL_AIR]    = BOTH;
+            slots[FULL_METAL]  = BOTH;
             slots[WALL_METAL]   = WALL;
             slots[FLOOR_METAL]  = FLOOR;
 
             access = new unsigned int[blocks::COUNT];
-            access[SPACE]  = NON_BLOCKING;
-            access[AIR]    = NON_BLOCKING;
-            access[WALL_METAL_THICK] = BLOCKING;
+            access[FULL_SPACE]  = NON_BLOCKING;
+            access[FULL_AIR]    = NON_BLOCKING;
+            access[FLOOR_METAL] = BLOCKING;
             access[WALL_METAL]   = BLOCKING;
             access[FLOOR_METAL]  = BLOCKING;
         }
