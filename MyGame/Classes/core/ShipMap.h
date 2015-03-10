@@ -6,6 +6,10 @@ public:
     ShipMap(int O, int N, int M);
     ~ShipMap();
     void updateMapAccess();
+    unsigned int*** getMap();
+    unsigned int*** getMapFloor();
+    unsigned int*** getMapEastWalls();
+    unsigned int*** getMapNorthWalls();
 private:
     void initialize(int O, int N, int M);
 

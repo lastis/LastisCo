@@ -27,6 +27,20 @@ void ShipMap::initialize(int O, int N, int M){
     pathfinder = Pathfinder(containerMapAccess);
     blocks::properties::initArrays();
 }
+unsigned int*** ShipMap::getMap(){
+    return map;
+}
+
+unsigned int*** ShipMap::getMapFloor(){
+    return mapFloor;
+} 
+unsigned int*** ShipMap::getMapEastWalls(){
+    return mapWallsEast;
+}
+
+unsigned int*** ShipMap::getMapNorthWalls(){
+    return mapWallsNorth;
+}
 
 void ShipMap::updateMapAccess(){
     using namespace blocks::properties;
