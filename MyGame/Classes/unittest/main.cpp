@@ -258,7 +258,19 @@ SUITE(Pathfinder){
 
 SUITE(ShipMap){
     TEST(Instantiate){
-        ShipMap map = ShipMap(2,3,4); 
+        ShipMap ship = ShipMap(5,5,5); 
+    }
+
+    TEST(BlockingMovement){
+        // Test if both sides of a wall is blocked when one wall is inserted
+        ShipMap ship = ShipMap(5,5,5); 
+        unsigned int*** mapWallsEast = ship.getMapEastWalls();
+        unsigned int*** mapAccess = ship.getMapAccess();
+        mapWallsEast[2][2][2] = blocks::WALL_METAL;
+        CHECK_EQUAL(0,mapAccess[2][2][2]);
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
     }
 }
 

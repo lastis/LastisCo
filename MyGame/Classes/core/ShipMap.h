@@ -10,6 +10,7 @@ public:
     unsigned int*** getMapFloor();
     unsigned int*** getMapEastWalls();
     unsigned int*** getMapNorthWalls();
+    unsigned int*** getMapAccess();
 private:
     void initialize(int O, int N, int M);
 
@@ -18,6 +19,9 @@ public:
     int N;
     int M;
 private:
+    // Rename these? Not obvious what the internal system is.
+    // mapAccess uses blocked movement IDs (each bit is important). The others
+    // only use block ID to identify what is there. 
     Matrix3D containerMap;
     Matrix3D containerMapFloor;
     Matrix3D containerMapWallsEast;

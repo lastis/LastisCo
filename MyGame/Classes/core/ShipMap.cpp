@@ -12,6 +12,9 @@ ShipMap::ShipMap(int O, int N, int M){
 }
 
 void ShipMap::initialize(int O, int N, int M){
+    this->O = O;
+    this->N = N;
+    this->M = M;
     containerMap = Matrix3D(O,N,M);
     containerMapFloor = Matrix3D(O,N,M);
     containerMapWallsEast = Matrix3D(O,N,M);
@@ -41,40 +44,46 @@ unsigned int*** ShipMap::getMapEastWalls(){
 unsigned int*** ShipMap::getMapNorthWalls(){
     return mapWallsNorth;
 }
+unsigned int*** ShipMap::getMapAccess(){
+    return mapAccess;
+}
 
 void ShipMap::updateMapAccess(){
     using namespace blocks::properties;
     unsigned int ID;
-    for (int z = 0; z < O; z++) {
-        for (int y = 0; y < N; y++) {
-            for (int x = 0; x < M; x++) {
+    // Ignore to surface of the cube to avoid out of bounds errors.
+    for (int z = 1; z < O-1; z++) {
+        for (int y = 1; y < N-1; y++) {
+            for (int x = 1; x < M-1; x++) {
                 // Start with floor.
                 ID = mapFloor[z][y][x];
                 if (access[ID] == true){
-                    mapAccess[z  ][y][x] | directions::BLOCK_DOWN;
-                    mapAccess[z-1][y][x] | directions::BLOCK_UP;
+                    mapAccess[z][y][x] = mapAccess[z  ][y][x] | directions::BLOCK_DOWN;
+                    mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
                 }
                 // Center piece
                 ID = map[z][y][x];
                 if (access[ID] == true){
-                    mapAccess[z][y][x] | directions::BLOCK_ALL;
-                    mapAccess[z-1][y][x] | directions::BLOCK_UP;
-                    mapAccess[z][y-1][x] | directions::BLOCK_NORTH;
-                    mapAccess[z][y][x-1] | directions::BLOCK_EAST;
-                    mapAccess[z+1][y][x] | directions::BLOCK_DOWN;
-                    mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
-                    mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+                    mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_ALL;
+                    mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
+                    mapAccess[z][y-1][x] = mapAccess[z][y-1][x] | directions::BLOCK_NORTH;
+                    mapAccess[z][y][x-1] = mapAccess[z][y][x-1] | directions::BLOCK_EAST;
+                    mapAccess[z+1][y][x] = mapAccess[z+1][y][x] | directions::BLOCK_DOWN;
+                    mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
+                    mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
                 }
                 // Walls
                 ID = mapWallsEast[z][y][x];
                 if (access[ID] == true){
-                    mapAccess[z][y][x] | directions::BLOCK_EAST;
-                    mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+                    mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_EAST;
+                    mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+                    /* std::cout << mapAccess[z][y][x+1] << std::endl; */
+                    /* std::cout << "yoman" << std::endl; */
                 }
                 ID = mapWallsNorth[z][y][x];
                 if (access[ID] == true){
-                    mapAccess[z][y][x] | directions::BLOCK_NORTH;
-                    mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
+                    mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_NORTH;
+                    mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
                 }
             }
         }
