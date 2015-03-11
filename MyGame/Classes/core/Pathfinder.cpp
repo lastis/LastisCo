@@ -1,6 +1,7 @@
 #ifdef TESTING
 #include <iostream>
 #endif
+
 #include "Pathfinder.h"
 
 const int Pathfinder::X_DIR[] = {1, 0, 0, -1, 0, 0};

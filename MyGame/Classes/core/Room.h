@@ -4,10 +4,11 @@
 class Room {
 public:
     Room();
-    /* Location findObject(int objectID); */
+    Location findObject(int objectID);
 
     Location center;
     unsigned int ID;
+    char name[10];
 
 };
 #endif

@@ -3,11 +3,12 @@
 #endif
 #include "ShipMap.h"
 
-ShipMap::ShipMap(){
+// The : rooms() part initializes the array to NULL, only way to do this. 
+ShipMap::ShipMap() : rooms() {
     ShipMap(1,1,1);
 }
 
-ShipMap::ShipMap(int O, int N, int M){
+ShipMap::ShipMap(int O, int N, int M) : rooms(){
     initialize(O,N,M);
 }
 

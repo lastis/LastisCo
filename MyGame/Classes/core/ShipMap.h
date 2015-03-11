@@ -7,6 +7,7 @@ public:
     ShipMap(int O, int N, int M);
     ~ShipMap();
     void updateMapAccess();
+    bool makeRoom(Location* locations, int N);
     unsigned int*** getMap();
     unsigned int*** getMapFloor();
     unsigned int*** getMapEastWalls();
@@ -21,6 +22,8 @@ public:
     int N;
     int M;
 private:
+    static const int MAX_ROOMS = 10;
+    Room* rooms[MAX_ROOMS];
     // Rename these? Not obvious what the internal system is.
     // mapAccess uses blocked movement IDs (each bit is important). The others
     // only use block ID to identify what is there. 
