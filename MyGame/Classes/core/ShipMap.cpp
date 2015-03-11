@@ -40,9 +40,7 @@ void ShipMap::initialize(int O, int N, int M){
 
 unsigned int* ShipMap::findPathToRoom(int roomLabel, Location start){
     Location goal = rooms[roomLabel]->center;
-    unsigned int* path = new unsigned int[MAX_PATH_LENGTH];
-    pathfinder.findPath(start, goal, MAX_PATH_LENGTH, path);
-    return path;
+    return pathfinder.findPath(start, goal);
 }
 
 bool ShipMap::createRoom(Location* locations, int N, int roomID){

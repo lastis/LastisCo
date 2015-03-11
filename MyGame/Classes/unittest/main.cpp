@@ -122,14 +122,12 @@ SUITE(Pathfinder){
         unsigned int*** ptr = map.getMatrix();
         Location start = Location(1,2,0);
         Location goal = Location(4,2,0);
-        int N = 20;
-        unsigned int* path = new unsigned int[N];
-        pathfinder.findPath(start, goal, N, path);
+        unsigned int* path = pathfinder.findPath(start, goal);
         /* pathfinder.printDirMap(0); */
         int sumX = 0;
         int sumY = 0;
         int sumZ = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < MAX_PATH_LENGTH; i++) {
             unsigned int dir = path[i];
             if (dir == NO_DIRECTION) break;
             if (dir == EAST) sumX++;
@@ -158,19 +156,14 @@ SUITE(Pathfinder){
         ptr[0][1][2] = BLOCK_ALL;
         Location start = Location(0,2,0);
         Location goal = Location(4,2,0);
-        int N = 20;
-        unsigned int* path = new unsigned int[N];
-        for (int i = 0; i < N; i++) {
-            path[i] = 0;
-        }
         /* std::cout << "starting blocked path" << std::endl; */
-        pathfinder.findPath(start, goal, N, path);
+        unsigned int* path = pathfinder.findPath(start, goal);
         /* pathfinder.printDirMap(0); */
         /* std::cout << "return from path " << std::endl; */
         int sumX = 0;
         int sumY = 0;
         int sumZ = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < MAX_PATH_LENGTH; i++) {
             unsigned int dir = path[i];
             if (dir == NO_DIRECTION) break;
             if (dir == EAST) sumX++;
@@ -201,17 +194,12 @@ SUITE(Pathfinder){
         /* ptr[0][1][2] = ID::BLOCK_EAST; */
         Location start = Location(0,2,0);
         Location goal = Location(4,2,0);
-        int N = 20;
-        unsigned int* path1 = new unsigned int[N];
-        for (int i = 0; i < N; i++) {
-            path1[i] = 0;
-        }
-        pathfinder.findPath(start, goal, N, path1);
+        unsigned int* path1 = pathfinder.findPath(start, goal);
         /* pathfinder.printDirMap(0); */
         int sumX = 0;
         int sumY = 0;
         int sumZ = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < MAX_PATH_LENGTH; i++) {
             unsigned int dir = path1[i];
             /* cout << "direction: "<< dir << endl; */
             if (dir == NO_DIRECTION) break;
@@ -240,14 +228,12 @@ SUITE(Pathfinder){
         ptr[2][2][1] = BLOCK_ALL;
         Location start = Location(0,2,2);
         Location goal = Location(4,2,2);
-        int N = 20;
-        unsigned int* path = new unsigned int[N];
         int sumX = 0;
         int sumY = 0;
         int sumZ = 0;
-        for (int run = 0; run < 20; run++) {
-            pathfinder.findPath(start, goal, N, path);
-            for (int i = 0; i < N; i++) {
+        for (int run = 0; run < 10; run++) {
+            unsigned int* path = pathfinder.findPath(start, goal);
+            for (int i = 0; i < MAX_PATH_LENGTH; i++) {
                 int dir = path[i];
                 if (dir == NO_DIRECTION) break;
                 if (dir == EAST) sumX++;
@@ -257,12 +243,12 @@ SUITE(Pathfinder){
                 if (dir == UP) sumZ++;
                 if (dir == DOWN) sumZ--;
             }
+            delete[] path;
         }
-        CHECK_EQUAL(4*N, sumX);
-        CHECK_EQUAL(0*N, sumY);
-        CHECK_EQUAL(0*N, sumZ);
+        CHECK_EQUAL(4*10, sumX);
+        CHECK_EQUAL(0*10, sumY);
+        CHECK_EQUAL(0*10, sumZ);
         
-        delete[] path;
     }
 
 }

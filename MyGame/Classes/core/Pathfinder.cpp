@@ -125,7 +125,7 @@ void Pathfinder::resetNodes(){
 }
 
 
-void Pathfinder::findPath(Location start, Location goal, int N, unsigned int* path){
+unsigned int* Pathfinder::findPath(Location start, Location goal){
     using namespace directions;
     // This is a quickfix to fill the path from start to finish.
     Location temp = start;
@@ -170,10 +170,11 @@ void Pathfinder::findPath(Location start, Location goal, int N, unsigned int* pa
             int Y = node1->y;
             int Z = node1->z;
             int cnt = 0;
+            unsigned int* path = new unsigned int[MAX_PATH_LENGTH];
 
             while(!(X == start.x && Y == start.y && Z == start.z)){
                 // We only have a given array, fill it as much as possible.
-                if (cnt == N) break;
+                if (cnt == MAX_PATH_LENGTH) break;
                 /* std::cout << "cnt: " << cnt << std::endl; */
                 int dir = dirMap[Z][Y][X];
                 /* std::cout << "cnt: " << cnt << std::endl; */
@@ -184,7 +185,7 @@ void Pathfinder::findPath(Location start, Location goal, int N, unsigned int* pa
                 Z += Z_DIR[dir];
             }
             // Insert end of path symbol.
-            if (cnt == N) cnt = cnt-1;
+            if (cnt == MAX_PATH_LENGTH) cnt = cnt-1;
             path[cnt] = 0;
             // Empty the list
             while (!nodeList[index].empty()) nodeList[index].pop();
@@ -192,7 +193,7 @@ void Pathfinder::findPath(Location start, Location goal, int N, unsigned int* pa
             /* std::cout << "dangerous : " << std::endl; */
             freeNodes();
             /* std::cout << "return from pathfinding" << std::endl; */
-            return;
+            return path;
         }
         // Generate moves in all possible directions. 
         for (int i = 0; i < DIRECTIONS; i++) {
@@ -259,7 +260,7 @@ void Pathfinder::findPath(Location start, Location goal, int N, unsigned int* pa
         /* delete node1; */
     }
     // Return empty path. 
-    path[0] = 0;
     freeNodes();
+    return NULL;
 }
 
