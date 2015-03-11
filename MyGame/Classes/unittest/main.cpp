@@ -260,6 +260,32 @@ SUITE(ShipMap){
         ShipMap ship = ShipMap(5,5,5); 
     }
 
+    TEST(RoomLabels){
+        ShipMap ship = ShipMap(5,5,5);
+        Location* loc = new Location[9];
+        // Make room 3x3 at z = 2. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc[i*3 + j].x = 1+j;
+                loc[i*3 + j].y = 1+i;
+                loc[i*3 + j].z = 2;
+            }
+        }
+        ship.createRoom(loc, 9, 0);
+        unsigned int*** map = ship.getMapRooms();
+        CHECK_EQUAL(1,map[2][1][1]);
+        CHECK_EQUAL(1,map[2][1][2]);
+        CHECK_EQUAL(1,map[2][1][3]);
+        CHECK_EQUAL(1,map[2][2][1]);
+        CHECK_EQUAL(1,map[2][2][2]);
+        CHECK_EQUAL(1,map[2][2][3]);
+        CHECK_EQUAL(1,map[2][3][1]);
+        CHECK_EQUAL(1,map[2][3][2]);
+        CHECK_EQUAL(1,map[2][3][3]);
+        ship.clearAllRooms();
+        delete[] loc;
+    }
+
     TEST(BlockingMovement){
         // TODO: Split this code into multiple tests.
         // Test if both sides of a wall is blocked when one wall is inserted

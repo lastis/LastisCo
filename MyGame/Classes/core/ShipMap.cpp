@@ -52,16 +52,33 @@ bool ShipMap::createRoom(Location* locations, int N, int roomID){
         x = locations[i].x;
         y = locations[i].y;
         z = locations[i].z;
+        /* std::cout << "x : " << x ; */
+        /* std::cout << " : y : " << y; */
+        /* std::cout << " : z : " << z << std::endl; */
         // Label each room from 1 and up. 
-        mapRooms[x][y][z] = roomCnt;
+        mapRooms[z][y][x] = roomCnt;
     }
     // Case switch, create roomobject and allocate it to 
-    // the rooms array. Maybe to this keymap?
+    // the rooms array. Maybe to keymap?
     Room* room = new Room();
     room->center = locations[0];
     room->label = roomCnt;
     rooms[roomCnt-1] = room;
     return true;
+}
+
+void ShipMap::clearAllRooms(){
+    for (int i = 0; i < roomCnt; i++) {
+        delete rooms[roomCnt-1];
+    }
+    for (int z = 0; z < O; z++) {
+        for (int y = 0; y < N; y++) {
+            for (int x = 0; x < M; x++) {
+                mapRooms[z][y][x] = 0;
+            }
+        }
+    }
+    roomCnt = 0;
 }
 
 unsigned int*** ShipMap::getMap(){
@@ -133,6 +150,7 @@ void ShipMap::updateMapAccess(){
 
 ShipMap::~ShipMap(){
     // TODO: Dont do this here.
+    clearAllRooms();
     blocks::properties::clearIDs();
 }
 
