@@ -1,5 +1,5 @@
-#ifndef __ROOM__HINCLUDED__
-#define __ROOM__HINCLUDED__
+#ifndef __LOCATION_H_INCLUDED__
+#define __LOCATION_H_INCLUDED__
 struct Location
 {
     int x;

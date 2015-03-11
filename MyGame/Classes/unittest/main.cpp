@@ -1,6 +1,7 @@
 #include <unittest++/UnitTest++.h>
-#include "../core/ShipMap.h"
+
 #include "../core/Room.h"
+#include "../core/ShipMap.h"
 #include <iostream>
 /* #include "../core/Identifiers.h" */
 
@@ -17,7 +18,7 @@ SUITE(Identifiers){
     }
 }
 
-/* Suite(Rooms){ */
+/* SUITE(Rooms){ */
 
 /*     TEST(Init){ */
 /*         Room room = Room(); */

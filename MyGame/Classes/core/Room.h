@@ -1,5 +1,5 @@
-#ifndef __ROOM__HINCLUDED__
-#define __ROOM__HINCLUDED__
+#ifndef __ROOM_H_INCLUDED__
+#define __ROOM_H_INCLUDED__
 #include "Location.h"
 class Room {
 public:
