@@ -1,9 +1,7 @@
 #include <unittest++/UnitTest++.h>
 
-#include "../core/Room.h"
 #include "../core/ShipMap.h"
 #include <iostream>
-/* #include "../core/Identifiers.h" */
 
 using namespace std;
 
@@ -18,13 +16,13 @@ SUITE(Identifiers){
     }
 }
 
-/* SUITE(Rooms){ */
+SUITE(Rooms){
 
-/*     TEST(Init){ */
-/*         Room room = Room(); */
-/*     } */
+    TEST(Init){
+        Room room = Room();
+    }
 
-/* } */
+}
 
 SUITE(PriorityQueue){
     TEST(Init){

@@ -20,14 +20,17 @@ void ShipMap::initialize(int O, int N, int M){
     containerMapWallsEast = Matrix3D(O,N,M);
     containerMapWallsNorth = Matrix3D(O,N,M);
     containerMapAccess = Matrix3D(O,N,M);
+    containerMapRooms = Matrix3D(O,N,M);
 
     map = containerMap.getMatrix();
     mapFloor = containerMapFloor.getMatrix();
     mapWallsEast = containerMapWallsEast.getMatrix();
     mapWallsNorth = containerMapWallsNorth.getMatrix();
     mapAccess = containerMapAccess.getMatrix();
+    mapRooms = containerMapAccess.getMatrix();
 
     pathfinder = Pathfinder(containerMapAccess);
+    //TODO: Probably should do this elsewhere.
     blocks::properties::initArrays();
 }
 unsigned int*** ShipMap::getMap(){
@@ -44,7 +47,11 @@ unsigned int*** ShipMap::getMapEastWalls(){
 unsigned int*** ShipMap::getMapNorthWalls(){
     return mapWallsNorth;
 }
+
 unsigned int*** ShipMap::getMapAccess(){
+    return mapAccess;
+}
+unsigned int*** ShipMap::getMapRooms(){
     return mapAccess;
 }
 

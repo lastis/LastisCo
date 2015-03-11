@@ -3,11 +3,11 @@
 #include "Location.h"
 class Room {
 public:
-    Room ();
-    Location findObject(int objectID);
+    Room();
+    /* Location findObject(int objectID); */
 
     Location center;
-    int ID;
+    unsigned int ID;
 
 };
 #endif

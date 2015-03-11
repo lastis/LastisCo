@@ -1,4 +1,5 @@
 #include "Pathfinder.h"
+#include "Room.h"
 
 class ShipMap {
 public:
@@ -11,6 +12,7 @@ public:
     unsigned int*** getMapEastWalls();
     unsigned int*** getMapNorthWalls();
     unsigned int*** getMapAccess();
+    unsigned int*** getMapRooms();
 private:
     void initialize(int O, int N, int M);
 
@@ -27,10 +29,12 @@ private:
     Matrix3D containerMapWallsEast;
     Matrix3D containerMapWallsNorth;
     Matrix3D containerMapAccess;
+    Matrix3D containerMapRooms;
     unsigned int*** map;
     unsigned int*** mapFloor;
     unsigned int*** mapWallsEast;
     unsigned int*** mapWallsNorth;
     unsigned int*** mapAccess;
+    unsigned int*** mapRooms;
     Pathfinder pathfinder;
 };
