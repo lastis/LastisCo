@@ -28,6 +28,7 @@ void ShipMap::initialize(int O, int N, int M){
     mapWallsNorth = containerMapWallsNorth.getMatrix();
     mapAccess = containerMapAccess.getMatrix();
     mapRooms = containerMapAccess.getMatrix();
+    roomCnt = 0;
     for (int i = 0; i < MAX_ROOMS; i++) {
         rooms[i] = NULL;
     }
@@ -37,8 +38,16 @@ void ShipMap::initialize(int O, int N, int M){
     blocks::properties::initArrays();
 }
 
+unsigned int* ShipMap::findPathToRoom(int roomLabel, Location start){
+    Location goal = rooms[roomLabel]->center;
+    unsigned int* path = new unsigned int[MAX_PATH_LENGTH];
+    pathfinder.findPath(start, goal, MAX_PATH_LENGTH, path);
+    return path;
+}
+
 bool ShipMap::createRoom(Location* locations, int N, int roomID){
     if (roomCnt == MAX_ROOMS - 1) return false;
+    if (locations == NULL) return false;
     roomCnt++;
     int x, y, z;
     for (int i = 0; i < N; i++) {
@@ -50,7 +59,10 @@ bool ShipMap::createRoom(Location* locations, int N, int roomID){
     }
     // Case switch, create roomobject and allocate it to 
     // the rooms array. Maybe to this keymap?
-    /* rooms[roomCnt-1] = new Kitchen(params); */
+    Room* room = new Room();
+    room->center = locations[0];
+    room->label = roomCnt;
+    rooms[roomCnt-1] = room;
     return true;
 }
 
