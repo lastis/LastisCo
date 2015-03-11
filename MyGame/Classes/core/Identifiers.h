@@ -23,6 +23,10 @@ namespace directions{
                                            + SOUTH + UP + DOWN;
 }
 
+namespace objects{
+    static const int BEER = 0;
+}
+
 namespace blocks{
     // Block types
     static const unsigned int FULL_SPACE = 0;  
