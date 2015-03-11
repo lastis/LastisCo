@@ -43,6 +43,37 @@ unsigned int* ShipMap::findPathToRoom(int roomLabel, Location start){
     return pathfinder.findPath(start, goal);
 }
 
+void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
+    using namespace blocks;
+    using namespace blocks::properties;
+    int tmp;
+    if (start.x > end.x) {
+        tmp = end.x;
+        end.x = start.x;
+        start.x = tmp;
+    }
+    if (start.y > end.y) {
+        tmp = end.y;
+        end.y = start.y;
+        start.y = tmp;
+    }
+    if (start.z > end.z) {
+        tmp = end.z;
+        end.z = start.z;
+        start.z = tmp;
+    }
+    for (int z = start.z; z < end.z; z++) {
+        for (int y = start.y; y < end.y; y++) {
+            for (int x = start.x; x < end.x; x++) {
+                if (map[z][y][x] != 0) continue;
+                if (map[z][y][x] != CENTER_AIR) continue;
+                if (slots[blockID] != CENTER) continue;
+                map[z][y][x] = blockID;
+            }
+        }
+    }
+}
+
 bool ShipMap::createRoom(Location* locations, int N, int roomID){
     if (roomCnt == MAX_ROOMS - 1) return false;
     if (locations == NULL) return false;

@@ -39,6 +39,7 @@ namespace objects{
 
 namespace blocks{
     // Block types
+    
     static const unsigned int CENTER_SPACE = 0;  
     static const unsigned int CENTER_AIR = 1;
     static const unsigned int CENTER_METAL = 2;

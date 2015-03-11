@@ -8,6 +8,7 @@ public:
     ~ShipMap();
     void updateMapAccess();
     bool createRoom(Location* locations, int N, int roomID);
+    void insertBlocksCenter(int blockID, Location start, Location end);
     void clearAllRooms();
     unsigned int* findPathToRoom(int roomLabel, Location start);
     unsigned int*** getMap();
