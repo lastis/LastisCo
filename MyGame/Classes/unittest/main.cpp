@@ -1,5 +1,6 @@
 #include <unittest++/UnitTest++.h>
 #include "../core/ShipMap.h"
+#include "../core/Room.h"
 #include <iostream>
 /* #include "../core/Identifiers.h" */
 
@@ -15,6 +16,14 @@ SUITE(Identifiers){
         blocks::properties::clearIDs();
     }
 }
+
+/* Suite(Rooms){ */
+
+/*     TEST(Init){ */
+/*         Room room = Room(); */
+/*     } */
+
+/* } */
 
 SUITE(PriorityQueue){
     TEST(Init){

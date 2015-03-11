@@ -1,8 +1,11 @@
+#ifndef __ROOM__HINCLUDED__
+#define __ROOM__HINCLUDED__
 struct Location
 {
     int x;
     int y;
     int z;
+
     Location(){
         x = 0;
         y = 0;
@@ -29,3 +32,4 @@ struct Location
         this->z = obj.z;
     }
 };
+#endif
