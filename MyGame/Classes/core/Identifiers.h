@@ -23,6 +23,13 @@ namespace directions{
                                            + SOUTH + UP + DOWN;
 }
 
+namespace rooms{
+    static const int KITCHEN = 0;
+    static const int BRIDGE = 1;
+    static const int ENGINE = 2;
+    static const int WEAPONS = 3;
+}
+
 namespace objects{
     static const int BEER = 0;
 }
