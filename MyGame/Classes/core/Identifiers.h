@@ -39,9 +39,9 @@ namespace objects{
 
 namespace blocks{
     // Block types
-    static const unsigned int FULL_SPACE = 0;  
-    static const unsigned int FULL_AIR = 1;
-    static const unsigned int FULL_METAL = 2;
+    static const unsigned int CENTER_SPACE = 0;  
+    static const unsigned int CENTER_AIR = 1;
+    static const unsigned int CENTER_METAL = 2;
     static const unsigned int WALL_METAL = 3;
     static const unsigned int FLOOR_METAL = 4;
 
@@ -53,8 +53,7 @@ namespace blocks{
         // Is a block floor, ontop of floor, both(eg. rock), or a wall.
         static const int FLOOR = 0;
         static const int CENTER = 1;
-        static const int BOTH = 2;
-        static const int WALL = 3;
+        static const int WALL = 2;
 
         // TODO: Make this const array.
         static unsigned int* slots;
@@ -62,16 +61,16 @@ namespace blocks{
 
         static void initArrays(){
             slots = new unsigned int[blocks::COUNT];
-            slots[FULL_SPACE]  = BOTH;
-            slots[FULL_AIR]    = BOTH;
-            slots[FULL_METAL]  = BOTH;
+            slots[CENTER_SPACE]  = CENTER;
+            slots[CENTER_AIR]    = CENTER;
+            slots[CENTER_METAL]  = CENTER;
             slots[WALL_METAL]   = WALL;
             slots[FLOOR_METAL]  = FLOOR;
 
             access = new unsigned int[blocks::COUNT];
-            access[FULL_SPACE]  = NON_BLOCKING;
-            access[FULL_AIR]    = NON_BLOCKING;
-            access[FULL_METAL] = BLOCKING;
+            access[CENTER_SPACE]  = NON_BLOCKING;
+            access[CENTER_AIR]    = NON_BLOCKING;
+            access[CENTER_METAL] = BLOCKING;
             access[WALL_METAL]   = BLOCKING;
             access[FLOOR_METAL]  = BLOCKING;
         }

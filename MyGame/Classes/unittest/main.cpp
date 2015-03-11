@@ -320,7 +320,7 @@ SUITE(ShipMap){
         CHECK_EQUAL(0,mapAccess[2][2][2]);
 
         // Check blocks that block every direction.
-        map[2][2][2] = blocks::FULL_METAL;
+        map[2][2][2] = blocks::CENTER_METAL;
         ship.updateMapAccess();
         CHECK_EQUAL(directions::BLOCK_ALL,mapAccess[2][2][2]);
         CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][1]);
