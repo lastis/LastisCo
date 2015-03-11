@@ -1,3 +1,6 @@
+
+static const int MAX_PATH_LENGTH = 20;
+
 namespace directions{
     static const int DIRECTIONS = 6;
     // These assignments are bit values. 
