@@ -1,3 +1,6 @@
+
+static const int MAX_PATH_LENGTH = 20;
+
 namespace directions{
     static const int DIRECTIONS = 6;
     // These assignments are bit values. 
@@ -21,6 +24,17 @@ namespace directions{
     static const unsigned int BLOCK_UP      = 1<<5;//32;
     static const unsigned int BLOCK_ALL  = EAST + WEST + NORTH 
                                            + SOUTH + UP + DOWN;
+}
+
+namespace rooms{
+    static const int KITCHEN = 0;
+    static const int BRIDGE = 1;
+    static const int ENGINE = 2;
+    static const int WEAPONS = 3;
+}
+
+namespace objects{
+    static const int BEER = 0;
 }
 
 namespace blocks{

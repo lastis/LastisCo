@@ -20,16 +20,50 @@ void ShipMap::initialize(int O, int N, int M){
     containerMapWallsEast = Matrix3D(O,N,M);
     containerMapWallsNorth = Matrix3D(O,N,M);
     containerMapAccess = Matrix3D(O,N,M);
+    containerMapRooms = Matrix3D(O,N,M);
 
     map = containerMap.getMatrix();
     mapFloor = containerMapFloor.getMatrix();
     mapWallsEast = containerMapWallsEast.getMatrix();
     mapWallsNorth = containerMapWallsNorth.getMatrix();
     mapAccess = containerMapAccess.getMatrix();
+    mapRooms = containerMapAccess.getMatrix();
+    roomCnt = 0;
+    for (int i = 0; i < MAX_ROOMS; i++) {
+        rooms[i] = NULL;
+    }
 
     pathfinder = Pathfinder(containerMapAccess);
+    //TODO: Probably should do this elsewhere.
     blocks::properties::initArrays();
 }
+
+unsigned int* ShipMap::findPathToRoom(int roomLabel, Location start){
+    Location goal = rooms[roomLabel]->center;
+    return pathfinder.findPath(start, goal);
+}
+
+bool ShipMap::createRoom(Location* locations, int N, int roomID){
+    if (roomCnt == MAX_ROOMS - 1) return false;
+    if (locations == NULL) return false;
+    roomCnt++;
+    int x, y, z;
+    for (int i = 0; i < N; i++) {
+        x = locations[i].x;
+        y = locations[i].y;
+        z = locations[i].z;
+        // Label each room from 1 and up. 
+        mapRooms[x][y][z] = roomCnt;
+    }
+    // Case switch, create roomobject and allocate it to 
+    // the rooms array. Maybe to this keymap?
+    Room* room = new Room();
+    room->center = locations[0];
+    room->label = roomCnt;
+    rooms[roomCnt-1] = room;
+    return true;
+}
+
 unsigned int*** ShipMap::getMap(){
     return map;
 }
@@ -44,7 +78,11 @@ unsigned int*** ShipMap::getMapEastWalls(){
 unsigned int*** ShipMap::getMapNorthWalls(){
     return mapWallsNorth;
 }
+
 unsigned int*** ShipMap::getMapAccess(){
+    return mapAccess;
+}
+unsigned int*** ShipMap::getMapRooms(){
     return mapAccess;
 }
 

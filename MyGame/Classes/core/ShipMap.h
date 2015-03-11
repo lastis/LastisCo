@@ -1,4 +1,5 @@
 #include "Pathfinder.h"
+#include "Room.h"
 
 class ShipMap {
 public:
@@ -6,11 +7,14 @@ public:
     ShipMap(int O, int N, int M);
     ~ShipMap();
     void updateMapAccess();
+    bool createRoom(Location* locations, int N, int roomID);
+    unsigned int* findPathToRoom(int roomLabel, Location start);
     unsigned int*** getMap();
     unsigned int*** getMapFloor();
     unsigned int*** getMapEastWalls();
     unsigned int*** getMapNorthWalls();
     unsigned int*** getMapAccess();
+    unsigned int*** getMapRooms();
 private:
     void initialize(int O, int N, int M);
 
@@ -19,6 +23,9 @@ public:
     int N;
     int M;
 private:
+    int roomCnt;
+    static const int MAX_ROOMS = 10;
+    Room* rooms[MAX_ROOMS];
     // Rename these? Not obvious what the internal system is.
     // mapAccess uses blocked movement IDs (each bit is important). The others
     // only use block ID to identify what is there. 
@@ -27,10 +34,12 @@ private:
     Matrix3D containerMapWallsEast;
     Matrix3D containerMapWallsNorth;
     Matrix3D containerMapAccess;
+    Matrix3D containerMapRooms;
     unsigned int*** map;
     unsigned int*** mapFloor;
     unsigned int*** mapWallsEast;
     unsigned int*** mapWallsNorth;
     unsigned int*** mapAccess;
+    unsigned int*** mapRooms;
     Pathfinder pathfinder;
 };
