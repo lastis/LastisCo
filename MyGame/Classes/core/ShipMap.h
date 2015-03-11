@@ -6,10 +6,15 @@ public:
     ShipMap();
     ShipMap(int O, int N, int M);
     ~ShipMap();
-    void updateMapAccess();
     bool createRoom(Location* locations, int N, int roomID);
-    void insertBlocksCenter(int blockID, Location start, Location end);
+
+    void updateMapAccess();
     void clearAllRooms();
+    void insertBlocksCenter(int blockID, Location start, Location end);
+    void insertBlocksFloor(int blockID, Location start, Location end);
+
+    inline void simplifyLocations(Location& loc1, Location& loc2);
+
     unsigned int* findPathToRoom(int roomLabel, Location start);
     unsigned int*** getMap();
     unsigned int*** getMapFloor();

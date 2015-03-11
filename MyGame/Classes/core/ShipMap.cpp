@@ -43,26 +43,46 @@ unsigned int* ShipMap::findPathToRoom(int roomLabel, Location start){
     return pathfinder.findPath(start, goal);
 }
 
+inline void ShipMap::simplifyLocations(Location& loc1, Location& loc2){
+    // Make all coordinates of loc1 less than loc2.
+    int tmp;
+    if (loc1.x > loc2.x) {
+        tmp = loc2.x;
+        loc2.x = loc1.x;
+        loc1.x = tmp;
+    }
+    if (loc1.y > loc2.y) {
+        tmp = loc2.y;
+        loc2.y = loc1.y;
+        loc1.y = tmp;
+    }
+    if (loc1.z > loc2.z) {
+        tmp = loc2.z;
+        loc2.z = loc1.z;
+        loc1.z = tmp;
+    }
+}
+
+void ShipMap::insertBlocksFloor(int blockID, Location start, Location end){
+    using namespace blocks;
+    using namespace blocks::properties;
+    if (slots[blockID] != FLOOR) return;
+    simplifyLocations(start,end);
+    for (int z = start.z; z < end.z; z++) {
+        for (int y = start.y; y < end.y; y++) {
+            for (int x = start.x; x < end.x; x++) {
+                if (map[z][y][x] != 0) continue;
+                map[z][y][x] = blockID;
+            }
+        }
+    }
+}
+
 void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
     using namespace blocks;
     using namespace blocks::properties;
     if (slots[blockID] != CENTER) return;
-    int tmp;
-    if (start.x > end.x) {
-        tmp = end.x;
-        end.x = start.x;
-        start.x = tmp;
-    }
-    if (start.y > end.y) {
-        tmp = end.y;
-        end.y = start.y;
-        start.y = tmp;
-    }
-    if (start.z > end.z) {
-        tmp = end.z;
-        end.z = start.z;
-        start.z = tmp;
-    }
+    simplifyLocations(start,end);
     for (int z = start.z; z < end.z; z++) {
         for (int y = start.y; y < end.y; y++) {
             for (int x = start.x; x < end.x; x++) {
