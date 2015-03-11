@@ -46,6 +46,7 @@ unsigned int* ShipMap::findPathToRoom(int roomLabel, Location start){
 void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
     using namespace blocks;
     using namespace blocks::properties;
+    if (slots[blockID] != CENTER) return;
     int tmp;
     if (start.x > end.x) {
         tmp = end.x;
@@ -67,7 +68,6 @@ void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
             for (int x = start.x; x < end.x; x++) {
                 if (map[z][y][x] != 0) continue;
                 if (map[z][y][x] != CENTER_AIR) continue;
-                if (slots[blockID] != CENTER) continue;
                 map[z][y][x] = blockID;
             }
         }
