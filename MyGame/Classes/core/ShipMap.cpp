@@ -3,12 +3,11 @@
 #endif
 #include "ShipMap.h"
 
-// The : rooms() part initializes the array to NULL, only way to do this. 
-ShipMap::ShipMap() : rooms() {
+ShipMap::ShipMap(){
     ShipMap(1,1,1);
 }
 
-ShipMap::ShipMap(int O, int N, int M) : rooms(){
+ShipMap::ShipMap(int O, int N, int M){
     initialize(O,N,M);
 }
 
@@ -29,11 +28,32 @@ void ShipMap::initialize(int O, int N, int M){
     mapWallsNorth = containerMapWallsNorth.getMatrix();
     mapAccess = containerMapAccess.getMatrix();
     mapRooms = containerMapAccess.getMatrix();
+    for (int i = 0; i < MAX_ROOMS; i++) {
+        rooms[i] = NULL;
+    }
 
     pathfinder = Pathfinder(containerMapAccess);
     //TODO: Probably should do this elsewhere.
     blocks::properties::initArrays();
 }
+
+bool ShipMap::createRoom(Location* locations, int N, int roomID){
+    if (roomCnt == MAX_ROOMS - 1) return false;
+    roomCnt++;
+    int x, y, z;
+    for (int i = 0; i < N; i++) {
+        x = locations[i].x;
+        y = locations[i].y;
+        z = locations[i].z;
+        // Label each room from 1 and up. 
+        mapRooms[x][y][z] = roomCnt;
+    }
+    // Case switch, create roomobject and allocate it to 
+    // the rooms array. Maybe to this keymap?
+    /* rooms[roomCnt-1] = new Kitchen(params); */
+    return true;
+}
+
 unsigned int*** ShipMap::getMap(){
     return map;
 }
