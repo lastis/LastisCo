@@ -63,6 +63,32 @@ inline void ShipMap::simplifyLocations(Location& loc1, Location& loc2){
     }
 }
 
+void ShipMap::insertWallVertical(int blockID, Location start, Location end){
+    using namespace blocks;
+    using namespace blocks::properties;
+    if (slots[blockID] != WALL) return;
+    int z = start.z;
+    int x = start.x;
+    simplifyLocations(start,end);
+    for (int y = start.y; y < end.y; y++) {
+        if (map[z][y][x] != 0) continue;
+        map[z][y][x] = blockID;
+    }
+}
+
+void ShipMap::insertWallHorizontal(int blockID, Location start, Location end){
+    using namespace blocks;
+    using namespace blocks::properties;
+    if (slots[blockID] != WALL) return;
+    int z = start.z;
+    int y = start.y;
+    simplifyLocations(start,end);
+    for (int x = start.x; x < end.x; x++) {
+        if (map[z][y][x] != 0) continue;
+        map[z][y][x] = blockID;
+    }
+}
+
 void ShipMap::insertBlocksFloor(int blockID, Location start, Location end){
     using namespace blocks;
     using namespace blocks::properties;
