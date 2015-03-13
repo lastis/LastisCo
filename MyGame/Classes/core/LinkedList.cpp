@@ -34,9 +34,17 @@ Base* LinkedList::pop(){
     return val;
 }
 
-/* Base* LinkedList::find(int ID){ */
-
-/* } */
+Base* LinkedList::find(int ID){
+    Node* n = head;
+    Base* obj = head->val;
+    int objID = obj->ID;
+    while (objID != ID) {
+        n = n->next;
+        obj = n->val;
+        objID = obj->ID;
+    }
+    return obj;
+}
 
 bool LinkedList::isEmpty(){
     if (length == 0) return true;

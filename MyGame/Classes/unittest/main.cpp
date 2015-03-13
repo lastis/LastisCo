@@ -49,6 +49,21 @@ SUITE(LinkedList){
         list1.pop();
         CHECK(list1.isEmpty() == true);
     }
+
+    TEST(Find){
+        LinkedList list1 = LinkedList();
+        Base obj1 = Base();
+        Base obj2 = Base();
+        Base obj3 = Base();
+        obj1.ID = 1;
+        obj2.ID = 2;
+        obj3.ID = 3;
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
+        Base* obj = list1.find(2);
+        CHECK_EQUAL(obj,&obj2);
+    }
 }
 
 SUITE(Rooms){
