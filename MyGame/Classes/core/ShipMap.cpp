@@ -38,7 +38,7 @@ void ShipMap::initialize(int O, int N, int M){
     blocks::properties::initArrays();
 }
 
-unsigned int* ShipMap::findPathToRoom(int roomLabel, Location start){
+unsigned int* ShipMap::getPathToRoom(int roomLabel, Location start){
     Location goal = rooms[roomLabel]->center;
     return pathfinder.findPath(start, goal);
 }
@@ -156,6 +156,10 @@ void ShipMap::clearAllRooms(){
         }
     }
     roomCnt = 0;
+}
+
+Room* ShipMap::getRoom(int roomLabel){
+    return rooms[roomLabel];
 }
 
 unsigned int*** ShipMap::getMap(){

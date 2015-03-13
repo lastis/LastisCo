@@ -7,17 +7,15 @@ public:
     ShipMap(int O, int N, int M);
     ~ShipMap();
     bool createRoom(Location* locations, int N, int roomID);
-
     void updateMapAccess();
     void clearAllRooms();
     void insertBlocksCenter(int blockID, Location start, Location end);
     void insertBlocksFloor(int blockID, Location start, Location end);
     void insertWallHorizontal(int blockID, Location start, Location end);
     void insertWallVertical(int blockID, Location start, Location end);
-
     inline void simplifyLocations(Location& loc1, Location& loc2);
-
-    unsigned int* findPathToRoom(int roomLabel, Location start);
+    unsigned int* getPathToRoom(int roomLabel, Location start);
+    Room* getRoom(int roomLabel);
     unsigned int*** getMap();
     unsigned int*** getMapFloor();
     unsigned int*** getMapEastWalls();
