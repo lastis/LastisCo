@@ -13,13 +13,16 @@ class LinkedList{
     };
 private:
     Node *head; 
+    int length;
 public:
     // constructor
     LinkedList();
+    ~LinkedList();
     // This prepends a new value at the beginning of the list
-    void addValue(Base* val);
+    void add(Base* val);
+    bool isEmpty();
 
     // returns the first element in the list and deletes the Node.
     // caution, no error-checking here!
-    Base* popValue();
+    Base* pop();
 };

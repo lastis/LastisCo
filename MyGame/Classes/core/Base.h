@@ -3,6 +3,6 @@ class Base {
 public:
     Base();
 public:
-    unsigned int ID;
+    int ID;
 
 };

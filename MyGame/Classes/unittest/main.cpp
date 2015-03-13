@@ -16,6 +16,41 @@ SUITE(Identifiers){
     }
 }
 
+SUITE(LinkedList){
+
+    TEST(Init){
+        LinkedList list1;
+        LinkedList list2 = LinkedList();
+        list1 = LinkedList();
+    }
+
+    TEST(Add){
+        LinkedList list1 = LinkedList();
+        Base obj1 = Base();
+        Base obj2 = Base();
+        Base obj3 = Base();
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
+        CHECK(list1.isEmpty() == false);
+    }
+
+    TEST(Remove){
+        LinkedList list1 = LinkedList();
+        Base obj1 = Base();
+        Base obj2 = Base();
+        Base obj3 = Base();
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
+        CHECK(list1.isEmpty() == false);
+        list1.pop();
+        list1.pop();
+        list1.pop();
+        CHECK(list1.isEmpty() == true);
+    }
+}
+
 SUITE(Rooms){
 
     TEST(Init){
