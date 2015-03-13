@@ -50,18 +50,36 @@ SUITE(LinkedList){
         CHECK(list1.isEmpty() == true);
     }
 
+    TEST(SearchAndDestroy){
+        LinkedList list1 = LinkedList();
+        Base obj1 = Base();
+        Base obj2 = Base();
+        Base obj3 = Base();
+        obj1.label = 2;
+        obj2.label = 3;
+        obj3.label = 4;
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
+        list1.removeWithLabel(3);
+        /* int N = list1.getLength(); */
+        /* CHECK_EQUAL(2,N); */
+        /* Base* obj = list1.findWithLabel(3); */
+        /* CHECK(NULL == obj); */
+    }
+
     TEST(Find){
         LinkedList list1 = LinkedList();
         Base obj1 = Base();
         Base obj2 = Base();
         Base obj3 = Base();
-        obj1.ID = 1;
-        obj2.ID = 2;
-        obj3.ID = 3;
+        obj1.label = 1;
+        obj2.label = 2;
+        obj3.label = 3;
         list1.add(&obj1);
         list1.add(&obj2);
         list1.add(&obj3);
-        Base* obj = list1.find(2);
+        Base* obj = list1.findWithLabel(2);
         CHECK_EQUAL(obj,&obj2);
     }
 }

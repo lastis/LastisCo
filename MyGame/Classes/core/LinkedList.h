@@ -21,7 +21,9 @@ public:
     // This prepends a new value at the beginning of the list
     void add(Base* val);
     bool isEmpty();
-    Base* find(int ID);
+    int getLength();
+    Base* findWithLabel(int label);
+    bool removeWithLabel(int label);
 
     // returns the first element in the list and deletes the Node.
     // caution, no error-checking here!

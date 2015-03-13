@@ -25,6 +25,7 @@ void LinkedList::add(Base* val){
 // returns the first element in the list and deletes the Node.
 // caution, no error-checking here!
 Base* LinkedList::pop(){
+    if (length == 0) return NULL;
     Node* n = head;
     Base* val = n->val;
 
@@ -34,16 +35,41 @@ Base* LinkedList::pop(){
     return val;
 }
 
-Base* LinkedList::find(int ID){
+Base* LinkedList::findWithLabel(int label){
     Node* n = head;
     Base* obj = head->val;
-    int objID = obj->ID;
-    while (objID != ID) {
+    int objLabel = obj->label;
+    while (objLabel != label) {
         n = n->next;
+        if (n == NULL) return NULL;
         obj = n->val;
-        objID = obj->ID;
+        objLabel = obj->label;
     }
     return obj;
+}
+
+int LinkedList::getLength(){
+    return length;
+}
+
+bool LinkedList::removeWithLabel(int label){
+    if (length == 0) return false;
+    Node* prev = NULL;
+    Node* cur = head;
+    Base* curObj = head->val;
+    int  curLabel= curObj->label;
+    while (curLabel != label) {
+        prev = cur;
+        cur = cur->next;
+        if (cur == NULL) return false;
+        curObj = cur->val;
+        curLabel = curObj->label;
+    }
+    // Found it
+    prev->next = cur->next;
+    delete cur;
+    length--;
+    return true;
 }
 
 bool LinkedList::isEmpty(){
