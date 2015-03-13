@@ -139,7 +139,7 @@ bool ShipMap::createRoom(Location* locations, int N, int roomID){
     // the rooms array. Maybe to keymap?
     Room* room = new Room();
     room->center = locations[0];
-    room->ID = roomCnt;
+    room->label = roomCnt;
     rooms[roomCnt-1] = room;
     return true;
 }
