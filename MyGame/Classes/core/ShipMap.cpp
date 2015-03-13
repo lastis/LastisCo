@@ -71,8 +71,8 @@ void ShipMap::insertWallVertical(int blockID, Location start, Location end){
     int x = start.x;
     simplifyLocations(start,end);
     for (int y = start.y; y < end.y; y++) {
-        if (map[z][y][x] != 0) continue;
-        map[z][y][x] = blockID;
+        if (mapWallsEast[z][y][x] != 0) continue;
+        mapWallsEast[z][y][x] = blockID;
     }
 }
 
@@ -84,8 +84,8 @@ void ShipMap::insertWallHorizontal(int blockID, Location start, Location end){
     int y = start.y;
     simplifyLocations(start,end);
     for (int x = start.x; x < end.x; x++) {
-        if (map[z][y][x] != 0) continue;
-        map[z][y][x] = blockID;
+        if (mapWallsNorth[z][y][x] != 0) continue;
+        mapWallsNorth[z][y][x] = blockID;
     }
 }
 
