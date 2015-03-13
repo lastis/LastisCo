@@ -4,7 +4,8 @@
 class Base {
 public:
     Base();
-    int label;
+    // Unique ID.
+    int UID;
     int ID;
 };
 #endif

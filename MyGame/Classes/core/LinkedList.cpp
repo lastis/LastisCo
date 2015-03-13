@@ -35,15 +35,15 @@ Base* LinkedList::pop(){
     return val;
 }
 
-Base* LinkedList::findWithLabel(int label){
+Base* LinkedList::findWithUID(int UID){
     Node* n = head;
     Base* obj = head->val;
-    int objLabel = obj->label;
-    while (objLabel != label) {
+    int objUID = obj->UID;
+    while (objUID != UID) {
         n = n->next;
         if (n == NULL) return NULL;
         obj = n->val;
-        objLabel = obj->label;
+        objUID = obj->UID;
     }
     return obj;
 }
@@ -52,18 +52,18 @@ int LinkedList::getLength(){
     return length;
 }
 
-bool LinkedList::removeWithLabel(int label){
+bool LinkedList::removeWithUID(int UID){
     if (length == 0) return false;
     Node* prev = NULL;
     Node* cur = head;
     Base* curObj = head->val;
-    int  curLabel= curObj->label;
-    while (curLabel != label) {
+    int  curUID= curObj->UID;
+    while (curUID != UID) {
         prev = cur;
         cur = cur->next;
         if (cur == NULL) return false;
         curObj = cur->val;
-        curLabel = curObj->label;
+        curUID = curObj->UID;
     }
     // Found it
     prev->next = cur->next;

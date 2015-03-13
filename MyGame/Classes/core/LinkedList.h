@@ -22,8 +22,8 @@ public:
     void add(Base* val);
     bool isEmpty();
     int getLength();
-    Base* findWithLabel(int label);
-    bool removeWithLabel(int label);
+    Base* findWithUID(int UID);
+    bool removeWithUID(int UID);
 
     // returns the first element in the list and deletes the Node.
     // caution, no error-checking here!
