@@ -6,6 +6,5 @@ class Task {
 public:
     Task();
     virtual void doTask(Person person);
-
 };
 #endif
