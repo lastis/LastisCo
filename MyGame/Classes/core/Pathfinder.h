@@ -5,6 +5,7 @@
 #include "PriorityQueue.h"
 #include "Matrix3D.h"
 #include "Identifiers.h"
+#include "Path.h"
 
 class Pathfinder {
 

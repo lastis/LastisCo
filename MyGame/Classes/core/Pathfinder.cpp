@@ -178,6 +178,8 @@ unsigned int* Pathfinder::findPath(Location start, Location goal){
                 /* std::cout << "cnt: " << cnt << std::endl; */
                 int dir = dirMap[Z][Y][X];
                 /* std::cout << "cnt: " << cnt << std::endl; */
+
+                // Assign the direction to the path list. (Bit assignment.)
                 path[cnt] = 1 << dir;
                 cnt++;
                 X += X_DIR[dir];
