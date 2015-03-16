@@ -1,3 +1,5 @@
+#ifndef __IDENTIFIERS_H_INCLUDED__
+#define __IDENTIFIERS_H_INCLUDED__
 
 static const int MAX_PATH_LENGTH = 20;
 
@@ -83,3 +85,4 @@ namespace blocks{
 
     }
 }
+#endif
