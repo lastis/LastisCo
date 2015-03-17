@@ -16,6 +16,7 @@ SUITE(Identifiers){
     }
 }
 
+
 SUITE(LinkedList){
 
     TEST(Init){
@@ -176,6 +177,19 @@ SUITE(Matix3D){
         }
     }
 
+}
+
+SUITE(Path){
+    // Not sure how to test this further. There might be merit to checking 
+    // this somehow because many methods use these identifiers to do other
+    // tests. It can be hard to trace back if the error comes from this 
+    // code. 
+    TEST(Initialization){
+        Path path = Path(NULL,0);
+        CHECK(path.hasPath() == false);
+        CHECK_EQUAL(path.getLength(),0);
+
+    }
 }
 
 SUITE(Pathfinder){

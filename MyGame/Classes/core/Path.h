@@ -11,6 +11,7 @@ public:
     unsigned int getNextDirection();
     bool isComplete();
     bool hasPath();
+    int getLength();
 
 };
 

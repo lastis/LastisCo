@@ -19,6 +19,10 @@ bool Path::hasPath(){
     else return false;
 }
 
+int Path::getLength(){
+    return length;
+}
+
 unsigned int Path::getNextDirection(){
     using namespace directions;
     if (!hasPath()) return NO_DIRECTION;
