@@ -205,7 +205,7 @@ SUITE(Pathfinder){
         CHECK_EQUAL(WEST,path.getNextDirection());
         CHECK_EQUAL(NO_DIRECTION,path.getNextDirection());
         CHECK(path.isComplete() == true);
-
+        delete[] pathInt;
     }
 
     TEST(Init){
