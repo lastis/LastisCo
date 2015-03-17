@@ -11,7 +11,7 @@ Path::Path(unsigned int* path, int length){
 
 bool Path::isComplete(){
     if (index == length) return true;
-    else false;
+    else return false;
 }
 
 bool Path::hasPath(){

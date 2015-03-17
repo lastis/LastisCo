@@ -179,20 +179,35 @@ SUITE(Matix3D){
 
 }
 
-SUITE(Path){
-    // Not sure how to test this further. There might be merit to checking 
-    // this somehow because many methods use these identifiers to do other
-    // tests. It can be hard to trace back if the error comes from this 
-    // code. 
-    TEST(Initialization){
+SUITE(Pathfinder){
+    TEST(PathInit){
         Path path = Path(NULL,0);
         CHECK(path.hasPath() == false);
+        CHECK(path.isComplete() == true);
         CHECK_EQUAL(path.getLength(),0);
+    }
+
+    TEST(PathAssign){
+        using namespace directions;
+        unsigned int* pathInt = new unsigned int[5];
+        pathInt[0] = directions::EAST;
+        pathInt[1] = directions::NORTH;
+        pathInt[2] = directions::SOUTH;
+        pathInt[3] = directions::WEST;
+        pathInt[4] = directions::NO_DIRECTION;
+        Path path = Path(pathInt,5);
+        CHECK(path.hasPath() == true);
+        CHECK_EQUAL(path.getLength(),5);
+        CHECK(path.isComplete() == false);
+        CHECK_EQUAL(EAST,path.getNextDirection());
+        CHECK_EQUAL(NORTH,path.getNextDirection());
+        CHECK_EQUAL(SOUTH,path.getNextDirection());
+        CHECK_EQUAL(WEST,path.getNextDirection());
+        CHECK_EQUAL(NO_DIRECTION,path.getNextDirection());
+        CHECK(path.isComplete() == true);
 
     }
-}
 
-SUITE(Pathfinder){
     TEST(Init){
         Pathfinder pathfinder1 = Pathfinder();
         Matrix3D map = Matrix3D(5,5,5);
