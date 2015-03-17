@@ -14,7 +14,7 @@ public:
     void insertWallHorizontal(int blockID, Location start, Location end);
     void insertWallVertical(int blockID, Location start, Location end);
     inline void simplifyLocations(Location& loc1, Location& loc2);
-    unsigned int* getPathToRoom(int roomLabel, Location start);
+    Path* getPathToRoom(int roomLabel, Location start);
     Room* getRoom(int roomLabel);
     unsigned int*** getMap();
     unsigned int*** getMapFloor();

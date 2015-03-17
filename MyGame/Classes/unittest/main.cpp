@@ -205,7 +205,6 @@ SUITE(Pathfinder){
         CHECK_EQUAL(WEST,path.getNextDirection());
         CHECK_EQUAL(NO_DIRECTION,path.getNextDirection());
         CHECK(path.isComplete() == true);
-        delete[] pathInt;
     }
 
     TEST(Init){
@@ -221,13 +220,13 @@ SUITE(Pathfinder){
         unsigned int*** ptr = map.getMatrix();
         Location start = Location(1,2,0);
         Location goal = Location(4,2,0);
-        unsigned int* path = pathfinder.findPath(start, goal);
+        Path* path = pathfinder.findPath(start, goal);
         /* pathfinder.printDirMap(0); */
         int sumX = 0;
         int sumY = 0;
         int sumZ = 0;
         for (int i = 0; i < MAX_PATH_LENGTH; i++) {
-            unsigned int dir = path[i];
+            unsigned int dir = path->getNextDirection();
             if (dir == NO_DIRECTION) break;
             if (dir == EAST) sumX++;
             if (dir == WEST) sumX--;
@@ -240,7 +239,7 @@ SUITE(Pathfinder){
         CHECK_EQUAL(0, sumY);
         CHECK_EQUAL(0, sumZ);
         
-        delete[] path;
+        delete path;
     }
 
     TEST(BlockedPath){
@@ -256,14 +255,14 @@ SUITE(Pathfinder){
         Location start = Location(0,2,0);
         Location goal = Location(4,2,0);
         /* std::cout << "starting blocked path" << std::endl; */
-        unsigned int* path = pathfinder.findPath(start, goal);
+        Path* path = pathfinder.findPath(start, goal);
         /* pathfinder.printDirMap(0); */
         /* std::cout << "return from path " << std::endl; */
         int sumX = 0;
         int sumY = 0;
         int sumZ = 0;
         for (int i = 0; i < MAX_PATH_LENGTH; i++) {
-            unsigned int dir = path[i];
+            unsigned int dir = path->getNextDirection();
             if (dir == NO_DIRECTION) break;
             if (dir == EAST) sumX++;
             if (dir == WEST) sumX--;
@@ -276,7 +275,7 @@ SUITE(Pathfinder){
         CHECK_EQUAL(0, sumY);
         CHECK_EQUAL(0, sumZ);
         
-        delete[] path;
+        delete path;
         /* std::cout << "finishing blocked path" << std::endl; */
     }
 
@@ -293,13 +292,13 @@ SUITE(Pathfinder){
         /* ptr[0][1][2] = ID::BLOCK_EAST; */
         Location start = Location(0,2,0);
         Location goal = Location(4,2,0);
-        unsigned int* path1 = pathfinder.findPath(start, goal);
+        Path* path1 = pathfinder.findPath(start, goal);
         /* pathfinder.printDirMap(0); */
         int sumX = 0;
         int sumY = 0;
         int sumZ = 0;
         for (int i = 0; i < MAX_PATH_LENGTH; i++) {
-            unsigned int dir = path1[i];
+            unsigned int dir = path1->getNextDirection();
             /* cout << "direction: "<< dir << endl; */
             if (dir == NO_DIRECTION) break;
             if (dir == EAST) sumX++;
@@ -314,7 +313,7 @@ SUITE(Pathfinder){
         CHECK_EQUAL(0, sumY);
         CHECK_EQUAL(0, sumZ);
         
-        delete[] path1;
+        delete path1;
     }
 
     TEST(ManyPaths){
@@ -331,9 +330,9 @@ SUITE(Pathfinder){
         int sumY = 0;
         int sumZ = 0;
         for (int run = 0; run < 10; run++) {
-            unsigned int* path = pathfinder.findPath(start, goal);
+            Path* path = pathfinder.findPath(start, goal);
             for (int i = 0; i < MAX_PATH_LENGTH; i++) {
-                int dir = path[i];
+                int dir = path->getNextDirection();
                 if (dir == NO_DIRECTION) break;
                 if (dir == EAST) sumX++;
                 if (dir == WEST) sumX--;
@@ -342,7 +341,7 @@ SUITE(Pathfinder){
                 if (dir == UP) sumZ++;
                 if (dir == DOWN) sumZ--;
             }
-            delete[] path;
+            delete path;
         }
         CHECK_EQUAL(4*10, sumX);
         CHECK_EQUAL(0*10, sumY);

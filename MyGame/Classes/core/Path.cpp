@@ -30,3 +30,29 @@ unsigned int Path::getNextDirection(){
     index++;
     return path[index-1];
 }
+
+Path::Path(const Path& obj){
+    copy(obj);
+}
+
+Path& Path::operator= (const Path& obj){
+    copy(obj);
+}
+
+void Path::copy(const Path& obj){
+    if (obj.path == NULL) {
+        length = 0;
+        path = NULL;
+        index = 0;
+    }
+    length = obj.length;
+    path = new unsigned int[length];
+    for (int i = 0; i < length; i++) {
+        path[i] = obj.path[i];
+    }
+    
+}
+
+Path::~Path(){
+    if (path != NULL) delete[] path;
+}
