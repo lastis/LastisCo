@@ -3,7 +3,7 @@
 #include "Task.h"
 class TaskFarm : public Task{
 public:
-    TaskFarm();
+    /* TaskFarm(); */
 
 };
 #endif

@@ -31,5 +31,7 @@ struct Location
         this->y = obj.y;
         this->z = obj.z;
     }
+
+    static int distanceManhatten(Location& loc1, Location& loc2);
 };
 #endif
