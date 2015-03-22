@@ -2,13 +2,15 @@
 #define __PERSON_H_INCLUDED__
 
 #include "Location.h"
-// Forward declare Task.
 class Task;
 
 class Person {
 public:
+    Person();
+    void setTask(Task* task);
+    void update();
+
     Location location;
-    Person ();
     Task* task;
 
 };
