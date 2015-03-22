@@ -32,6 +32,14 @@ struct Location
         this->z = obj.z;
     }
 
-    static int distanceManhatten(Location& loc1, Location& loc2);
+    static int distanceManhatten(Location& loc1, Location& loc2){
+        int dx = loc2.x - loc1.x;
+        int dy = loc2.y - loc1.y;
+        int dz = loc2.z - loc1.z;
+        if (dx < 0) dx = -dx;
+        if (dy < 0) dy = -dy;
+        if (dz < 0) dz = -dz;
+        return dx + dy + dz;
+    }
 };
 #endif

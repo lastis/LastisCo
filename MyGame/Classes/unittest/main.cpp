@@ -1,6 +1,8 @@
 #include <unittest++/UnitTest++.h>
 
 #include "../core/ShipMap.h"
+#include "../core/Person.h"
+#include "../core/jobs/TaskFarm.h"
 #include <iostream>
 
 using namespace std;
@@ -179,6 +181,75 @@ SUITE(Matix3D){
 
 }
 
+SUITE(Tasks){
+    TEST(Init){
+        // Make a path
+        Matrix3D map = Matrix3D(1,5,5);
+        Pathfinder pathfinder = Pathfinder(map);
+
+        Location start = Location(0,0,0);
+        Location goal = Location(4,4,0);
+        Path* path = pathfinder.findPath(start, goal);
+
+        // Put the path in the task.
+        TaskFarm taskFarm = TaskFarm();
+        taskFarm.setPath(path);
+        // Put the task in the person. 
+        Person person = Person();
+        person.setTask(&taskFarm);
+    }
+
+    TEST(WalkTask){
+        // Make a path
+        Matrix3D map = Matrix3D(1,5,5);
+        Pathfinder pathfinder = Pathfinder(map);
+
+        Location start = Location(0,0,0);
+        Location goal = Location(4,4,0);
+        Path* path = pathfinder.findPath(start, goal);
+
+        // Put the path in the task.
+        TaskFarm taskFarm = TaskFarm();
+        taskFarm.setPath(path);
+        // Put the task in the person. 
+        Person person = Person();
+        person.setTask(&taskFarm);
+        person.update();
+        person.update();
+        person.update();
+        person.update();
+        person.update();
+        person.update();
+        person.update();
+        person.update();
+        person.update();
+        person.update();
+        person.update();
+        person.update();
+
+    }
+}
+
+SUITE(Location){
+    TEST(Init){
+        Location loc1 = Location(3,3,3);
+        Location loc2 = Location(4,4,4);
+    }
+
+    TEST(Assignment){
+        Location loc1 = Location(3,4,5);
+        CHECK_EQUAL(3,loc1.x);
+        CHECK_EQUAL(4,loc1.y);
+        CHECK_EQUAL(5,loc1.z);
+    }
+
+    TEST(Distance){
+        Location loc1 = Location(3,3,3);
+        Location loc2 = Location(4,4,4);
+        CHECK_EQUAL(3,Location::distanceManhatten(loc1,loc2));
+    }
+}
+
 SUITE(Pathfinder){
     TEST(PathInit){
         Path path = Path(NULL,0);
@@ -217,7 +288,6 @@ SUITE(Pathfinder){
         using namespace directions;
         Matrix3D map = Matrix3D(1,5,5);
         Pathfinder pathfinder = Pathfinder(map);
-        unsigned int*** ptr = map.getMatrix();
         Location start = Location(1,2,0);
         Location goal = Location(4,2,0);
         Path* path = pathfinder.findPath(start, goal);
