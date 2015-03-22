@@ -23,34 +23,24 @@ void Task::walkOneStep(Person& person){
     
     switch (dir) {
         case NO_DIRECTION :
-            std::cout << "1" << std::endl;
             break;
         case EAST :
-            std::cout << "2" << std::endl;
+            loc->x++;
             break;
         case WEST :
-            std::cout << "3" << std::endl;
+            loc->x--;
             break;
         case NORTH :
-            std::cout << "4" << std::endl;
+            loc->y++;
             break;
         case SOUTH :
-            std::cout << "5" << std::endl;
+            loc->y--;
             break;
         case UP :
-            std::cout << "6" << std::endl;
+            loc->z++;
             break;
         case DOWN :
-            std::cout << "7" << std::endl;
+            loc->z--;
             break;
-        default : 
-        std::cout << "nan" << std::endl;
     }
-    /* if (dir == NO_DIRECTION) break; */
-    /* if (dir == EAST) ++; */
-    /* if (dir == WEST) sumX--; */
-    /* if (dir == NORTH) sumY++; */
-    /* if (dir == SOUTH) sumY--; */
-    /* if (dir == UP) sumZ++; */
-    /* if (dir == DOWN) sumZ--; */
 }

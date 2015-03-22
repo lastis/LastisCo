@@ -213,7 +213,9 @@ SUITE(Tasks){
         taskFarm.setPath(path);
         // Put the task in the person. 
         Person person = Person();
+        person.location = start;
         person.setTask(&taskFarm);
+        // Walk the person.
         person.update();
         person.update();
         person.update();
@@ -226,6 +228,10 @@ SUITE(Tasks){
         person.update();
         person.update();
         person.update();
+        // Check the person arrived at the desired position.
+        CHECK_EQUAL(4,person.location.x);
+        CHECK_EQUAL(4,person.location.y);
+        CHECK_EQUAL(0,person.location.z);
 
     }
 }
