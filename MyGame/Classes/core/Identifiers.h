@@ -47,8 +47,9 @@ namespace blocks{
     static const unsigned int CENTER_METAL = 2;
     static const unsigned int WALL_METAL = 3;
     static const unsigned int FLOOR_METAL = 4;
+    static const unsigned int CENTER_CORN = 5;
 
-    static const int COUNT = 5;
+    static const int COUNT = 6;
 
     namespace properties{
         static const int NON_BLOCKING = 0;
@@ -69,6 +70,7 @@ namespace blocks{
             slots[CENTER_METAL]  = CENTER;
             slots[WALL_METAL]   = WALL;
             slots[FLOOR_METAL]  = FLOOR;
+            slots[CENTER_CORN] = CENTER;
 
             access = new unsigned int[blocks::COUNT];
             access[CENTER_SPACE]  = NON_BLOCKING;
@@ -76,6 +78,7 @@ namespace blocks{
             access[CENTER_METAL] = BLOCKING;
             access[WALL_METAL]   = BLOCKING;
             access[FLOOR_METAL]  = BLOCKING;
+            access[CENTER_CORN] = BLOCKING;
         }
 
         static void clearIDs(){
