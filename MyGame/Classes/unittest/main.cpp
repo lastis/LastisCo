@@ -24,6 +24,45 @@ SUITE(BLOCKS){
     }
 }
 
+SUITE(PERSON){
+    TEST(INVENTORY){
+        Base item1 = Base();
+        Base item2 = Base();
+        Base item3 = Base();
+        Base item4 = Base();
+        Base item5 = Base();
+        Base item6 = Base();
+        item1.ID = 1;
+        item2.ID = 2;
+        item3.ID = 3;
+        item4.ID = 4;
+        item5.ID = 5;
+        item6.ID = 6;
+        Person person = Person();
+        // Add things to inventory, returns true if successful.
+        CHECK(person.addToInventory(item1,10));
+        CHECK(person.addToInventory(item2,20));
+        CHECK(person.addToInventory(item3,30));
+        CHECK(person.addToInventory(item4,40));
+        CHECK(person.addToInventory(item5,50));
+        // addToInventory should return false if there
+        // is no more room in the inventory.
+        CHECK(person.addToInventory(item6,60) == false);
+        // Check that the ID has been added to the inventory with 
+        // the correct ammount.
+        CHECK_EQUAL(person.inventory[0],1);
+        CHECK_EQUAL(person.inventoryAmount[0],10);
+        CHECK_EQUAL(person.inventory[1],2);
+        CHECK_EQUAL(person.inventoryAmount[1],20);
+        CHECK_EQUAL(person.inventory[2],3);
+        CHECK_EQUAL(person.inventoryAmount[2],30);
+        CHECK_EQUAL(person.inventory[3],4);
+        CHECK_EQUAL(person.inventoryAmount[3],40);
+        CHECK_EQUAL(person.inventory[4],5);
+        CHECK_EQUAL(person.inventoryAmount[4],50);
+    }
+}
+
 SUITE(LinkedList){
 
     TEST(Init){
@@ -36,8 +75,7 @@ SUITE(LinkedList){
         LinkedList list1 = LinkedList();
         Base obj1 = Base();
         Base obj2 = Base();
-        Base obj3 = Base();
-        list1.add(&obj1);
+        Base obj3 = Base(); list1.add(&obj1);
         list1.add(&obj2);
         list1.add(&obj3);
         CHECK(list1.isEmpty() == false);
