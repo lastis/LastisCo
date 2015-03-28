@@ -6,6 +6,15 @@ class Corn : public Base{
 public:
     Corn();
     void update();
+    void grow();
+
+    bool planted;
+    int stage;
+    int stage1;
+    int stage2;
+    int stage3;
+    int stageFinal;
+    int time;
 
 };
 

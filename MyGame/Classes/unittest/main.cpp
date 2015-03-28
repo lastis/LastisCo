@@ -3,6 +3,7 @@
 #include "../core/ShipMap.h"
 #include "../core/Person.h"
 #include "../core/jobs/TaskFarm.h"
+#include "../core/blocks/Corn.h"
 #include <iostream>
 
 using namespace std;
@@ -18,6 +19,11 @@ SUITE(Identifiers){
     }
 }
 
+SUITE(BLOCKS){
+    TEST(CORN){
+        Corn corn = Corn();
+    }
+}
 
 SUITE(LinkedList){
 
