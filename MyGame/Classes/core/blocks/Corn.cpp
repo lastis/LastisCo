@@ -15,7 +15,11 @@ Corn::Corn(){
 }
 
 void Corn::interact(Person& person){
+    // Put corn in the persons inventory if fully grown.
+    // Objects of corn should only exsist on the map. 
     if (!isFinished()) return;
+    // Add multiple corns to his inventory.
+    person.addToInventory(*this,2);
 }
 
 bool Corn::isFinished(){
