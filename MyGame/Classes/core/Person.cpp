@@ -11,7 +11,7 @@ Person::Person(){
         inventory[i] = 0;
         inventoryAmount[i] = 0;
     }
-    location = Location(1,1,1);
+    loc = Location(1,1,1);
     task = NULL;
 }
 

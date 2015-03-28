@@ -13,7 +13,7 @@ public:
     void update();
     bool addToInventory(Base& base, int amount);
 
-    Location location;
+    Location loc;
     Task* task;
     unsigned int inventory[INVENTORY_SPACE];
     unsigned int inventoryAmount[INVENTORY_SPACE];

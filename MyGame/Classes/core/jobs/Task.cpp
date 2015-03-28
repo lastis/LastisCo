@@ -19,7 +19,7 @@ void Task::walkOneStep(Person& person){
     using namespace directions;
     if (path == NULL) return;
     unsigned int dir = path->getNextDirection();
-    Location* loc = &person.location;
+    Location* loc = &person.loc;
     
     switch (dir) {
         case NO_DIRECTION :

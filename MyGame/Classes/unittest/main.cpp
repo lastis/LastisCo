@@ -257,7 +257,7 @@ SUITE(Tasks){
         task.setPath(path);
         // Put the task in the person. 
         Person person = Person();
-        person.location = start;
+        person.loc = start;
         person.setTask(&task);
         // Walk the person.
         person.update();
@@ -273,9 +273,9 @@ SUITE(Tasks){
         person.update();
         person.update();
         // Check the person arrived at the desired position.
-        CHECK_EQUAL(4,person.location.x);
-        CHECK_EQUAL(4,person.location.y);
-        CHECK_EQUAL(0,person.location.z);
+        CHECK_EQUAL(4,person.loc.x);
+        CHECK_EQUAL(4,person.loc.y);
+        CHECK_EQUAL(0,person.loc.z);
 
         delete path;
     }
