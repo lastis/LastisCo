@@ -44,6 +44,3 @@ void Task::walkOneStep(Person& person){
     }
 }
 
-void Task::setTarget(Location target){
-    this->target = target;
-}
