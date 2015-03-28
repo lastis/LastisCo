@@ -10,9 +10,6 @@ public:
     // Should be private?
     void walkOneStep(Person& person);
     void setPath(Path* path);
-
-
-
     Path* path;
 };
 #endif

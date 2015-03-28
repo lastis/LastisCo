@@ -8,7 +8,6 @@ public:
     ShipMap* map;
     Job();
     void setShipMap(ShipMap* map);
-
 };
 
 #endif

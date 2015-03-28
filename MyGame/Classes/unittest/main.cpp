@@ -2,7 +2,7 @@
 
 #include "../core/ShipMap.h"
 #include "../core/Person.h"
-#include "../core/jobs/TaskFarm.h"
+#include "../core/jobs/TaskInteract.h"
 #include "../core/blocks/Corn.h"
 #include <iostream>
 
