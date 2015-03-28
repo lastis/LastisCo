@@ -232,7 +232,6 @@ void ShipMap::updateMapAccess(){
 ShipMap::~ShipMap(){
     // TODO: Dont do this here.
     clearAllRooms();
-    blocks::properties::clearIDs();
 }
 
 

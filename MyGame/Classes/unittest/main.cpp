@@ -15,7 +15,6 @@ SUITE(Identifiers){
     // code. 
     TEST(Initialization){
         blocks::properties::initArrays();
-        blocks::properties::clearIDs();
     }
 }
 

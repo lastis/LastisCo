@@ -60,11 +60,10 @@ namespace blocks{
         static const int WALL = 2;
 
         // TODO: Make this const array.
-        static unsigned int* slots;
-        static unsigned int* access;
+        static unsigned int slots[COUNT];
+        static unsigned int access[COUNT];
 
         static void initArrays(){
-            slots = new unsigned int[blocks::COUNT];
             slots[CENTER_SPACE]  = CENTER;
             slots[CENTER_AIR]    = CENTER;
             slots[CENTER_METAL]  = CENTER;
@@ -72,7 +71,6 @@ namespace blocks{
             slots[FLOOR_METAL]  = FLOOR;
             slots[CENTER_CORN] = CENTER;
 
-            access = new unsigned int[blocks::COUNT];
             access[CENTER_SPACE]  = NON_BLOCKING;
             access[CENTER_AIR]    = NON_BLOCKING;
             access[CENTER_METAL] = BLOCKING;
@@ -80,12 +78,6 @@ namespace blocks{
             access[FLOOR_METAL]  = BLOCKING;
             access[CENTER_CORN] = BLOCKING;
         }
-
-        static void clearIDs(){
-            delete[] slots;
-            delete[] access;
-        }
-
     }
 }
 #endif
