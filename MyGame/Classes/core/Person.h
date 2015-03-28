@@ -6,12 +6,15 @@ class Task;
 
 class Person {
 public:
+    static const int INVENTORY_SPACE = 5;
+
     Person();
     void setTask(Task* task);
     void update();
 
     Location location;
     Task* task;
+    unsigned int inventory[INVENTORY_SPACE];
 
 };
 #endif
