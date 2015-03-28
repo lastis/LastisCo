@@ -42,12 +42,12 @@ namespace objects{
 namespace blocks{
     // Block types
     
-    static const unsigned int CENTER_SPACE = 0;  
-    static const unsigned int CENTER_AIR = 1;
-    static const unsigned int CENTER_METAL = 2;
-    static const unsigned int WALL_METAL = 3;
-    static const unsigned int FLOOR_METAL = 4;
-    static const unsigned int CENTER_CORN = 5;
+    static const unsigned int CENTER_SPACE = 1;  
+    static const unsigned int CENTER_AIR = 2;
+    static const unsigned int CENTER_METAL = 3;
+    static const unsigned int WALL_METAL = 4;
+    static const unsigned int FLOOR_METAL = 5;
+    static const unsigned int CENTER_CORN = 6;
 
     static const int COUNT = 6;
 
