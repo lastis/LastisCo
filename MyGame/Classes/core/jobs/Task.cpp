@@ -1,7 +1,6 @@
 #include "Task.h"
 #include "../Person.h"
 #include "../Path.h"
-#include "../Identifiers.h"
 
 #ifdef TESTING
 #include <iostream>
@@ -43,4 +42,8 @@ void Task::walkOneStep(Person& person){
             loc->z--;
             break;
     }
+}
+
+void Task::setTarget(Location target){
+    this->target = target;
 }

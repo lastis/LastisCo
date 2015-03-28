@@ -5,10 +5,6 @@
 #include "../util.h"
 class TaskInteract : public Task{
 public:
-    /* TaskFarm(); */
 
-    void setTarget(Location* target);
-    
-    Location* target;
 };
 #endif

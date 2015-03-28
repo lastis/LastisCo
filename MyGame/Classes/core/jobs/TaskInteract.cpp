@@ -2,12 +2,10 @@
 #include "../Person.h"
 
 void Task::doTask(Person& person){
-    /* if (util::distanceManhatten(person.loc, Tasktarget) < 1) { */
-        
-    /* } */
-    walkOneStep(person);
+    // Interact with object if we are close enough to it. 
+    if (util::distanceManhatten(person.loc, target) <= 1) {
+        // Interact with block here
+    }
+    else walkOneStep(person);
 }
 
-void TaskInteract::setTarget(Location* target){
-    this->target = target;
-}
