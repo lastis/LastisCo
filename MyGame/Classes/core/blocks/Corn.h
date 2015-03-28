@@ -2,11 +2,14 @@
 #define __CORN_H_INCLUDED__
 #include "../Base.h"
 
+class Person;
 class Corn : public Base{
 public:
     Corn();
     void update();
     void grow();
+    void interact(Person& person);
+    bool isFinished();
 
     bool planted;
     int stage;

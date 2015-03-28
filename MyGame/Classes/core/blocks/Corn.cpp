@@ -1,4 +1,5 @@
 #include "Corn.h"
+#include "../Person.h"
 
 #ifdef TESTING
 #include <iostream>
@@ -10,6 +11,16 @@ Corn::Corn(){
     stage2 = 4;
     stage3 = 6;
     stageFinal = stage3;
+    planted = false;
+}
+
+void Corn::interact(Person& person){
+    if (!isFinished()) return;
+}
+
+bool Corn::isFinished(){
+    if (stage == stageFinal) return true;
+    return false;
 }
 
 void Corn::update(){
