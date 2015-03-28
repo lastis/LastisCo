@@ -235,11 +235,11 @@ SUITE(Tasks){
         Path* path = pathfinder.findPath(start, goal);
 
         // Put the path in the task.
-        TaskFarm taskFarm = TaskFarm();
-        taskFarm.setPath(path);
+        TaskInteract task = TaskInteract();
+        task.setPath(path);
         // Put the task in the person. 
         Person person = Person();
-        person.setTask(&taskFarm);
+        person.setTask(&task);
         delete path;
     }
 
@@ -253,12 +253,12 @@ SUITE(Tasks){
         Path* path = pathfinder.findPath(start, goal);
 
         // Put the path in the task.
-        TaskFarm taskFarm = TaskFarm();
-        taskFarm.setPath(path);
+        TaskInteract task = TaskInteract();
+        task.setPath(path);
         // Put the task in the person. 
         Person person = Person();
         person.location = start;
-        person.setTask(&taskFarm);
+        person.setTask(&task);
         // Walk the person.
         person.update();
         person.update();

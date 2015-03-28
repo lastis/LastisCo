@@ -1,7 +1,7 @@
 #ifndef __TASK_INTERACT_H_INCLUDED__
 #define __TASK_INTERACT_H_INCLUDED__
 #include "Task.h"
-class TaskFarm : public Task{
+class TaskInteract : public Task{
 public:
     /* TaskFarm(); */
 
