@@ -236,7 +236,7 @@ SUITE(Tasks){
         Path* path = pathfinder.findPath(start, goal);
 
         // Put the path in the task.
-        TaskInteract task = TaskInteract();
+        TaskMove task = TaskMove();
         task.setPath(path);
         // Put the task in the person. 
         Person person = Person();

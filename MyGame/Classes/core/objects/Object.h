@@ -5,9 +5,13 @@
 #include "../Base.h"
 // Base class for all objects. Used to be able to make an 
 // array of objects.
+class Person;
 class Object : public Base{
 public:
     Object();
+    virtual void interact(Person& person) = 0;
+
+
     Location loc;
 
 };
