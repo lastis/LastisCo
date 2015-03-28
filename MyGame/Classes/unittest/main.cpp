@@ -197,6 +197,7 @@ SUITE(Tasks){
         // Put the task in the person. 
         Person person = Person();
         person.setTask(&taskFarm);
+        delete path;
     }
 
     TEST(WalkTask){
@@ -233,6 +234,7 @@ SUITE(Tasks){
         CHECK_EQUAL(4,person.location.y);
         CHECK_EQUAL(0,person.location.z);
 
+        delete path;
     }
 }
 
