@@ -2,8 +2,9 @@
 
 #include "../core/ShipMap.h"
 #include "../core/Person.h"
-#include "../core/jobs/TaskInteract.h"
 #include "../core/objects/Corn.h"
+#include "../core/jobs/TaskInteract.h"
+#include "../core/jobs/TaskMove.h"
 #include <iostream>
 
 using namespace std;
@@ -253,7 +254,7 @@ SUITE(Tasks){
         Path* path = pathfinder.findPath(start, goal);
 
         // Put the path in the task.
-        TaskInteract task = TaskInteract();
+        TaskMove task = TaskMove();
         task.setPath(path);
         // Put the task in the person. 
         Person person = Person();

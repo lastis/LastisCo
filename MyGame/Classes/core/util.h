@@ -1,5 +1,6 @@
 #ifndef __UTIL_H_INCLUDED__
 #define __UTIL_H_INCLUDED__
+#include "Location.h"
 namespace util{
     int static distanceManhatten(Location loc1, Location loc2){
         // Manhatten distance. 
