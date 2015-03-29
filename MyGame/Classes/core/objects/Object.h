@@ -11,8 +11,14 @@ public:
     Object();
     virtual void interact(Person& person) = 0;
 
-
     Location loc;
 
 };
+
+struct ObjectTest : public Object {
+    void interact(Person& person){
+        return;
+    }
+};
+
 #endif

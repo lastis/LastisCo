@@ -1,14 +1,14 @@
 #ifdef TESTING
 #include <iostream>
 #endif
-#include "Base.h"
+#include "objects/Object.h"
 
 class LinkedList{
     // Struct inside the class LinkedList
     // This is one node which is not needed by the caller. It is just
     // for internal work.
     struct Node {
-        Base *val;
+        Object *val;
         Node *next;
     };
 private:
@@ -19,13 +19,13 @@ public:
     LinkedList();
     ~LinkedList();
     // This prepends a new value at the beginning of the list
-    void add(Base* val);
+    void add(Object* val);
     bool isEmpty();
     int getLength();
-    Base* findWithUID(int UID);
+    Object* findWithUID(int UID);
     bool removeWithUID(int UID);
 
     // returns the first element in the list and deletes the Node.
     // caution, no error-checking here!
-    Base* pop();
+    Object* pop();
 };

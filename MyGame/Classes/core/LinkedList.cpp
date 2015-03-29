@@ -11,7 +11,7 @@ LinkedList::LinkedList(){
 }
 
 // This prepends a new value at the beginning of the list
-void LinkedList::add(Base* val){
+void LinkedList::add(Object* val){
     Node *n = new Node();   // create new Node
     n->val = val;           // set value
     n->next = head;         // make the node point to the next node.
@@ -24,10 +24,10 @@ void LinkedList::add(Base* val){
 
 // returns the first element in the list and deletes the Node.
 // caution, no error-checking here!
-Base* LinkedList::pop(){
+Object* LinkedList::pop(){
     if (length == 0) return NULL;
     Node* n = head;
-    Base* val = n->val;
+    Object* val = n->val;
 
     head = head->next;
     length--;
@@ -35,9 +35,9 @@ Base* LinkedList::pop(){
     return val;
 }
 
-Base* LinkedList::findWithUID(int UID){
+Object* LinkedList::findWithUID(int UID){
     Node* n = head;
-    Base* obj = head->val;
+    Object* obj = head->val;
     int objUID = obj->UID;
     while (objUID != UID) {
         n = n->next;

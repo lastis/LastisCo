@@ -74,9 +74,10 @@ SUITE(LinkedList){
 
     TEST(Add){
         LinkedList list1 = LinkedList();
-        Base obj1 = Base();
-        Base obj2 = Base();
-        Base obj3 = Base(); list1.add(&obj1);
+        ObjectTest obj1 = ObjectTest();
+        ObjectTest obj2 = ObjectTest();
+        ObjectTest obj3 = ObjectTest();
+        list1.add(&obj1);
         list1.add(&obj2);
         list1.add(&obj3);
         CHECK(list1.isEmpty() == false);
@@ -84,9 +85,9 @@ SUITE(LinkedList){
 
     TEST(Remove){
         LinkedList list1 = LinkedList();
-        Base obj1 = Base();
-        Base obj2 = Base();
-        Base obj3 = Base();
+        ObjectTest obj1 = ObjectTest();
+        ObjectTest obj2 = ObjectTest();
+        ObjectTest obj3 = ObjectTest();
         list1.add(&obj1);
         list1.add(&obj2);
         list1.add(&obj3);
@@ -99,9 +100,9 @@ SUITE(LinkedList){
 
     TEST(SearchAndDestroy){
         LinkedList list1 = LinkedList();
-        Base obj1 = Base();
-        Base obj2 = Base();
-        Base obj3 = Base();
+        ObjectTest obj1 = ObjectTest();
+        ObjectTest obj2 = ObjectTest();
+        ObjectTest obj3 = ObjectTest();
         obj1.UID = 2;
         obj2.UID = 3;
         obj3.UID = 4;
@@ -117,9 +118,9 @@ SUITE(LinkedList){
 
     TEST(Find){
         LinkedList list1 = LinkedList();
-        Base obj1 = Base();
-        Base obj2 = Base();
-        Base obj3 = Base();
+        ObjectTest obj1 = ObjectTest();
+        ObjectTest obj2 = ObjectTest();
+        ObjectTest obj3 = ObjectTest();
         obj1.UID = 1;
         obj2.UID = 2;
         obj3.UID = 3;
