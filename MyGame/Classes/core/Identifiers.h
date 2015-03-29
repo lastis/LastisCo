@@ -1,6 +1,5 @@
 #ifndef __IDENTIFIERS_H_INCLUDED__
 #define __IDENTIFIERS_H_INCLUDED__
-#include "Location.h"
 
 static const int MAX_PATH_LENGTH = 20;
 

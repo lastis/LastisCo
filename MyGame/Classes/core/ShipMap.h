@@ -1,6 +1,7 @@
 #include "Pathfinder.h"
 #include "Room.h"
 #include "objects/Object.h"
+#include "objects/ObjectCreator.h"
 
 class ShipMap {
 public:
@@ -14,13 +15,16 @@ public:
     void insertWallVertical(int blockID, Location start, Location end);
     inline void simplifyLocations(Location& loc1, Location& loc2);
 
-    bool createRoom(Location* locations, int N, int roomID);
-    void clearAllRooms();
+    Room* createRoom(Location* locations, int N, int roomID);
+    void clearAllRoomsAndObjects();
     Path* getPathToRoom(int UID, Location start);
     Room* getRoom(int UID);
     Room* getRoom(Location loc);
 
-    bool addObject(int ID, Location loc);
+    Object* addObject(int ID, Location loc);
+    int getObjectCntLoose();
+    Object* getObjectFromUID(int UID);
+    Object* getObjectFromLoc(Location loc);
 
     unsigned int*** getMap();
     unsigned int*** getMapFloor();
@@ -36,7 +40,8 @@ public:
     int N;
     int M;
 private:
-    int roomCnt;
+    int cntRooms;
+    int cntObjects;
     static const int MAX_ROOMS = 10;
     Room* rooms[MAX_ROOMS];
     LinkedList objectsLoose;

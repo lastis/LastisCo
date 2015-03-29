@@ -1,11 +1,13 @@
 #include "Corn.h"
 #include "../Person.h"
+#include "../Identifiers.h"
 
 #ifdef TESTING
 #include <iostream>
 #endif
 
 Corn::Corn(){
+    ID = blocks::CENTER_CORN;
     time = 0;
     stage1 = 2;
     stage2 = 4;

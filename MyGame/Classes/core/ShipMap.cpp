@@ -28,7 +28,8 @@ void ShipMap::initialize(int O, int N, int M){
     mapWallsNorth = containerMapWallsNorth.getMatrix();
     mapAccess = containerMapAccess.getMatrix();
     mapRooms = containerMapAccess.getMatrix();
-    roomCnt = 0;
+    cntRooms = 0;
+    cntObjects = 0;
     for (int i = 0; i < MAX_ROOMS; i++) {
         rooms[i] = NULL;
     }
@@ -120,10 +121,10 @@ void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
     }
 }
 
-bool ShipMap::createRoom(Location* locations, int N, int roomID){
-    if (roomCnt == MAX_ROOMS) return false;
-    if (locations == NULL) return false;
-    roomCnt++;
+Room* ShipMap::createRoom(Location* locations, int N, int roomID){
+    if (cntRooms == MAX_ROOMS) return NULL;
+    if (locations == NULL) return NULL;
+    cntRooms++;
     int x, y, z;
     for (int i = 0; i < N; i++) {
         x = locations[i].x;
@@ -133,7 +134,7 @@ bool ShipMap::createRoom(Location* locations, int N, int roomID){
         /* std::cout << " : y : " << y; */
         /* std::cout << " : z : " << z << std::endl; */
         // Label each room from 1 and up. 
-        mapRooms[z][y][x] = roomCnt;
+        mapRooms[z][y][x] = cntRooms;
     }
     // Case switch, create roomobject and allocate it to 
     // the rooms array. Maybe to keymap? This uses roomID
@@ -141,14 +142,26 @@ bool ShipMap::createRoom(Location* locations, int N, int roomID){
     // Find a way to mark the center of the room? Using the first
     // position now.
     room->center = locations[0];
-    room->UID = roomCnt;
-    rooms[roomCnt-1] = room;
-    return true;
+    room->UID = cntRooms;
+    rooms[cntRooms-1] = room;
+    return room;
 }
 
-void ShipMap::clearAllRooms(){
-    for (int i = 1; i <= roomCnt; i++) {
-        delete rooms[i-1];
+void ShipMap::clearAllRoomsAndObjects(){
+    // Delete objects
+    for (int i = 1; i <= cntRooms; i++) {
+        // Delete objects in all the rooms.
+        Room* room = rooms[i-1];
+        int cnt = room->objects.getLength();
+        for (int j = 0; j < cnt; j++) {
+            // Get objects from all lists and delete them. 
+            delete room->objects.pop();
+        }
+        delete room;
+    }
+    // Delete all objects in shipmap.
+    for (int i = 0; i < objectsLoose.getLength(); i++) {
+        delete objectsLoose.pop();
     }
     for (int z = 0; z < O; z++) {
         for (int y = 0; y < N; y++) {
@@ -157,7 +170,7 @@ void ShipMap::clearAllRooms(){
             }
         }
     }
-    roomCnt = 0;
+    cntRooms = 0;
 }
 
 Room* ShipMap::getRoom(int UID){
@@ -170,23 +183,39 @@ Room* ShipMap::getRoom(Location loc){
     return getRoom(UID);
 }
 
-bool ShipMap::addObject(int ID, Location loc){
+int ShipMap::getObjectCntLoose(){
+    return objectsLoose.getLength();
+}
+
+Object* ShipMap::getObjectFromUID(int UID){
+    return objectsLoose.findWithUID(UID);
+}
+
+Object* ShipMap::addObject(int ID, Location loc){
+    if (ID == 0) return NULL;
     // Check if the location is occupied.
     int x = loc.x;
     int y = loc.y;
     int z = loc.z;
-    if (map[z][y][x] != 0) return false;
+    if (map[z][y][x] != 0) return NULL;
+    // Create the object. Object ID is set in its constructor.
+    Object* obj = object_creator::createObject(ID);
+    if (obj == NULL) return NULL;
+    cntObjects++;
+    obj->loc = loc;
+    obj->UID = cntObjects;
+    map[loc.z][loc.y][loc.x] = ID;
     // Either add the object to the room it is in
     // or add it to the loose objects list in shipmap.
-    
-    /* Room* room = getRoom(object.loc); */
-    /* if (room != NULL) { */
-    /*     room->addObject(object); */
-    /* } */
-    /* else { */
-    /*     objectsLoose.add(object); */
-    /* } */
-    return true;
+    Room* room = getRoom(loc);
+    if (room != NULL) {
+        room->addObject(*obj);
+    }
+    else {
+        objectsLoose.add(*obj);
+    }
+    // Return the object because many times the creator wants it.
+    return obj;
 
 }
 
@@ -259,7 +288,7 @@ void ShipMap::updateMapAccess(){
 
 ShipMap::~ShipMap(){
     // TODO: Dont do this here.
-    clearAllRooms();
+    clearAllRoomsAndObjects();
 }
 
 

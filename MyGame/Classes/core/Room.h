@@ -12,6 +12,7 @@ public:
     Location findObjectLocation(int objectID);
     Object* findWithUID(int UID);
     bool removeWithUID(int UID);
+    int getObjectCnt();
 
     Location center;
     /* char name[10]; */

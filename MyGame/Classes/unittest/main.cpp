@@ -504,7 +504,6 @@ SUITE(ShipMap){
         CHECK_EQUAL(1,map[2][3][1]);
         CHECK_EQUAL(1,map[2][3][2]);
         CHECK_EQUAL(1,map[2][3][3]);
-        ship.clearAllRooms();
         delete[] loc;
     }
 
@@ -552,8 +551,8 @@ SUITE(ShipMap){
         // Make room 3x3 at z = 1, y = 2, x = 2. 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                loc1[i*3 + j].x = 2+j;
-                loc1[i*3 + j].y = 2+i;
+                loc1[i*3 + j].x = 1+j;
+                loc1[i*3 + j].y = 1+i;
                 loc1[i*3 + j].z = 1;
             }
         }
@@ -561,16 +560,47 @@ SUITE(ShipMap){
         // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                loc2[i*3 + j].x = 5+j;
-                loc2[i*3 + j].y = 5+i;
+                loc2[i*3 + j].x = 4+j;
+                loc2[i*3 + j].y = 4+i;
                 loc2[i*3 + j].z = 1;
             }
         }
         // Create the rooms in the ship
-        ship.createRoom(loc1, 9, 0);
-        ship.createRoom(loc2, 9, 1);
-        Room* room1 = ship.getRoom(loc1[0]);
-        Room* room2 = ship.getRoom(loc2[0]);
+        Room* room1 = ship.createRoom(loc1, 9, 0);
+        Room* room2 = ship.createRoom(loc2, 9, 1);
+
+        // Add one corn object in the first location of room 1.
+        Object* obj1 = ship.addObject(blocks::CENTER_CORN,loc1[0]);
+        CHECK(obj1 != NULL);
+        Object* obj2 = ship.addObject(blocks::CENTER_CORN,loc2[0]);
+        CHECK(obj2 != NULL);
+        // Also add one object outside the rooms.
+        Object* obj3 = ship.addObject(blocks::CENTER_CORN,Location(10,10,1));
+        CHECK(obj3 != NULL);
+        // Check that the object have non-zero UIDs.
+        CHECK(obj1->UID != 0);
+        CHECK(obj2->UID != 0);
+        CHECK(obj3->UID != 0);
+
+        // Check if the objects have been added to the map.
+        using namespace blocks;
+        unsigned int*** map = ship.getMap();
+        int x,y,z;
+        x = loc1[0].x;
+        y = loc1[0].y;
+        z = loc1[0].z;
+        CHECK_EQUAL(CENTER_CORN,map[z][y][x]);
+        x = loc2[0].x;
+        y = loc2[0].y;
+        z = loc2[0].z;
+        CHECK_EQUAL(CENTER_CORN,map[z][y][x]);
+        CHECK_EQUAL(CENTER_CORN,map[1][10][10]);
+
+        // Check that shipmap only holds one object and the rooms hold
+        // the rest.
+        CHECK_EQUAL(1,ship.getObjectCntLoose());
+        CHECK_EQUAL(1,room1->getObjectCnt());
+        CHECK_EQUAL(1,room2->getObjectCnt());
 
 
         delete[] loc1;
