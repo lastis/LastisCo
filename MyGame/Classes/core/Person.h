@@ -14,6 +14,7 @@ public:
     bool hasTask();
     void update();
     bool addToInventory(int ID, int amount);
+    int takeFromInventory(int ID, int amount);
 
     Location loc;
     Task* task;

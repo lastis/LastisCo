@@ -9,6 +9,8 @@ public:
     void deligateTask(Person& person);
     void gather(Person& person);
     void sow(Person& person);
+    bool hasSeeds(Person& person);
+    bool grownCrops();
 };
 
 

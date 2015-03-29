@@ -8,31 +8,31 @@ namespace directions{
     // These assignments are bit values. 
     // Used to interpret directions.
     static const unsigned int NO_DIRECTION = 0;
-    static const unsigned int EAST       = 1<<0;//1;
-    static const unsigned int NORTH      = 1<<1;//4
-    static const unsigned int UP         = 1<<2;//16;
-    static const unsigned int WEST       = 1<<3;//2
-    static const unsigned int SOUTH      = 1<<4;//8
+    static const unsigned int EAST       = 1<<0;//1
+    static const unsigned int NORTH      = 1<<1;//2
+    static const unsigned int UP         = 1<<2;//4
+    static const unsigned int WEST       = 1<<3;//8
+    static const unsigned int SOUTH      = 1<<4;//16
     static const unsigned int DOWN       = 1<<5;//32;
 
     // Used to block a given direction. Basically
-    // makes a wall in that direction. (Only blocks one way.)
+    // makes a wall in that direction.
     static const unsigned int BLOCK_NONE    = 0;//0;
     static const unsigned int BLOCK_WEST    = 1<<0;//1;
-    static const unsigned int BLOCK_SOUTH   = 1<<1;//4
-    static const unsigned int BLOCK_DOWN    = 1<<2;//16;
-    static const unsigned int BLOCK_EAST    = 1<<3;//2
-    static const unsigned int BLOCK_NORTH   = 1<<4;//8
+    static const unsigned int BLOCK_SOUTH   = 1<<1;//2
+    static const unsigned int BLOCK_DOWN    = 1<<2;//4
+    static const unsigned int BLOCK_EAST    = 1<<3;//8
+    static const unsigned int BLOCK_NORTH   = 1<<4;//16
     static const unsigned int BLOCK_UP      = 1<<5;//32;
     static const unsigned int BLOCK_ALL  = EAST + WEST + NORTH 
                                            + SOUTH + UP + DOWN;
 }
 
 namespace rooms{
-    static const int KITCHEN = 0;
-    static const int BRIDGE = 1;
-    static const int ENGINE = 2;
-    static const int WEAPONS = 3;
+    static const int KITCHEN = 1;
+    static const int BRIDGE = 2;
+    static const int ENGINE = 3;
+    static const int WEAPONS = 4;
 }
 
 namespace blocks{
