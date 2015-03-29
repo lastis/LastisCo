@@ -162,6 +162,15 @@ Room* ShipMap::getRoom(int UID){
     return rooms[UID];
 }
 
+Room* ShipMap::getRoom(Location loc){
+    int UID = mapRooms[loc.z][loc.y][loc.x];
+    return rooms[UID];
+}
+
+void ShipMap::addObject(Object& object){
+
+}
+
 unsigned int*** ShipMap::getMap(){
     return map;
 }

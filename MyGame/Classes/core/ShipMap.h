@@ -1,5 +1,6 @@
 #include "Pathfinder.h"
 #include "Room.h"
+#include "objects/Object.h"
 
 class ShipMap {
 public:
@@ -16,6 +17,11 @@ public:
     inline void simplifyLocations(Location& loc1, Location& loc2);
     Path* getPathToRoom(int UID, Location start);
     Room* getRoom(int UID);
+    Room* getRoom(Location loc);
+
+    void addObject(Object& object);
+
+
     unsigned int*** getMap();
     unsigned int*** getMapFloor();
     unsigned int*** getMapEastWalls();
