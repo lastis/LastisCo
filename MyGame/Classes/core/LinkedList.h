@@ -24,8 +24,8 @@ public:
     int getLength();
     Object* findWithUID(int UID);
     bool removeWithUID(int UID);
-
     // returns the first element in the list and deletes the Node.
     // caution, no error-checking here!
     Object* pop();
+
 };
