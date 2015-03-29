@@ -479,7 +479,10 @@ SUITE(ShipMap){
         ShipMap ship = ShipMap(5,5,5); 
     }
 
-    TEST(RoomUIDs){
+
+    TEST(CreateRoom){
+        // Create a room and check if the room has been
+        // added to the rooms map.
         ShipMap ship = ShipMap(5,5,5);
         Location* loc = new Location[9];
         // Make room 3x3 at z = 2. 
@@ -502,6 +505,20 @@ SUITE(ShipMap){
         CHECK_EQUAL(1,map[2][3][2]);
         CHECK_EQUAL(1,map[2][3][3]);
         ship.clearAllRooms();
+        delete[] loc;
+    }
+
+    TEST(GetRoomFromLocation){
+        ShipMap ship = ShipMap(3,10,10);
+        Location* loc = new Location[9];
+        // Make room 3x3 at z = 1. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc[i*3 + j].x = 1+j;
+                loc[i*3 + j].y = 1+i;
+                loc[i*3 + j].z = 2;
+            }
+        }
         delete[] loc;
     }
 
