@@ -2,6 +2,7 @@
 #include "Room.h"
 #include "objects/Object.h"
 #include "objects/ObjectCreator.h"
+#include "Person.h"
 
 class ShipMap {
 public:
@@ -22,9 +23,11 @@ public:
     Room* getRoom(Location loc);
 
     Object* addObject(int ID, Location loc);
-    int getObjectCntLoose();
     Object* getObjectFromUID(int UID);
     Object* getObjectFromLoc(Location loc);
+    int     getObjectCntLoose();
+
+    Person* addCrewMember(int ID, Location loc);
 
     unsigned int*** getMap();
     unsigned int*** getMapFloor();
@@ -40,9 +43,12 @@ public:
     int N;
     int M;
 private:
+    int cntCrew;
     int cntRooms;
     int cntObjects;
-    static const int MAX_ROOMS = 10;
+    static const int MAX_ROOMS = 20;
+    static const int MAX_CREW = 100;
+    Person* crew[MAX_CREW];
     Room* rooms[MAX_ROOMS];
     LinkedList objectsLoose;
     // Rename these? Not obvious what the internal system is.

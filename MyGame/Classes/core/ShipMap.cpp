@@ -213,6 +213,18 @@ Object* ShipMap::addObject(int ID, Location loc){
 
 }
 
+Person* ShipMap::addCrewMember(int ID, Location loc){
+    if (ID == 0) return NULL;
+    int x = loc.x;
+    int y = loc.y;
+    int z = loc.z;
+    // Create the crew member.
+    Person* crewMember = new Person();
+    cntCrew++;
+    crewMember->UID = cntCrew;
+    return crewMember;
+}
+
 unsigned int*** ShipMap::getMap(){
     return map;
 }

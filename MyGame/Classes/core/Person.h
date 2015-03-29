@@ -2,9 +2,9 @@
 #define __PERSON_H_INCLUDED__
 
 #include "Location.h"
+#include "Base.h"
 class Task;
-class Base;
-class Person {
+class Person : public Base{
 public:
     static const int INVENTORY_SPACE = 5;
 
