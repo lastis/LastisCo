@@ -11,6 +11,7 @@ public:
     Person();
     void setTaskFinished(bool val);
     void setTask(Task* task);
+    bool hasTask();
     void update();
     bool addToInventory(int ID, int amount);
 

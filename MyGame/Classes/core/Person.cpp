@@ -42,6 +42,10 @@ bool Person::addToInventory(int ID, int amount){
 void Person::setTask(Task* task){
     this->task = task;
 }
+bool Person::hasTask(){
+    if(task != NULL) return true;
+    else return false;
+}
 
 void Person::update(){
     if (task != NULL) {

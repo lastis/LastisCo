@@ -1,9 +1,6 @@
 #include "TaskInteract.h"
 #include "../Person.h"
 
-#ifdef TESTING
-#include <iostream>
-#endif
 
 TaskInteract::TaskInteract(Object& obj) : target(obj){
 
@@ -21,8 +18,8 @@ void TaskInteract::doTask(Person& person){
 
     }
     else {
-        bool notStuck = walkOneStep(person);
-        if (notStuck == false) person.task = NULL;
+        bool finished = walkOneStep(person);
+        if (finished) person.task = NULL;
     }
 }
 

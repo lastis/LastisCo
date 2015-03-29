@@ -19,13 +19,13 @@ SUITE(Identifiers){
     }
 }
 
-SUITE(BLOCKS){
-    TEST(CORN){
+SUITE(Objects){
+    TEST(Corn){
         Corn corn = Corn();
     }
 }
 
-SUITE(PERSON){
+SUITE(Person){
     TEST(INVENTORY){
         Person person = Person();
         // Add things to inventory, returns true if successful.
@@ -239,8 +239,8 @@ SUITE(Tasks){
         Matrix3D map = Matrix3D(1,5,5);
         Pathfinder pathfinder = Pathfinder(map);
 
-        Location start = Location(0,0,0);
-        Location goal = Location(4,4,0);
+        Location start = Location(0,1,0);
+        Location goal = Location(4,1,0);
         Path* path = pathfinder.findPath(start, goal);
 
         // Put the path in the task.
@@ -250,23 +250,17 @@ SUITE(Tasks){
         Person person = Person();
         person.loc = start;
         person.setTask(&task);
-        // Walk the person.
-        person.update();
-        person.update();
-        person.update();
-        person.update();
-        person.update();
-        person.update();
-        person.update();
-        person.update();
+        // Walk the person. Distance to goal is 4.
         person.update();
         person.update();
         person.update();
         person.update();
         // Check the person arrived at the desired position.
         CHECK_EQUAL(4,person.loc.x);
-        CHECK_EQUAL(4,person.loc.y);
+        CHECK_EQUAL(1,person.loc.y);
         CHECK_EQUAL(0,person.loc.z);
+        // The task should also have been removed from the person.
+        CHECK(person.hasTask() == false);
 
         delete path;
     }
