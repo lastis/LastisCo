@@ -152,17 +152,11 @@ void ShipMap::clearAllRoomsAndObjects(){
     for (int i = 1; i <= cntRooms; i++) {
         // Delete objects in all the rooms.
         Room* room = rooms[i-1];
-        int cnt = room->objects.getLength();
-        for (int j = 0; j < cnt; j++) {
-            // Get objects from all lists and delete them. 
-            delete room->objects.pop();
-        }
+        room->deleteObjects();
         delete room;
     }
     // Delete all objects in shipmap.
-    for (int i = 0; i < objectsLoose.getLength(); i++) {
-        delete objectsLoose.pop();
-    }
+    objectsLoose.deleteObjects();
     for (int z = 0; z < O; z++) {
         for (int y = 0; y < N; y++) {
             for (int x = 0; x < M; x++) {

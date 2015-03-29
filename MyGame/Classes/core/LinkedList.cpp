@@ -77,6 +77,12 @@ bool LinkedList::isEmpty(){
     else return false;
 }
 
+void LinkedList::deleteObjects(){
+    while (!isEmpty()){
+        delete pop();
+    }
+}
+
 LinkedList::~LinkedList(){
     while (!isEmpty()) {
         pop();

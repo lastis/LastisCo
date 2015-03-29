@@ -7,14 +7,15 @@
 class Room : public Base{
 public:
     Room();
-    LinkedList objects;
-    void addObject(Object& object);
-    Location findObjectLocation(int objectID);
-    Object* findWithUID(int UID);
-    bool removeWithUID(int UID);
-    int getObjectCnt();
+    void        addObject(Object& object);
+    void        deleteObjects();
+    Location    findObjectLocation(int objectID);
+    Object*     findWithUID(int UID);
+    bool        removeWithUID(int UID);
+    int         getObjectCnt();
 
     Location center;
+    LinkedList objects;
     /* char name[10]; */
 
 };

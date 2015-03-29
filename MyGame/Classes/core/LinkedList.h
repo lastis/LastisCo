@@ -15,17 +15,14 @@ private:
     Node *head; 
     int length;
 public:
-    // constructor
     LinkedList();
     ~LinkedList();
-    // This prepends a new value at the beginning of the list
-    void add(Object& val);
-    bool isEmpty();
-    int getLength();
+    void    add(Object& val);
+    void    deleteObjects();
+    bool    isEmpty();
+    bool    removeWithUID(int UID);
+    int     getLength();
     Object* findWithUID(int UID);
-    bool removeWithUID(int UID);
-    // returns the first element in the list and deletes the Node.
-    // caution, no error-checking here!
     Object* pop();
 
 };
