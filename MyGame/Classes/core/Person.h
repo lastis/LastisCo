@@ -9,6 +9,7 @@ public:
     static const int INVENTORY_SPACE = 5;
 
     Person();
+    void setTaskFinished(bool val);
     void setTask(Task* task);
     void update();
     bool addToInventory(int ID, int amount);

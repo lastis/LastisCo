@@ -14,33 +14,36 @@ void Task::setPath(Path* path){
     this->path = path;
 }
 
-void Task::walkOneStep(Person& person){
+bool Task::walkOneStep(Person& person){
+    // Return false if a diretion cannot be found.
     using namespace directions;
-    if (path == NULL) return;
+    if (path == NULL) return false;
     unsigned int dir = path->getNextDirection();
-    Location* loc = &person.loc;
+    Location& loc = person.loc;
     
     switch (dir) {
         case NO_DIRECTION :
-            break;
+            return false;
         case EAST :
-            loc->x++;
-            break;
+            loc.x++;
+            return true;
         case WEST :
-            loc->x--;
-            break;
+            loc.x--;
+            return true;
         case NORTH :
-            loc->y++;
-            break;
+            loc.y++;
+            return true;
         case SOUTH :
-            loc->y--;
-            break;
+            loc.y--;
+            return true;
         case UP :
-            loc->z++;
-            break;
+            loc.z++;
+            return true;
         case DOWN :
-            loc->z--;
-            break;
+            loc.z--;
+            return true;
+        default:
+            return false;
     }
 }
 

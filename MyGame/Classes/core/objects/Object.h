@@ -8,16 +8,17 @@
 class Person;
 class Object : public Base{
 public:
-    Object();
-    virtual void interact(Person& person) = 0;
+    /* Object(); */
+    virtual bool interact(Person& person) = 0;
 
     Location loc;
-
 };
 
 struct ObjectTest : public Object {
-    void interact(Person& person){
-        return;
+    bool interact(Person& person){
+        // Objects that cannot be interacted with should return
+        // true, as false has the meaning "work in progress".
+        return true;
     }
 };
 

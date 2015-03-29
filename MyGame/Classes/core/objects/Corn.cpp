@@ -13,15 +13,15 @@ Corn::Corn(){
     stage2 = 4;
     stage3 = 6;
     stageFinal = stage3;
-    planted = false;
 }
 
-void Corn::interact(Person& person){
+bool Corn::interact(Person& person){
     // Put corn in the persons inventory if fully grown.
     // Objects of corn should only exsist on the map. 
-    if (!isFinished()) return;
+    if (!isFinished()) return false;
     // Add multiple corns to his inventory.
     person.addToInventory(ID,2);
+    return true;
 }
 
 bool Corn::isFinished(){
@@ -30,7 +30,7 @@ bool Corn::isFinished(){
 }
 
 void Corn::update(){
-    if (planted) grow();
+    grow();
 }
 
 void Corn::grow(){

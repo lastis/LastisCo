@@ -8,7 +8,7 @@ public:
     Task();
     virtual void doTask(Person& person) = 0;
     // Should be private?
-    void walkOneStep(Person& person);
+    bool walkOneStep(Person& person);
     void setPath(Path* path);
 
     Path* path;

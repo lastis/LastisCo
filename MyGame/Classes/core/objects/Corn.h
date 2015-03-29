@@ -8,10 +8,9 @@ public:
     Corn();
     void update();
     void grow();
-    void interact(Person& person);
+    bool interact(Person& person);
     bool isFinished();
 
-    bool planted;
     int stage;
     int stage1;
     int stage2;

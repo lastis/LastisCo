@@ -1,15 +1,29 @@
 #include "TaskInteract.h"
 #include "../Person.h"
-TaskInteract::TaskInteract(Object& yo) : target(yo){
+
+#ifdef TESTING
+#include <iostream>
+#endif
+
+TaskInteract::TaskInteract(Object& obj) : target(obj){
 
 }
 
 void TaskInteract::doTask(Person& person){
     // Interact with object if we are close enough to it. 
     if (util::distanceManhatten(person.loc, target.loc) <= 1) {
-        /* target.interact(person); */
+        bool finished = target.interact(person);
+        if (finished) {
+            // Remove the task from the person
+            // if it is finished.
+            person.task = NULL;
+        }
+
     }
-    else walkOneStep(person);
+    else {
+        bool notStuck = walkOneStep(person);
+        if (notStuck == false) person.task = NULL;
+    }
 }
 
 void TaskInteract::setObject(Object& target){
