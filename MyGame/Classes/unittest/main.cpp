@@ -534,10 +534,13 @@ SUITE(ShipMap){
 
         // Find rooms from the location and make sure they
         // are different.
-        /* Room* room1 = ship.getRoom(loc1[0]); */
-        /* Room* room2 = ship.getRoom(loc2[0]); */
-        /* CHECK(room1 != NULL); */
-        /* CHECK(room2 != NULL); */
+        Room* room1 = ship.getRoom(loc1[0]);
+        Room* room2 = ship.getRoom(loc2[0]);
+        CHECK(room1 != NULL);
+        CHECK(room2 != NULL);
+        CHECK(room1 != room2);
+        CHECK(room1->UID != 0);
+        CHECK(room2->UID != 0);
 
         delete[] loc1;
         delete[] loc2;
