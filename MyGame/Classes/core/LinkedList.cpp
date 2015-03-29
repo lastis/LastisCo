@@ -11,10 +11,9 @@ LinkedList::LinkedList(){
 }
 
 // This prepends a new value at the beginning of the list
-void LinkedList::add(Object* val){
-    if (val == NULL) return;
+void LinkedList::add(Object& val){
     Node *n = new Node();   // create new Node
-    n->val = val;           // set value
+    n->val = &val;           // set value
     n->next = head;         // make the node point to the next node.
                             //  If the list is empty, this is NULL, 
                             // so the end of the list --> OK

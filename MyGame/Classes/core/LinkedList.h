@@ -19,7 +19,7 @@ public:
     LinkedList();
     ~LinkedList();
     // This prepends a new value at the beginning of the list
-    void add(Object* val);
+    void add(Object& val);
     bool isEmpty();
     int getLength();
     Object* findWithUID(int UID);
