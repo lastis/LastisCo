@@ -14,8 +14,8 @@ public:
     void insertWallHorizontal(int blockID, Location start, Location end);
     void insertWallVertical(int blockID, Location start, Location end);
     inline void simplifyLocations(Location& loc1, Location& loc2);
-    Path* getPathToRoom(int roomLabel, Location start);
-    Room* getRoom(int roomLabel);
+    Path* getPathToRoom(int UID, Location start);
+    Room* getRoom(int UID);
     unsigned int*** getMap();
     unsigned int*** getMapFloor();
     unsigned int*** getMapEastWalls();
@@ -33,6 +33,7 @@ private:
     int roomCnt;
     static const int MAX_ROOMS = 10;
     Room* rooms[MAX_ROOMS];
+    LinkedList objectsLoose;
     // Rename these? Not obvious what the internal system is.
     // mapAccess uses blocked movement IDs (each bit is important). The others
     // only use block ID to identify what is there. 

@@ -77,9 +77,9 @@ SUITE(LinkedList){
         ObjectTest obj1 = ObjectTest();
         ObjectTest obj2 = ObjectTest();
         ObjectTest obj3 = ObjectTest();
-        list1.add(&obj1);
-        list1.add(&obj2);
-        list1.add(&obj3);
+        list1.add(obj1);
+        list1.add(obj2);
+        list1.add(obj3);
         CHECK(list1.isEmpty() == false);
     }
 
@@ -88,9 +88,9 @@ SUITE(LinkedList){
         ObjectTest obj1 = ObjectTest();
         ObjectTest obj2 = ObjectTest();
         ObjectTest obj3 = ObjectTest();
-        list1.add(&obj1);
-        list1.add(&obj2);
-        list1.add(&obj3);
+        list1.add(obj1);
+        list1.add(obj2);
+        list1.add(obj3);
         CHECK(list1.isEmpty() == false);
         list1.pop();
         list1.pop();
@@ -106,9 +106,9 @@ SUITE(LinkedList){
         obj1.UID = 2;
         obj2.UID = 3;
         obj3.UID = 4;
-        list1.add(&obj1);
-        list1.add(&obj2);
-        list1.add(&obj3);
+        list1.add(obj1);
+        list1.add(obj2);
+        list1.add(obj3);
         list1.removeWithUID(3);
         /* int N = list1.getLength(); */
         /* CHECK_EQUAL(2,N); */
@@ -124,9 +124,9 @@ SUITE(LinkedList){
         obj1.UID = 1;
         obj2.UID = 2;
         obj3.UID = 3;
-        list1.add(&obj1);
-        list1.add(&obj2);
-        list1.add(&obj3);
+        list1.add(obj1);
+        list1.add(obj2);
+        list1.add(obj3);
         Base* obj = list1.findWithUID(2);
         CHECK_EQUAL(obj,&obj2);
     }
