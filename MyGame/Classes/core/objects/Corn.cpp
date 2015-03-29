@@ -21,7 +21,7 @@ void Corn::interact(Person& person){
     // Objects of corn should only exsist on the map. 
     if (!isFinished()) return;
     // Add multiple corns to his inventory.
-    person.addToInventory(*this,2);
+    person.addToInventory(ID,2);
 }
 
 bool Corn::isFinished(){

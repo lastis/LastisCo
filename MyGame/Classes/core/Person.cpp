@@ -15,12 +15,12 @@ Person::Person(){
     task = NULL;
 }
 
-bool Person::addToInventory(Base& base, int amount){
-    if (base.ID == 0) return false;
+bool Person::addToInventory(int ID, int amount){
+    if (ID == 0) return false;
     int slot = 0;
     // Check if already in inventory and icrease the count if it is.
     for (int slot = 0; slot < INVENTORY_SPACE; slot++) {
-        if (inventory[slot] == base.ID) {
+        if (inventory[slot] == ID) {
             inventoryAmount[slot] += amount;
             return true;
         }
@@ -30,7 +30,7 @@ bool Person::addToInventory(Base& base, int amount){
     while (slot < INVENTORY_SPACE){
         if (inventory[slot] == 0) {
             // Put the item in there. 
-            inventory[slot] = base.ID;
+            inventory[slot] = ID;
             inventoryAmount[slot] = amount;
             return true;
         }

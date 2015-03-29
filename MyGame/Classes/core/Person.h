@@ -11,7 +11,7 @@ public:
     Person();
     void setTask(Task* task);
     void update();
-    bool addToInventory(Base& base, int amount);
+    bool addToInventory(int ID, int amount);
 
     Location loc;
     Task* task;

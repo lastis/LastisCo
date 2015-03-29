@@ -27,28 +27,17 @@ SUITE(BLOCKS){
 
 SUITE(PERSON){
     TEST(INVENTORY){
-        Base item1 = Base();
-        Base item2 = Base();
-        Base item3 = Base();
-        Base item4 = Base();
-        Base item5 = Base();
-        Base item6 = Base();
-        item1.ID = 1;
-        item2.ID = 2;
-        item3.ID = 3;
-        item4.ID = 4;
-        item5.ID = 5;
-        item6.ID = 6;
         Person person = Person();
         // Add things to inventory, returns true if successful.
-        CHECK(person.addToInventory(item1,10));
-        CHECK(person.addToInventory(item2,20));
-        CHECK(person.addToInventory(item3,30));
-        CHECK(person.addToInventory(item4,40));
-        CHECK(person.addToInventory(item5,50));
+        // The first number is item IDs.
+        CHECK(person.addToInventory(1,10));
+        CHECK(person.addToInventory(2,20));
+        CHECK(person.addToInventory(3,30));
+        CHECK(person.addToInventory(4,40));
+        CHECK(person.addToInventory(5,50));
         // addToInventory should return false if there
         // is no more room in the inventory.
-        CHECK(person.addToInventory(item6,60) == false);
+        CHECK(person.addToInventory(6,60) == false);
         // Check that the ID has been added to the inventory with 
         // the correct ammount.
         CHECK_EQUAL(person.inventory[0],1);
