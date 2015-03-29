@@ -8,6 +8,7 @@
 
 Task::Task(){
     path = NULL;
+    finished = true;
 }
 
 void Task::setPath(Path* path){
@@ -49,3 +50,7 @@ bool Task::walkOneStep(Person& person){
     return path->isComplete();
 }
 
+void Task::finish(Person& person){
+    // Remove the task from the person if it is finished.
+    finished = true;
+}

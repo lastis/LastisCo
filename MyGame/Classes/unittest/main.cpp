@@ -226,11 +226,11 @@ SUITE(Tasks){
         Path* path = pathfinder.findPath(start, goal);
 
         // Put the path in the task.
-        TaskMove task = TaskMove();
-        task.setPath(path);
+        TaskMove* task = new TaskMove();
+        task->setPath(path);
         // Put the task in the person. 
         Person person = Person();
-        person.setTask(&task);
+        person.setTask(task);
         delete path;
     }
 
@@ -244,23 +244,27 @@ SUITE(Tasks){
         Path* path = pathfinder.findPath(start, goal);
 
         // Put the path in the task.
-        TaskMove task = TaskMove();
-        task.setPath(path);
+        TaskMove* task = new TaskMove();
+        task->setPath(path);
         // Put the task in the person. 
         Person person = Person();
         person.loc = start;
-        person.setTask(&task);
+        person.setTask(task);
         // Walk the person. Distance to goal is 4.
+        // Check that the tasks is not removed during this update.
         person.update();
+        CHECK(person.hasTask() == true);
         person.update();
+        CHECK(person.hasTask() == true);
         person.update();
+        CHECK(person.hasTask() == true);
         person.update();
+        // The task should also have been removed from the person.
+        CHECK(person.hasTask() == false);
         // Check the person arrived at the desired position.
         CHECK_EQUAL(4,person.loc.x);
         CHECK_EQUAL(1,person.loc.y);
         CHECK_EQUAL(0,person.loc.z);
-        // The task should also have been removed from the person.
-        CHECK(person.hasTask() == false);
 
         delete path;
     }

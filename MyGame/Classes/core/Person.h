@@ -9,7 +9,7 @@ public:
     static const int INVENTORY_SPACE = 5;
 
     Person();
-    void setTaskFinished(bool val);
+    ~Person();
     void setTask(Task* task);
     bool hasTask();
     void update();

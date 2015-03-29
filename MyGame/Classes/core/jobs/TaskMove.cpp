@@ -3,5 +3,5 @@
 
 void TaskMove::doTask(Person& person){
     bool finished = walkOneStep(person);
-    if (finished) person.task = NULL;
+    if (finished) finish(person);
 }

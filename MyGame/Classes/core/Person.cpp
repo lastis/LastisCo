@@ -75,6 +75,7 @@ int Person::takeFromInventory(int ID, int amount){
 }
 
 void Person::setTask(Task* task){
+    task->finished = false;
     this->task = task;
 }
 bool Person::hasTask(){
@@ -83,7 +84,13 @@ bool Person::hasTask(){
 }
 
 void Person::update(){
-    if (task != NULL) {
-        task->doTask(*this);
+    if (!hasTask()) return;
+    task->doTask(*this);
+    if (task->finished) {
+        delete task;
+        task = NULL;
     }
+}
+Person::~Person(){
+    if (hasTask()) delete task;
 }

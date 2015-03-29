@@ -2,18 +2,23 @@
 
 
 void JobFarm::deligateTask(Person& person){
-    /* if (hasSeeds(person)) { */
-    /*     sow(person); */
-    /*     return; */
-    /* } */
+    if (hasSeeds(person)) {
+        sow(person);
+        return;
+    }
     /* if (grownCrops()){ */
     /*     gather(person); */
     /*     return; */
     /* } */
 }
 
-bool JobFarm::hasSeeds(Person& person){
+void JobFarm::sow(Person& person){
+    
+}
 
+bool JobFarm::hasSeeds(Person& person){
+    using namespace blocks;
+    return person.hasInInventory(CENTER_CORN,1);
 }
 
 

@@ -2,6 +2,8 @@
 #define __JOB_FARM_H_INCLUDED__
 #include "Job.h"
 #include "TaskInteract.h"
+#include "../Person.h"
+#include "../Identifiers.h"
 
 class JobFarm : public Job{
 public:
