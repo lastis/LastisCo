@@ -170,7 +170,23 @@ Room* ShipMap::getRoom(Location loc){
     return getRoom(UID);
 }
 
-void ShipMap::addObject(Object& object){
+bool ShipMap::addObject(int ID, Location loc){
+    // Check if the location is occupied.
+    int x = loc.x;
+    int y = loc.y;
+    int z = loc.z;
+    if (map[z][y][x] != 0) return false;
+    // Either add the object to the room it is in
+    // or add it to the loose objects list in shipmap.
+    
+    /* Room* room = getRoom(object.loc); */
+    /* if (room != NULL) { */
+    /*     room->addObject(object); */
+    /* } */
+    /* else { */
+    /*     objectsLoose.add(object); */
+    /* } */
+    return true;
 
 }
 

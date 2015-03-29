@@ -20,7 +20,7 @@ public:
     Room* getRoom(int UID);
     Room* getRoom(Location loc);
 
-    void addObject(Object& object);
+    bool addObject(int ID, Location loc);
 
     unsigned int*** getMap();
     unsigned int*** getMapFloor();

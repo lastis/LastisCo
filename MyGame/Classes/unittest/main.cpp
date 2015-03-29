@@ -546,6 +546,37 @@ SUITE(ShipMap){
         delete[] loc2;
     }
 
+    TEST(AddObjects){
+        ShipMap ship = ShipMap(3,20,20);
+        Location* loc1 = new Location[9];
+        // Make room 3x3 at z = 1, y = 2, x = 2. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc1[i*3 + j].x = 2+j;
+                loc1[i*3 + j].y = 2+i;
+                loc1[i*3 + j].z = 1;
+            }
+        }
+        Location* loc2 = new Location[9];
+        // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc2[i*3 + j].x = 5+j;
+                loc2[i*3 + j].y = 5+i;
+                loc2[i*3 + j].z = 1;
+            }
+        }
+        // Create the rooms in the ship
+        ship.createRoom(loc1, 9, 0);
+        ship.createRoom(loc2, 9, 1);
+        Room* room1 = ship.getRoom(loc1[0]);
+        Room* room2 = ship.getRoom(loc2[0]);
+
+
+        delete[] loc1;
+        delete[] loc2;
+    }
+
     TEST(BlockingMovement){
         // TODO: Split this code into multiple tests.
         // Test if both sides of a wall is blocked when one wall is inserted

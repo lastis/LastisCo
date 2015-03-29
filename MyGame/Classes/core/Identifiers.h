@@ -36,13 +36,8 @@ namespace rooms{
     static const int WEAPONS = 3;
 }
 
-namespace objects{
-    static const int BEER = 0;
-}
-
 namespace blocks{
-    // Block types
-    
+    // ID == 0 is used for error checking.
     static const unsigned int CENTER_SPACE = 1;  
     static const unsigned int CENTER_AIR = 2;
     static const unsigned int CENTER_METAL = 3;
