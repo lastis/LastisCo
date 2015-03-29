@@ -121,7 +121,7 @@ void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
 }
 
 bool ShipMap::createRoom(Location* locations, int N, int roomID){
-    if (roomCnt == MAX_ROOMS - 1) return false;
+    if (roomCnt == MAX_ROOMS) return false;
     if (locations == NULL) return false;
     roomCnt++;
     int x, y, z;
@@ -136,8 +136,10 @@ bool ShipMap::createRoom(Location* locations, int N, int roomID){
         mapRooms[z][y][x] = roomCnt;
     }
     // Case switch, create roomobject and allocate it to 
-    // the rooms array. Maybe to keymap?
+    // the rooms array. Maybe to keymap? This uses roomID
     Room* room = new Room();
+    // Find a way to mark the center of the room? Using the first
+    // position now.
     room->center = locations[0];
     room->UID = roomCnt;
     rooms[roomCnt-1] = room;
@@ -145,8 +147,8 @@ bool ShipMap::createRoom(Location* locations, int N, int roomID){
 }
 
 void ShipMap::clearAllRooms(){
-    for (int i = 0; i < roomCnt; i++) {
-        delete rooms[roomCnt-1];
+    for (int i = 1; i <= roomCnt; i++) {
+        delete rooms[i-1];
     }
     for (int z = 0; z < O; z++) {
         for (int y = 0; y < N; y++) {
@@ -159,12 +161,13 @@ void ShipMap::clearAllRooms(){
 }
 
 Room* ShipMap::getRoom(int UID){
-    return rooms[UID];
+    if (UID == 0) return NULL;
+    return rooms[UID-1];
 }
 
 Room* ShipMap::getRoom(Location loc){
     int UID = mapRooms[loc.z][loc.y][loc.x];
-    return rooms[UID];
+    return getRoom(UID);
 }
 
 void ShipMap::addObject(Object& object){

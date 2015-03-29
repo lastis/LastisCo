@@ -509,17 +509,38 @@ SUITE(ShipMap){
     }
 
     TEST(GetRoomFromLocation){
-        ShipMap ship = ShipMap(3,10,10);
-        Location* loc = new Location[9];
-        // Make room 3x3 at z = 1. 
+        ShipMap ship = ShipMap(3,20,20);
+        Location* loc1 = new Location[9];
+        // Make room 3x3 at z = 1, y = 2, x = 2. 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                loc[i*3 + j].x = 1+j;
-                loc[i*3 + j].y = 1+i;
-                loc[i*3 + j].z = 2;
+                loc1[i*3 + j].x = 2+j;
+                loc1[i*3 + j].y = 2+i;
+                loc1[i*3 + j].z = 1;
             }
         }
-        delete[] loc;
+        Location* loc2 = new Location[9];
+        // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc2[i*3 + j].x = 5+j;
+                loc2[i*3 + j].y = 5+i;
+                loc2[i*3 + j].z = 1;
+            }
+        }
+        // Create the rooms in the ship
+        ship.createRoom(loc1, 9, 0);
+        ship.createRoom(loc2, 9, 1);
+
+        // Find rooms from the location and make sure they
+        // are different.
+        /* Room* room1 = ship.getRoom(loc1[0]); */
+        /* Room* room2 = ship.getRoom(loc2[0]); */
+        /* CHECK(room1 != NULL); */
+        /* CHECK(room2 != NULL); */
+
+        delete[] loc1;
+        delete[] loc2;
     }
 
     TEST(BlockingMovement){
