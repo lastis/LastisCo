@@ -4,10 +4,7 @@
 #include <iostream>
 #endif
 
-Job::Job(){
-    map = NULL;
-}
 
-void Job::setShipMap(ShipMap* map){
-    this->map = map;
+void Job::setShipMap(ShipMap& ship){
+    this->ship = ship;
 }

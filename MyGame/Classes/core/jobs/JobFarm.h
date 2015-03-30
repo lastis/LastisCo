@@ -2,6 +2,7 @@
 #define __JOB_FARM_H_INCLUDED__
 #include "Job.h"
 #include "TaskInteract.h"
+#include "TaskPlace.h"
 #include "../Person.h"
 #include "../Identifiers.h"
 

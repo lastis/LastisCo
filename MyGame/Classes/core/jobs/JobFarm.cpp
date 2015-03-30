@@ -13,7 +13,9 @@ void JobFarm::deligateTask(Person& person){
 }
 
 void JobFarm::sow(Person& person){
-    
+    using namespace blocks;
+    /* TaskPlace* task = new TaskPlace(CENTER_CORN,target,ship); */
+    /* person.setTask(task); */
 }
 
 bool JobFarm::hasSeeds(Person& person){
