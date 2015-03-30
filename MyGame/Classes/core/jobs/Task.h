@@ -14,6 +14,7 @@ public:
     bool walkOneStep(Person& person);
     void setPath(Path* path);
     void finish(Person& person);
+    void setFinished(bool val);
     
     bool finished;
     Path* path;

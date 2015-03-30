@@ -75,8 +75,9 @@ int Person::takeFromInventory(int ID, int amount){
 }
 
 void Person::setTask(Task* task){
-    task->finished = false;
     this->task = task;
+    if (task == NULL) return;
+    task->setFinished(false);
 }
 bool Person::hasTask(){
     if(task != NULL) return true;

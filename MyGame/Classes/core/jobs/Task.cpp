@@ -15,6 +15,10 @@ void Task::setPath(Path* path){
     this->path = path;
 }
 
+void Task::setFinished(bool val){
+    finished = val;
+}
+
 bool Task::walkOneStep(Person& person){
     // Return true if the walk is finished
     using namespace directions;
