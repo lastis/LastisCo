@@ -19,6 +19,10 @@ void Task::setFinished(bool val){
     finished = val;
 }
 
+bool Task::isFinished(){
+    return finished;
+}
+
 bool Task::walkOneStep(Person& person){
     // Return true if the walk is finished
     using namespace directions;
@@ -52,9 +56,4 @@ bool Task::walkOneStep(Person& person){
     }
     // Path is finished when the path is finished.
     return path->isComplete();
-}
-
-void Task::finish(Person& person){
-    // Remove the task from the person if it is finished.
-    finished = true;
 }

@@ -13,8 +13,8 @@ public:
     // Should be private?
     bool walkOneStep(Person& person);
     void setPath(Path* path);
-    void finish(Person& person);
     void setFinished(bool val);
+    bool isFinished();
     
     bool finished;
     Path* path;

@@ -2,6 +2,5 @@
 #include "../Person.h"
 
 void TaskMove::doTask(Person& person){
-    bool finished = walkOneStep(person);
-    if (finished) finish(person);
+    finished = walkOneStep(person);
 }
