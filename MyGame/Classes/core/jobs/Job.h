@@ -5,11 +5,14 @@ class ShipMap;
 class Person;
 class Job {
 public:
-    Job(ShipMap& ship) : ship(ship);
+    Job(ShipMap& ship) 
+        : ship(ship)
+    {
+    }
     void setShipMap(ShipMap& ship);
     virtual void deligateTask(Person& person) = 0;
 
-    ShipMap ship;
+    ShipMap& ship;
 };
 
 #endif

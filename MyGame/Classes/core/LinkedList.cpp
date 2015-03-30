@@ -7,7 +7,7 @@ using namespace std;
 
 LinkedList::LinkedList(){
     length = 0;
-    head = NULL; // set head to NULL
+    head = NULL; 
 }
 
 // This prepends a new value at the beginning of the list
@@ -52,24 +52,50 @@ int LinkedList::getLength(){
     return length;
 }
 
-bool LinkedList::removeWithUID(int UID){
-    if (length == 0) return false;
+Object* LinkedList::popWithUID(int UID){
+    if (length == 0) return NULL;
     Node* prev = NULL;
     Node* cur = head;
-    Base* curObj = head->val;
+    Object* curObj = head->val;
     int  curUID= curObj->UID;
     while (curUID != UID) {
         prev = cur;
         cur = cur->next;
-        if (cur == NULL) return false;
+        if (cur == NULL) return NULL;
         curObj = cur->val;
         curUID = curObj->UID;
     }
     // Found it
-    prev->next = cur->next;
-    delete cur;
     length--;
-    return true;
+    if (length == 0) head = NULL;
+    else prev->next = cur->next;
+    delete cur;
+    return curObj;
+}
+
+Object* LinkedList::popWithID(int ID){
+    if (length == 0) return NULL;
+    if (ID == 0) return NULL;
+    Node* prev = NULL;
+    Node* cur = head;
+    Object* curObj = head->val;
+    int  curID = curObj->ID;
+    while (curID != ID) {
+        prev = cur;
+        cur = cur->next;
+        // End of list.
+        if (cur == NULL) return NULL;
+        curObj = cur->val;
+        curID = curObj->ID;
+    }
+    // Found it
+    length--;
+    // If list is empty we must set head to NULL instead of calling
+    // on previous node.
+    if (length == 0) head = NULL;
+    else prev->next = cur->next;
+    delete cur;
+    return curObj;
 }
 
 bool LinkedList::isEmpty(){

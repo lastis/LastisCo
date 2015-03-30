@@ -20,9 +20,10 @@ public:
     void    add(Object& val);
     void    deleteObjects();
     bool    isEmpty();
-    bool    removeWithUID(int UID);
     int     getLength();
     Object* findWithUID(int UID);
+    Object* popWithUID(int UID);
+    Object* popWithID(int ID);
     Object* pop();
 
 };

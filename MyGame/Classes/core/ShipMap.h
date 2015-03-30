@@ -17,15 +17,19 @@ public:
     inline void simplifyLocations(Location& loc1, Location& loc2);
 
     Room* createRoom(Location* locations, int N, int roomID);
-    void clearAllRoomsAndObjects();
     Path* getPathToRoom(int UID, Location start);
     Room* getRoom(int UID);
     Room* getRoom(Location loc);
 
-    Object* addObject(int ID, Location loc);
+    bool placeObject(Object& obj, Location loc);
+    Object* createObject(int ID);
     Object* getObjectFromUID(int UID);
-    Object* getObjectFromLoc(Location loc);
-    int     getObjectCntLoose();
+    /* Object* getObjectFromLoc(Location loc); */
+    int     getCountObjects();
+    int     getCountObjectsLoose();
+    int     getCountObjectsPending();
+    int     getCountRooms();
+    int     getCountCrew();
 
     Person* addCrewMember(int ID, Location loc);
 
@@ -45,14 +49,15 @@ public:
 private:
     int cntCrew;
     int cntRooms;
-    int cntObjects;
+    int cntUID;
     static const int MAX_ROOMS = 20;
     static const int MAX_CREW = 100;
     Person* crew[MAX_CREW];
     Room* rooms[MAX_ROOMS];
+    LinkedList objects;
     LinkedList objectsLoose;
-    // Rename these? Not obvious what the internal system is.
-    // mapAccess uses blocked movement IDs (each bit is important). The others
+    LinkedList objectsPending;
+    // mapAccess uses blocked movement IDs. The others
     // only use block ID to identify what is there. 
     Matrix3D containerMap;
     Matrix3D containerMapFloor;

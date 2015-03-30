@@ -11,7 +11,7 @@ public:
     void        deleteObjects();
     Location    findObjectLocation(int objectID);
     Object*     findWithUID(int UID);
-    bool        removeWithUID(int UID);
+    Object*     removeWithUID(int UID);
     int         getObjectCnt();
 
     Location center;

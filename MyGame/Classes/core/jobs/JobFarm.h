@@ -8,7 +8,10 @@
 
 class JobFarm : public Job{
 public:
-    JobFarm();
+    JobFarm(ShipMap& ship) 
+        : Job(ship)
+    {
+    }
     void deligateTask(Person& person);
     void gather(Person& person);
     void sow(Person& person);

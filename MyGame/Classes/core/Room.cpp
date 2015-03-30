@@ -18,8 +18,8 @@ Object* Room::findWithUID(int UID){
     return objects.findWithUID(UID);
 }
 
-bool Room::removeWithUID(int UID){
-    return objects.removeWithUID(UID);
+Object* Room::removeWithUID(int UID){
+    return objects.popWithUID(UID);
 }
 
 int Room::getObjectCnt(){

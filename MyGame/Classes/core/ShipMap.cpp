@@ -29,7 +29,8 @@ void ShipMap::initialize(int O, int N, int M){
     mapAccess = containerMapAccess.getMatrix();
     mapRooms = containerMapAccess.getMatrix();
     cntRooms = 0;
-    cntObjects = 0;
+    cntUID = 0;
+    cntCrew = 0;
     for (int i = 0; i < MAX_ROOMS; i++) {
         rooms[i] = NULL;
     }
@@ -147,26 +148,6 @@ Room* ShipMap::createRoom(Location* locations, int N, int roomID){
     return room;
 }
 
-void ShipMap::clearAllRoomsAndObjects(){
-    // Delete objects
-    for (int i = 1; i <= cntRooms; i++) {
-        // Delete objects in all the rooms.
-        Room* room = rooms[i-1];
-        room->deleteObjects();
-        delete room;
-    }
-    // Delete all objects in shipmap.
-    objectsLoose.deleteObjects();
-    for (int z = 0; z < O; z++) {
-        for (int y = 0; y < N; y++) {
-            for (int x = 0; x < M; x++) {
-                mapRooms[z][y][x] = 0;
-            }
-        }
-    }
-    cntRooms = 0;
-}
-
 Room* ShipMap::getRoom(int UID){
     if (UID == 0) return NULL;
     return rooms[UID-1];
@@ -177,40 +158,63 @@ Room* ShipMap::getRoom(Location loc){
     return getRoom(UID);
 }
 
-int ShipMap::getObjectCntLoose(){
+int ShipMap::getCountObjectsLoose(){
     return objectsLoose.getLength();
+}
+int     ShipMap::getCountObjects(){
+    return objects.getLength();
+}
+
+int     ShipMap::getCountObjectsPending(){
+    return objectsPending.getLength();
+}
+
+int     ShipMap::getCountRooms(){
+    return cntRooms;
+}
+
+int     ShipMap::getCountCrew(){
+    return cntCrew;
 }
 
 Object* ShipMap::getObjectFromUID(int UID){
-    return objectsLoose.findWithUID(UID);
+    return objects.findWithUID(UID);
 }
 
-Object* ShipMap::addObject(int ID, Location loc){
-    if (ID == 0) return NULL;
+bool ShipMap::placeObject(Object& obj, Location loc){
+    if (obj.ID == 0) return false;
     // Check if the location is occupied.
     int x = loc.x;
     int y = loc.y;
     int z = loc.z;
-    if (map[z][y][x] != 0) return NULL;
+    if (map[z][y][x] != 0) return false;
+    map[z][y][x] = obj.ID;
+    obj.setPlaced(true);
+    Room* room = getRoom(loc);
+    // When the objects become placed, they are removed from the pending
+    // objects list and added to either a spesific room's object list or
+    // the general object list in ShipMap.
+    objectsPending.popWithID(obj.ID);
+    /* if (room != NULL) { */
+    /*     room->addObject(obj); */
+    /* } */
+    /* else { */
+    /*     objects.add(obj); */
+    /* } */
+}
+
+Object* ShipMap::createObject(int ID){
+    if (ID == 0) return NULL;
     // Create the object. Object ID is set in its constructor.
     Object* obj = object_creator::createObject(ID);
     if (obj == NULL) return NULL;
-    cntObjects++;
-    obj->loc = loc;
-    obj->UID = cntObjects;
-    map[loc.z][loc.y][loc.x] = ID;
-    // Either add the object to the room it is in
-    // or add it to the loose objects list in shipmap.
-    Room* room = getRoom(loc);
-    if (room != NULL) {
-        room->addObject(*obj);
-    }
-    else {
-        objectsLoose.add(*obj);
-    }
+    // Set the UID of the object. TODO: Be able to recycle UIDs.
+    cntUID++;
+    obj->UID = cntUID;
+    // Add the object to the pending items list. 
+    objectsPending.add(*obj);
     // Return the object because many times the creator wants it.
     return obj;
-
 }
 
 Person* ShipMap::addCrewMember(int ID, Location loc){
@@ -293,8 +297,25 @@ void ShipMap::updateMapAccess(){
 }
 
 ShipMap::~ShipMap(){
-    // TODO: Dont do this here.
-    clearAllRoomsAndObjects();
+    // Delete objects in rooms and rooms.
+    for (int i = 1; i <= cntRooms; i++) {
+        // Delete objects in all the rooms.
+        Room* room = rooms[i-1];
+        room->deleteObjects();
+        delete room;
+    }
+    // Delete all objects in shipmap.
+    objects.deleteObjects();
+    objectsLoose.deleteObjects();
+    objectsPending.deleteObjects();
+    for (int z = 0; z < O; z++) {
+        for (int y = 0; y < N; y++) {
+            for (int x = 0; x < M; x++) {
+                mapRooms[z][y][x] = 0;
+            }
+        }
+    }
+    cntRooms = 0;
 }
 
 

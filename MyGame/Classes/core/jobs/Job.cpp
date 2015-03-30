@@ -1,4 +1,5 @@
 #include "Job.h"
+#include "../ShipMap.h"
 
 #ifdef TESTING
 #include <iostream>

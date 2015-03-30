@@ -8,10 +8,13 @@
 class Person;
 class Object : public Base{
 public:
-    /* Object(); */
+    Object():placed(false){};
+    bool setPlaced(bool val){placed = val;};
     virtual bool interact(Person& person) = 0;
 
     Location loc;
+private:
+    bool placed;
 };
 
 struct ObjectTest : public Object {
