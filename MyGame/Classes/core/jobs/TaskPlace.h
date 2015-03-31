@@ -7,14 +7,13 @@
 class Person;
 class TaskPlace : public Task{
 public:
-    TaskPlace(Object& obj, Location loc, ShipMap& ship)
-        : obj(obj), target(loc), ship(ship)
+    TaskPlace(Object& obj, ShipMap& ship)
+        : obj(obj), ship(ship)
     {
     }
     void doTask(Person& person);
 
     ShipMap& ship;
-    Location target;
     Object& obj;
 };
 #endif

@@ -35,6 +35,30 @@ Object* LinkedList::pop(){
     return val;
 }
 
+Object* LinkedList::findWithIndex(int i){
+    Node* n = head;
+    int curIndex = 0;
+    while (curIndex != i) {
+        if (n == NULL) return NULL;
+        n = n->next;
+        curIndex++;
+    }
+    return n->val;
+}
+
+Object* LinkedList::findWithID(int ID){
+    Node* n = head;
+    Object* obj = head->val;
+    int objID = obj->ID;
+    while (objID != ID) {
+        n = n->next;
+        if (n == NULL) return NULL;
+        obj = n->val;
+        objID = obj->ID;
+    }
+    return obj;
+}
+
 Object* LinkedList::findWithUID(int UID){
     Node* n = head;
     Object* obj = head->val;

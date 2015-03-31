@@ -21,9 +21,14 @@ public:
     Room* getRoom(int UID);
     Room* getRoom(Location loc);
 
-    bool placeObject(Object& obj, Location loc);
-    Object* createObject(int ID);
+    bool    placeObject(Object& obj, Location loc);
+    Object* createObject(int ID, Location loc);
     Object* getObjectFromUID(int UID);
+    Object* getObjectPendingFromID(int ID);
+    // Linked list might need to be replaced by a vector or some other class
+    // and this method should probably be replaced by an interator of some sort.
+    Object* getObjectFromIndex(int i);
+    Object* getObjectPendingFromIndex(int i);
     /* Object* getObjectFromLoc(Location loc); */
     int     getCountObjects();
     int     getCountObjectsLoose();

@@ -3,12 +3,11 @@
 
 
 void TaskPlace::doTask(Person& person){
-    // Place the object object if we are close enough to it. 
-    if (util::distanceManhatten(person.loc, target) <= 1) {
+    // Place the object object if we are close enough.
+    if (util::distanceManhatten(person.loc, obj.loc) <= 1) {
         // TODO: Find a better way to handle if the
         // object cannot be placed on the target location.
-        ship.placeObject(obj,target);
-        
+        ship.placeObject(obj,obj.loc);
         finished = true;
     }
     else {

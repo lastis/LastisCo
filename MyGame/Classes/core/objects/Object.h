@@ -9,7 +9,8 @@ class Person;
 class Object : public Base{
 public:
     Object():placed(false){};
-    bool setPlaced(bool val){placed = val;};
+    void setPlaced(bool val){placed = val;};
+    bool isPlaced(){return placed;}
     virtual bool interact(Person& person) = 0;
 
     Location loc;

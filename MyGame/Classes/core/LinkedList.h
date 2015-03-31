@@ -22,6 +22,8 @@ public:
     bool    isEmpty();
     int     getLength();
     Object* findWithUID(int UID);
+    Object* findWithID(int ID);
+    Object* findWithIndex(int i);
     Object* popWithUID(int UID);
     Object* popWithID(int ID);
     Object* pop();

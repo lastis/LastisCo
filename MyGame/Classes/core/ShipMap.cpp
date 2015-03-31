@@ -181,6 +181,18 @@ Object* ShipMap::getObjectFromUID(int UID){
     return objects.findWithUID(UID);
 }
 
+Object* ShipMap::getObjectPendingFromID(int ID){
+    return objectsPending.findWithID(ID);
+}
+
+Object* ShipMap::getObjectFromIndex(int i){
+    return objects.findWithIndex(i);
+}
+
+Object* ShipMap::getObjectPendingFromIndex(int i){
+    return objectsPending.findWithIndex(i);
+}
+
 bool ShipMap::placeObject(Object& obj, Location loc){
     if (obj.ID == 0) return false;
     // Check if the location is occupied.
@@ -203,7 +215,7 @@ bool ShipMap::placeObject(Object& obj, Location loc){
     }
 }
 
-Object* ShipMap::createObject(int ID){
+Object* ShipMap::createObject(int ID, Location loc){
     if (ID == 0) return NULL;
     // Create the object. Object ID is set in its constructor.
     Object* obj = object_creator::createObject(ID);
@@ -211,6 +223,7 @@ Object* ShipMap::createObject(int ID){
     // Set the UID of the object. TODO: Be able to recycle UIDs.
     cntUID++;
     obj->UID = cntUID;
+    obj->loc = loc;
     // Add the object to the pending items list. 
     objectsPending.add(*obj);
     // Return the object because many times the creator wants it.

@@ -593,16 +593,16 @@ SUITE(ShipMap){
         Room* room2 = ship.createRoom(loc2, 9, 1);
 
         // Add one corn object in the first location of room 1.
-        Object* obj1 = ship.createObject(blocks::CENTER_CORN);
+        Object* obj1 = ship.createObject(blocks::CENTER_CORN,loc1[0]);
         CHECK(obj1 != NULL);
         ship.placeObject(*obj1,loc1[0]);
 
-        Object* obj2 = ship.createObject(blocks::CENTER_CORN);
+        Object* obj2 = ship.createObject(blocks::CENTER_CORN,loc2[0]);
         CHECK(obj2 != NULL);
         ship.placeObject(*obj2,loc2[0]);
 
         // Also add one object outside the rooms.
-        Object* obj3 = ship.createObject(blocks::CENTER_CORN);
+        Object* obj3 = ship.createObject(blocks::CENTER_CORN,Location(10,10,1));
         CHECK(obj3 != NULL);
         ship.placeObject(*obj3,Location(10,10,1));
         // Check that the object have non-zero UIDs.
