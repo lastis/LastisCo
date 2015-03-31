@@ -58,6 +58,11 @@ Object* LinkedList::popWithUID(int UID){
     Node* cur = head;
     Object* curObj = head->val;
     int  curUID= curObj->UID;
+    // Check if first node is the right one.
+    if (curUID == UID){
+        return pop();
+    }
+    // Else we look for it. 
     while (curUID != UID) {
         prev = cur;
         cur = cur->next;
@@ -67,8 +72,7 @@ Object* LinkedList::popWithUID(int UID){
     }
     // Found it
     length--;
-    if (length == 0) head = NULL;
-    else prev->next = cur->next;
+    prev->next = cur->next;
     delete cur;
     return curObj;
 }
@@ -80,6 +84,11 @@ Object* LinkedList::popWithID(int ID){
     Node* cur = head;
     Object* curObj = head->val;
     int  curID = curObj->ID;
+    // Check if first node is the right one.
+    if (curID == ID){
+        return pop();
+    }
+    // Else we look for it. 
     while (curID != ID) {
         prev = cur;
         cur = cur->next;
@@ -90,10 +99,7 @@ Object* LinkedList::popWithID(int ID){
     }
     // Found it
     length--;
-    // If list is empty we must set head to NULL instead of calling
-    // on previous node.
-    if (length == 0) head = NULL;
-    else prev->next = cur->next;
+    prev->next = cur->next;
     delete cur;
     return curObj;
 }

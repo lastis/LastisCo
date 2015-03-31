@@ -195,12 +195,12 @@ bool ShipMap::placeObject(Object& obj, Location loc){
     // objects list and added to either a spesific room's object list or
     // the general object list in ShipMap.
     objectsPending.popWithID(obj.ID);
-    /* if (room != NULL) { */
-    /*     room->addObject(obj); */
-    /* } */
-    /* else { */
-    /*     objects.add(obj); */
-    /* } */
+    if (room != NULL) {
+        room->addObject(obj);
+    }
+    else {
+        objects.add(obj);
+    }
 }
 
 Object* ShipMap::createObject(int ID){
