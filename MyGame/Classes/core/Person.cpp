@@ -92,6 +92,16 @@ void Person::update(){
         task = NULL;
     }
 }
+
+#ifdef TESTING
+void Person::printInventory(){
+    for (int i = 0; i < INVENTORY_SPACE; i++) {
+        std::cout  << "Inventory : " << inventory[i] 
+            << ". Amount : " << inventoryAmount[i] << "." << std::endl;
+    }
+}
+#endif
+
 Person::~Person(){
     if (hasTask()) delete task;
 }

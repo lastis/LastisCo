@@ -22,5 +22,8 @@ public:
     unsigned int inventory[INVENTORY_SPACE];
     unsigned int inventoryAmount[INVENTORY_SPACE];
 
+#ifdef TESTING
+    void printInventory();
+#endif
 };
 #endif

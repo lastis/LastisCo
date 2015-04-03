@@ -22,6 +22,8 @@ SUITE(Identifiers){
 SUITE(Objects){
     TEST(Corn){
         Corn corn = Corn();
+        int cornID = blocks::CENTER_CORN;
+        CHECK_EQUAL(cornID,corn.ID);
         int& stage = corn.stage;
         int& time = corn.time;
         int stage0 = Corn::STAGE_0;
@@ -46,9 +48,14 @@ SUITE(Objects){
 
         // Check interaction works and the person gets two
         // corns.
+        corn.update(); // 1
+        corn.update(); // 2
+        corn.update(); // 3
+        corn.update(); // 4
+        corn.update(); // 5
+        corn.update(); // 6
         Person person = Person();
         corn.interact(person);
-        int cornID = blocks::CENTER_CORN;
         int amount = 2;
         CHECK(person.hasInInventory(cornID,amount));
     }
@@ -87,6 +94,13 @@ SUITE(Person){
         CHECK(person.hasInInventory(1,10));
         CHECK(person.hasInInventory(2,20));
         CHECK(person.hasInInventory(3,29));
+        // Check false assertions.
+        CHECK(person.hasInInventory(1,20) == false);
+        CHECK(person.hasInInventory(2,40) == false);
+        CHECK(person.hasInInventory(6,70) == false);
+        CHECK(person.hasInInventory(7,0) == false);
+        CHECK(person.hasInInventory(0,0) == false);
+        CHECK(person.hasInInventory(0,1) == false);
     }
 }
 
