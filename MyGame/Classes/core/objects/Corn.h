@@ -8,15 +8,17 @@ public:
     Corn();
     void update();
     void grow();
+    void reset();
     bool interact(Person& person);
     bool isFinished();
+    int getStage();
 
     int stage;
-    int stage1;
-    int stage2;
-    int stage3;
-    int stageFinal;
     int time;
+    static const int STAGE_0 = 2;
+    static const int STAGE_1 = 4;
+    static const int STAGE_2 = 6;
+    static const int STAGE_FINAL = STAGE_2;
 
 };
 

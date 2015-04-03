@@ -9,10 +9,7 @@
 Corn::Corn(){
     ID = blocks::CENTER_CORN;
     time = 0;
-    stage1 = 2;
-    stage2 = 4;
-    stage3 = 6;
-    stageFinal = stage3;
+    stage = STAGE_0;
 }
 
 bool Corn::interact(Person& person){
@@ -25,7 +22,7 @@ bool Corn::interact(Person& person){
 }
 
 bool Corn::isFinished(){
-    if (stage == stageFinal) return true;
+    if (stage == STAGE_FINAL) return true;
     return false;
 }
 
@@ -35,18 +32,27 @@ void Corn::update(){
 
 void Corn::grow(){
     time++;
-    if (time < stage1) {
-        stage = stage1;
+    if (time < STAGE_0) {
+        stage = STAGE_0;
     }
-    else if (time < stage2) {
-        stage = stage2;
+    else if (time < STAGE_1) {
+        stage = STAGE_1;
     }
-    else if (time < stage3) {
-        stage = stage3;
+    else if (time < STAGE_2) {
+        stage = STAGE_2;
     }
-    else if (time == stageFinal) {
-        stage = stageFinal;
+    else if (time == STAGE_FINAL) {
+        stage = STAGE_FINAL;
     }
+}
+
+int Corn::getStage(){
+    return stage;
+}
+
+void Corn::reset(){
+    time = 0;
+    stage = STAGE_0;
 }
 
 

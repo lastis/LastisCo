@@ -22,6 +22,35 @@ SUITE(Identifiers){
 SUITE(Objects){
     TEST(Corn){
         Corn corn = Corn();
+        int& stage = corn.stage;
+        int& time = corn.time;
+        int stage0 = Corn::STAGE_0;
+        // Check that initializtion is correct and the update method.
+        CHECK_EQUAL(stage0, stage);
+        CHECK_EQUAL(0, time);
+        corn.update(); // 1
+        CHECK_EQUAL(1, time);
+        corn.update(); // 2
+        corn.update(); // 3
+        corn.update(); // 4
+        corn.update(); // 5
+        corn.update(); // 6
+        CHECK(corn.isFinished());
+        int stageFinal = Corn::STAGE_FINAL;
+        CHECK_EQUAL(stageFinal, stage);
+        corn.update(); // 7
+        CHECK_EQUAL(stageFinal, stage);
+        corn.reset();
+        CHECK_EQUAL(stage0, stage);
+        CHECK_EQUAL(0, time);
+
+        // Check interaction works and the person gets two
+        // corns.
+        Person person = Person();
+        corn.interact(person);
+        int cornID = blocks::CENTER_CORN;
+        int amount = 2;
+        CHECK(person.hasInInventory(cornID,amount));
     }
 }
 
