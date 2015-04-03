@@ -79,6 +79,14 @@ SUITE(Person){
         CHECK_EQUAL(person.inventoryAmount[3],40);
         CHECK_EQUAL(person.inventory[4],5);
         CHECK_EQUAL(person.inventoryAmount[4],50);
+
+        // Check get methods for inventory works. 
+        // Do we have 1 or more of ID = 1? 
+        CHECK(person.hasInInventory(1,1));
+        // Do we have 10 or more of ID = 1? 
+        CHECK(person.hasInInventory(1,10));
+        CHECK(person.hasInInventory(2,20));
+        CHECK(person.hasInInventory(3,29));
     }
 }
 
