@@ -31,6 +31,7 @@ void JobFarm::gather(Person& person){
         if (obj == NULL) continue;
         if (obj->ID != CENTER_CORN) continue;
         Corn* corn = (Corn*) obj;
+        if (corn->isFinished() == false) continue;
         TaskInteract* task = new TaskInteract(*corn);
         person.setTask(task);
     }

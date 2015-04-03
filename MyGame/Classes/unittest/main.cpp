@@ -494,7 +494,6 @@ SUITE(Pathfinder){
         CHECK_EQUAL(0*10, sumZ);
         
     }
-
 }
 
 SUITE(ShipMap){
