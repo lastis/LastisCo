@@ -5,6 +5,7 @@
 #include "../core/objects/Corn.h"
 #include "../core/jobs/TaskInteract.h"
 #include "../core/jobs/TaskMove.h"
+#include "../core/jobs/TaskPlace.h"
 #include <iostream>
 
 using namespace std;
@@ -320,6 +321,37 @@ SUITE(Tasks){
         person.setTask(task);
         delete path;
     }
+
+    /* TEST(TaskPlace){ */
+    /*     // Make a path */
+    /*     ShipMap ship = ShipMap(1,5,5); */
+
+    /*     // Make a path so the task can walk to the interaction object. */
+    /*     Location start = Location(0,1,0); */
+    /*     Location goal = Location(4,1,0); */
+
+    /*     Corn corn = Corn(); */
+    /*     corn.loc = goal; */
+
+    /*     // Put the path in the task. */
+    /*     TaskPlace* task = new TaskPlace(corn,ship); */
+    /*     task->setPath(path); */
+    /*     // Put the task in the person. Tasks should be deleted by person. */
+    /*     Person person = Person(); */
+    /*     person.loc = start; */
+    /*     person.setTask(task); */
+    /*     // Three steps to the object, one step for interacting. */
+    /*     person.update(); // 1. */
+    /*     person.update(); // 2. */
+    /*     person.update(); // 3. */
+    /*     int amount = 2; */
+    /*     int cornID = blocks::CENTER_CORN; */
+    /*     CHECK(person.hasInInventory(cornID,amount) == false); */
+    /*     person.update(); // 4. */
+    /*     CHECK(person.hasInInventory(cornID,amount)); */
+
+    /*     delete path; */
+    /* } */
 
     TEST(TaskInteract){
         // Make a path
