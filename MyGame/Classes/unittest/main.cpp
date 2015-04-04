@@ -321,6 +321,47 @@ SUITE(Tasks){
         delete path;
     }
 
+    TEST(TaskInteract){
+        // Make a path
+        Matrix3D map = Matrix3D(1,5,5);
+        Pathfinder pathfinder = Pathfinder(map);
+
+        // Make a path so the task can walk to the interaction object.
+        Location start = Location(0,1,0);
+        Location goal = Location(4,1,0);
+        Path* path = pathfinder.findPath(start, goal);
+
+        Corn corn = Corn();
+        corn.loc = goal;
+        // Make the corn "ripe".
+        corn.update(); // 1
+        corn.update(); // 2
+        corn.update(); // 3
+        corn.update(); // 4
+        corn.update(); // 5
+        corn.update(); // 6
+        CHECK(corn.isFinished());
+
+        // Put the path in the task.
+        TaskInteract* task = new TaskInteract(corn);
+        task->setPath(path);
+        // Put the task in the person. Tasks should be deleted by person.
+        Person person = Person();
+        person.loc = start;
+        person.setTask(task);
+        // Three steps to the object, one step for interacting.
+        person.update(); // 1.
+        person.update(); // 2.
+        person.update(); // 3.
+        int amount = 2;
+        int cornID = blocks::CENTER_CORN;
+        CHECK(person.hasInInventory(cornID,amount) == false);
+        person.update(); // 4.
+        CHECK(person.hasInInventory(cornID,amount));
+
+        delete path;
+    }
+
     TEST(WalkTask){
         // Make a path
         Matrix3D map = Matrix3D(1,5,5);
