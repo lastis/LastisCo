@@ -4,19 +4,26 @@
 #include <iostream>
 #endif
 
+#include "../ShipMap.h"
+
 class Person;
 class Path;
 class Task {
 public:
-    Task();
+    Task(ShipMap& ship, Path path) 
+        : ship(ship), path(path), finished(true)
+    {
+    }
     virtual void doTask(Person& person) = 0;
     // Should be private?
     bool walkOneStep(Person& person);
-    void setPath(Path* path);
+    void setPath(Path& path);
     void setFinished(bool val);
     bool isFinished();
+    bool hasPath();
     
     bool finished;
-    Path* path;
+    Path& path;
+    ShipMap& ship;
 };
 #endif

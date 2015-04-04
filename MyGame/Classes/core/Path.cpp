@@ -3,6 +3,12 @@
 #endif
 
 #include "Path.h"
+Path::Path(){
+    this->path = NULL;
+    this->length = 0;
+    index = 0;
+}
+
 Path::Path(unsigned int* path, int length){
     this->path = path;
     this->length = length;

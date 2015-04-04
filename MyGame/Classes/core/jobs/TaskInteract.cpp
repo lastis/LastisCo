@@ -2,9 +2,6 @@
 #include "../Person.h"
 
 
-TaskInteract::TaskInteract(Object& obj) : target(obj){
-
-}
 
 void TaskInteract::doTask(Person& person){
     // Interact with object if we are close enough to it. 

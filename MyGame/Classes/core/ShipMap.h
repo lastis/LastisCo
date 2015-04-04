@@ -1,3 +1,5 @@
+#ifndef __SHIP_MAP_H_INCLUDED__
+#define __SHIP_MAP_H_INCLUDED__
 #include "Pathfinder.h"
 #include "Room.h"
 #include "objects/Object.h"
@@ -15,9 +17,10 @@ public:
     void insertWallHorizontal(int blockID, Location start, Location end);
     void insertWallVertical(int blockID, Location start, Location end);
     inline void simplifyLocations(Location& loc1, Location& loc2);
+    Path findPath(Location start, Location end);
 
     Room* createRoom(Location* locations, int N, int roomID);
-    Path* getPathToRoom(int UID, Location start);
+    Path getPathToRoom(int UID, Location start);
     Room* getRoom(int UID);
     Room* getRoom(Location loc);
 
@@ -47,11 +50,10 @@ public:
 private:
     void initialize(int O, int N, int M);
 
-public:
+private:
     int O;
     int N;
     int M;
-private:
     int cntCrew;
     int cntRooms;
     int cntUID;
@@ -78,3 +80,4 @@ private:
     unsigned int*** mapRooms;
     Pathfinder pathfinder;
 };
+#endif

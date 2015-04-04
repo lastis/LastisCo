@@ -5,6 +5,10 @@
 #include "../objects/Object.h"
 class TaskMove : public Task{
 public:
+    TaskMove(ShipMap& ship, Location currentPos, Location end) 
+        :   Task(ship,ship.findPath(currentPos,end))
+    {
+    }
     void doTask(Person& person);
 };
 #endif

@@ -6,12 +6,7 @@
 #include <iostream>
 #endif
 
-Task::Task(){
-    path = NULL;
-    finished = true;
-}
-
-void Task::setPath(Path* path){
+void Task::setPath(Path& path){
     this->path = path;
 }
 
@@ -23,11 +18,18 @@ bool Task::isFinished(){
     return finished;
 }
 
+bool Task::hasPath(){
+    return path.hasPath();
+}
+
 bool Task::walkOneStep(Person& person){
-    // Return true if the walk is finished
+    // If the path is non-existant the path is most likely blocked,
+    // so we need to finish the task.
+    if (path.hasPath() == false) setFinished(true);
+    // Return true if the walk is finished, also return true
+    // if a path is not valid. 
     using namespace directions;
-    if (path == NULL) return true;
-    unsigned int dir = path->getNextDirection();
+    unsigned int dir = path.getNextDirection();
     Location& loc = person.loc;
     
     switch (dir) {
@@ -51,9 +53,6 @@ bool Task::walkOneStep(Person& person){
         case DOWN :
             loc.z--;
             break;
-        default:
-            return true;
     }
-    // Path is finished when the path is finished.
-    return path->isComplete();
+    return path.isComplete();
 }

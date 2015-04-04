@@ -125,7 +125,7 @@ void Pathfinder::resetNodes(){
 }
 
 
-Path* Pathfinder::findPath(Location start, Location goal){
+Path Pathfinder::findPath(Location start, Location goal){
     using namespace directions;
     // This is a quickfix to fill the path from start to finish.
     Location temp = start;
@@ -197,7 +197,7 @@ Path* Pathfinder::findPath(Location start, Location goal){
             /* std::cout << "dangerous : " << std::endl; */
             freeNodes();
             /* std::cout << "return from pathfinding" << std::endl; */
-            return pathContainer;
+            return *pathContainer;
         }
         // Generate moves in all possible directions. 
         for (int i = 0; i < DIRECTIONS; i++) {
@@ -266,6 +266,6 @@ Path* Pathfinder::findPath(Location start, Location goal){
     // Return empty path. 
     Path* pathContainer = new Path(NULL,0);
     freeNodes();
-    return NULL;
+    return *pathContainer;
 }
 

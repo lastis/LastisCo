@@ -40,9 +40,13 @@ void ShipMap::initialize(int O, int N, int M){
     blocks::properties::initArrays();
 }
 
-Path* ShipMap::getPathToRoom(int UID, Location start){
+Path ShipMap::getPathToRoom(int UID, Location start){
     Location goal = rooms[UID]->center;
     return pathfinder.findPath(start, goal);
+}
+
+Path ShipMap::findPath(Location start, Location end){
+    return pathfinder.findPath(start, end);
 }
 
 inline void ShipMap::simplifyLocations(Location& loc1, Location& loc2){

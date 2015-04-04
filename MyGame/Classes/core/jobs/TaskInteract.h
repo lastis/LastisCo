@@ -6,7 +6,11 @@
 class Person;
 class TaskInteract : public Task{
 public:
-    TaskInteract(Object& yo);
+    TaskInteract(Object& obj, ShipMap& ship, Location currentPos) 
+        :   target(obj), 
+            Task(ship, ship.findPath(currentPos,obj.loc))
+    {
+    }
     void doTask(Person& person);
     void setObject(Object& object);
 

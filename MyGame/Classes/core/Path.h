@@ -4,6 +4,7 @@
 
 class Path {
 public:
+    Path();
     Path(unsigned int* path, int length);
     ~Path();
     Path(const Path& obj);
