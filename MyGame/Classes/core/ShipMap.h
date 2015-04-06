@@ -24,8 +24,8 @@ public:
     Room* getRoom(int UID);
     Room* getRoom(Location loc);
 
-    bool    placeObject(Object& obj, Location loc);
-    Object* createObject(int ID, Location loc);
+    bool    placeObject(Object& obj);
+    Object* createObject(int ID);
     Object* getObjectFromUID(int UID);
     Object* getObjectPendingFromID(int ID);
     // Linked list might need to be replaced by a vector or some other class

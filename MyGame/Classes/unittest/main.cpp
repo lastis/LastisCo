@@ -317,99 +317,105 @@ SUITE(Tasks){
         person.setTask(task);
     }
 
-    /* TEST(TaskPlace){ */
-    /*     // Make a path */
-    /*     ShipMap ship = ShipMap(1,5,5); */
+    TEST(TaskPlace){
+        // Make a path
+        ShipMap ship = ShipMap(1,5,5);
 
-    /*     // Make a path so the task can walk to the interaction object. */
-    /*     Location start = Location(0,1,0); */
-    /*     Location goal = Location(4,1,0); */
+        // Make a path so the task can walk to the interaction object.
+        Location start = Location(0,1,0);
+        Location goal = Location(4,1,0);
 
-    /*     Corn corn = Corn(); */
-    /*     corn.loc = goal; */
+        // By setting the location of the object, we define where it will
+        // be placed on the shipmap.
+        Object* corn = ship.createObject(blocks::CENTER_CORN);
+        corn->loc = goal;
 
-    /*     // Put the path in the task. */
-    /*     TaskPlace* task = new TaskPlace(corn,ship); */
-    /*     task->setPath(path); */
-    /*     // Put the task in the person. Tasks should be deleted by person. */
-    /*     Person person = Person(); */
-    /*     person.loc = start; */
-    /*     person.setTask(task); */
-    /*     // Three steps to the object, one step for interacting. */
-    /*     person.update(); // 1. */
-    /*     person.update(); // 2. */
-    /*     person.update(); // 3. */
-    /*     int amount = 2; */
-    /*     int cornID = blocks::CENTER_CORN; */
-    /*     CHECK(person.hasInInventory(cornID,amount) == false); */
-    /*     person.update(); // 4. */
-    /*     CHECK(person.hasInInventory(cornID,amount)); */
-
-    /*     delete path; */
-    /* } */
-
-    TEST(TaskInteract){
-        /* ShipMap ship = ShipMap(1,5,5); */
-
-        /* // Make a path so the task can walk to the interaction object. */
-        /* Location start = Location(0,1,0); */
-        /* Location goal = Location(4,1,0); */
-
-        /* Corn corn = Corn(); */
-        /* corn.loc = goal; */
-        /* // Make the corn "ripe". */
-        /* corn.update(); // 1 */
-        /* corn.update(); // 2 */
-        /* corn.update(); // 3 */
-        /* corn.update(); // 4 */
-        /* corn.update(); // 5 */
-        /* corn.update(); // 6 */
-        /* CHECK(corn.isFinished()); */
-
-        /* TaskInteract* task = new TaskInteract(corn,ship,start); */
-        /* // Put the task in the person. Tasks should be deleted by person. */
-        /* Person person = Person(); */
-        /* person.loc = start; */
-        /* person.setTask(task); */
-        /* // Three steps to the object, one step for interacting. */
-        /* person.update(); // 1. */
-        /* person.update(); // 2. */
-        /* person.update(); // 3. */
-        /* int amount = 2; */
-        /* int cornID = blocks::CENTER_CORN; */
-        /* CHECK(person.hasInInventory(cornID,amount) == false); */
-        /* person.update(); // 4. */
-        /* CHECK(person.hasInInventory(cornID,amount)); */
+        // Put the path in the task.
+        TaskPlace* task = new TaskPlace(*corn,ship,start);
+        // Put the task in the person. Tasks should be deleted by person.
+        Person person = Person();
+        person.loc = start;
+        person.setTask(task);
+        CHECK(task->hasPath());
+        CHECK(task->isFinished() == false);
+        // Three steps to the object, one step for placing.
+        person.update(); // 1.
+        person.update(); // 2.
+        person.update(); // 3.
+        // Still not placed. 
+        CHECK_EQUAL(1, ship.getCountObjectsPending());
+        person.update(); // 4.
+        CHECK_EQUAL(0, ship.getCountObjectsPending());
+        CHECK_EQUAL(1, ship.getCountObjects());
+        unsigned int*** map = ship.getMap();
+        int cornID = blocks::CENTER_CORN;
+        CHECK_EQUAL(cornID, map[0][1][4]);
     }
 
-    /* TEST(WalkTask){ */
-    /*     ShipMap ship = ShipMap(1,5,5); */
+    TEST(TaskInteract){
+        ShipMap ship = ShipMap(1,5,5);
 
-    /*     Location start = Location(0,1,0); */
-    /*     Location goal = Location(4,1,0); */
+        // Make a path so the task can walk to the interaction object.
+        Location start = Location(0,1,0);
+        Location goal = Location(4,1,0);
 
-    /*     // Put the path in the task. */
-    /*     TaskMove* task = new TaskMove(ship,start,goal); */
-    /*     // Put the task in the person. */ 
-    /*     Person person = Person(); */
-    /*     person.loc = start; */
-    /*     person.setTask(task); */
-    /*     // Walk the person. Distance to goal is 4. */
-    /*     // Check that the tasks is not removed during this update. */
-    /*     person.update(); */
-    /*     CHECK(person.hasTask() == true); */
-    /*     person.update(); */
-    /*     CHECK(person.hasTask() == true); */
-    /*     person.update(); */
-    /*     CHECK(person.hasTask() == true); */
-    /*     person.update(); */
-    /*     // The task should also have been removed from the person. */
-    /*     CHECK(person.hasTask() == false); */
-    /*     // Check the person arrived at the desired position. */
-    /*     CHECK_EQUAL(4,person.loc.x); */
-    /*     CHECK_EQUAL(1,person.loc.y); */
-    /*     CHECK_EQUAL(0,person.loc.z); */
-    /* } */
+        Corn corn = Corn();
+        corn.loc = goal;
+        // Make the corn "ripe".
+        corn.update(); // 1
+        corn.update(); // 2
+        corn.update(); // 3
+        corn.update(); // 4
+        corn.update(); // 5
+        corn.update(); // 6
+        CHECK(corn.isFinished());
+
+        TaskInteract* task = new TaskInteract(corn,ship,start);
+        // Put the task in the person. Tasks should be deleted by person.
+        Person person = Person();
+        person.loc = start;
+        person.setTask(task);
+        // Three steps to the object, one step for interacting.
+        person.update(); // 1.
+        person.update(); // 2.
+        person.update(); // 3.
+        int amount = 2;
+        int cornID = blocks::CENTER_CORN;
+        CHECK(person.hasInInventory(cornID,amount) == false);
+        person.update(); // 4.
+        CHECK(person.hasInInventory(cornID,amount));
+        // The task should also have been removed from the person.
+        CHECK(person.hasTask() == false);
+    }
+
+    TEST(WalkTask){
+        ShipMap ship = ShipMap(1,5,5);
+
+        Location start = Location(0,1,0);
+        Location goal = Location(4,1,0);
+
+        // Put the path in the task.
+        TaskMove* task = new TaskMove(ship,start,goal);
+        // Put the task in the person. 
+        Person person = Person();
+        person.loc = start;
+        person.setTask(task);
+        // Walk the person. Distance to goal is 4.
+        // Check that the tasks is not removed during this update.
+        person.update();
+        CHECK(person.hasTask() == true);
+        person.update();
+        CHECK(person.hasTask() == true);
+        person.update();
+        CHECK(person.hasTask() == true);
+        person.update();
+        // The task should also have been removed from the person.
+        CHECK(person.hasTask() == false);
+        // Check the person arrived at the desired position.
+        CHECK_EQUAL(4,person.loc.x);
+        CHECK_EQUAL(1,person.loc.y);
+        CHECK_EQUAL(0,person.loc.z);
+    }
 }
 
 SUITE(Location){
@@ -708,18 +714,21 @@ SUITE(ShipMap){
         Room* room2 = ship.createRoom(loc2, 9, 1);
 
         // Add one corn object in the first location of room 1.
-        Object* obj1 = ship.createObject(blocks::CENTER_CORN,loc1[0]);
+        Object* obj1 = ship.createObject(blocks::CENTER_CORN);
         CHECK(obj1 != NULL);
-        ship.placeObject(*obj1,loc1[0]);
+        obj1->loc = loc1[0];
+        ship.placeObject(*obj1);
 
-        Object* obj2 = ship.createObject(blocks::CENTER_CORN,loc2[0]);
+        Object* obj2 = ship.createObject(blocks::CENTER_CORN);
         CHECK(obj2 != NULL);
-        ship.placeObject(*obj2,loc2[0]);
+        obj2->loc = loc2[0];
+        ship.placeObject(*obj2);
 
         // Also add one object outside the rooms.
-        Object* obj3 = ship.createObject(blocks::CENTER_CORN,Location(10,10,1));
+        Object* obj3 = ship.createObject(blocks::CENTER_CORN);
         CHECK(obj3 != NULL);
-        ship.placeObject(*obj3,Location(10,10,1));
+        obj3->loc = Location(10,10,1);
+        ship.placeObject(*obj3);
         // Check that the object have non-zero UIDs.
         CHECK(obj1->UID != 0);
         CHECK(obj2->UID != 0);

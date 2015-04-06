@@ -197,20 +197,20 @@ Object* ShipMap::getObjectPendingFromIndex(int i){
     return objectsPending.findWithIndex(i);
 }
 
-bool ShipMap::placeObject(Object& obj, Location loc){
+bool ShipMap::placeObject(Object& obj){
     if (obj.ID == 0) return false;
     // Check if the location is occupied.
-    int x = loc.x;
-    int y = loc.y;
-    int z = loc.z;
+    int x = obj.loc.x;
+    int y = obj.loc.y;
+    int z = obj.loc.z;
     if (map[z][y][x] != 0) return false;
     map[z][y][x] = obj.ID;
     obj.setPlaced(true);
-    Room* room = getRoom(loc);
+    Room* room = getRoom(obj.loc);
     // When the objects become placed, they are removed from the pending
     // objects list and added to either a spesific room's object list or
     // the general object list in ShipMap.
-    objectsPending.popWithID(obj.ID);
+    objectsPending.popWithUID(obj.UID);
     if (room != NULL) {
         room->addObject(obj);
     }
@@ -219,7 +219,7 @@ bool ShipMap::placeObject(Object& obj, Location loc){
     }
 }
 
-Object* ShipMap::createObject(int ID, Location loc){
+Object* ShipMap::createObject(int ID){
     if (ID == 0) return NULL;
     // Create the object. Object ID is set in its constructor.
     Object* obj = object_creator::createObject(ID);
@@ -227,7 +227,6 @@ Object* ShipMap::createObject(int ID, Location loc){
     // Set the UID of the object. TODO: Be able to recycle UIDs.
     cntUID++;
     obj->UID = cntUID;
-    obj->loc = loc;
     // Add the object to the pending items list. 
     objectsPending.add(*obj);
     // Return the object because many times the creator wants it.

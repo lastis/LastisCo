@@ -23,7 +23,7 @@ public:
     bool hasPath();
     
     bool finished;
-    Path& path;
+    Path path;
     ShipMap& ship;
 };
 #endif

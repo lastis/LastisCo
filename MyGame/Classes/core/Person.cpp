@@ -79,6 +79,7 @@ void Person::setTask(Task* task){
     if (task == NULL) return;
     task->setFinished(false);
 }
+
 bool Person::hasTask(){
     if(task != NULL) return true;
     else return false;
@@ -87,7 +88,7 @@ bool Person::hasTask(){
 void Person::update(){
     if (!hasTask()) return;
     task->doTask(*this);
-    if (task->finished) {
+    if (task->isFinished()) {
         delete task;
         task = NULL;
     }
