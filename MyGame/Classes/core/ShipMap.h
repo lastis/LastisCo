@@ -25,6 +25,8 @@ public:
     Room* getRoom(Location loc);
 
     bool    placeObject(Object& obj);
+    bool    isVacant(int x, int y, int z);
+    bool    isVacant(Location loc);
     Object* createObject(int ID);
     Object* getObjectFromUID(int UID);
     Object* getObjectPendingFromID(int ID);

@@ -10,6 +10,8 @@ public:
     void grow();
     void reset();
     bool interact(Person& person);
+    bool place(Person& person);
+    bool canPlace(Person& person);
     bool isFinished();
     int getStage();
 

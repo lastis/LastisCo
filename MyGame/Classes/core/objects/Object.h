@@ -12,6 +12,8 @@ public:
     void setPlaced(bool val){placed = val;};
     bool isPlaced(){return placed;}
     virtual bool interact(Person& person) = 0;
+    virtual bool place(Person& person) = 0;
+    virtual bool canPlace(Person& person) = 0;
 
     Location loc;
 private:
@@ -21,7 +23,19 @@ private:
 struct ObjectTest : public Object {
     bool interact(Person& person){
         // Objects that cannot be interacted with should return
-        // true, as false has the meaning "work in progress".
+        // true, as false means the person is interacting with the
+        // object but is not finished yet.
+        return true;
+    }
+
+    bool place(Person& person){
+        // This methods hold the requirements for the person placing
+        // it. E.g. remove required items from inventory,
+        // subtract from a persons energy. 
+        return true;
+    }
+
+    bool canPlace(Person& person){
         return true;
     }
 };

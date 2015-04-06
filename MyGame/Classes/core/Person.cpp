@@ -54,24 +54,19 @@ bool Person::hasInInventory(int ID, int amount){
     return false;
 }
 
-int Person::takeFromInventory(int ID, int amount){
+bool Person::takeFromInventory(int ID, int amount){
     if (ID == 0) return 0;
     // Check if the item is in the inventory and return
     // the amount of items removed.
     for (int slot = 0; slot < INVENTORY_SPACE; slot++) {
-        if (inventory[slot] == ID) {
-            int amountTot = inventoryAmount[slot];
-            if (amount <= amountTot) {
-                inventoryAmount[slot] -= amount;
-                return amount;
-            }
-            else {
-                amount = inventoryAmount[slot];
-                inventoryAmount[slot] -= 0;
-                return amount;
-            }
+        if (inventory[slot] != ID) continue; 
+        int amountAvailable = inventoryAmount[slot];
+        if (amount <= amountAvailable) {
+            inventoryAmount[slot] -= amount;
+            return true;
         }
     }
+    return false;
 }
 
 void Person::setTask(Task* task){

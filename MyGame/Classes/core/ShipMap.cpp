@@ -219,6 +219,15 @@ bool ShipMap::placeObject(Object& obj){
     }
 }
 
+bool ShipMap::isVacant(int x, int y, int z){
+    if (map[z][y][x] == 0) return true;
+    else return false;
+}
+
+bool ShipMap::isVacant(Location loc){
+    return isVacant(loc.x,loc.y,loc.z);
+}
+
 Object* ShipMap::createObject(int ID){
     if (ID == 0) return NULL;
     // Create the object. Object ID is set in its constructor.

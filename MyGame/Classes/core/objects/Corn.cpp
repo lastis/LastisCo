@@ -21,6 +21,19 @@ bool Corn::interact(Person& person){
     return true;
 }
 
+bool Corn::place(Person& person){
+    // Remove corn (seeds) from the persons inventory.
+    bool enoughSeeds = person.takeFromInventory(ID, 1);
+    if (!enoughSeeds) return false;
+    // Put the object in placed state.
+    setPlaced(true);
+    return true;
+}
+
+bool Corn::canPlace(Person& person){
+    return person.hasInInventory(ID,1);
+}
+
 bool Corn::isFinished(){
     if (stage == STAGE_FINAL) return true;
     return false;

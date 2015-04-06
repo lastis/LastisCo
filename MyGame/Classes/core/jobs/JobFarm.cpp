@@ -3,14 +3,8 @@
 using namespace blocks;
 
 void JobFarm::deligateTask(Person& person){
-    if (hasSeeds(person)) {
-        sow(person);
-        return;
-    }
-    else if (grownCrops()){
-        gather(person);
-        return;
-    }
+    if (hasSeeds(person)) sow(person);
+    else if (grownCrops()) gather(person);
 }
 
 void JobFarm::sow(Person& person){

@@ -333,7 +333,9 @@ SUITE(Tasks){
         // Put the path in the task.
         TaskPlace* task = new TaskPlace(*corn,ship,start);
         // Put the task in the person. Tasks should be deleted by person.
+        // Give the persons some seeds so he can place the object.
         Person person = Person();
+        person.addToInventory(corn->ID,1);
         person.loc = start;
         person.setTask(task);
         CHECK(task->hasPath());
