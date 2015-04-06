@@ -10,7 +10,7 @@ public:
     {
     }
     void setShipMap(ShipMap& ship);
-    virtual void deligateTask(Person& person) = 0;
+    virtual bool deligateTask(Person& person) = 0;
 
     ShipMap& ship;
 };

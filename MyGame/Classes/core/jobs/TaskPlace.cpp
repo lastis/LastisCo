@@ -21,7 +21,6 @@ void TaskPlace::doTask(Person& person){
         if (!finishedPlacing) finished = false;
         // Else we simply place the object. 
         else ship.placeObject(obj);
-        
     }
     else {
         // Else we walk. 

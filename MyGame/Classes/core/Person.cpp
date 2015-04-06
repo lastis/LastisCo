@@ -69,6 +69,17 @@ bool Person::takeFromInventory(int ID, int amount){
     return false;
 }
 
+int Person::amountInInventory(int ID){
+    if (ID == 0) return 0;
+    // Check if the item is in the inventory and return
+    // the amount of items.
+    for (int slot = 0; slot < INVENTORY_SPACE; slot++) {
+        if (inventory[slot] != ID) continue; 
+        return inventoryAmount[slot];
+    }
+    return 0;
+}
+
 void Person::setTask(Task* task){
     this->task = task;
     if (task == NULL) return;

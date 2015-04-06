@@ -126,6 +126,19 @@ void Pathfinder::resetNodes(){
 
 
 Path Pathfinder::findPath(Location start, Location goal){
+#ifdef TESTING
+    bool bad = false;
+    if (start.x < 0 || start.x > xDim) bad = true;
+    if (start.y < 0 || start.y > xDim) bad = true;
+    if (start.z < 0 || start.z > xDim) bad = true;
+    if (goal.x < 0 || goal.x > xDim) bad = true;
+    if (goal.y < 0 || goal.y > xDim) bad = true;
+    if (goal.z < 0 || goal.z > xDim) bad = true;
+    if (bad) {
+        std::cout << "(Pathfinder) Something is looking for a position outside" 
+            << " the map!" << std::endl;
+    }
+#endif
     using namespace directions;
     // This is a quickfix to fill the path from start to finish.
     Location temp = start;

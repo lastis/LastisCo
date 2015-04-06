@@ -16,6 +16,7 @@ public:
     bool addToInventory(int ID, int amount);
     bool hasInInventory(int ID, int amount);
     bool takeFromInventory(int ID, int amount);
+    int amountInInventory(int ID);
 
     Location loc;
     Task* task;

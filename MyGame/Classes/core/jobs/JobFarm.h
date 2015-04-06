@@ -12,9 +12,12 @@ public:
         : Job(ship)
     {
     }
-    void deligateTask(Person& person);
-    void gather(Person& person);
-    void sow(Person& person);
+    // Methods to deligate tasks, return true if deligiation
+    // was successful.
+    bool deligateTask(Person& person);
+    bool gather(Person& person);
+    bool sow(Person& person);
+
     bool hasSeeds(Person& person);
     bool grownCrops();
 };

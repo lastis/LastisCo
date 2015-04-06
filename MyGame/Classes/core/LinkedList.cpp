@@ -47,6 +47,7 @@ Object* LinkedList::findWithIndex(int i){
 }
 
 Object* LinkedList::findWithID(int ID){
+    if (length == 0) return NULL;
     Node* n = head;
     Object* obj = head->val;
     int objID = obj->ID;
@@ -60,6 +61,7 @@ Object* LinkedList::findWithID(int ID){
 }
 
 Object* LinkedList::findWithUID(int UID){
+    if (length == 0) return NULL;
     Node* n = head;
     Object* obj = head->val;
     int objUID = obj->UID;

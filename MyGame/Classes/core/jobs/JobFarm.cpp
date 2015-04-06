@@ -2,21 +2,24 @@
 
 using namespace blocks;
 
-void JobFarm::deligateTask(Person& person){
-    if (hasSeeds(person)) sow(person);
-    else if (grownCrops()) gather(person);
+bool JobFarm::deligateTask(Person& person){
+    if (person.hasTask()) return false;
+    if (hasSeeds(person)) return sow(person);
+    else if (grownCrops()) return gather(person);
+    return false;
 }
 
-void JobFarm::sow(Person& person){
+bool JobFarm::sow(Person& person){
     // Get a pending object from the ship.
     Object* obj = ship.getObjectPendingFromID(CENTER_CORN);
-    if (obj == NULL) return;
+    if (obj == NULL) return false;
     // Make a task of placing the item.
-    TaskPlace* task = new TaskPlace(*obj,ship,obj->loc);
+    TaskPlace* task = new TaskPlace(*obj,ship,person.loc);
     person.setTask(task);
+    return true;
 }
 
-void JobFarm::gather(Person& person){
+bool JobFarm::gather(Person& person){
     // Find better way to do this to avoid a lot of searches.
     for (int i = 0; i < ship.getCountObjects(); i++) {
         Object* obj = ship.getObjectFromIndex(i);
@@ -26,9 +29,12 @@ void JobFarm::gather(Person& person){
         if (obj->ID != CENTER_CORN) continue;
         Corn* corn = (Corn*) obj;
         if (corn->isFinished() == false) continue;
-        TaskInteract* task = new TaskInteract(*corn,ship,corn->loc);
+        TaskInteract* task = new TaskInteract(*corn,ship,person.loc);
         person.setTask(task);
+        return true;
     }
+    // Didn't find any finished crops.
+    return false;
 }
 
 bool JobFarm::hasSeeds(Person& person){

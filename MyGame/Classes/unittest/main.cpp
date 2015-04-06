@@ -6,6 +6,7 @@
 #include "../core/jobs/TaskInteract.h"
 #include "../core/jobs/TaskMove.h"
 #include "../core/jobs/TaskPlace.h"
+#include "../core/jobs/JobFarm.h"
 #include <iostream>
 
 using namespace std;
@@ -303,6 +304,47 @@ SUITE(Matix3D){
 
 }
 
+SUITE(Jobs){
+    TEST(JobFarm){
+        // Test if we can give a person one seed and if he will place the rest.
+        Person person = Person();
+        person.loc = Location(8,1,0);
+        ShipMap ship = ShipMap(1,20,20);
+        JobFarm job = JobFarm(ship);
+        person.addToInventory(blocks::CENTER_CORN,1);
+
+        // Make a 2x2 field of corn that we want to be sowed.
+        int crops = 4;
+        Corn** corn = new Corn*[crops]; 
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                corn[i*2 + j] = (Corn*) ship.createObject(blocks::CENTER_CORN);
+                corn[i*2 + j]->loc = Location(i,j,0);
+            }
+        }
+        CHECK_EQUAL(4,ship.getCountObjectsPending());
+        int cnt = 0;
+        while (cnt < 30){
+            job.deligateTask(person);
+            person.update();
+            for (int i = 0; i < crops; i++) {
+                if (corn[i]->isPlaced()) corn[i]->update();
+            }
+            cnt++;
+            // Break the loop early if all corn is finished;
+            if (corn[0]->isFinished() == false) continue;
+            if (corn[1]->isFinished() == false) continue;
+            if (corn[2]->isFinished() == false) continue;
+            if (corn[3]->isFinished() == false) continue;
+            break;
+        }
+        for (int i = 0; i < crops; i++) {
+            CHECK(corn[i]->isPlaced());
+        }
+        delete[] corn;
+    }
+}
+
 SUITE(Tasks){
     TEST(Init){
         ShipMap ship = ShipMap(1,5,5);
@@ -318,7 +360,6 @@ SUITE(Tasks){
     }
 
     TEST(TaskPlace){
-        // Make a path
         ShipMap ship = ShipMap(1,5,5);
 
         // Make a path so the task can walk to the interaction object.
