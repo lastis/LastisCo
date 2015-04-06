@@ -52,6 +52,7 @@ void Path::copy(const Path& obj){
         index = 0;
     }
     length = obj.length;
+    index = obj.index;
     path = new unsigned int[length];
     for (int i = 0; i < length; i++) {
         path[i] = obj.path[i];

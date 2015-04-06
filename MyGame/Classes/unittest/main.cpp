@@ -442,13 +442,21 @@ SUITE(Pathfinder){
 
     TEST(PathAssign){
         using namespace directions;
+        // Create a path we can use.
         unsigned int* pathInt = new unsigned int[5];
         pathInt[0] = directions::EAST;
         pathInt[1] = directions::NORTH;
         pathInt[2] = directions::SOUTH;
         pathInt[3] = directions::WEST;
         pathInt[4] = directions::NO_DIRECTION;
+
+        // Check assignment.
         Path path = Path(pathInt,5);
+        Path path1;
+        path1 = path;
+
+
+        // Check the two equal paths.
         CHECK(path.hasPath() == true);
         CHECK_EQUAL(path.getLength(),5);
         CHECK(path.isComplete() == false);
@@ -458,6 +466,17 @@ SUITE(Pathfinder){
         CHECK_EQUAL(WEST,path.getNextDirection());
         CHECK_EQUAL(NO_DIRECTION,path.getNextDirection());
         CHECK(path.isComplete() == true);
+
+        CHECK(path1.hasPath() == true);
+        CHECK_EQUAL(path1.getLength(),5);
+        CHECK(path1.isComplete() == false);
+        CHECK_EQUAL(EAST,path1.getNextDirection());
+        CHECK_EQUAL(NORTH,path1.getNextDirection());
+        CHECK_EQUAL(SOUTH,path1.getNextDirection());
+        CHECK_EQUAL(WEST,path1.getNextDirection());
+        CHECK_EQUAL(NO_DIRECTION,path1.getNextDirection());
+        CHECK(path1.isComplete() == true);
+
     }
 
     TEST(Init){
@@ -566,9 +585,8 @@ SUITE(Pathfinder){
         Matrix3D map = Matrix3D(50,50,50);
         Pathfinder pathfinder = Pathfinder(map);
         unsigned int*** ptr = map.getMatrix();
-        ptr[2][2][3] = BLOCK_ALL;
+        // Block one block in the middle of the path.
         ptr[2][2][2] = BLOCK_ALL;
-        ptr[2][2][1] = BLOCK_ALL;
         Location start = Location(0,2,2);
         Location goal = Location(4,2,2);
         int sumX = 0;

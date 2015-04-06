@@ -187,7 +187,7 @@ Path Pathfinder::findPath(Location start, Location goal){
                 Z += Z_DIR[dir];
             }
             // Make a container to hold the path. 
-            Path* pathContainer = new Path(path,cnt);
+            Path pathContainer = Path(path,cnt);
             // Insert end of path symbol.
             if (cnt == MAX_PATH_LENGTH) cnt = cnt-1;
             path[cnt] = 0;
@@ -197,7 +197,7 @@ Path Pathfinder::findPath(Location start, Location goal){
             /* std::cout << "dangerous : " << std::endl; */
             freeNodes();
             /* std::cout << "return from pathfinding" << std::endl; */
-            return *pathContainer;
+            return pathContainer;
         }
         // Generate moves in all possible directions. 
         for (int i = 0; i < DIRECTIONS; i++) {
@@ -264,8 +264,8 @@ Path Pathfinder::findPath(Location start, Location goal){
         /* delete node1; */
     }
     // Return empty path. 
-    Path* pathContainer = new Path(NULL,0);
+    Path pathContainer = Path(NULL,0);
     freeNodes();
-    return *pathContainer;
+    return pathContainer;
 }
 
