@@ -55,23 +55,23 @@ namespace blocks{
         static const int WALL = 2;
 
         // TODO: Make this const array.
-        static unsigned int slots[COUNT];
-        static unsigned int access[COUNT];
+        static unsigned int slots[COUNT+1];
+        static unsigned int access[COUNT+1];
 
         static void initArrays(){
-            slots[CENTER_SPACE]  = CENTER;
-            slots[CENTER_AIR]    = CENTER;
-            slots[CENTER_METAL]  = CENTER;
-            slots[WALL_METAL]   = WALL;
-            slots[FLOOR_METAL]  = FLOOR;
-            slots[CENTER_CORN] = CENTER;
+            slots[CENTER_SPACE]     = CENTER;
+            slots[CENTER_AIR]       = CENTER;
+            slots[CENTER_METAL]     = CENTER;
+            slots[WALL_METAL]       = WALL;
+            slots[FLOOR_METAL]      = FLOOR;
+            slots[CENTER_CORN]      = CENTER;
 
-            access[CENTER_SPACE]  = NON_BLOCKING;
-            access[CENTER_AIR]    = NON_BLOCKING;
-            access[CENTER_METAL] = BLOCKING;
-            access[WALL_METAL]   = BLOCKING;
-            access[FLOOR_METAL]  = BLOCKING;
-            access[CENTER_CORN] = BLOCKING;
+            access[CENTER_SPACE]    = NON_BLOCKING;
+            access[CENTER_AIR]      = NON_BLOCKING;
+            access[CENTER_METAL]    = BLOCKING;
+            access[WALL_METAL]      = BLOCKING;
+            access[FLOOR_METAL]     = BLOCKING;
+            access[CENTER_CORN]     = BLOCKING;
         }
     }
 }
