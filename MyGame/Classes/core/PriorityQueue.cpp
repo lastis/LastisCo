@@ -12,7 +12,7 @@ PriorityQueue::~PriorityQueue(){
     clear();
 }
 
-bool PriorityQueue::has(Node* node){
+bool PriorityQueue::has(PathNode* node){
     PriorityNode* tmp = front;
     while(tmp != NULL){
         if(node == tmp->item) return true;
@@ -21,7 +21,7 @@ bool PriorityQueue::has(Node* node){
     return false;
 }
 
-void PriorityQueue::push(Node* node){
+void PriorityQueue::push(PathNode* node){
     /* if (has(node)) std::cout << "HAS NODE, BAD STUFF" << std::endl; */
     PriorityNode* container = new PriorityNode();
     container->item = node;
@@ -56,7 +56,7 @@ void PriorityQueue::clear(){
     while(!empty()) pop();
 }
 
-Node* PriorityQueue::top(){
+PathNode* PriorityQueue::top(){
     if (front == NULL)
         return NULL;
     else{   

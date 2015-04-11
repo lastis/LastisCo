@@ -6,6 +6,8 @@
 #include "Matrix3D.h"
 #include "Identifiers.h"
 #include "Path.h"
+#include "Location.h"
+#include "PathNode.h"
 
 class Pathfinder {
 
@@ -23,18 +25,18 @@ public:
     Pathfinder& operator= (const Pathfinder& obj);
     void copy(const Pathfinder &obj);
     void freeMemory();
-    void freeNodes();
+    void freePathNodes();
     void setMap(Matrix3D& map);
     Path findPath(Location start, Location goal);
 #ifdef TESTING
     void printDirMap(int zDim);
 #endif
 private:
-    int getHValue(Node* node, Location goal);
+    int getHValue(PathNode* node, Location goal);
     void initialize();
-    void setFValue(Node* node, Location goal);
-    void updateGValue(Node* node, int direction);
-    void resetNodes();
+    void setFValue(PathNode* node, Location goal);
+    void updateGValue(PathNode* node, int direction);
+    void resetPathNodes();
 
 private:
     // Variables.
@@ -42,12 +44,13 @@ private:
     Matrix3D containNodesClosed;
     Matrix3D containNodesOpen;
     Matrix3D containDirMap;
-    unsigned int*** nodesClosed; // TODO Initiate this array.
-    unsigned int*** nodesOpen; // TODO Initiate this array.
-    unsigned int*** blocked; // TODO Might not need this. 
+    unsigned int*** nodesClosed; 
+    unsigned int*** nodesOpen; 
+    unsigned int*** blocked; 
     unsigned int*** dirMap;
-    int xDim, yDim, zDim; // TODO get these from the map. Rename maybe. 
+    int xDim, yDim, zDim; 
     // Used for deleting propertly.
-    Node** nodeHooks;
+    PathNode** nodeHooks;
     int nodeNr;
+
 };

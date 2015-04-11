@@ -220,20 +220,20 @@ SUITE(Rooms){
 
 SUITE(PriorityQueue){
     TEST(Init){
-        Node node1 = Node();
-        Node node2 = Node();
-        Node node3 = Node();
-        Node node4 = Node();
+        PathNode node1 = PathNode();
+        PathNode node2 = PathNode();
+        PathNode node3 = PathNode();
+        PathNode node4 = PathNode();
         
         PriorityQueue queue = PriorityQueue();
         PriorityQueue queuelist[2];
     }
 
     TEST(PushNPop){
-        Node node1 = Node();
-        Node node2 = Node();
-        Node node3 = Node();
-        Node node4 = Node();
+        PathNode node1 = PathNode();
+        PathNode node2 = PathNode();
+        PathNode node3 = PathNode();
+        PathNode node4 = PathNode();
         node4.fValue = 1;
         node2.fValue = 2;
         node1.fValue = 3;
