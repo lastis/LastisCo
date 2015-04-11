@@ -11,7 +11,7 @@ bool JobFarm::deligateTask(Person& person){
 
 bool JobFarm::sow(Person& person){
     // Get a pending object from the ship.
-    Object* obj = ship.getObjectPendingFromID(CENTER_CORN);
+    Item* obj = ship.getItemPendingFromID(CENTER_CORN);
     if (obj == NULL) return false;
     // Make a task of placing the item.
     TaskPlace* task = new TaskPlace(*obj,ship,person.loc);
@@ -21,8 +21,8 @@ bool JobFarm::sow(Person& person){
 
 bool JobFarm::gather(Person& person){
     // Find better way to do this to avoid a lot of searches.
-    for (int i = 0; i < ship.getCountObjects(); i++) {
-        Object* obj = ship.getObjectFromIndex(i);
+    for (int i = 0; i < ship.getCountItems(); i++) {
+        Item* obj = ship.getItemFromIndex(i);
         // Go through all the placed objects and check if they are finished.
         // Going to need better ways to do all of this. 
         if (obj == NULL) continue;
@@ -42,8 +42,8 @@ bool JobFarm::hasSeeds(Person& person){
 }
 
 bool JobFarm::grownCrops(){
-    for (int i = 0; i < ship.getCountObjects(); i++) {
-        Object* obj = ship.getObjectFromIndex(i);
+    for (int i = 0; i < ship.getCountItems(); i++) {
+        Item* obj = ship.getItemFromIndex(i);
         // Go through all the placed objects and check if they are finished.
         // Going to need better ways to do all of this. 
         if (obj == NULL) continue;

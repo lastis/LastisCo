@@ -11,7 +11,7 @@ LinkedList::LinkedList(){
 }
 
 // This prepends a new value at the beginning of the list
-void LinkedList::add(Object& val){
+void LinkedList::add(Item& val){
     Node *n = new Node();   // create new Node
     n->val = &val;           // set value
     n->next = head;         // make the node point to the next node.
@@ -24,10 +24,10 @@ void LinkedList::add(Object& val){
 
 // returns the first element in the list and deletes the Node.
 // caution, no error-checking here!
-Object* LinkedList::pop(){
+Item* LinkedList::pop(){
     if (length == 0) return NULL;
     Node* n = head;
-    Object* val = n->val;
+    Item* val = n->val;
 
     head = head->next;
     length--;
@@ -35,7 +35,7 @@ Object* LinkedList::pop(){
     return val;
 }
 
-Object* LinkedList::findWithIndex(int i){
+Item* LinkedList::findWithIndex(int i){
     Node* n = head;
     int curIndex = 0;
     while (curIndex != i) {
@@ -46,10 +46,10 @@ Object* LinkedList::findWithIndex(int i){
     return n->val;
 }
 
-Object* LinkedList::findWithID(int ID){
+Item* LinkedList::findWithID(int ID){
     if (length == 0) return NULL;
     Node* n = head;
-    Object* obj = head->val;
+    Item* obj = head->val;
     int objID = obj->ID;
     while (objID != ID) {
         n = n->next;
@@ -60,10 +60,10 @@ Object* LinkedList::findWithID(int ID){
     return obj;
 }
 
-Object* LinkedList::findWithUID(int UID){
+Item* LinkedList::findWithUID(int UID){
     if (length == 0) return NULL;
     Node* n = head;
-    Object* obj = head->val;
+    Item* obj = head->val;
     int objUID = obj->UID;
     while (objUID != UID) {
         n = n->next;
@@ -78,11 +78,11 @@ int LinkedList::getLength(){
     return length;
 }
 
-Object* LinkedList::popWithUID(int UID){
+Item* LinkedList::popWithUID(int UID){
     if (length == 0) return NULL;
     Node* prev = NULL;
     Node* cur = head;
-    Object* curObj = head->val;
+    Item* curObj = head->val;
     int  curUID= curObj->UID;
     // Check if first node is the right one.
     if (curUID == UID){
@@ -103,12 +103,12 @@ Object* LinkedList::popWithUID(int UID){
     return curObj;
 }
 
-Object* LinkedList::popWithID(int ID){
+Item* LinkedList::popWithID(int ID){
     if (length == 0) return NULL;
     if (ID == 0) return NULL;
     Node* prev = NULL;
     Node* cur = head;
-    Object* curObj = head->val;
+    Item* curObj = head->val;
     int  curID = curObj->ID;
     // Check if first node is the right one.
     if (curID == ID){
@@ -135,7 +135,7 @@ bool LinkedList::isEmpty(){
     else return false;
 }
 
-void LinkedList::deleteObjects(){
+void LinkedList::deleteItems(){
     while (!isEmpty()){
         delete pop();
     }

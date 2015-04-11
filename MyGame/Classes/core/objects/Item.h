@@ -6,9 +6,9 @@
 // Base class for all objects. Used to be able to make an 
 // array of objects.
 class Person;
-class Object : public Base{
+class Item : public Base{
 public:
-    Object():placed(false){};
+    Item():placed(false){};
     void setPlaced(bool val){placed = val;};
     bool isPlaced(){return placed;}
     virtual bool interact(Person& person) = 0;
@@ -20,9 +20,9 @@ private:
     bool placed;
 };
 
-struct ObjectTest : public Object {
+struct ItemTest : public Item {
     bool interact(Person& person){
-        // Objects that cannot be interacted with should return
+        // Items that cannot be interacted with should return
         // true, as false means the person is interacting with the
         // object but is not finished yet.
         return true;

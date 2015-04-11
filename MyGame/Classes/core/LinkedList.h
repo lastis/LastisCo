@@ -1,14 +1,14 @@
 #ifdef TESTING
 #include <iostream>
 #endif
-#include "objects/Object.h"
+#include "objects/Item.h"
 
 class LinkedList{
     // Struct inside the class LinkedList
     // This is one node which is not needed by the caller. It is just
     // for internal work.
     struct Node {
-        Object *val;
+        Item *val;
         Node *next;
     };
 private:
@@ -17,15 +17,15 @@ private:
 public:
     LinkedList();
     ~LinkedList();
-    void    add(Object& val);
-    void    deleteObjects();
+    void    add(Item& val);
+    void    deleteItems();
     bool    isEmpty();
     int     getLength();
-    Object* findWithUID(int UID);
-    Object* findWithID(int ID);
-    Object* findWithIndex(int i);
-    Object* popWithUID(int UID);
-    Object* popWithID(int ID);
-    Object* pop();
+    Item* findWithUID(int UID);
+    Item* findWithID(int ID);
+    Item* findWithIndex(int i);
+    Item* popWithUID(int UID);
+    Item* popWithID(int ID);
+    Item* pop();
 
 };

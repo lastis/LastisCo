@@ -2,18 +2,18 @@
 #define __TASK_INTERACT_H_INCLUDED__
 #include "Task.h"
 #include "../util.h"
-#include "../objects/Object.h"
+#include "../objects/Item.h"
 class Person;
 class TaskInteract : public Task{
 public:
-    TaskInteract(Object& obj, ShipMap& ship, Location currentPos) 
+    TaskInteract(Item& obj, ShipMap& ship, Location currentPos) 
         :   target(obj), 
             Task(ship, ship.findPath(currentPos,obj.loc))
     {
     }
     void doTask(Person& person);
-    void setObject(Object& object);
+    void setItem(Item& object);
 
-    Object& target;
+    Item& target;
 };
 #endif

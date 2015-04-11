@@ -2,8 +2,8 @@
 #define __SHIP_MAP_H_INCLUDED__
 #include "Pathfinder.h"
 #include "Room.h"
-#include "objects/Object.h"
-#include "objects/ObjectCreator.h"
+#include "objects/Item.h"
+#include "objects/ItemCreator.h"
 #include "Person.h"
 
 class ShipMap {
@@ -24,20 +24,20 @@ public:
     Room* getRoom(int UID);
     Room* getRoom(Location loc);
 
-    bool    placeObject(Object& obj);
+    bool    placeItem(Item& obj);
     bool    isVacant(int x, int y, int z);
     bool    isVacant(Location loc);
-    Object* createObject(int ID);
-    Object* getObjectFromUID(int UID);
-    Object* getObjectPendingFromID(int ID);
+    Item* createItem(int ID);
+    Item* getItemFromUID(int UID);
+    Item* getItemPendingFromID(int ID);
     // Linked list might need to be replaced by a vector or some other class
     // and this method should probably be replaced by an interator of some sort.
-    Object* getObjectFromIndex(int i);
-    Object* getObjectPendingFromIndex(int i);
-    /* Object* getObjectFromLoc(Location loc); */
-    int     getCountObjects();
-    int     getCountObjectsLoose();
-    int     getCountObjectsPending();
+    Item* getItemFromIndex(int i);
+    Item* getItemPendingFromIndex(int i);
+    /* Item* getItemFromLoc(Location loc); */
+    int     getCountItems();
+    int     getCountItemsLoose();
+    int     getCountItemsPending();
     int     getCountRooms();
     int     getCountCrew();
 

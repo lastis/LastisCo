@@ -2,7 +2,6 @@
 #define __TASK_MOVE_H_INCLUDED__
 #include "Task.h"
 #include "../util.h"
-#include "../objects/Object.h"
 class TaskMove : public Task{
 public:
     TaskMove(ShipMap& ship, Location currentPos, Location end) 

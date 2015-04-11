@@ -20,7 +20,7 @@ void TaskPlace::doTask(Person& person){
         // obj.place() on the next update to do another attempt.
         if (!finishedPlacing) finished = false;
         // Else we simply place the object. 
-        else ship.placeObject(obj);
+        else ship.placeItem(obj);
     }
     else {
         // Else we walk. 

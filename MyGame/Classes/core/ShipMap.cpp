@@ -162,14 +162,14 @@ Room* ShipMap::getRoom(Location loc){
     return getRoom(UID);
 }
 
-int ShipMap::getCountObjectsLoose(){
+int ShipMap::getCountItemsLoose(){
     return objectsLoose.getLength();
 }
-int     ShipMap::getCountObjects(){
+int     ShipMap::getCountItems(){
     return objects.getLength();
 }
 
-int     ShipMap::getCountObjectsPending(){
+int     ShipMap::getCountItemsPending(){
     return objectsPending.getLength();
 }
 
@@ -181,23 +181,23 @@ int     ShipMap::getCountCrew(){
     return cntCrew;
 }
 
-Object* ShipMap::getObjectFromUID(int UID){
+Item* ShipMap::getItemFromUID(int UID){
     return objects.findWithUID(UID);
 }
 
-Object* ShipMap::getObjectPendingFromID(int ID){
+Item* ShipMap::getItemPendingFromID(int ID){
     return objectsPending.findWithID(ID);
 }
 
-Object* ShipMap::getObjectFromIndex(int i){
+Item* ShipMap::getItemFromIndex(int i){
     return objects.findWithIndex(i);
 }
 
-Object* ShipMap::getObjectPendingFromIndex(int i){
+Item* ShipMap::getItemPendingFromIndex(int i){
     return objectsPending.findWithIndex(i);
 }
 
-bool ShipMap::placeObject(Object& obj){
+bool ShipMap::placeItem(Item& obj){
     if (obj.ID == 0) return false;
     // Check if the location is occupied.
     int x = obj.loc.x;
@@ -212,7 +212,7 @@ bool ShipMap::placeObject(Object& obj){
     // the general object list in ShipMap.
     objectsPending.popWithUID(obj.UID);
     if (room != NULL) {
-        room->addObject(obj);
+        room->addItem(obj);
     }
     else {
         objects.add(obj);
@@ -228,10 +228,10 @@ bool ShipMap::isVacant(Location loc){
     return isVacant(loc.x,loc.y,loc.z);
 }
 
-Object* ShipMap::createObject(int ID){
+Item* ShipMap::createItem(int ID){
     if (ID == 0) return NULL;
-    // Create the object. Object ID is set in its constructor.
-    Object* obj = object_creator::createObject(ID);
+    // Create the object. Item ID is set in its constructor.
+    Item* obj = object_creator::createItem(ID);
     if (obj == NULL) return NULL;
     // Set the UID of the object. TODO: Be able to recycle UIDs.
     cntUID++;
@@ -326,13 +326,13 @@ ShipMap::~ShipMap(){
     for (int i = 1; i <= cntRooms; i++) {
         // Delete objects in all the rooms.
         Room* room = rooms[i-1];
-        room->deleteObjects();
+        room->deleteItems();
         delete room;
     }
     // Delete all objects in shipmap.
-    objects.deleteObjects();
-    objectsLoose.deleteObjects();
-    objectsPending.deleteObjects();
+    objects.deleteItems();
+    objectsLoose.deleteItems();
+    objectsPending.deleteItems();
     for (int z = 0; z < O; z++) {
         for (int y = 0; y < N; y++) {
             for (int x = 0; x < M; x++) {

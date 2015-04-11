@@ -21,7 +21,7 @@ SUITE(Identifiers){
     }
 }
 
-SUITE(Objects){
+SUITE(Items){
     TEST(Corn){
         Corn corn = Corn();
         int cornID = blocks::CENTER_CORN;
@@ -116,9 +116,9 @@ SUITE(LinkedList){
 
     TEST(Add){
         LinkedList list1 = LinkedList();
-        ObjectTest obj1 = ObjectTest();
-        ObjectTest obj2 = ObjectTest();
-        ObjectTest obj3 = ObjectTest();
+        ItemTest obj1 = ItemTest();
+        ItemTest obj2 = ItemTest();
+        ItemTest obj3 = ItemTest();
         list1.add(obj1);
         list1.add(obj2);
         list1.add(obj3);
@@ -131,9 +131,9 @@ SUITE(LinkedList){
 
     TEST(Remove){
         LinkedList list1 = LinkedList();
-        ObjectTest obj1 = ObjectTest();
-        ObjectTest obj2 = ObjectTest();
-        ObjectTest obj3 = ObjectTest();
+        ItemTest obj1 = ItemTest();
+        ItemTest obj2 = ItemTest();
+        ItemTest obj3 = ItemTest();
         list1.add(obj1);
         list1.add(obj2);
         list1.add(obj3);
@@ -149,9 +149,9 @@ SUITE(LinkedList){
 
     TEST(RemoveWithID){
         LinkedList list1 = LinkedList();
-        ObjectTest obj1 = ObjectTest();
-        ObjectTest obj2 = ObjectTest();
-        ObjectTest obj3 = ObjectTest();
+        ItemTest obj1 = ItemTest();
+        ItemTest obj2 = ItemTest();
+        ItemTest obj3 = ItemTest();
         obj1.ID = 1;
         obj2.ID = 2;
         obj3.ID = 3;
@@ -178,9 +178,9 @@ SUITE(LinkedList){
 
     TEST(SearchAndDestroy){
         LinkedList list1 = LinkedList();
-        ObjectTest obj1 = ObjectTest();
-        ObjectTest obj2 = ObjectTest();
-        ObjectTest obj3 = ObjectTest();
+        ItemTest obj1 = ItemTest();
+        ItemTest obj2 = ItemTest();
+        ItemTest obj3 = ItemTest();
         obj1.UID = 2;
         obj2.UID = 3;
         obj3.UID = 4;
@@ -196,9 +196,9 @@ SUITE(LinkedList){
 
     TEST(Find){
         LinkedList list1 = LinkedList();
-        ObjectTest obj1 = ObjectTest();
-        ObjectTest obj2 = ObjectTest();
-        ObjectTest obj3 = ObjectTest();
+        ItemTest obj1 = ItemTest();
+        ItemTest obj2 = ItemTest();
+        ItemTest obj3 = ItemTest();
         obj1.UID = 1;
         obj2.UID = 2;
         obj3.UID = 3;
@@ -318,11 +318,11 @@ SUITE(Jobs){
         Corn** corn = new Corn*[crops]; 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                corn[i*2 + j] = (Corn*) ship.createObject(blocks::CENTER_CORN);
+                corn[i*2 + j] = (Corn*) ship.createItem(blocks::CENTER_CORN);
                 corn[i*2 + j]->loc = Location(i,j,0);
             }
         }
-        CHECK_EQUAL(4,ship.getCountObjectsPending());
+        CHECK_EQUAL(4,ship.getCountItemsPending());
         int cnt = 0;
         while (cnt < 30){
             job.deligateTask(person);
@@ -368,7 +368,7 @@ SUITE(Tasks){
 
         // By setting the location of the object, we define where it will
         // be placed on the shipmap.
-        Object* corn = ship.createObject(blocks::CENTER_CORN);
+        Item* corn = ship.createItem(blocks::CENTER_CORN);
         corn->loc = goal;
 
         // Put the path in the task.
@@ -386,10 +386,10 @@ SUITE(Tasks){
         person.update(); // 2.
         person.update(); // 3.
         // Still not placed. 
-        CHECK_EQUAL(1, ship.getCountObjectsPending());
+        CHECK_EQUAL(1, ship.getCountItemsPending());
         person.update(); // 4.
-        CHECK_EQUAL(0, ship.getCountObjectsPending());
-        CHECK_EQUAL(1, ship.getCountObjects());
+        CHECK_EQUAL(0, ship.getCountItemsPending());
+        CHECK_EQUAL(1, ship.getCountItems());
         unsigned int*** map = ship.getMap();
         int cornID = blocks::CENTER_CORN;
         CHECK_EQUAL(cornID, map[0][1][4]);
@@ -732,7 +732,7 @@ SUITE(ShipMap){
         delete[] loc2;
     }
 
-    TEST(AddObjects){
+    TEST(AddItems){
         ShipMap ship = ShipMap(3,20,20);
         Location* loc1 = new Location[9];
         // Make room 3x3 at z = 1, y = 2, x = 2. 
@@ -757,21 +757,21 @@ SUITE(ShipMap){
         Room* room2 = ship.createRoom(loc2, 9, 1);
 
         // Add one corn object in the first location of room 1.
-        Object* obj1 = ship.createObject(blocks::CENTER_CORN);
+        Item* obj1 = ship.createItem(blocks::CENTER_CORN);
         CHECK(obj1 != NULL);
         obj1->loc = loc1[0];
-        ship.placeObject(*obj1);
+        ship.placeItem(*obj1);
 
-        Object* obj2 = ship.createObject(blocks::CENTER_CORN);
+        Item* obj2 = ship.createItem(blocks::CENTER_CORN);
         CHECK(obj2 != NULL);
         obj2->loc = loc2[0];
-        ship.placeObject(*obj2);
+        ship.placeItem(*obj2);
 
         // Also add one object outside the rooms.
-        Object* obj3 = ship.createObject(blocks::CENTER_CORN);
+        Item* obj3 = ship.createItem(blocks::CENTER_CORN);
         CHECK(obj3 != NULL);
         obj3->loc = Location(10,10,1);
-        ship.placeObject(*obj3);
+        ship.placeItem(*obj3);
         // Check that the object have non-zero UIDs.
         CHECK(obj1->UID != 0);
         CHECK(obj2->UID != 0);
@@ -793,9 +793,9 @@ SUITE(ShipMap){
 
         // Check that shipmap only holds one object and the rooms hold
         // the rest.
-        CHECK_EQUAL(1,ship.getCountObjects());
-        CHECK_EQUAL(1,room1->getObjectCnt());
-        CHECK_EQUAL(1,room2->getObjectCnt());
+        CHECK_EQUAL(1,ship.getCountItems());
+        CHECK_EQUAL(1,room1->getItemCnt());
+        CHECK_EQUAL(1,room2->getItemCnt());
 
 
         delete[] loc1;

@@ -15,6 +15,6 @@ void TaskInteract::doTask(Person& person){
 }
 
 
-void TaskInteract::setObject(Object& target){
+void TaskInteract::setItem(Item& target){
     this->target = target;
 }

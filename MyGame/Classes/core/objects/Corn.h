@@ -1,9 +1,9 @@
 #ifndef __CORN_H_INCLUDED__
 #define __CORN_H_INCLUDED__
-#include "Object.h"
+#include "Item.h"
 
 class Person;
-class Corn : public Object{
+class Corn : public Item{
 public:
     Corn();
     void update();
