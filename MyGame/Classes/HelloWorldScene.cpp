@@ -25,30 +25,35 @@ bool HelloWorld::init()
         return false;
     }
  
-    tileMap = TMXTiledMap::create("res/TileMap.tmx");
-    background = tileMap->getLayer("Background");
+    tileMap = TMXTiledMap::create("res/ship.tmx");
+    auto layer1 = tileMap->getLayer("Layer_1");
+    unsigned int gid = layer1->getTileGIDAt(Vec2(0,0));
+    log("GID : %u",gid);
+
+    /* tileMap = TMXTiledMap::create("res/TileMap.tmx"); */
+ 
+
+    /* background = tileMap->getLayer("Background"); */
+    /* TMXObjectGroup *objectGroup = tileMap->getObjectGroup("Objects"); */
+     
+    /* if(objectGroup == NULL){ */
+    /*         CCLOG("tile map has no objects object layer"); */
+    /*             return false; */
+    /* } */
+     
+    /* ValueMap spawnPoint = objectGroup->getObject("SpawnPoint"); */
+     
+    /* int x = spawnPoint.at("x").asInt(); */
+    /* int y = spawnPoint.at("y").asInt(); */
+     
+    /* Sprite* player = Sprite::create("res/Player.png"); */
+    /* player->setPosition(x,y); */
+     
+    /* this->addChild(player); */
+
+    /* this->setViewPointCenter(player->getPosition()); */
  
     this->addChild(tileMap);
-
-    TMXObjectGroup *objectGroup = tileMap->getObjectGroup("Objects");
-     
-    if(objectGroup == NULL){
-            CCLOG("tile map has no objects object layer");
-                return false;
-    }
-     
-    ValueMap spawnPoint = objectGroup->getObject("SpawnPoint");
-     
-    int x = spawnPoint.at("x").asInt();
-    int y = spawnPoint.at("y").asInt();
-     
-    Sprite* player = Sprite::create("res/Player.png");
-    player->setPosition(x,y);
-     
-    this->addChild(player);
-
-    this->setViewPointCenter(player->getPosition());
- 
     return true;
 }
 
