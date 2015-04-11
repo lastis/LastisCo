@@ -1,9 +1,6 @@
 #ifndef __TASK_H_INCLUDED__
 #define __TASK_H_INCLUDED__
-#ifdef TESTING
 #include <iostream>
-#endif
-
 #include "../ShipMap.h"
 
 class Person;

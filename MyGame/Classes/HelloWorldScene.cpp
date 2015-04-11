@@ -1,5 +1,4 @@
 #include "HelloWorldScene.h"
-#include "core/ShipMap.h"
  
 using namespace cocos2d;
  

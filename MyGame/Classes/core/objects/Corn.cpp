@@ -1,10 +1,7 @@
 #include "Corn.h"
 #include "../Person.h"
 #include "../Identifiers.h"
-
-#ifdef TESTING
 #include <iostream>
-#endif
 
 Corn::Corn(){
     ID = blocks::CENTER_CORN;

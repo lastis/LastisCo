@@ -1,7 +1,4 @@
-#ifdef TESTING
 #include <iostream>
-#endif
-
 #include "Path.h"
 Path::Path(){
     this->path = NULL;

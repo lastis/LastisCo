@@ -1,6 +1,3 @@
-#ifdef TESTING
-#include <iostream>
-#endif
 #include "LinkedList.h"
 
 using namespace std;

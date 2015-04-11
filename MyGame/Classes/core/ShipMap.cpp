@@ -1,6 +1,4 @@
-#ifdef TESTING
 #include <iostream>
-#endif
 #include "ShipMap.h"
 
 ShipMap::ShipMap(){
@@ -231,7 +229,7 @@ bool ShipMap::isVacant(Location loc){
 Item* ShipMap::createItem(int ID){
     if (ID == 0) return NULL;
     // Create the object. Item ID is set in its constructor.
-    Item* obj = object_creator::createItem(ID);
+    Item* obj = item_creator::createItem(ID);
     if (obj == NULL) return NULL;
     // Set the UID of the object. TODO: Be able to recycle UIDs.
     cntUID++;

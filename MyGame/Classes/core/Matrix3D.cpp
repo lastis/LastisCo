@@ -1,6 +1,4 @@
-#ifdef TESTING
 #include <iostream>
-#endif
 #include "Matrix3D.h"
 
 Matrix3D::Matrix3D(){

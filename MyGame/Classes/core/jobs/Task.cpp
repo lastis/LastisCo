@@ -1,10 +1,7 @@
 #include "Task.h"
 #include "../Person.h"
 #include "../Path.h"
-
-#ifdef TESTING
 #include <iostream>
-#endif
 
 void Task::setPath(Path& path){
     this->path = path;

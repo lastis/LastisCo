@@ -1,10 +1,7 @@
 #include "Person.h"
 #include "jobs/Task.h"
 #include "Base.h"
-
-#ifdef TESTING
 #include <iostream>
-#endif
 
 Person::Person(){
     for (int i = 0; i < INVENTORY_SPACE; i++) {

@@ -1,6 +1,4 @@
-#ifdef TESTING
 #include <iostream>
-#endif
 #include "objects/Item.h"
 
 class LinkedList{

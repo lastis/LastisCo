@@ -1,6 +1,3 @@
-#ifdef TESTING
-#include <iostream>
-#endif
 #include "PriorityQueue.h"
 
 PriorityQueue::PriorityQueue(){

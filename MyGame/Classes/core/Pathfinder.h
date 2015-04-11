@@ -1,7 +1,4 @@
-#ifdef TESTING
 #include <iostream>
-#endif
-
 #include "PriorityQueue.h"
 #include "Matrix3D.h"
 #include "Identifiers.h"

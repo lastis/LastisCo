@@ -1,6 +1,4 @@
-#ifdef TESTING
 #include <iostream>
-#endif
 
 #include "Pathfinder.h"
 

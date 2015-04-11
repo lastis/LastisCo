@@ -1,10 +1,11 @@
-#ifndef __OBJECT_CREATOR_H_INCLUDED__
-#define __OBJECT_CREATOR_H_INCLUDED__
+#ifndef __ITEM_CREATOR_H_INCLUDED__
+#define __ITEM_CREATOR_H_INCLUDED__
 #include "../Identifiers.h"
 #include "Item.h"
 #include "Corn.h"
+#include <iostream>
 
-namespace object_creator{
+namespace item_creator{
     // Method to create objects from a given ID.
     static Item* createItem(int ID){
         using namespace blocks;

@@ -1,9 +1,7 @@
 #ifndef __PRIORITY_QUEUE_H_INCLUDED__
 #define __PRIORITY_QUEUE_H_INCLUDED__
 
-#ifdef TESTING
 #include <iostream>
-#endif
 #include "PathNode.h"
 
 struct PriorityNode
