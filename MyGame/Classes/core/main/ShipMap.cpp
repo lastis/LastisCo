@@ -27,15 +27,11 @@ void ShipMap::initialize(int O, int N, int M){
     mapAccess = containerMapAccess.getMatrix();
     mapRooms = containerMapAccess.getMatrix();
     cntRooms = 0;
-    cntUID = 0;
-    cntCrew = 0;
     for (int i = 0; i < MAX_ROOMS; i++) {
         rooms[i] = NULL;
     }
 
     pathfinder = Pathfinder(containerMapAccess);
-    //TODO: Probably should find a better way to do this.
-    blocks::properties::initArrays();
 }
 
 Path ShipMap::getPathToRoom(int UID, Location start){
@@ -160,9 +156,6 @@ Room* ShipMap::getRoom(Location loc){
     return getRoom(UID);
 }
 
-int ShipMap::getCountItemsLoose(){
-    return objectsLoose.getLength();
-}
 int     ShipMap::getCountItems(){
     return objects.getLength();
 }
@@ -329,7 +322,6 @@ ShipMap::~ShipMap(){
     }
     // Delete all objects in shipmap.
     objects.deleteItems();
-    objectsLoose.deleteItems();
     objectsPending.deleteItems();
     for (int z = 0; z < O; z++) {
         for (int y = 0; y < N; y++) {
