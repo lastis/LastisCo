@@ -117,51 +117,48 @@ set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/HelloWorldScene.cpp
   Classes/core/Base.cpp
-  Classes/core/LinkedList.cpp
-  Classes/core/Matrix3D.cpp
-  Classes/core/Path.cpp
-  Classes/core/Pathfinder.cpp
-  Classes/core/Person.cpp
-  Classes/core/PriorityQueue.cpp
-  Classes/core/Room.cpp
-  Classes/core/ShipMap.cpp
-  Classes/core/objects/Corn.cpp
+  Classes/core/enteties/Person.cpp
+  Classes/core/items/Corn.cpp
+  Classes/core/items/LinkedList.cpp
   Classes/core/jobs/Job.cpp
   Classes/core/jobs/JobFarm.cpp
   Classes/core/jobs/Task.cpp
   Classes/core/jobs/TaskInteract.cpp
-  Classes/core/jobs/TaskMaster.cpp
   Classes/core/jobs/TaskMove.cpp
   Classes/core/jobs/TaskPlace.cpp
+  Classes/core/main/ShipMap.cpp
+  Classes/core/map/Matrix3D.cpp
+  Classes/core/map/Path.cpp
+  Classes/core/map/Pathfinder.cpp
+  Classes/core/map/PriorityQueue.cpp
+  Classes/core/rooms/Room.cpp
   ${PLATFORM_SPECIFIC_SRC}
 )
 
 set(GAME_HEADERS
-  Classes/AppDelegate.h
-  Classes/HelloWorldScene.h
+  Classes/AppDelegate.cpp
+  Classes/HelloWorldScene.cpp
   Classes/core/Base.h
-  Classes/core/Identifiers.h
-  Classes/core/LinkedList.h
-  Classes/core/Location.h
-  Classes/core/Matrix3D.h
-  Classes/core/Path.h
-  Classes/core/Pathfinder.h
-  Classes/core/PathNode.h
-  Classes/core/Person.h
-  Classes/core/PriorityQueue.h
-  Classes/core/Room.h
-  Classes/core/ShipMap.h
+  Classes/core/identifiers.h
   Classes/core/util.h
-  Classes/core/objects/Corn.h
-  Classes/core/objects/Item.h
-  Classes/core/objects/ItemCreator.h
+  Classes/core/enteties/Person.h
+  Classes/core/items/Corn.h
+  Classes/core/items/Item.h
+  Classes/core/items/ItemCreator.h
+  Classes/core/items/LinkedList.h
   Classes/core/jobs/Job.h
   Classes/core/jobs/JobFarm.h
   Classes/core/jobs/Task.h
   Classes/core/jobs/TaskInteract.h
-  Classes/core/jobs/TaskMaster.h
   Classes/core/jobs/TaskMove.h
   Classes/core/jobs/TaskPlace.h
+  Classes/core/main/ShipMap.h
+  Classes/core/map/Location.h
+  Classes/core/map/Matrix3D.h
+  Classes/core/map/Path.h
+  Classes/core/map/PathNode.h
+  Classes/core/map/PriorityQueue.h
+  Classes/core/rooms/Room.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 
