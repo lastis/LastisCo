@@ -15,25 +15,23 @@ public:
     // Item methods.
     bool    placeItem(Item& obj);
     Item*   createItem(int ID);
-    Item*   getItemFromUID(int UID);
-    Item*   getItemFromIndex(int i);
-    Item*   getItemPendingFromID(int ID);
-    Item*   getItemPendingFromIndex(int i);
-    int     getItemCount();
-    int     getItemPendingCount();
 
-    int     getRoomCount();
-    int     getCrewCount();
-
+    // Room methods.
+    Room*   createRoom(Location* locations, int N, int roomID);
     Path    getPathToRoom(int UID, Location start);
+    Room*   getRoom(Location loc);
 
+    // Crew methods.
     Person* addCrewMember(int ID, Location loc);
+
+
 
 private:
     int O;
     int N;
     int M;
-    int cntUID;
+    int itemUID;
+    int roomUID;
     
     ShipCrew    crew;
     ShipMap     map;

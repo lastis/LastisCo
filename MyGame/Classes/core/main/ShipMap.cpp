@@ -96,6 +96,10 @@ void ShipMap::insertBlocksFloor(int blockID, Location start, Location end){
     }
 }
 
+void ShipMap::insertItem(int ID, Location loc){
+    map[loc.z][loc.y][loc.x] = ID;
+}
+
 void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
     using namespace blocks;
     using namespace blocks::properties;
@@ -112,93 +116,14 @@ void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
     }
 }
 
-Room* ShipMap::createRoom(Location* locations, int N, int roomID){
-    if (cntRooms == MAX_ROOMS) return NULL;
-    if (locations == NULL) return NULL;
-    cntRooms++;
+void ShipMap::placeRoom(Location* locations, int N, int UID){
     int x, y, z;
     for (int i = 0; i < N; i++) {
         x = locations[i].x;
         y = locations[i].y;
         z = locations[i].z;
-        /* std::cout << "x : " << x ; */
-        /* std::cout << " : y : " << y; */
-        /* std::cout << " : z : " << z << std::endl; */
-        // Label each room from 1 and up. 
-        mapRooms[z][y][x] = cntRooms;
-    }
-    // Case switch, create roomobject and allocate it to 
-    // the rooms array. Maybe to keymap? This uses roomID
-    Room* room = new Room();
-    // Find a way to mark the center of the room? Using the first
-    // position now.
-    room->center = locations[0];
-    room->UID = cntRooms;
-    rooms[cntRooms-1] = room;
-    return room;
-}
-
-Room* ShipMap::getRoom(int UID){
-    if (UID == 0) return NULL;
-    return rooms[UID-1];
-}
-
-Room* ShipMap::getRoom(Location loc){
-    int UID = mapRooms[loc.z][loc.y][loc.x];
-    return getRoom(UID);
-}
-
-int     ShipMap::getCountItems(){
-    return objects.getLength();
-}
-
-int     ShipMap::getCountItemsPending(){
-    return objectsPending.getLength();
-}
-
-int     ShipMap::getCountRooms(){
-    return cntRooms;
-}
-
-int     ShipMap::getCountCrew(){
-    return cntCrew;
-}
-
-Item* ShipMap::getItemFromUID(int UID){
-    return objects.findWithUID(UID);
-}
-
-Item* ShipMap::getItemPendingFromID(int ID){
-    return objectsPending.findWithID(ID);
-}
-
-Item* ShipMap::getItemFromIndex(int i){
-    return objects.findWithIndex(i);
-}
-
-Item* ShipMap::getItemPendingFromIndex(int i){
-    return objectsPending.findWithIndex(i);
-}
-
-bool ShipMap::placeItem(Item& obj){
-    if (obj.ID == 0) return false;
-    // Check if the location is occupied.
-    int x = obj.loc.x;
-    int y = obj.loc.y;
-    int z = obj.loc.z;
-    if (map[z][y][x] != 0) return false;
-    map[z][y][x] = obj.ID;
-    obj.setPlaced(true);
-    Room* room = getRoom(obj.loc);
-    // When the objects become placed, they are removed from the pending
-    // objects list and added to either a spesific room's object list or
-    // the general object list in ShipMap.
-    objectsPending.popWithUID(obj.UID);
-    if (room != NULL) {
-        room->addItem(obj);
-    }
-    else {
-        objects.add(obj);
+        // Label each room with it's UID.
+        mapRooms[z][y][x] = UID;
     }
 }
 
@@ -259,6 +184,18 @@ unsigned int*** ShipMap::getMapRooms(){
     return mapAccess;
 }
 
+int ShipMap::getRoomUidFromLoc(Location loc){
+    if (!withinBounds(loc)) return 0;
+    return mapRooms[loc.z][loc.y][loc.x];
+}
+
+bool ShipMap::withinBounds(Location loc){
+    if (loc.x < 0 || loc.x >= M) return false;
+    if (loc.y < 0 || loc.y >= N) return false;
+    if (loc.z < 0 || loc.z >= O) return false;
+    return true;
+}
+
 void ShipMap::updateMapAccess(){
     using namespace blocks::properties;
     // We cannot simply remove blocked paths the same way as we make them. 
@@ -305,24 +242,7 @@ void ShipMap::updateMapAccess(){
 }
 
 ShipMap::~ShipMap(){
-    // Delete objects in rooms and rooms.
-    for (int i = 1; i <= cntRooms; i++) {
-        // Delete objects in all the rooms.
-        Room* room = rooms[i-1];
-        room->deleteItems();
-        delete room;
-    }
-    // Delete all objects in shipmap.
-    objects.deleteItems();
-    objectsPending.deleteItems();
-    for (int z = 0; z < O; z++) {
-        for (int y = 0; y < N; y++) {
-            for (int x = 0; x < M; x++) {
-                mapRooms[z][y][x] = 0;
-            }
-        }
-    }
-    cntRooms = 0;
+
 }
 
 

@@ -3,11 +3,12 @@ class ShipRooms {
 public:
     ShipRooms();
 
-    Room*   createRoom(Location* locations, int N, int roomID);
+    Room*   createRoom(Location locations, int ID, int UID);
     Room*   getRoom(int UID);
-    Room*   getRoom(Location loc);
+    int     getRoomCount();
+    bool    isFull();
 
-    int cntRooms;
     static const int MAX_ROOMS = 20;
+    int cntRooms;
     Room*   rooms[MAX_ROOMS];
 };
