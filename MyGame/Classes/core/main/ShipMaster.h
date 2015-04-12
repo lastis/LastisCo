@@ -1,9 +1,16 @@
+#include "ShipCrew.h"
+#include "ShipItems.h"
+#include "ShipJobs.h"
+#include "ShipMap.h"
+#include "ShipRooms.h"
 #include "../identifiers.h"
+#include "../map/Path.h"
+#include "../map/Location.h"
+#include "../items/Item.h"
 class ShipMaster {
 public:
     ShipMaster();
     ShipMaster(int O, int N, int M);
-    void initialize(int O, int N,int M);
 
     // Item methods.
     bool    placeItem(Item& obj);
@@ -27,6 +34,10 @@ private:
     int N;
     int M;
     int cntUID;
-    Person* crew[MAX_CREW];
-    Room*   rooms[MAX_ROOMS];
+    
+    ShipCrew    crew;
+    ShipMap     map;
+    ShipItems   items;
+    ShipJobs    jobs;
+    ShipRooms   rooms;
 };

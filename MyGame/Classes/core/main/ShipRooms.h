@@ -1,3 +1,4 @@
+#include "../rooms/Room.h"
 class ShipRooms {
 public:
     ShipRooms();
@@ -8,4 +9,5 @@ public:
 
     int cntRooms;
     static const int MAX_ROOMS = 20;
+    Room*   rooms[MAX_ROOMS];
 };

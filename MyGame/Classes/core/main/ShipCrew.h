@@ -5,4 +5,5 @@ public:
     ShipCrew();
 
     int cntCrew;
+    Person* crew[MAX_CREW];
 };

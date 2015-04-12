@@ -26,18 +26,10 @@ void ShipMap::initialize(int O, int N, int M){
     mapWallsNorth = containerMapWallsNorth.getMatrix();
     mapAccess = containerMapAccess.getMatrix();
     mapRooms = containerMapAccess.getMatrix();
-    cntRooms = 0;
-    for (int i = 0; i < MAX_ROOMS; i++) {
-        rooms[i] = NULL;
-    }
 
     pathfinder = Pathfinder(containerMapAccess);
 }
 
-Path ShipMap::getPathToRoom(int UID, Location start){
-    Location goal = rooms[UID]->center;
-    return pathfinder.findPath(start, goal);
-}
 
 Path ShipMap::findPath(Location start, Location end){
     return pathfinder.findPath(start, end);
