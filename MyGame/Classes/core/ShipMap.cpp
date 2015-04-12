@@ -34,7 +34,7 @@ void ShipMap::initialize(int O, int N, int M){
     }
 
     pathfinder = Pathfinder(containerMapAccess);
-    //TODO: Probably should do this elsewhere.
+    //TODO: Probably should find a better way to do this.
     blocks::properties::initArrays();
 }
 

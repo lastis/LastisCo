@@ -16,6 +16,10 @@ Scene* HelloWorld::createScene()
     // return the scene
     return scene;
 }
+
+void HelloWorld::update(float dt){
+
+}
  
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
@@ -57,6 +61,7 @@ bool HelloWorld::init()
     /* this->setViewPointCenter(player->getPosition()); */
  
     this->addChild(tileMap);
+    /* this->scheduleUpdate(); */
     return true;
 }
 

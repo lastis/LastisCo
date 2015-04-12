@@ -20,7 +20,10 @@ public:
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
+
+    void update(float) override;
     
+    // Costum method.
     // Set the view on the given position.
     void setViewPointCenter(Vec2 pos);
 
