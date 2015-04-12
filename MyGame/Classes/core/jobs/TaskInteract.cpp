@@ -1,5 +1,5 @@
 #include "TaskInteract.h"
-#include "../Person.h"
+#include "../enteties/Person.h"
 
 
 

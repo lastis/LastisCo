@@ -2,7 +2,7 @@
 #define __TASK_INTERACT_H_INCLUDED__
 #include "Task.h"
 #include "../util.h"
-#include "../objects/Item.h"
+#include "../items/Item.h"
 class Person;
 class TaskInteract : public Task{
 public:

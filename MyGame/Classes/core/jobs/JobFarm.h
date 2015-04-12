@@ -3,8 +3,8 @@
 #include "Job.h"
 #include "TaskInteract.h"
 #include "TaskPlace.h"
-#include "../Person.h"
-#include "../Identifiers.h"
+#include "../enteties/Person.h"
+#include "../identifiers.h"
 
 class JobFarm : public Job{
 public:

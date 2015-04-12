@@ -1,8 +1,8 @@
 #include <unittest++/UnitTest++.h>
 
-#include "../core/ShipMap.h"
-#include "../core/Person.h"
-#include "../core/objects/Corn.h"
+#include "../core/main/ShipMap.h"
+#include "../core/enteties/Person.h"
+#include "../core/items/Corn.h"
 #include "../core/jobs/TaskInteract.h"
 #include "../core/jobs/TaskMove.h"
 #include "../core/jobs/TaskPlace.h"

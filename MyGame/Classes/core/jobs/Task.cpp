@@ -1,6 +1,6 @@
 #include "Task.h"
-#include "../Person.h"
-#include "../Path.h"
+#include "../enteties/Person.h"
+#include "../map/Path.h"
 #include <iostream>
 
 void Task::setPath(Path& path){

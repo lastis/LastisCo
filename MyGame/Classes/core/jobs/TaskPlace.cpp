@@ -1,5 +1,5 @@
 #include "TaskPlace.h"
-#include "../Person.h"
+#include "../enteties/Person.h"
 
 
 void TaskPlace::doTask(Person& person){

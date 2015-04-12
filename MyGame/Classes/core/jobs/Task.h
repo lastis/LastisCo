@@ -1,7 +1,7 @@
 #ifndef __TASK_H_INCLUDED__
 #define __TASK_H_INCLUDED__
 #include <iostream>
-#include "../ShipMap.h"
+#include "../main/ShipMap.h"
 
 class Person;
 class Path;

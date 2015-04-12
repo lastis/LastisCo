@@ -1,5 +1,5 @@
 #include "Job.h"
-#include "../ShipMap.h"
+#include "../main/ShipMap.h"
 #include <iostream>
 
 

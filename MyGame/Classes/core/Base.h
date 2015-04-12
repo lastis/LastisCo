@@ -4,7 +4,6 @@
 class Base {
 public:
     Base();
-    // Unique ID is only given to items on the map.
     int UID;
     int ID;
 };
