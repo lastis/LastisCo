@@ -8,6 +8,7 @@ public:
     ShipItems();
     ~ShipItems();
 
+    void update();
 
     Item*   createItem(int ID, int UID, Location loc);
     bool    placeItem(Item& obj);

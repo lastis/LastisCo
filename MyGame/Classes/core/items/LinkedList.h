@@ -21,6 +21,7 @@ public:
     void    deleteItems();
     bool    isEmpty();
     int     getLength();
+    void    update();
     Item*   findWithUID(int UID);
     Item*   findWithID(int ID);
     Item*   findWithIndex(int i);

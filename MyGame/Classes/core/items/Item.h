@@ -11,6 +11,7 @@ public:
     Item():placed(false){};
     void setPlaced(bool val){placed = val;};
     bool isPlaced(){return placed;}
+    virtual void update() = 0;
     virtual bool interact(Person& person) = 0;
     virtual bool place(Person& person) = 0;
     virtual bool canPlace(Person& person) = 0;
@@ -37,6 +38,9 @@ struct ItemTest : public Item {
 
     bool canPlace(Person& person){
         return true;
+    }
+
+    void update(){
     }
 };
 

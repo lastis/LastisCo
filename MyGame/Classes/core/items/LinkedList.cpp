@@ -7,6 +7,14 @@ LinkedList::LinkedList(){
     head = NULL; 
 }
 
+void LinkedList::update(){
+    Node* n = head;
+    while (n != NULL) {
+        n->val->update();
+        n = n->next;
+    }
+}
+
 // This prepends a new value at the beginning of the list
 void LinkedList::add(Item& val){
     Node *n = new Node();   // create new Node

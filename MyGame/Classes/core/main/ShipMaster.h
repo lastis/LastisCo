@@ -16,6 +16,8 @@ public:
     ShipMaster(int O, int N, int M);
     ~ShipMaster();
 
+    void update();
+
     // Map methods.
     bool    isVacant(int x, int y, int z);
     bool    isVacant(Location loc);

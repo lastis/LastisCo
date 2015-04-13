@@ -6,9 +6,9 @@ class Person;
 class Corn : public Item{
 public:
     Corn();
-    void update();
     void grow();
     void reset();
+    void update();
     bool interact(Person& person);
     bool place(Person& person);
     bool canPlace(Person& person);

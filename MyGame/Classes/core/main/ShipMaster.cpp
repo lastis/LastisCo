@@ -10,6 +10,10 @@ ShipMaster::ShipMaster(int O, int N, int M) : O(O), N(N), M(M),
     blocks::properties::initialize();
 }
 
+void ShipMaster::update(){
+    shipItems->update();
+}
+
 Item*   ShipMaster::getItemPlacedFromID(int ID){
     return shipItems->getItemPlacedFromUID(ID);
 }

@@ -4,6 +4,11 @@ ShipItems::ShipItems(){
 
 }
 
+void ShipItems::update(){
+    itemsPending.update();
+    itemsPlaced.update();
+}
+
 int     ShipItems::getItemPlacedCount(){
     return itemsPlaced.getLength();
 }
