@@ -1,7 +1,10 @@
 #include "ShipCrew.h"
 
 ShipCrew::ShipCrew(){
-
+    cntCrew = 0;
+    for (int i = 0; i < MAX_CREW; i++) {
+        crew[i] = NULL;
+    }
 }
 
 int ShipCrew::getCountCrew(){

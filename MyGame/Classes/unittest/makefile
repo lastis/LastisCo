@@ -1,3 +1,6 @@
+single:
+	g++ -D TESTING main.cpp \
+    -lunittest++
 compile:
 	g++ -D TESTING main.cpp \
     ../core/*.cpp           \
