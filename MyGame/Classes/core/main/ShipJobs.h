@@ -4,9 +4,10 @@
 class ShipJobs {
 public:
     ShipJobs(ShipMaster& ship);
+    ~ShipJobs();
     void update();
 
     ShipMaster& ship;
-    JobFarm jobFarm;
+    JobFarm* jobFarm;
 };
 #endif
