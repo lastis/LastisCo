@@ -4,7 +4,7 @@ ShipMaster::ShipMaster(int O, int N, int M) : O(O), N(N), M(M),
     shipCrew(new ShipCrew()), 
     shipMap(new ShipMap(O,N,M)), 
     shipItems(new ShipItems()), 
-    shipJobs(new ShipJobs()),
+    shipJobs(new ShipJobs(*this)),
     shipRooms(new ShipRooms())
 {
     blocks::properties::initialize();
@@ -12,6 +12,7 @@ ShipMaster::ShipMaster(int O, int N, int M) : O(O), N(N), M(M),
 
 void ShipMaster::update(){
     shipItems->update();
+    shipJobs->update();
 }
 
 Item*   ShipMaster::getItemPlacedFromID(int ID){

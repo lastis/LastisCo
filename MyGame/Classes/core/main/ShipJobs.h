@@ -3,6 +3,10 @@
 #include "../jobs/JobFarm.h"
 class ShipJobs {
 public:
-    ShipJobs();
+    ShipJobs(ShipMaster& ship);
+    void update();
+
+    ShipMaster& ship;
+    JobFarm jobFarm;
 };
 #endif
