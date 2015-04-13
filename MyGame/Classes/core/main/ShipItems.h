@@ -1,19 +1,28 @@
+#ifndef __SHIP_ITEMS_H_INCLUDED__
+#define __SHIP_ITEMS_H_INCLUDED__
 #include "../items/Item.h"
 #include "../items/LinkedList.h"
+#include "../items/ItemCreator.h"
 class ShipItems {
 public:
     ShipItems();
     ~ShipItems();
 
-    int     getItemCount();
-    int     getItemPendingCount();
-    bool    addItemPending(Item& obj);
 
-    Item*   getItemFromUID(int UID);
-    Item*   getItemFromIndex(int i);
+    Item*   createItem(int ID, int UID, Location loc);
+    bool    placeItem(Item& obj);
+
+    Item*   getItemPlacedFromID(int ID);
+    Item*   getItemPlacedFromUID(int UID);
+    Item*   getItemPlacedFromIndex(int i);
     Item*   getItemPendingFromID(int ID);
+    Item*   getItemPendingFromUID(int uID);
     Item*   getItemPendingFromIndex(int i);
 
-    LinkedList objects;
-    LinkedList objectsPending;
+    int     getItemPlacedCount();
+    int     getItemPendingCount();
+
+    LinkedList itemsPlaced;
+    LinkedList itemsPending;
 };
+#endif

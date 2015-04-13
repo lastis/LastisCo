@@ -1,41 +1,66 @@
 #include "ShipItems.h"
 
-int     ShipItems::getItemCount(){
-    return objects.getLength();
+ShipItems::ShipItems(){
+
+}
+
+int     ShipItems::getItemPlacedCount(){
+    return itemsPlaced.getLength();
 }
 
 int     ShipItems::getItemPendingCount(){
-    return objectsPending.getLength();
+    return itemsPending.getLength();
 }
 
-Item* ShipItems::getItemFromUID(int UID){
-    return objects.findWithUID(UID);
+Item* ShipItems::getItemPlacedFromUID(int UID){
+    return itemsPlaced.findWithUID(UID);
+}
+
+Item* ShipItems::getItemPlacedFromID(int ID){
+    return itemsPlaced.findWithID(ID);
 }
 
 Item* ShipItems::getItemPendingFromID(int ID){
-    return objectsPending.findWithID(ID);
+    return itemsPending.findWithID(ID);
 }
 
-Item* ShipItems::getItemFromIndex(int i){
-    return objects.findWithIndex(i);
+Item* ShipItems::getItemPendingFromUID(int UID){
+    return itemsPending.findWithID(UID);
+}
+
+Item* ShipItems::getItemPlacedFromIndex(int i){
+    return itemsPlaced.findWithIndex(i);
 }
 
 Item* ShipItems::getItemPendingFromIndex(int i){
-    return objectsPending.findWithIndex(i);
+    return itemsPending.findWithIndex(i);
 }
 
-bool addItemPending(Item& obj){
-    // When the objects become placed, they are removed from the pending
-    // objects list and added to a spesific room's object list and
-    // the general object list.
-    objectsPending.popWithUID(obj.UID);
-    if (room != NULL) {
-        room->addItem(obj);
-    }
-    objects.add(obj);
+bool ShipItems::placeItem(Item& obj){
+    // When the items become placed, they are removed from the pending
+    // items list and added to a spesific room's object list and
+    // the placed item list.
+    // TODO: Make more safe.
+    itemsPending.popWithUID(obj.UID);
+    itemsPlaced.add(obj);
 }
+
+Item* ShipItems::createItem(int ID, int UID, Location loc){
+    if (ID == 0) return NULL;
+    // Create the object. Item ID is set in its constructor.
+    Item* obj = item_creator::createItem(ID);
+    if (obj == NULL) return NULL;
+    // Set the UID of the object. 
+    obj->UID = UID;
+    obj->loc = loc;
+    // Add the object to the pending items list. 
+    itemsPending.add(*obj);
+    // Return the object because many times the creator wants it.
+    return obj;
+}
+
 
 ShipItems::~ShipItems(){
-    objects.deleteItems();
-    objectsPending.deleteItems();
+    itemsPlaced.deleteItems();
+    itemsPending.deleteItems();
 }

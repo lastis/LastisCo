@@ -1,3 +1,5 @@
+#ifndef __LINKED_LIST_H_INCLUDED__
+#define __LINKED_LIST_H_INCLUDED__
 #include <iostream>
 #include "Item.h"
 
@@ -19,11 +21,12 @@ public:
     void    deleteItems();
     bool    isEmpty();
     int     getLength();
-    Item* findWithUID(int UID);
-    Item* findWithID(int ID);
-    Item* findWithIndex(int i);
-    Item* popWithUID(int UID);
-    Item* popWithID(int ID);
-    Item* pop();
+    Item*   findWithUID(int UID);
+    Item*   findWithID(int ID);
+    Item*   findWithIndex(int i);
+    Item*   popWithUID(int UID);
+    Item*   popWithID(int ID);
+    Item*   pop();
 
 };
+#endif

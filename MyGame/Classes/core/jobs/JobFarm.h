@@ -2,16 +2,12 @@
 #define __JOB_FARM_H_INCLUDED__
 #include "Job.h"
 #include "TaskInteract.h"
+#include "TaskMove.h"
 #include "TaskPlace.h"
-#include "../enteties/Person.h"
-#include "../identifiers.h"
 
 class JobFarm : public Job{
 public:
-    JobFarm(ShipMap& ship) 
-        : Job(ship)
-    {
-    }
+    JobFarm(ShipMaster& ship);
     // Methods to deligate tasks, return true if deligiation
     // was successful.
     bool deligateTask(Person& person);

@@ -13,21 +13,19 @@ public:
     ~ShipMap();
 
     void updateMapAccess();
-    void insertItem(int ID, Location loc);
     void insertBlocksCenter(int blockID, Location start, Location end);
     void insertBlocksFloor(int blockID, Location start, Location end);
     void insertWallHorizontal(int blockID, Location start, Location end);
     void insertWallVertical(int blockID, Location start, Location end);
     inline void simplifyLocations(Location& loc1, Location& loc2);
-    Path findPath(Location start, Location end);
-
-    void    placeRoom(Location* locations, int N, int UID);
-    int     getRoomUidFromLoc(Location loc);
     bool    withinBounds(Location loc);
 
-
+    int     getRoomUidFromLoc(Location loc);
+    void    placeItem(int ID, Location loc);
+    void    placeRoom(Location* locations, int N, int UID);
     bool    isVacant(int x, int y, int z);
     bool    isVacant(Location loc);
+    Path    findPath(Location start, Location end);
 
     unsigned int*** getMap();
     unsigned int*** getMapFloor();

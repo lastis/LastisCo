@@ -6,11 +6,7 @@
 class Person;
 class TaskPlace : public Task{
 public:
-    TaskPlace(Item& obj, ShipMap& ship, Location currentPos) 
-        :   obj(obj), 
-            Task(ship, ship.findPath(currentPos,obj.loc))
-    {
-    }
+    TaskPlace(Item& obj, ShipMaster& ship, Location currentPos);
     void doTask(Person& person);
 
     Item& obj;

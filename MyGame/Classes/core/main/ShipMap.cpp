@@ -96,13 +96,14 @@ void ShipMap::insertBlocksFloor(int blockID, Location start, Location end){
     }
 }
 
-void ShipMap::insertItem(int ID, Location loc){
+void ShipMap::placeItem(int ID, Location loc){
     map[loc.z][loc.y][loc.x] = ID;
 }
 
 void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
     using namespace blocks;
     using namespace blocks::properties;
+    // Places blocks in a square contained by start and end.
     if (slots[blockID] != CENTER) return;
     simplifyLocations(start,end);
     for (int z = start.z; z < end.z; z++) {
@@ -134,32 +135,6 @@ bool ShipMap::isVacant(int x, int y, int z){
 
 bool ShipMap::isVacant(Location loc){
     return isVacant(loc.x,loc.y,loc.z);
-}
-
-Item* ShipMap::createItem(int ID){
-    if (ID == 0) return NULL;
-    // Create the object. Item ID is set in its constructor.
-    Item* obj = item_creator::createItem(ID);
-    if (obj == NULL) return NULL;
-    // Set the UID of the object. TODO: Be able to recycle UIDs.
-    cntUID++;
-    obj->UID = cntUID;
-    // Add the object to the pending items list. 
-    objectsPending.add(*obj);
-    // Return the object because many times the creator wants it.
-    return obj;
-}
-
-Person* ShipMap::addCrewMember(int ID, Location loc){
-    if (ID == 0) return NULL;
-    int x = loc.x;
-    int y = loc.y;
-    int z = loc.z;
-    // Create the crew member.
-    Person* crewMember = new Person();
-    cntCrew++;
-    crewMember->UID = cntCrew;
-    return crewMember;
 }
 
 unsigned int*** ShipMap::getMap(){
@@ -206,6 +181,7 @@ void ShipMap::updateMapAccess(){
     for (int z = 1; z < O-1; z++) {
         for (int y = 1; y < N-1; y++) {
             for (int x = 1; x < M-1; x++) {
+                // Make blocks and walls block pathing both ways.
                 // Start with floor.
                 ID = mapFloor[z][y][x];
                 if (access[ID] == true){

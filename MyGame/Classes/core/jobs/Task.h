@@ -1,26 +1,26 @@
 #ifndef __TASK_H_INCLUDED__
 #define __TASK_H_INCLUDED__
 #include <iostream>
-#include "../main/ShipMap.h"
+#include "../map/Path.h"
 
 class Person;
-class Path;
+class ShipMaster;
 class Task {
 public:
-    Task(ShipMap& ship, Path path) 
-        : ship(ship), path(path), finished(true)
+    Task(ShipMaster& ship) 
+        : ship(ship), finished(true)
     {
     }
     virtual void doTask(Person& person) = 0;
     // Should be private?
     bool walkOneStep(Person& person);
-    void setPath(Path& path);
+    void setPath(Path path);
     void setFinished(bool val);
     bool isFinished();
     bool hasPath();
     
     bool finished;
     Path path;
-    ShipMap& ship;
+    ShipMaster& ship;
 };
 #endif

@@ -3,7 +3,7 @@
 #include "../map/Path.h"
 #include <iostream>
 
-void Task::setPath(Path& path){
+void Task::setPath(Path path){
     this->path = path;
 }
 

@@ -1,12 +1,6 @@
 #include <unittest++/UnitTest++.h>
 
-#include "../core/main/ShipMap.h"
-#include "../core/enteties/Person.h"
-#include "../core/items/Corn.h"
-#include "../core/jobs/TaskInteract.h"
-#include "../core/jobs/TaskMove.h"
-#include "../core/jobs/TaskPlace.h"
-#include "../core/jobs/JobFarm.h"
+#include "../core/main/ShipMaster.h"
 #include <iostream>
 
 using namespace std;
@@ -309,7 +303,7 @@ SUITE(Jobs){
         // Test if we can give a person one seed and if he will place the rest.
         Person person = Person();
         person.loc = Location(8,1,0);
-        ShipMap ship = ShipMap(1,20,20);
+        ShipMaster ship = ShipMaster(1,20,20);
         JobFarm job = JobFarm(ship);
         person.addToInventory(blocks::CENTER_CORN,1);
 
@@ -318,11 +312,11 @@ SUITE(Jobs){
         Corn** corn = new Corn*[crops]; 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                corn[i*2 + j] = (Corn*) ship.createItem(blocks::CENTER_CORN);
-                corn[i*2 + j]->loc = Location(i,j,0);
+                corn[i*2 + j] = (Corn*) 
+                    ship.createItem(blocks::CENTER_CORN,Location(i,j,0));
             }
         }
-        CHECK_EQUAL(4,ship.getCountItemsPending());
+        CHECK_EQUAL(4,ship.getItemPendingCount());
         int cnt = 0;
         while (cnt < 30){
             job.deligateTask(person);
@@ -347,7 +341,7 @@ SUITE(Jobs){
 
 SUITE(Tasks){
     TEST(Init){
-        ShipMap ship = ShipMap(1,5,5);
+        ShipMaster ship = ShipMaster(1,5,5);
 
         Location start = Location(0,0,0);
         Location goal = Location(4,4,0);
@@ -360,7 +354,7 @@ SUITE(Tasks){
     }
 
     TEST(TaskPlace){
-        ShipMap ship = ShipMap(1,5,5);
+        ShipMaster ship = ShipMaster(1,5,5);
 
         // Make a path so the task can walk to the interaction object.
         Location start = Location(0,1,0);
@@ -368,8 +362,7 @@ SUITE(Tasks){
 
         // By setting the location of the object, we define where it will
         // be placed on the shipmap.
-        Item* corn = ship.createItem(blocks::CENTER_CORN);
-        corn->loc = goal;
+        Item* corn = ship.createItem(blocks::CENTER_CORN,goal);
 
         // Put the path in the task.
         TaskPlace* task = new TaskPlace(*corn,ship,start);
@@ -386,17 +379,17 @@ SUITE(Tasks){
         person.update(); // 2.
         person.update(); // 3.
         // Still not placed. 
-        CHECK_EQUAL(1, ship.getCountItemsPending());
+        CHECK_EQUAL(1, ship.getItemPendingCount());
         person.update(); // 4.
-        CHECK_EQUAL(0, ship.getCountItemsPending());
-        CHECK_EQUAL(1, ship.getCountItems());
-        unsigned int*** map = ship.getMap();
+        CHECK_EQUAL(0, ship.getItemPendingCount());
+        CHECK_EQUAL(1, ship.getItemPlacedCount());
+        unsigned int*** map = ship.shipMap.getMap();
         int cornID = blocks::CENTER_CORN;
         CHECK_EQUAL(cornID, map[0][1][4]);
     }
 
     TEST(TaskInteract){
-        ShipMap ship = ShipMap(1,5,5);
+        ShipMaster ship = ShipMaster(1,5,5);
 
         // Make a path so the task can walk to the interaction object.
         Location start = Location(0,1,0);
@@ -432,7 +425,7 @@ SUITE(Tasks){
     }
 
     TEST(WalkTask){
-        ShipMap ship = ShipMap(1,5,5);
+        ShipMaster ship = ShipMaster(1,5,5);
 
         Location start = Location(0,1,0);
         Location goal = Location(4,1,0);
@@ -661,16 +654,16 @@ SUITE(Pathfinder){
     }
 }
 
-SUITE(ShipMap){
+SUITE(ShipMaster){
     TEST(Instantiate){
-        ShipMap ship = ShipMap(5,5,5); 
+        ShipMaster ship = ShipMaster(5,5,5); 
     }
 
 
     TEST(CreateRoom){
         // Create a room and check if the room has been
         // added to the rooms map.
-        ShipMap ship = ShipMap(5,5,5);
+        ShipMaster ship = ShipMaster(5,5,5);
         Location* loc = new Location[9];
         // Make room 3x3 at z = 2. 
         for (int i = 0; i < 3; i++) {
@@ -681,7 +674,7 @@ SUITE(ShipMap){
             }
         }
         ship.createRoom(loc, 9, 0);
-        unsigned int*** map = ship.getMapRooms();
+        unsigned int*** map = ship.shipMap.getMapRooms();
         CHECK_EQUAL(1,map[2][1][1]);
         CHECK_EQUAL(1,map[2][1][2]);
         CHECK_EQUAL(1,map[2][1][3]);
@@ -715,25 +708,15 @@ SUITE(ShipMap){
             }
         }
         // Create the rooms in the ship
-        ship.createRoom(loc1, 9, 0);
-        ship.createRoom(loc2, 9, 1);
-
-        // Find rooms from the location and make sure they
-        // are different.
-        Room* room1 = ship.getRoom(loc1[0]);
-        Room* room2 = ship.getRoom(loc2[0]);
-        CHECK(room1 != NULL);
-        CHECK(room2 != NULL);
-        CHECK(room1 != room2);
-        CHECK(room1->UID != 0);
-        CHECK(room2->UID != 0);
+        ship.placeRoom(loc1, 9, 0);
+        ship.placeRoom(loc2, 9, 1);
 
         delete[] loc1;
         delete[] loc2;
     }
 
     TEST(AddItems){
-        ShipMap ship = ShipMap(3,20,20);
+        ShipMaster ship = ShipMaster(3,20,20);
         Location* loc1 = new Location[9];
         // Make room 3x3 at z = 1, y = 2, x = 2. 
         for (int i = 0; i < 3; i++) {
@@ -757,20 +740,14 @@ SUITE(ShipMap){
         Room* room2 = ship.createRoom(loc2, 9, 1);
 
         // Add one corn object in the first location of room 1.
-        Item* obj1 = ship.createItem(blocks::CENTER_CORN);
-        CHECK(obj1 != NULL);
-        obj1->loc = loc1[0];
+        Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]);
         ship.placeItem(*obj1);
 
-        Item* obj2 = ship.createItem(blocks::CENTER_CORN);
-        CHECK(obj2 != NULL);
-        obj2->loc = loc2[0];
+        Item* obj2 = ship.createItem(blocks::CENTER_CORN,loc2[0]);
         ship.placeItem(*obj2);
 
         // Also add one object outside the rooms.
-        Item* obj3 = ship.createItem(blocks::CENTER_CORN);
-        CHECK(obj3 != NULL);
-        obj3->loc = Location(10,10,1);
+        Item* obj3 = ship.createItem(blocks::CENTER_CORN,Location(10,10,1));
         ship.placeItem(*obj3);
         // Check that the object have non-zero UIDs.
         CHECK(obj1->UID != 0);
@@ -779,7 +756,7 @@ SUITE(ShipMap){
 
         // Check if the objects have been added to the map.
         using namespace blocks;
-        unsigned int*** map = ship.getMap();
+        unsigned int*** map = ship.shipMap.getMap();
         int x,y,z;
         x = loc1[0].x;
         y = loc1[0].y;
@@ -793,7 +770,7 @@ SUITE(ShipMap){
 
         // Check that shipmap only holds one object and the rooms hold
         // the rest.
-        CHECK_EQUAL(1,ship.getCountItems());
+        CHECK_EQUAL(1,ship.getItemPlacedCount());
         CHECK_EQUAL(1,room1->getItemCnt());
         CHECK_EQUAL(1,room2->getItemCnt());
 

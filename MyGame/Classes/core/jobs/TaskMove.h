@@ -4,10 +4,7 @@
 #include "../util.h"
 class TaskMove : public Task{
 public:
-    TaskMove(ShipMap& ship, Location currentPos, Location end) 
-        :   Task(ship,ship.findPath(currentPos,end))
-    {
-    }
+    TaskMove(ShipMaster& ship, Location currentPos, Location end);
     void doTask(Person& person);
 };
 #endif

@@ -1,3 +1,5 @@
+#ifndef __SHIP_MASTER_H_INCLUDED__
+#define __SHIP_MASTER_H_INCLUDED__
 #include "ShipCrew.h"
 #include "ShipItems.h"
 #include "ShipJobs.h"
@@ -7,17 +9,31 @@
 #include "../map/Path.h"
 #include "../map/Location.h"
 #include "../items/Item.h"
+#include "../items/ItemCreator.h"
 class ShipMaster {
 public:
     ShipMaster();
     ShipMaster(int O, int N, int M);
 
+    // Map methods.
+    bool    isVacant(int x, int y, int z);
+    bool    isVacant(Location loc);
+    Path    findPath(Location start, Location end);
+
     // Item methods.
     bool    placeItem(Item& obj);
-    Item*   createItem(int ID);
+    Item*   createItem(int ID, Location loc);
+    Item*   getItemPlacedFromID(int ID);
+    Item*   getItemPlacedFromUID(int UID);
+    Item*   getItemPlacedFromIndex(int i);
+    Item*   getItemPendingFromID(int ID);
+    Item*   getItemPendingFromUID(int UID);
+    Item*   getItemPendingFromIndex(int i);
+    int     getItemPlacedCount();
+    int     getItemPendingCount();
 
     // Room methods.
-    Room*   createRoom(Location* locations, int N, int roomID);
+    Room*   createRoom(Location* locations, int N, int ID);
     Path    getPathToRoom(int UID, Location start);
     Room*   getRoom(Location loc);
 
@@ -26,6 +42,11 @@ public:
 
 
 
+    ShipCrew    shipCrew;
+    ShipMap     shipMap;
+    ShipItems   shipItems;
+    ShipJobs    shipJobs;
+    ShipRooms   shipRooms;
 private:
     int O;
     int N;
@@ -33,9 +54,5 @@ private:
     int itemUID;
     int roomUID;
     
-    ShipCrew    crew;
-    ShipMap     map;
-    ShipItems   items;
-    ShipJobs    jobs;
-    ShipRooms   rooms;
 };
+#endif

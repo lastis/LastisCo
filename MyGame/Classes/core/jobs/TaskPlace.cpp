@@ -1,5 +1,12 @@
 #include "TaskPlace.h"
 #include "../enteties/Person.h"
+#include "../main/ShipMaster.h"
+
+TaskPlace::TaskPlace(Item& obj, ShipMaster& ship, Location currentPos) 
+        :   obj(obj), Task(ship)
+{
+    setPath(ship.findPath(currentPos,obj.loc));
+}
 
 
 void TaskPlace::doTask(Person& person){

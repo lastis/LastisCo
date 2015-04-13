@@ -1,18 +1,15 @@
 #ifndef __JOB_H_INCLUDED__
 #define __JOB_H_INCLUDED__
-// Forward declare.
-class ShipMap;
-class Person;
+#include "../identifiers.h"
+#include "../enteties/Person.h"
+class ShipMaster;
 class Job {
 public:
-    Job(ShipMap& ship) 
-        : ship(ship)
-    {
-    }
-    void setShipMap(ShipMap& ship);
+    Job(ShipMaster& ship);
+    void setShipMaster(ShipMaster& ship);
     virtual bool deligateTask(Person& person) = 0;
 
-    ShipMap& ship;
+    ShipMaster& ship;
 };
 
 #endif

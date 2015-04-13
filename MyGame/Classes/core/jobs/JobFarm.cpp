@@ -1,6 +1,12 @@
 #include "JobFarm.h"
+#include "../main/ShipMaster.h"
 
 using namespace blocks;
+
+JobFarm::JobFarm(ShipMaster& ship) : Job(ship)
+{
+
+}
 
 bool JobFarm::deligateTask(Person& person){
     if (person.hasTask()) return false;
@@ -21,8 +27,8 @@ bool JobFarm::sow(Person& person){
 
 bool JobFarm::gather(Person& person){
     // Find better way to do this to avoid a lot of searches.
-    for (int i = 0; i < ship.getCountItems(); i++) {
-        Item* obj = ship.getItemFromIndex(i);
+    for (int i = 0; i < ship.getItemPlacedCount(); i++) {
+        Item* obj = ship.getItemPlacedFromIndex(i);
         // Go through all the placed objects and check if they are finished.
         // Going to need better ways to do all of this. 
         if (obj == NULL) continue;
@@ -42,8 +48,8 @@ bool JobFarm::hasSeeds(Person& person){
 }
 
 bool JobFarm::grownCrops(){
-    for (int i = 0; i < ship.getCountItems(); i++) {
-        Item* obj = ship.getItemFromIndex(i);
+    for (int i = 0; i < ship.getItemPlacedCount(); i++) {
+        Item* obj = ship.getItemPlacedFromIndex(i);
         // Go through all the placed objects and check if they are finished.
         // Going to need better ways to do all of this. 
         if (obj == NULL) continue;
