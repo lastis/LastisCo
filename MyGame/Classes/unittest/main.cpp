@@ -17,7 +17,9 @@ SUITE(Identifiers){
 
 SUITE(Items){
     TEST(Corn){
+        // Make a corn. It must be placed in order to grow.
         Corn corn = Corn();
+        corn.setPlaced(true);
         int cornID = blocks::CENTER_CORN;
         CHECK_EQUAL(cornID,corn.ID);
         int& stage = corn.stage;
@@ -300,6 +302,7 @@ SUITE(Matix3D){
 
 SUITE(Jobs){
     TEST(JobFarm){
+        int cornID = blocks::CENTER_CORN;
         // Test if we can give a person one seed and if he will place the rest.
         Person person = Person();
         person.loc = Location(8,1,0);
@@ -318,12 +321,13 @@ SUITE(Jobs){
         }
         CHECK_EQUAL(4,ship.getItemPendingCount());
         int cnt = 0;
-        while (cnt < 30){
+        while (cnt < 100){
             job.deligateTask(person);
             person.update();
-            for (int i = 0; i < crops; i++) {
-                if (corn[i]->isPlaced()) corn[i]->update();
-            }
+            corn[0]->update();
+            corn[1]->update();
+            corn[2]->update();
+            corn[3]->update();
             cnt++;
             // Break the loop early if all corn is finished;
             if (corn[0]->isFinished() == false) continue;
@@ -395,7 +399,9 @@ SUITE(Tasks){
         Location start = Location(0,1,0);
         Location goal = Location(4,1,0);
 
+        // Make a placed corn object we can interact with.
         Corn corn = Corn();
+        corn.setPlaced(true);
         corn.loc = goal;
         // Make the corn "ripe".
         corn.update(); // 1

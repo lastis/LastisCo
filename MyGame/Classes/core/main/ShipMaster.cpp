@@ -23,11 +23,11 @@ Item*   ShipMaster::getItemPlacedFromIndex(int i){
 }
 
 Item*   ShipMaster::getItemPendingFromID(int ID){
-    return shipItems->getItemPlacedFromID(ID);
+    return shipItems->getItemPendingFromID(ID);
 }
 
 Item*   ShipMaster::getItemPendingFromUID(int UID){
-    return shipItems->getItemPlacedFromUID(UID);
+    return shipItems->getItemPendingFromUID(UID);
 }
 
 Item*   ShipMaster::getItemPendingFromIndex(int i){

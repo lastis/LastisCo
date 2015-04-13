@@ -36,6 +36,7 @@ bool Corn::isFinished(){
 }
 
 void Corn::update(){
+    if (isPlaced() == false) return;
     grow();
 }
 
