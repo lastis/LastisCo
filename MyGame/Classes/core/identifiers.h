@@ -36,6 +36,7 @@ namespace rooms{
 }
 
 namespace blocks{
+    static bool initialized = false;
     // ID == 0 is used for error checking.
     static const unsigned int CENTER_SPACE = 1;  
     static const unsigned int CENTER_AIR = 2;
@@ -58,7 +59,7 @@ namespace blocks{
         static unsigned int slots[COUNT+1];
         static unsigned int access[COUNT+1];
 
-        static void initArrays(){
+        static void initialize(){
             slots[CENTER_SPACE]     = CENTER;
             slots[CENTER_AIR]       = CENTER;
             slots[CENTER_METAL]     = CENTER;
@@ -72,6 +73,7 @@ namespace blocks{
             access[WALL_METAL]      = BLOCKING;
             access[FLOOR_METAL]     = BLOCKING;
             access[CENTER_CORN]     = BLOCKING;
+            initialized = true;
         }
     }
 }

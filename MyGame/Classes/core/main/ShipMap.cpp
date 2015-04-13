@@ -28,6 +28,8 @@ void ShipMap::initialize(int O, int N, int M){
     mapRooms = containerMapAccess.getMatrix();
 
     pathfinder = Pathfinder(containerMapAccess);
+    // Find a better way to do this?
+    blocks::properties::initialize();
 }
 
 

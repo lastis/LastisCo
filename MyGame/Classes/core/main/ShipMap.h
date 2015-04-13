@@ -5,6 +5,7 @@
 #include "../items/Item.h"
 #include "../items/ItemCreator.h"
 #include "../enteties/Person.h"
+#include "../identifiers.h"
 
 class ShipMap {
 public:

@@ -11,7 +11,7 @@ SUITE(Identifiers){
     // tests. It can be hard to trace back if the error comes from this 
     // code. 
     TEST(Initialization){
-        blocks::properties::initArrays();
+        blocks::properties::initialize();
     }
 }
 
@@ -789,8 +789,7 @@ SUITE(ShipMaster){
         delete[] loc2;
     }
 
-    TEST(BlockingMovement){
-        // TODO: Split this code into multiple tests.
+    TEST(UpdateBlockedMap){
         // Test if both sides of a wall is blocked when one wall is inserted
         ShipMap ship = ShipMap(5,5,5); 
         unsigned int*** map = ship.getMap();

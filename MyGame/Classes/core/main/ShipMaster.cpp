@@ -7,7 +7,7 @@ ShipMaster::ShipMaster(int O, int N, int M) : O(O), N(N), M(M),
     shipJobs(new ShipJobs()),
     shipRooms(new ShipRooms())
 {
-    blocks::properties::initArrays();
+    blocks::properties::initialize();
 }
 
 Item*   ShipMaster::getItemPlacedFromID(int ID){
