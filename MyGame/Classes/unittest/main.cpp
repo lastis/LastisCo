@@ -383,7 +383,7 @@ SUITE(Tasks){
         person.update(); // 4.
         CHECK_EQUAL(0, ship.getItemPendingCount());
         CHECK_EQUAL(1, ship.getItemPlacedCount());
-        unsigned int*** map = ship.shipMap.getMap();
+        unsigned int*** map = ship.shipMap->getMap();
         int cornID = blocks::CENTER_CORN;
         CHECK_EQUAL(cornID, map[0][1][4]);
     }
@@ -673,8 +673,9 @@ SUITE(ShipMaster){
                 loc[i*3 + j].z = 2;
             }
         }
-        ship.createRoom(loc, 9, 0);
-        unsigned int*** map = ship.shipMap.getMapRooms();
+        // Create a room at the locations with ID = 1.
+        Room* room = ship.createRoom(loc, 9, 1);
+        unsigned int*** map = ship.shipMap->getMapRooms();
         CHECK_EQUAL(1,map[2][1][1]);
         CHECK_EQUAL(1,map[2][1][2]);
         CHECK_EQUAL(1,map[2][1][3]);
@@ -708,8 +709,11 @@ SUITE(ShipMaster){
             }
         }
         // Create the rooms in the ship
-        ship.placeRoom(loc1, 9, 0);
-        ship.placeRoom(loc2, 9, 1);
+        ship.placeRoom(loc1, 9, 1);
+        ship.placeRoom(loc2, 9, 2);
+
+        CHECK(0 != ship.getRoomUidFromLoc(loc1[0]));
+        CHECK(0 != ship.getRoomUidFromLoc(loc2[0]));
 
         delete[] loc1;
         delete[] loc2;
@@ -739,7 +743,7 @@ SUITE(ShipMaster){
         Room* room1 = ship.createRoom(loc1, 9, 0);
         Room* room2 = ship.createRoom(loc2, 9, 1);
 
-        // Add one corn object in the first location of room 1.
+        // Add one corn object in the first location of room 1 and 2.
         Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]);
         ship.placeItem(*obj1);
 
@@ -756,7 +760,7 @@ SUITE(ShipMaster){
 
         // Check if the objects have been added to the map.
         using namespace blocks;
-        unsigned int*** map = ship.shipMap.getMap();
+        unsigned int*** map = ship.shipMap->getMap();
         int x,y,z;
         x = loc1[0].x;
         y = loc1[0].y;

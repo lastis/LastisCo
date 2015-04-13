@@ -6,6 +6,7 @@ Room::Room(){
     UID = 0;
     center = Location(-1,-1,-1);
 }
+
 void Room::deleteItems(){
     objects.deleteItems();
 }

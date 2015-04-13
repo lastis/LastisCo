@@ -14,6 +14,7 @@ class ShipMaster {
 public:
     ShipMaster();
     ShipMaster(int O, int N, int M);
+    ~ShipMaster();
 
     // Map methods.
     bool    isVacant(int x, int y, int z);
@@ -34,6 +35,7 @@ public:
 
     // Room methods.
     Room*   createRoom(Location* locations, int N, int ID);
+    void    placeRoom(Location* locations, int N, int UID);
     Path    getPathToRoom(int UID, Location start);
     Room*   getRoom(Location loc);
 
@@ -42,11 +44,11 @@ public:
 
 
 
-    ShipCrew    shipCrew;
-    ShipMap     shipMap;
-    ShipItems   shipItems;
-    ShipJobs    shipJobs;
-    ShipRooms   shipRooms;
+    ShipCrew*   shipCrew;
+    ShipMap*    shipMap;
+    ShipItems*  shipItems;
+    ShipJobs*   shipJobs;
+    ShipRooms*  shipRooms;
 private:
     int O;
     int N;
