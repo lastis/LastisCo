@@ -15,9 +15,16 @@ Person* ShipCrew::addCrewMember(int ID, Location loc){
     int z = loc.z;
     // Create the crew member.
     Person* crewMember = new Person();
-    cntCrew++;
-    crewMember->UID = cntCrew;
+    // Avoid UID of 0.
+    crewMember->UID = cntCrew+1;
     // Add the crew member to the list.
-    crew[cntCrew-1] = crewMember;
+    crew[cntCrew] = crewMember;
+    cntCrew++;
     return crewMember;
+}
+
+ShipCrew::~ShipCrew(){
+    for (int i = 0; i < cntCrew; i++) {
+        delete crew[i];
+    }
 }

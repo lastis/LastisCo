@@ -8,6 +8,7 @@ public:
     static const int MAX_CREW = 100;
 
     ShipCrew();
+    ~ShipCrew();
     int     getCountCrew();
     Person* addCrewMember(int ID, Location loc);
 

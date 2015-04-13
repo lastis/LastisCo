@@ -35,3 +35,8 @@ Room* ShipRooms::getRoom(int UID){
     return rooms[UID-1];
 }
 
+ShipRooms::~ShipRooms(){
+    for (int i = 0; i < cntRooms; i++) {
+        delete rooms[i];
+    }
+}

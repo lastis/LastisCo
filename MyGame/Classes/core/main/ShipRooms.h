@@ -4,6 +4,7 @@
 class ShipRooms {
 public:
     ShipRooms();
+    ~ShipRooms();
 
     Room*   createRoom(Location locations, int ID, int UID);
     Room*   getRoom(int UID);
