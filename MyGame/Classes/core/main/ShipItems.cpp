@@ -37,10 +37,6 @@ Item* ShipItems::getItemPendingFromIndex(int i){
 }
 
 bool ShipItems::placeItem(Item& obj){
-    // When the items become placed, they are removed from the pending
-    // items list and added to a spesific room's object list and
-    // the placed item list.
-    // TODO: Make more safe.
     itemsPending.popWithUID(obj.UID);
     itemsPlaced.add(obj);
 }

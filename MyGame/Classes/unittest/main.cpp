@@ -743,12 +743,18 @@ SUITE(ShipMaster){
         Room* room1 = ship.createRoom(loc1, 9, 0);
         Room* room2 = ship.createRoom(loc2, 9, 1);
 
-        // Add one corn object in the first location of room 1 and 2.
+        // Add one corn object in the first location of room 1 and 2 
+        // and check that they have been placed correctly.
+        bool placed;
         Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]);
-        ship.placeItem(*obj1);
+        CHECK(obj1->ID != 0);
+        CHECK(ship.isVacant(obj1->loc));
+        CHECK(ship.placeItem(*obj1));
 
         Item* obj2 = ship.createItem(blocks::CENTER_CORN,loc2[0]);
-        ship.placeItem(*obj2);
+        CHECK(obj2->ID != 0);
+        CHECK(ship.isVacant(obj2->loc));
+        CHECK(ship.placeItem(*obj2));
 
         // Also add one object outside the rooms.
         Item* obj3 = ship.createItem(blocks::CENTER_CORN,Location(10,10,1));
@@ -774,7 +780,7 @@ SUITE(ShipMaster){
 
         // Check that shipmap only holds one object and the rooms hold
         // the rest.
-        CHECK_EQUAL(1,ship.getItemPlacedCount());
+        CHECK_EQUAL(3,ship.getItemPlacedCount());
         CHECK_EQUAL(1,room1->getItemCnt());
         CHECK_EQUAL(1,room2->getItemCnt());
 
