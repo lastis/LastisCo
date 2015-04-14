@@ -7,11 +7,7 @@ Room::Room(){
     center = Location(-1,-1,-1);
 }
 
-void Room::deleteItems(){
-    objects.deleteItems();
-}
-
-void Room::addItem(Item& object){
+void Room::addItem(Item* object){
     objects.add(object);
 }
 

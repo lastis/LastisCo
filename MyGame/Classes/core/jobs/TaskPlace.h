@@ -6,9 +6,9 @@
 class Person;
 class TaskPlace : public Task{
 public:
-    TaskPlace(Item& obj, ShipMaster& ship, Location currentPos);
+    TaskPlace(Item* obj, ShipMaster& ship, Location currentPos);
     void doTask(Person& person);
 
-    Item& obj;
+    Item* obj;
 };
 #endif

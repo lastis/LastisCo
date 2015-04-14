@@ -20,7 +20,7 @@ bool JobFarm::sow(Person& person){
     Item* obj = ship.getItemPendingFromID(CENTER_CORN);
     if (obj == NULL) return false;
     // Make a task of placing the item.
-    TaskPlace* task = new TaskPlace(*obj,ship,person.loc);
+    TaskPlace* task = new TaskPlace(obj,ship,person.loc);
     person.setTask(task);
     return true;
 }
@@ -35,7 +35,7 @@ bool JobFarm::gather(Person& person){
         if (obj->ID != CENTER_CORN) continue;
         Corn* corn = (Corn*) obj;
         if (corn->isFinished() == false) continue;
-        TaskInteract* task = new TaskInteract(*corn,ship,person.loc);
+        TaskInteract* task = new TaskInteract(corn,ship,person.loc);
         person.setTask(task);
         return true;
     }

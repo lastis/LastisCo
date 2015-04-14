@@ -8,8 +8,8 @@ class LinkedList{
     // This is one node which is not needed by the caller. It is just
     // for internal work.
     struct Node {
-        Item *val;
-        Node *next;
+        Item *val = NULL;
+        Node *next = NULL;
     };
 private:
     Node *head; 
@@ -17,8 +17,8 @@ private:
 public:
     LinkedList();
     ~LinkedList();
-    void    add(Item& val);
-    void    deleteItems();
+    void    add(Item* val);
+    /* void    deleteItems(); */
     bool    isEmpty();
     int     getLength();
     void    update();

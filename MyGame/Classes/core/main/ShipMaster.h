@@ -24,7 +24,7 @@ public:
     Path    findPath(Location start, Location end);
 
     // Item methods.
-    bool    placeItem(Item& obj);
+    bool    placeItem(Item* obj);
     Item*   createItem(int ID, Location loc);
     Item*   getItemPlacedFromID(int ID);
     Item*   getItemPlacedFromUID(int UID);

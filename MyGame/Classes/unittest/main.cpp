@@ -115,12 +115,12 @@ SUITE(LinkedList){
         ItemTest obj1 = ItemTest();
         ItemTest obj2 = ItemTest();
         ItemTest obj3 = ItemTest();
-        list1.add(obj1);
-        list1.add(obj2);
-        list1.add(obj3);
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
         CHECK(list1.isEmpty() == false);
         LinkedList list2 = LinkedList();
-        list2.add(obj1);
+        list2.add(&obj1);
         CHECK(list2.isEmpty() == false);
         CHECK_EQUAL(1,list2.getLength());
     }
@@ -130,16 +130,16 @@ SUITE(LinkedList){
         ItemTest obj1 = ItemTest();
         ItemTest obj2 = ItemTest();
         ItemTest obj3 = ItemTest();
-        list1.add(obj1);
-        list1.add(obj2);
-        list1.add(obj3);
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
         CHECK(list1.isEmpty() == false);
         list1.pop();
         list1.pop();
         list1.pop();
         CHECK(list1.isEmpty() == true);
         LinkedList list2 = LinkedList();
-        list2.add(obj1);
+        list2.add(&obj1);
         list2.pop();
     }
 
@@ -154,18 +154,18 @@ SUITE(LinkedList){
         obj1.UID = 1;
         obj2.UID = 2;
         obj3.UID = 3;
-        list1.add(obj1);
-        list1.add(obj2);
-        list1.add(obj3);
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
         list1.popWithID(1);
         list1.popWithID(3);
         list1.popWithID(2);
         CHECK_EQUAL(0,list1.getLength());
 
         LinkedList list2 = LinkedList();
-        list2.add(obj1);
-        list2.add(obj2);
-        list2.add(obj3);
+        list2.add(&obj1);
+        list2.add(&obj2);
+        list2.add(&obj3);
         list2.popWithUID(1);
         list2.popWithUID(3);
         list2.popWithUID(2);
@@ -180,9 +180,9 @@ SUITE(LinkedList){
         obj1.UID = 2;
         obj2.UID = 3;
         obj3.UID = 4;
-        list1.add(obj1);
-        list1.add(obj2);
-        list1.add(obj3);
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
         list1.popWithUID(3);
         /* int N = list1.getLength(); */
         /* CHECK_EQUAL(2,N); */
@@ -198,9 +198,9 @@ SUITE(LinkedList){
         obj1.UID = 1;
         obj2.UID = 2;
         obj3.UID = 3;
-        list1.add(obj1);
-        list1.add(obj2);
-        list1.add(obj3);
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
         Base* obj = list1.findWithUID(2);
         CHECK_EQUAL(obj,&obj2);
     }
@@ -300,185 +300,187 @@ SUITE(Matix3D){
 
 }
 
-/* SUITE(Jobs){ */
-/*     TEST(JobFarm){ */
-/*         int cornID = blocks::CENTER_CORN; */
-/*         // Test if we can give a person one seed and if he will place the rest. */
-/*         Person person = Person(); */
-/*         person.loc = Location(8,1,0); */
-/*         ShipMaster ship = ShipMaster(1,20,20); */
-/*         JobFarm job = JobFarm(ship); */
-/*         person.addToInventory(blocks::CENTER_CORN,1); */
+SUITE(Jobs){
+    /* TEST(JobFarm){ */
+    /*     int cornID = blocks::CENTER_CORN; */
+    /*     // Test if we can give a person one seed and if he will place the rest. */
+    /*     Person person = Person(); */
+    /*     person.loc = Location(8,1,0); */
+    /*     ShipMaster ship = ShipMaster(1,20,20); */
+    /*     JobFarm job = JobFarm(ship); */
+    /*     person.addToInventory(blocks::CENTER_CORN,1); */
 
-/*         // Make a 2x2 field of corn that we want to be sowed. */
-/*         int crops = 4; */
-/*         Corn** corn = new Corn*[crops]; */ 
-/*         for (int i = 0; i < 2; i++) { */
-/*             for (int j = 0; j < 2; j++) { */
-/*                 corn[i*2 + j] = (Corn*) */ 
-/*                     ship.createItem(blocks::CENTER_CORN,Location(i,j,0)); */
-/*             } */
-/*         } */
-/*         CHECK_EQUAL(4,ship.getItemPendingCount()); */
-/*         int cnt = 0; */
-/*         while (cnt < 100){ */
-/*             job.deligateTask(person); */
-/*             person.update(); */
-/*             corn[0]->update(); */
-/*             corn[1]->update(); */
-/*             corn[2]->update(); */
-/*             corn[3]->update(); */
-/*             cnt++; */
-/*             // Break the loop early if all corn is finished; */
-/*             if (corn[0]->isFinished() == false) continue; */
-/*             if (corn[1]->isFinished() == false) continue; */
-/*             if (corn[2]->isFinished() == false) continue; */
-/*             if (corn[3]->isFinished() == false) continue; */
-/*             break; */
-/*         } */
-/*         for (int i = 0; i < crops; i++) { */
-/*             CHECK(corn[i]->isPlaced()); */
-/*         } */
-/*         delete[] corn; */
-/*     } */
-/* } */
+    /*     // Make a 2x2 field of corn that we want to be sowed. */
+    /*     int crops = 4; */
+    /*     Corn** corn = new Corn*[crops]; */ 
+    /*     for (int i = 0; i < 2; i++) { */
+    /*         for (int j = 0; j < 2; j++) { */
+    /*             corn[i*2 + j] = (Corn*) */ 
+    /*                 ship.createItem(blocks::CENTER_CORN,Location(i,j,0)); */
+    /*         } */
+    /*     } */
+    /*     CHECK_EQUAL(4,ship.getItemPendingCount()); */
+    /*     int cnt = 0; */
+    /*     while (cnt < 100){ */
+    /*         job.deligateTask(person); */
+    /*         person.update(); */
+    /*         corn[0]->update(); */
+    /*         corn[1]->update(); */
+    /*         corn[2]->update(); */
+    /*         corn[3]->update(); */
+    /*         cnt++; */
+    /*         // Break the loop early if all corn is finished; */
+    /*         if (corn[0]->isFinished() == false) continue; */
+    /*         if (corn[1]->isFinished() == false) continue; */
+    /*         if (corn[2]->isFinished() == false) continue; */
+    /*         if (corn[3]->isFinished() == false) continue; */
+    /*         break; */
+    /*     } */
+    /*     for (int i = 0; i < crops; i++) { */
+    /*         CHECK(corn[i]->isPlaced()); */
+    /*     } */
+    /*     delete[] corn; */
+    /* } */
+}
 
-/* SUITE(Tasks){ */
-/*     TEST(Init){ */
-/*         ShipMaster ship = ShipMaster(1,5,5); */
+SUITE(Tasks){
+    TEST(Init){
+        ShipMaster ship = ShipMaster(1,5,5);
 
-/*         Location start = Location(0,0,0); */
-/*         Location goal = Location(4,4,0); */
+        Location start = Location(0,0,0);
+        Location goal = Location(4,4,0);
 
-/*         // Put the path in the task. */
-/*         TaskMove* task = new TaskMove(ship,start,goal); */
-/*         // Put the task in the person. */ 
-/*         Person person = Person(); */
-/*         person.setTask(task); */
-/*     } */
+        // Put the path in the task.
+        TaskMove* task = new TaskMove(ship,start,goal);
+        // Put the task in the person. 
+        Person person = Person();
+        person.setTask(task);
+    }
 
-/*     TEST(TaskPlace){ */
-/*         ShipMaster ship = ShipMaster(1,5,5); */
+    /* TEST(TaskPlace){ */
+    /*     ShipMaster ship = ShipMaster(1,5,5); */
 
-/*         // Make a path so the task can walk to the interaction object. */
-/*         Location start = Location(0,1,0); */
-/*         Location goal = Location(4,1,0); */
+    /*     // Make a path so the task can walk to the interaction object. */
+    /*     Location start = Location(0,1,0); */
+    /*     Location goal = Location(4,1,0); */
 
-/*         // By setting the location of the object, we define where it will */
-/*         // be placed on the shipmap. */
-/*         Item* corn = ship.createItem(blocks::CENTER_CORN,goal); */
+    /*     // By setting the location of the object, we define where it will */
+    /*     // be placed on the shipmap. */
+    /*     Item* corn = ship.createItem(blocks::CENTER_CORN,goal); */
 
-/*         // Put the path in the task. */
-/*         TaskPlace* task = new TaskPlace(*corn,ship,start); */
-/*         // Put the task in the person. Tasks should be deleted by person. */
-/*         // Give the persons some seeds so he can place the object. */
-/*         Person person = Person(); */
-/*         person.addToInventory(corn->ID,1); */
-/*         person.loc = start; */
-/*         person.setTask(task); */
-/*         CHECK(task->hasPath()); */
-/*         CHECK(task->isFinished() == false); */
-/*         // Three steps to the object, one step for placing. */
-/*         person.update(); // 1. */
-/*         person.update(); // 2. */
-/*         person.update(); // 3. */
-/*         // Still not placed. */ 
-/*         CHECK_EQUAL(1, ship.getItemPendingCount()); */
-/*         person.update(); // 4. */
-/*         CHECK_EQUAL(0, ship.getItemPendingCount()); */
-/*         CHECK_EQUAL(1, ship.getItemPlacedCount()); */
-/*         unsigned int*** map = ship.shipMap->getMap(); */
-/*         int cornID = blocks::CENTER_CORN; */
-/*         CHECK_EQUAL(cornID, map[0][1][4]); */
-/*     } */
+    /*     // Put the path in the task. */
+    /*     TaskPlace* task = new TaskPlace(*corn,ship,start); */
+    /*     CHECK(corn->UID != 0); */
+    /*     // Put the task in the person. Tasks should be deleted by person. */
+    /*     // Give the persons some seeds so he can place the object. */
+    /*     Person person = Person(); */
+    /*     person.addToInventory(corn->ID,1); */
+    /*     person.loc = start; */
+    /*     person.setTask(task); */
+    /*     CHECK(task->hasPath()); */
+    /*     CHECK(task->isFinished() == false); */
+    /*     // Three steps to the object, one step for placing. */
+    /*     person.update(); // 1. */
+    /*     person.update(); // 2. */
+    /*     person.update(); // 3. */
+    /*     // Still not placed. */ 
+    /*     CHECK_EQUAL(1, ship.getItemPendingCount()); */
+    /*     person.update(); // 4. */
+    /*     CHECK_EQUAL(0, ship.getItemPendingCount()); */
+    /*     CHECK_EQUAL(1, ship.getItemPlacedCount()); */
+    /*     unsigned int*** map = ship.shipMap->getMap(); */
+    /*     int cornID = blocks::CENTER_CORN; */
+    /*     CHECK_EQUAL(cornID, map[0][1][4]); */
+    /* } */
 
-/*     TEST(TaskInteract){ */
-/*         ShipMaster ship = ShipMaster(1,5,5); */
+    TEST(TaskInteract){
+        ShipMaster ship = ShipMaster(1,5,5);
 
-/*         // Make a path so the task can walk to the interaction object. */
-/*         Location start = Location(0,1,0); */
-/*         Location goal = Location(4,1,0); */
+        // Make a path so the task can walk to the interaction object.
+        Location start = Location(0,1,0);
+        Location goal = Location(4,1,0);
 
-/*         // Make a placed corn object we can interact with. */
-/*         Corn corn = Corn(); */
-/*         corn.setPlaced(true); */
-/*         corn.loc = goal; */
-/*         // Make the corn "ripe". */
-/*         corn.update(); // 1 */
-/*         corn.update(); // 2 */
-/*         corn.update(); // 3 */
-/*         corn.update(); // 4 */
-/*         corn.update(); // 5 */
-/*         corn.update(); // 6 */
-/*         CHECK(corn.isFinished()); */
+        // Make a placed corn object we can interact with.
+        Corn* corn = new Corn();
+        corn->setPlaced(true);
+        corn->loc = goal;
+        // Make the corn "ripe".
+        corn->update(); // 1
+        corn->update(); // 2
+        corn->update(); // 3
+        corn->update(); // 4
+        corn->update(); // 5
+        corn->update(); // 6
+        CHECK(corn->isFinished());
 
-/*         TaskInteract* task = new TaskInteract(corn,ship,start); */
-/*         // Put the task in the person. Tasks should be deleted by person. */
-/*         Person person = Person(); */
-/*         person.loc = start; */
-/*         person.setTask(task); */
-/*         // Three steps to the object, one step for interacting. */
-/*         person.update(); // 1. */
-/*         person.update(); // 2. */
-/*         person.update(); // 3. */
-/*         int amount = 2; */
-/*         int cornID = blocks::CENTER_CORN; */
-/*         CHECK(person.hasInInventory(cornID,amount) == false); */
-/*         person.update(); // 4. */
-/*         CHECK(person.hasInInventory(cornID,amount)); */
-/*         // The task should also have been removed from the person. */
-/*         CHECK(person.hasTask() == false); */
-/*     } */
+        TaskInteract* task = new TaskInteract(corn,ship,start);
+        // Put the task in the person. Tasks should be deleted by person.
+        Person person = Person();
+        person.loc = start;
+        person.setTask(task);
+        // Three steps to the object, one step for interacting.
+        person.update(); // 1.
+        person.update(); // 2.
+        person.update(); // 3.
+        int amount = 2;
+        int cornID = blocks::CENTER_CORN;
+        CHECK(person.hasInInventory(cornID,amount) == false);
+        person.update(); // 4.
+        CHECK(person.hasInInventory(cornID,amount));
+        // The task should also have been removed from the person.
+        CHECK(person.hasTask() == false);
+        delete corn;
+    }
 
-/*     TEST(WalkTask){ */
-/*         ShipMaster ship = ShipMaster(1,5,5); */
+    TEST(WalkTask){
+        ShipMaster ship = ShipMaster(1,5,5);
 
-/*         Location start = Location(0,1,0); */
-/*         Location goal = Location(4,1,0); */
+        Location start = Location(0,1,0);
+        Location goal = Location(4,1,0);
 
-/*         // Put the path in the task. */
-/*         TaskMove* task = new TaskMove(ship,start,goal); */
-/*         // Put the task in the person. */ 
-/*         Person person = Person(); */
-/*         person.loc = start; */
-/*         person.setTask(task); */
-/*         // Walk the person. Distance to goal is 4. */
-/*         // Check that the tasks is not removed during this update. */
-/*         person.update(); */
-/*         CHECK(person.hasTask() == true); */
-/*         person.update(); */
-/*         CHECK(person.hasTask() == true); */
-/*         person.update(); */
-/*         CHECK(person.hasTask() == true); */
-/*         person.update(); */
-/*         // The task should also have been removed from the person. */
-/*         CHECK(person.hasTask() == false); */
-/*         // Check the person arrived at the desired position. */
-/*         CHECK_EQUAL(4,person.loc.x); */
-/*         CHECK_EQUAL(1,person.loc.y); */
-/*         CHECK_EQUAL(0,person.loc.z); */
-/*     } */
-/* } */
+        // Put the path in the task.
+        TaskMove* task = new TaskMove(ship,start,goal);
+        // Put the task in the person. 
+        Person person = Person();
+        person.loc = start;
+        person.setTask(task);
+        // Walk the person. Distance to goal is 4.
+        // Check that the tasks is not removed during this update.
+        person.update();
+        CHECK(person.hasTask() == true);
+        person.update();
+        CHECK(person.hasTask() == true);
+        person.update();
+        CHECK(person.hasTask() == true);
+        person.update();
+        // The task should also have been removed from the person.
+        CHECK(person.hasTask() == false);
+        // Check the person arrived at the desired position.
+        CHECK_EQUAL(4,person.loc.x);
+        CHECK_EQUAL(1,person.loc.y);
+        CHECK_EQUAL(0,person.loc.z);
+    }
+}
 
-/* SUITE(Location){ */
-/*     TEST(Init){ */
-/*         Location loc1 = Location(3,3,3); */
-/*         Location loc2 = Location(4,4,4); */
-/*     } */
+SUITE(Location){
+    TEST(Init){
+        Location loc1 = Location(3,3,3);
+        Location loc2 = Location(4,4,4);
+    }
 
-/*     TEST(Assignment){ */
-/*         Location loc1 = Location(3,4,5); */
-/*         CHECK_EQUAL(3,loc1.x); */
-/*         CHECK_EQUAL(4,loc1.y); */
-/*         CHECK_EQUAL(5,loc1.z); */
-/*     } */
+    TEST(Assignment){
+        Location loc1 = Location(3,4,5);
+        CHECK_EQUAL(3,loc1.x);
+        CHECK_EQUAL(4,loc1.y);
+        CHECK_EQUAL(5,loc1.z);
+    }
 
-/*     TEST(Distance){ */
-/*         Location loc1 = Location(3,3,3); */
-/*         Location loc2 = Location(4,4,4); */
-/*         CHECK_EQUAL(3,Location::distanceManhatten(loc1,loc2)); */
-/*     } */
-/* } */
+    TEST(Distance){
+        Location loc1 = Location(3,3,3);
+        Location loc2 = Location(4,4,4);
+        CHECK_EQUAL(3,Location::distanceManhatten(loc1,loc2));
+    }
+}
 
 /* SUITE(Pathfinder){ */
 /*     TEST(PathInit){ */
@@ -660,6 +662,25 @@ SUITE(Matix3D){
 /*     } */
 /* } */
 
+SUITE(ShipItems){
+    TEST(AddAndRemoveItems){
+        ShipItems ship = ShipItems();
+
+        Location loc1 = Location(1,1,1);
+        Location loc2 = Location(2,1,1);
+        int UID1 = 1;
+        int UID2 = 2;
+        /* Item* obj1 = ship.createItem(blocks::CENTER_CORN,UID1, loc1); */
+        /* Item* obj2 = ship.createItem(blocks::CENTER_CORN,UID2, loc2); */
+        /* CHECK_EQUAL(2,ship.getItemPendingCount()); */
+        /* CHECK(obj1->ID != 0); */
+        /* CHECK(obj2->ID != 0); */
+        /* CHECK(ship.placeItem(obj1)); */
+        /* CHECK(ship.placeItem(obj2)); */
+        /* CHECK_EQUAL(2,ship.getItemPlacedCount()); */
+    }
+}
+
 SUITE(ShipMaster){
     TEST(Instantiate){
         ShipMaster ship = ShipMaster(5,5,5); 
@@ -694,106 +715,107 @@ SUITE(ShipMaster){
 /*         delete[] loc; */
 /*     } */
 
-    TEST(GetRoomFromLocation){
-        ShipMap ship = ShipMap(3,20,20);
-        Location* loc1 = new Location[9];
-        // Make room 3x3 at z = 1, y = 2, x = 2. 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                loc1[i*3 + j].x = 2+j;
-                loc1[i*3 + j].y = 2+i;
-                loc1[i*3 + j].z = 1;
-            }
-        }
-        Location* loc2 = new Location[9];
-        // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                loc2[i*3 + j].x = 5+j;
-                loc2[i*3 + j].y = 5+i;
-                loc2[i*3 + j].z = 1;
-            }
-        }
-        // Create the rooms in the ship
-        ship.placeRoom(loc1, 9, 1);
-        ship.placeRoom(loc2, 9, 2);
+    /* TEST(GetRoomFromLocation){ */
+    /*     ShipMap ship = ShipMap(3,20,20); */
+    /*     Location* loc1 = new Location[9]; */
+    /*     // Make room 3x3 at z = 1, y = 2, x = 2. */ 
+    /*     for (int i = 0; i < 3; i++) { */
+    /*         for (int j = 0; j < 3; j++) { */
+    /*             loc1[i*3 + j].x = 2+j; */
+    /*             loc1[i*3 + j].y = 2+i; */
+    /*             loc1[i*3 + j].z = 1; */
+    /*         } */
+    /*     } */
+    /*     Location* loc2 = new Location[9]; */
+    /*     // Make room 3x3 next to previous at z = 1, y = 5, x = 5. */ 
+    /*     for (int i = 0; i < 3; i++) { */
+    /*         for (int j = 0; j < 3; j++) { */
+    /*             loc2[i*3 + j].x = 5+j; */
+    /*             loc2[i*3 + j].y = 5+i; */
+    /*             loc2[i*3 + j].z = 1; */
+    /*         } */
+    /*     } */
+    /*     // Create the rooms in the ship */
+    /*     ship.placeRoom(loc1, 9, 1); */
+    /*     ship.placeRoom(loc2, 9, 2); */
 
-        CHECK(0 != ship.getRoomUidFromLoc(loc1[0]));
-        CHECK(0 != ship.getRoomUidFromLoc(loc2[0]));
+    /*     CHECK(0 != ship.getRoomUidFromLoc(loc1[0])); */
+    /*     CHECK(0 != ship.getRoomUidFromLoc(loc2[0])); */
 
-        delete[] loc1;
-        delete[] loc2;
-    }
-
-    TEST(AddItems){
-        ShipMaster ship = ShipMaster(3,20,20);
-        Location* loc1 = new Location[9];
-        // Make room 3x3 at z = 1, y = 2, x = 2. 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                loc1[i*3 + j].x = 1+j;
-                loc1[i*3 + j].y = 1+i;
-                loc1[i*3 + j].z = 1;
-            }
-        }
-        Location* loc2 = new Location[9];
-        // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                loc2[i*3 + j].x = 4+j;
-                loc2[i*3 + j].y = 4+i;
-                loc2[i*3 + j].z = 1;
-            }
-        }
-        // Create the rooms in the ship
-        Room* room1 = ship.createRoom(loc1, 9, 0);
-        Room* room2 = ship.createRoom(loc2, 9, 1);
-
-        // Add one corn object in the first location of room 1 and 2 
-        // and check that they have been placed correctly.
-        bool placed;
-        Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]);
-        CHECK(obj1->ID != 0);
-        CHECK(ship.isVacant(obj1->loc));
-        CHECK(ship.placeItem(*obj1));
-
-        Item* obj2 = ship.createItem(blocks::CENTER_CORN,loc2[0]);
-        CHECK(obj2->ID != 0);
-        CHECK(ship.isVacant(obj2->loc));
-        CHECK(ship.placeItem(*obj2));
-
-        // Also add one object outside the rooms.
-        Item* obj3 = ship.createItem(blocks::CENTER_CORN,Location(10,10,1));
-        ship.placeItem(*obj3);
-        // Check that the object have non-zero UIDs.
-        CHECK(obj1->UID != 0);
-        CHECK(obj2->UID != 0);
-        CHECK(obj3->UID != 0);
-
-        // Check if the objects have been added to the map.
-        using namespace blocks;
-        unsigned int*** map = ship.shipMap->getMap();
-        int x,y,z;
-        x = loc1[0].x;
-        y = loc1[0].y;
-        z = loc1[0].z;
-        CHECK_EQUAL(CENTER_CORN,map[z][y][x]);
-        x = loc2[0].x;
-        y = loc2[0].y;
-        z = loc2[0].z;
-        CHECK_EQUAL(CENTER_CORN,map[z][y][x]);
-        CHECK_EQUAL(CENTER_CORN,map[1][10][10]);
-
-        // Check that shipmap only holds one object and the rooms hold
-        // the rest.
-        CHECK_EQUAL(3,ship.getItemPlacedCount());
-        CHECK_EQUAL(1,room1->getItemCnt());
-        CHECK_EQUAL(1,room2->getItemCnt());
+    /*     delete[] loc1; */
+    /*     delete[] loc2; */
+    /* } */
 
 
-        delete[] loc1;
-        delete[] loc2;
-    }
+    /* TEST(AddItemsToRooms){ */
+    /*     ShipMaster ship = ShipMaster(3,20,20); */
+    /*     Location* loc1 = new Location[9]; */
+    /*     // Make room 3x3 at z = 1, y = 2, x = 2. */ 
+    /*     for (int i = 0; i < 3; i++) { */
+    /*         for (int j = 0; j < 3; j++) { */
+    /*             loc1[i*3 + j].x = 1+j; */
+    /*             loc1[i*3 + j].y = 1+i; */
+    /*             loc1[i*3 + j].z = 1; */
+    /*         } */
+    /*     } */
+    /*     Location* loc2 = new Location[9]; */
+    /*     // Make room 3x3 next to previous at z = 1, y = 5, x = 5. */ 
+    /*     for (int i = 0; i < 3; i++) { */
+    /*         for (int j = 0; j < 3; j++) { */
+    /*             loc2[i*3 + j].x = 4+j; */
+    /*             loc2[i*3 + j].y = 4+i; */
+    /*             loc2[i*3 + j].z = 1; */
+    /*         } */
+    /*     } */
+    /*     // Create the rooms in the ship */
+    /*     Room* room1 = ship.createRoom(loc1, 9, 0); */
+    /*     Room* room2 = ship.createRoom(loc2, 9, 1); */
+
+    /*     // Add one corn object in the first location of room 1 and 2 */ 
+    /*     // and check that they have been placed correctly. */
+    /*     bool placed; */
+    /*     Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]); */
+    /*     CHECK(obj1->ID != 0); */
+    /*     CHECK(ship.isVacant(obj1->loc)); */
+    /*     CHECK(ship.placeItem(*obj1)); */
+
+    /*     Item* obj2 = ship.createItem(blocks::CENTER_CORN,loc2[0]); */
+    /*     CHECK(obj2->ID != 0); */
+    /*     CHECK(ship.isVacant(obj2->loc)); */
+    /*     CHECK(ship.placeItem(*obj2)); */
+
+    /*     // Also add one object outside the rooms. */
+    /*     Item* obj3 = ship.createItem(blocks::CENTER_CORN,Location(10,10,1)); */
+    /*     ship.placeItem(*obj3); */
+    /*     // Check that the object have non-zero UIDs. */
+    /*     CHECK(obj1->UID != 0); */
+    /*     CHECK(obj2->UID != 0); */
+    /*     CHECK(obj3->UID != 0); */
+
+    /*     // Check if the objects have been added to the map. */
+    /*     using namespace blocks; */
+    /*     unsigned int*** map = ship.shipMap->getMap(); */
+    /*     int x,y,z; */
+    /*     x = loc1[0].x; */
+    /*     y = loc1[0].y; */
+    /*     z = loc1[0].z; */
+    /*     CHECK_EQUAL(CENTER_CORN,map[z][y][x]); */
+    /*     x = loc2[0].x; */
+    /*     y = loc2[0].y; */
+    /*     z = loc2[0].z; */
+    /*     CHECK_EQUAL(CENTER_CORN,map[z][y][x]); */
+    /*     CHECK_EQUAL(CENTER_CORN,map[1][10][10]); */
+
+    /*     // Check that shipmap only holds one object and the rooms hold */
+    /*     // the rest. */
+    /*     CHECK_EQUAL(3,ship.getItemPlacedCount()); */
+    /*     CHECK_EQUAL(1,room1->getItemCnt()); */
+    /*     CHECK_EQUAL(1,room2->getItemCnt()); */
+
+
+    /*     delete[] loc1; */
+    /*     delete[] loc2; */
+    /* } */
 
 /*     TEST(UpdateBlockedMap){ */
 /*         // Test if both sides of a wall is blocked when one wall is inserted */

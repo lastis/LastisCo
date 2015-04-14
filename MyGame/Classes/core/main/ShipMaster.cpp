@@ -99,17 +99,18 @@ Room* ShipMaster::getRoom(Location loc){
     return shipRooms->getRoom(UID);
 }
 
-bool ShipMaster::placeItem(Item& obj){
-    if (obj.ID == 0) return false;
+bool ShipMaster::placeItem(Item* obj){
+    if (obj == NULL) return false;
+    if (obj->ID == 0) return false;
     // Check if the location is occupied.
-    if (shipMap->isVacant(obj.loc) == false) return false;
+    if (shipMap->isVacant(obj->loc) == false) return false;
     // When the items become placed, they are removed from the pending
     // items list and added to a spesific room's object list and
     // the placed item list.
-    obj.setPlaced(true);
-    shipMap->placeItem(obj.ID,obj.loc);
+    obj->setPlaced(true);
+    shipMap->placeItem(obj->ID,obj->loc);
     shipItems->placeItem(obj);
-    Room* room = getRoom(obj.loc);
+    Room* room = getRoom(obj->loc);
     if (room != NULL) room->addItem(obj);
     return true;
 }

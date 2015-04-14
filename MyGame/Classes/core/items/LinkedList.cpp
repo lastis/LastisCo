@@ -16,9 +16,10 @@ void LinkedList::update(){
 }
 
 // This prepends a new value at the beginning of the list
-void LinkedList::add(Item& val){
+void LinkedList::add(Item* val){
+    if (val == NULL) return;
     Node *n = new Node();   // create new Node
-    n->val = &val;           // set value
+    n->val = val;           // set value
     n->next = head;         // make the node point to the next node.
                             //  If the list is empty, this is NULL, 
                             // so the end of the list --> OK
@@ -88,7 +89,7 @@ Item* LinkedList::popWithUID(int UID){
     Node* prev = NULL;
     Node* cur = head;
     Item* curObj = head->val;
-    int  curUID= curObj->UID;
+    int  curUID = curObj->UID;
     // Check if first node is the right one.
     if (curUID == UID){
         return pop();
@@ -140,11 +141,11 @@ bool LinkedList::isEmpty(){
     else return false;
 }
 
-void LinkedList::deleteItems(){
-    while (!isEmpty()){
-        delete pop();
-    }
-}
+/* void LinkedList::deleteItems(){ */
+/*     while (!isEmpty()){ */
+/*         delete pop(); */
+/*     } */
+/* } */
 
 LinkedList::~LinkedList(){
     while (!isEmpty()) {

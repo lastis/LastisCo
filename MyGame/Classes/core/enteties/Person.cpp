@@ -84,8 +84,7 @@ void Person::setTask(Task* task){
 }
 
 bool Person::hasTask(){
-    if(task != NULL) return true;
-    else return false;
+    return (task != NULL);
 }
 
 void Person::update(){

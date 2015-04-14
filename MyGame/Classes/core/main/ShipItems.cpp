@@ -41,9 +41,11 @@ Item* ShipItems::getItemPendingFromIndex(int i){
     return itemsPending.findWithIndex(i);
 }
 
-bool ShipItems::placeItem(Item& obj){
-    itemsPending.popWithUID(obj.UID);
+bool ShipItems::placeItem(Item* obj){
+    if (obj == NULL) return false;
+    /* itemsPending.popWithUID(obj.UID); */
     itemsPlaced.add(obj);
+    return true;
 }
 
 Item* ShipItems::createItem(int ID, int UID, Location loc){
@@ -55,13 +57,17 @@ Item* ShipItems::createItem(int ID, int UID, Location loc){
     obj->UID = UID;
     obj->loc = loc;
     // Add the object to the pending items list. 
-    itemsPending.add(*obj);
+    itemsPending.add(obj);
     // Return the object because many times the creator wants it.
     return obj;
 }
 
 
 ShipItems::~ShipItems(){
-    itemsPlaced.deleteItems();
-    itemsPending.deleteItems();
+    for (int i = 0; i < itemsPlaced.getLength(); i++) {
+        delete itemsPlaced.pop();
+    }
+    for (int i = 0; i < itemsPending.getLength(); i++) {
+        delete itemsPending.pop();
+    }
 }

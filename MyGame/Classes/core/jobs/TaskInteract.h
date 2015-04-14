@@ -6,10 +6,10 @@
 class Person;
 class TaskInteract : public Task{
 public:
-    TaskInteract(Item& obj, ShipMaster& ship, Location currentPos);
+    TaskInteract(Item* obj, ShipMaster& ship, Location currentPos);
     void doTask(Person& person);
-    void setItem(Item& object);
+    void setItem(Item* object);
 
-    Item& target;
+    Item* target;
 };
 #endif

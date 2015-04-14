@@ -11,7 +11,7 @@ public:
     void update();
 
     Item*   createItem(int ID, int UID, Location loc);
-    bool    placeItem(Item& obj);
+    bool    placeItem(Item* obj);
 
     Item*   getItemPlacedFromID(int ID);
     Item*   getItemPlacedFromUID(int UID);

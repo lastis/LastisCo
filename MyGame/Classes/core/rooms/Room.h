@@ -7,8 +7,7 @@
 class Room : public Base{
 public:
     Room();
-    void        addItem(Item& object);
-    void        deleteItems();
+    void        addItem(Item* object);
     Item*       getItemWithUID(int UID, bool remove);
     int         getItemCnt();
     Item*       removeWithUID(int UID);
