@@ -726,13 +726,109 @@ SUITE(ShipMap){
         CHECK_EQUAL(UID1,ship.getMap()[1][1][1]);
         CHECK_EQUAL(UID2,ship.getMap()[2][2][2]);
     }
+
+    TEST(GetRoomFromLocation){
+        ShipMap ship = ShipMap(3,20,20);
+        Location* loc1 = new Location[9];
+        // Make room 3x3 at z = 1, y = 2, x = 2. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc1[i*3 + j].x = 2+j;
+                loc1[i*3 + j].y = 2+i;
+                loc1[i*3 + j].z = 1;
+            }
+        }
+        Location* loc2 = new Location[9];
+        // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc2[i*3 + j].x = 5+j;
+                loc2[i*3 + j].y = 5+i;
+                loc2[i*3 + j].z = 1;
+            }
+        }
+        // Create the rooms in the ship
+        ship.placeRoom(loc1, 9, 1);
+        ship.placeRoom(loc2, 9, 2);
+
+        CHECK(1 == ship.getRoomUidFromLoc(loc1[0]));
+        CHECK(2 == ship.getRoomUidFromLoc(loc2[0]));
+
+        delete[] loc1;
+        delete[] loc2;
+    }
+
+    TEST(BlockCombination){
+        // TODO: Split this code into multiple tests.
+        // Test if both sides of a wall is blocked when one wall is inserted
+        ShipMap ship = ShipMap(5,5,5); 
+        unsigned int*** map = ship.getMap();
+        unsigned int*** mapWallsNorth = ship.getMapNorthWalls();
+        unsigned int*** mapWallsEast = ship.getMapEastWalls();
+        unsigned int*** mapFloor = ship.getMapFloor();
+        unsigned int*** mapAccess = ship.getMapAccess();
+        mapFloor[2][2][2] = blocks::FLOOR_METAL;
+        mapWallsEast[2][2][2] = blocks::WALL_METAL;
+        mapWallsNorth[2][2][2] = blocks::WALL_METAL;
+        ship.updateMapAccess();
+        using namespace directions;
+        CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST);
+        CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST);
+        CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN);
+    }
+
+    TEST(UpdateBlockedMap){
+        // Test if both sides of a wall is blocked when one wall is inserted
+        ShipMap ship = ShipMap(5,5,5); 
+        unsigned int*** map = ship.getMap();
+        unsigned int*** mapWallsNorth = ship.getMapNorthWalls();
+        unsigned int*** mapWallsEast = ship.getMapEastWalls();
+        unsigned int*** mapAccess = ship.getMapAccess();
+        mapWallsEast[2][2][2] = blocks::WALL_METAL;
+        CHECK_EQUAL(0,mapAccess[2][2][2]);
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
+        // Remove the wall, is the map reset?
+        mapWallsEast[2][2][2] = 0;
+        ship.updateMapAccess();
+        CHECK_EQUAL(0,mapAccess[2][2][2]);
+
+        // Check that the north wall works too.
+        mapWallsNorth[2][2][2] = blocks::WALL_METAL;
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]);
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]);
+        mapWallsNorth[2][2][2] = 0;
+        ship.updateMapAccess();
+        CHECK_EQUAL(0,mapAccess[2][2][2]);
+
+        // Check blocks that block every direction.
+        map[2][2][2] = blocks::CENTER_METAL;
+        ship.updateMapAccess();
+        CHECK_EQUAL(directions::BLOCK_ALL,mapAccess[2][2][2]);
+        CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][1]);
+        CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
+        CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][1][2]);
+        CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]);
+        CHECK_EQUAL(directions::BLOCK_UP,mapAccess[1][2][2]);
+        CHECK_EQUAL(directions::BLOCK_DOWN,mapAccess[3][2][2]);
+        map[2][2][2] = 0;
+        ship.updateMapAccess();
+        CHECK_EQUAL(0,mapAccess[2][2][2]);
+    }
 }
 
 SUITE(ShipMaster){
     TEST(Instantiate){
         ShipMaster ship = ShipMaster(5,5,5); 
     }
-
 
     TEST(CreateRoom){
         // Generates false errors.
@@ -764,66 +860,46 @@ SUITE(ShipMaster){
         /* delete[] loc; */
     }
 
-    TEST(GetRoomFromLocation){
-        /* ShipMap ship = ShipMap(3,20,20); */
-        /* Location* loc1 = new Location[9]; */
-        /* // Make room 3x3 at z = 1, y = 2, x = 2. */ 
-        /* for (int i = 0; i < 3; i++) { */
-        /*     for (int j = 0; j < 3; j++) { */
-        /*         loc1[i*3 + j].x = 2+j; */
-        /*         loc1[i*3 + j].y = 2+i; */
-        /*         loc1[i*3 + j].z = 1; */
-        /*     } */
-        /* } */
-        /* Location* loc2 = new Location[9]; */
-        /* // Make room 3x3 next to previous at z = 1, y = 5, x = 5. */ 
-        /* for (int i = 0; i < 3; i++) { */
-        /*     for (int j = 0; j < 3; j++) { */
-        /*         loc2[i*3 + j].x = 5+j; */
-        /*         loc2[i*3 + j].y = 5+i; */
-        /*         loc2[i*3 + j].z = 1; */
-        /*     } */
-        /* } */
-        /* // Create the rooms in the ship */
-        /* ship.placeRoom(loc1, 9, 1); */
-        /* ship.placeRoom(loc2, 9, 2); */
-
-        /* CHECK(0 != ship.getRoomUidFromLoc(loc1[0])); */
-        /* CHECK(0 != ship.getRoomUidFromLoc(loc2[0])); */
-
-        /* delete[] loc1; */
-        /* delete[] loc2; */
+    TEST(AddItems){
+        ShipMaster ship = ShipMaster(3,20,20);
+        Location loc1 = Location(5,5,1);
+        Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1);
+        CHECK(obj1->ID != 0);
+        CHECK(ship.isVacant(loc1));
+        // Generates errors.
+        /* CHECK(ship.placeItem(obj1)); */
     }
 
 
-    TEST(AddItemsToRooms){
-        /* ShipMaster ship = ShipMaster(3,20,20); */
-        /* Location* loc1 = new Location[9]; */
-        /* // Make room 3x3 at z = 1, y = 2, x = 2. */ 
-        /* for (int i = 0; i < 3; i++) { */
-        /*     for (int j = 0; j < 3; j++) { */
-        /*         loc1[i*3 + j].x = 1+j; */
-        /*         loc1[i*3 + j].y = 1+i; */
-        /*         loc1[i*3 + j].z = 1; */
-        /*     } */
-        /* } */
-        /* Location* loc2 = new Location[9]; */
-        /* // Make room 3x3 next to previous at z = 1, y = 5, x = 5. */ 
-        /* for (int i = 0; i < 3; i++) { */
-        /*     for (int j = 0; j < 3; j++) { */
-        /*         loc2[i*3 + j].x = 4+j; */
-        /*         loc2[i*3 + j].y = 4+i; */
-        /*         loc2[i*3 + j].z = 1; */
-        /*     } */
-        /* } */
-        /* // Create the rooms in the ship */
-        /* Room* room1 = ship.createRoom(loc1, 9, 0); */
-        /* Room* room2 = ship.createRoom(loc2, 9, 1); */
 
-        /* // Add one corn object in the first location of room 1 and 2 */ 
-        /* // and check that they have been placed correctly. */
-        /* bool placed; */
-        /* Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]); */
+    TEST(AddItemsToRooms){
+        ShipMaster ship = ShipMaster(3,20,20);
+        Location* loc1 = new Location[9];
+        // Make room 3x3 at z = 1, y = 2, x = 2. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc1[i*3 + j].x = 1+j;
+                loc1[i*3 + j].y = 1+i;
+                loc1[i*3 + j].z = 1;
+            }
+        }
+        Location* loc2 = new Location[9];
+        // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc2[i*3 + j].x = 4+j;
+                loc2[i*3 + j].y = 4+i;
+                loc2[i*3 + j].z = 1;
+            }
+        }
+        // Create the rooms in the ship
+        Room* room1 = ship.createRoom(loc1, 9, 0);
+        Room* room2 = ship.createRoom(loc2, 9, 1);
+
+        // Add one corn object in the first location of room 1 and 2 
+        // and check that they have been placed correctly.
+        bool placed;
+        Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]);
         /* CHECK(obj1->ID != 0); */
         /* CHECK(ship.isVacant(obj1->loc)); */
         /* CHECK(ship.placeItem(obj1)); */
@@ -861,75 +937,11 @@ SUITE(ShipMaster){
         /* CHECK_EQUAL(1,room1->getItemCnt()); */
         /* CHECK_EQUAL(1,room2->getItemCnt()); */
 
-        /* delete[] loc1; */
-        /* delete[] loc2; */
+        delete[] loc1;
+        delete[] loc2;
     }
 
-/*     TEST(UpdateBlockedMap){ */
-/*         // Test if both sides of a wall is blocked when one wall is inserted */
-/*         ShipMap ship = ShipMap(5,5,5); */ 
-/*         unsigned int*** map = ship.getMap(); */
-/*         unsigned int*** mapWallsNorth = ship.getMapNorthWalls(); */
-/*         unsigned int*** mapWallsEast = ship.getMapEastWalls(); */
-/*         unsigned int*** mapAccess = ship.getMapAccess(); */
-/*         mapWallsEast[2][2][2] = blocks::WALL_METAL; */
-/*         CHECK_EQUAL(0,mapAccess[2][2][2]); */
-/*         ship.updateMapAccess(); */
-/*         CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]); */
-/*         CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]); */
-/*         ship.updateMapAccess(); */
-/*         CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]); */
-/*         CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]); */
-/*         // Remove the wall, is the map reset? */
-/*         mapWallsEast[2][2][2] = 0; */
-/*         ship.updateMapAccess(); */
-/*         CHECK_EQUAL(0,mapAccess[2][2][2]); */
 
-/*         // Check that the north wall works too. */
-/*         mapWallsNorth[2][2][2] = blocks::WALL_METAL; */
-/*         ship.updateMapAccess(); */
-/*         CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]); */
-/*         CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]); */
-/*         ship.updateMapAccess(); */
-/*         CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]); */
-/*         CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]); */
-/*         mapWallsNorth[2][2][2] = 0; */
-/*         ship.updateMapAccess(); */
-/*         CHECK_EQUAL(0,mapAccess[2][2][2]); */
-
-/*         // Check blocks that block every direction. */
-/*         map[2][2][2] = blocks::CENTER_METAL; */
-/*         ship.updateMapAccess(); */
-/*         CHECK_EQUAL(directions::BLOCK_ALL,mapAccess[2][2][2]); */
-/*         CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][1]); */
-/*         CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]); */
-/*         CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][1][2]); */
-/*         CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]); */
-/*         CHECK_EQUAL(directions::BLOCK_UP,mapAccess[1][2][2]); */
-/*         CHECK_EQUAL(directions::BLOCK_DOWN,mapAccess[3][2][2]); */
-/*         map[2][2][2] = 0; */
-/*         ship.updateMapAccess(); */
-/*         CHECK_EQUAL(0,mapAccess[2][2][2]); */
-/*     } */
-
-/*     TEST(BlockCombination){ */
-/*         // TODO: Split this code into multiple tests. */
-/*         // Test if both sides of a wall is blocked when one wall is inserted */
-/*         ShipMap ship = ShipMap(5,5,5); */ 
-/*         unsigned int*** map = ship.getMap(); */
-/*         unsigned int*** mapWallsNorth = ship.getMapNorthWalls(); */
-/*         unsigned int*** mapWallsEast = ship.getMapEastWalls(); */
-/*         unsigned int*** mapFloor = ship.getMapFloor(); */
-/*         unsigned int*** mapAccess = ship.getMapAccess(); */
-/*         mapFloor[2][2][2] = blocks::FLOOR_METAL; */
-/*         mapWallsEast[2][2][2] = blocks::WALL_METAL; */
-/*         mapWallsNorth[2][2][2] = blocks::WALL_METAL; */
-/*         ship.updateMapAccess(); */
-/*         using namespace directions; */
-/*         CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST); */
-/*         CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST); */
-/*         CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN); */
-/*     } */
 }
 
 int main()
