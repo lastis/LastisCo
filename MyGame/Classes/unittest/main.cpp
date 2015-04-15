@@ -301,46 +301,46 @@ SUITE(Matix3D){
 }
 
 SUITE(Jobs){
-    /* TEST(JobFarm){ */
-    /*     int cornID = blocks::CENTER_CORN; */
-    /*     // Test if we can give a person one seed and if he will place the rest. */
-    /*     Person person = Person(); */
-    /*     person.loc = Location(8,1,0); */
-    /*     ShipMaster ship = ShipMaster(1,20,20); */
-    /*     JobFarm job = JobFarm(ship); */
-    /*     person.addToInventory(blocks::CENTER_CORN,1); */
+    TEST(JobFarm){
+        int cornID = blocks::CENTER_CORN;
+        // Test if we can give a person one seed and if he will place the rest.
+        Person person = Person();
+        person.loc = Location(8,1,0);
+        ShipMaster ship = ShipMaster(1,20,20);
+        JobFarm job = JobFarm(ship);
+        person.addToInventory(blocks::CENTER_CORN,1);
 
-    /*     // Make a 2x2 field of corn that we want to be sowed. */
-    /*     int crops = 4; */
-    /*     Corn** corn = new Corn*[crops]; */ 
-    /*     for (int i = 0; i < 2; i++) { */
-    /*         for (int j = 0; j < 2; j++) { */
-    /*             corn[i*2 + j] = (Corn*) */ 
-    /*                 ship.createItem(blocks::CENTER_CORN,Location(i,j,0)); */
-    /*         } */
-    /*     } */
-    /*     CHECK_EQUAL(4,ship.getItemPendingCount()); */
-    /*     int cnt = 0; */
-    /*     while (cnt < 100){ */
-    /*         job.deligateTask(person); */
-    /*         person.update(); */
-    /*         corn[0]->update(); */
-    /*         corn[1]->update(); */
-    /*         corn[2]->update(); */
-    /*         corn[3]->update(); */
-    /*         cnt++; */
-    /*         // Break the loop early if all corn is finished; */
-    /*         if (corn[0]->isFinished() == false) continue; */
-    /*         if (corn[1]->isFinished() == false) continue; */
-    /*         if (corn[2]->isFinished() == false) continue; */
-    /*         if (corn[3]->isFinished() == false) continue; */
-    /*         break; */
-    /*     } */
-    /*     for (int i = 0; i < crops; i++) { */
-    /*         CHECK(corn[i]->isPlaced()); */
-    /*     } */
-    /*     delete[] corn; */
-    /* } */
+        // Make a 2x2 field of corn that we want to be sowed.
+        int crops = 4;
+        Corn** corn = new Corn*[crops]; 
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                corn[i*2 + j] = (Corn*) 
+                    ship.createItem(blocks::CENTER_CORN,Location(i,j,0));
+            }
+        }
+        CHECK_EQUAL(4,ship.getItemPendingCount());
+        int cnt = 0;
+        while (cnt < 100){
+            job.deligateTask(person);
+            person.update();
+            corn[0]->update();
+            corn[1]->update();
+            corn[2]->update();
+            corn[3]->update();
+            cnt++;
+            // Break the loop early if all corn is finished;
+            if (corn[0]->isFinished() == false) continue;
+            if (corn[1]->isFinished() == false) continue;
+            if (corn[2]->isFinished() == false) continue;
+            if (corn[3]->isFinished() == false) continue;
+            break;
+        }
+        for (int i = 0; i < crops; i++) {
+            CHECK(corn[i]->isPlaced());
+        }
+        delete[] corn;
+    }
 }
 
 SUITE(Tasks){
@@ -357,41 +357,42 @@ SUITE(Tasks){
         person.setTask(task);
     }
 
-    /* TEST(TaskPlace){ */
-    /*     ShipMaster ship = ShipMaster(1,5,5); */
+    TEST(TaskPlace){
+        // Generates false error.
+        ShipMaster ship = ShipMaster(1,5,5);
 
-    /*     // Make a path so the task can walk to the interaction object. */
-    /*     Location start = Location(0,1,0); */
-    /*     Location goal = Location(4,1,0); */
+        // Make a path so the task can walk to the interaction object.
+        Location start = Location(0,1,0);
+        Location goal = Location(4,1,0);
 
-    /*     // By setting the location of the object, we define where it will */
-    /*     // be placed on the shipmap. */
-    /*     Item* corn = ship.createItem(blocks::CENTER_CORN,goal); */
+        // By setting the location of the object, we define where it will
+        // be placed on the shipmap.
+        Item* corn = ship.createItem(blocks::CENTER_CORN,goal);
 
-    /*     // Put the path in the task. */
-    /*     TaskPlace* task = new TaskPlace(*corn,ship,start); */
-    /*     CHECK(corn->UID != 0); */
-    /*     // Put the task in the person. Tasks should be deleted by person. */
-    /*     // Give the persons some seeds so he can place the object. */
-    /*     Person person = Person(); */
-    /*     person.addToInventory(corn->ID,1); */
-    /*     person.loc = start; */
-    /*     person.setTask(task); */
-    /*     CHECK(task->hasPath()); */
-    /*     CHECK(task->isFinished() == false); */
-    /*     // Three steps to the object, one step for placing. */
-    /*     person.update(); // 1. */
-    /*     person.update(); // 2. */
-    /*     person.update(); // 3. */
-    /*     // Still not placed. */ 
-    /*     CHECK_EQUAL(1, ship.getItemPendingCount()); */
-    /*     person.update(); // 4. */
-    /*     CHECK_EQUAL(0, ship.getItemPendingCount()); */
-    /*     CHECK_EQUAL(1, ship.getItemPlacedCount()); */
-    /*     unsigned int*** map = ship.shipMap->getMap(); */
-    /*     int cornID = blocks::CENTER_CORN; */
-    /*     CHECK_EQUAL(cornID, map[0][1][4]); */
-    /* } */
+        // Put the path in the task.
+        TaskPlace* task = new TaskPlace(corn,ship,start);
+        CHECK(corn->UID != 0);
+        // Put the task in the person. Tasks should be deleted by person.
+        // Give the persons some seeds so he can place the object.
+        Person person = Person();
+        person.addToInventory(corn->ID,1);
+        person.loc = start;
+        person.setTask(task);
+        CHECK(task->hasPath());
+        CHECK(task->isFinished() == false);
+        // Three steps to the object, one step for placing.
+        person.update(); // 1.
+        person.update(); // 2.
+        person.update(); // 3.
+        // Still not placed. 
+        CHECK_EQUAL(1, ship.getItemPendingCount());
+        person.update(); // 4.
+        CHECK_EQUAL(0, ship.getItemPendingCount());
+        CHECK_EQUAL(1, ship.getItemPlacedCount());
+        unsigned int*** map = ship.shipMap->getMap();
+        int cornID = blocks::CENTER_CORN;
+        CHECK_EQUAL(cornID, map[0][1][4]);
+    }
 
     TEST(TaskInteract){
         ShipMaster ship = ShipMaster(1,5,5);
@@ -482,188 +483,188 @@ SUITE(Location){
     }
 }
 
-/* SUITE(Pathfinder){ */
-/*     TEST(PathInit){ */
-/*         Path path = Path(NULL,0); */
-/*         CHECK(path.hasPath() == false); */
-/*         CHECK(path.isComplete() == true); */
-/*         CHECK_EQUAL(path.getLength(),0); */
-/*     } */
+SUITE(Pathfinder){
+    TEST(PathInit){
+        Path path = Path(NULL,0);
+        CHECK(path.hasPath() == false);
+        CHECK(path.isComplete() == true);
+        CHECK_EQUAL(path.getLength(),0);
+    }
 
-/*     TEST(PathAssign){ */
-/*         using namespace directions; */
-/*         // Create a path we can use. */
-/*         unsigned int* pathInt = new unsigned int[5]; */
-/*         pathInt[0] = directions::EAST; */
-/*         pathInt[1] = directions::NORTH; */
-/*         pathInt[2] = directions::SOUTH; */
-/*         pathInt[3] = directions::WEST; */
-/*         pathInt[4] = directions::NO_DIRECTION; */
+    TEST(PathAssign){
+        using namespace directions;
+        // Create a path we can use.
+        unsigned int* pathInt = new unsigned int[5];
+        pathInt[0] = directions::EAST;
+        pathInt[1] = directions::NORTH;
+        pathInt[2] = directions::SOUTH;
+        pathInt[3] = directions::WEST;
+        pathInt[4] = directions::NO_DIRECTION;
 
-/*         // Check assignment. */
-/*         Path path = Path(pathInt,5); */
-/*         Path path1; */
-/*         path1 = path; */
+        // Check assignment.
+        Path path = Path(pathInt,5);
+        Path path1;
+        path1 = path;
 
 
-/*         // Check the two equal paths. */
-/*         CHECK(path.hasPath() == true); */
-/*         CHECK_EQUAL(path.getLength(),5); */
-/*         CHECK(path.isComplete() == false); */
-/*         CHECK_EQUAL(EAST,path.getNextDirection()); */
-/*         CHECK_EQUAL(NORTH,path.getNextDirection()); */
-/*         CHECK_EQUAL(SOUTH,path.getNextDirection()); */
-/*         CHECK_EQUAL(WEST,path.getNextDirection()); */
-/*         CHECK_EQUAL(NO_DIRECTION,path.getNextDirection()); */
-/*         CHECK(path.isComplete() == true); */
+        // Check the two equal paths.
+        CHECK(path.hasPath() == true);
+        CHECK_EQUAL(path.getLength(),5);
+        CHECK(path.isComplete() == false);
+        CHECK_EQUAL(EAST,path.getNextDirection());
+        CHECK_EQUAL(NORTH,path.getNextDirection());
+        CHECK_EQUAL(SOUTH,path.getNextDirection());
+        CHECK_EQUAL(WEST,path.getNextDirection());
+        CHECK_EQUAL(NO_DIRECTION,path.getNextDirection());
+        CHECK(path.isComplete() == true);
 
-/*         CHECK(path1.hasPath() == true); */
-/*         CHECK_EQUAL(path1.getLength(),5); */
-/*         CHECK(path1.isComplete() == false); */
-/*         CHECK_EQUAL(EAST,path1.getNextDirection()); */
-/*         CHECK_EQUAL(NORTH,path1.getNextDirection()); */
-/*         CHECK_EQUAL(SOUTH,path1.getNextDirection()); */
-/*         CHECK_EQUAL(WEST,path1.getNextDirection()); */
-/*         CHECK_EQUAL(NO_DIRECTION,path1.getNextDirection()); */
-/*         CHECK(path1.isComplete() == true); */
+        CHECK(path1.hasPath() == true);
+        CHECK_EQUAL(path1.getLength(),5);
+        CHECK(path1.isComplete() == false);
+        CHECK_EQUAL(EAST,path1.getNextDirection());
+        CHECK_EQUAL(NORTH,path1.getNextDirection());
+        CHECK_EQUAL(SOUTH,path1.getNextDirection());
+        CHECK_EQUAL(WEST,path1.getNextDirection());
+        CHECK_EQUAL(NO_DIRECTION,path1.getNextDirection());
+        CHECK(path1.isComplete() == true);
 
-/*     } */
+    }
 
-/*     TEST(Init){ */
-/*         Pathfinder pathfinder1 = Pathfinder(); */
-/*         Matrix3D map = Matrix3D(5,5,5); */
-/*         Pathfinder pathfinder2 = Pathfinder(map); */
-/*     } */
+    TEST(Init){
+        Pathfinder pathfinder1 = Pathfinder();
+        Matrix3D map = Matrix3D(5,5,5);
+        Pathfinder pathfinder2 = Pathfinder(map);
+    }
 
-/*     TEST(SimplePath){ */
-/*         using namespace directions; */
-/*         Matrix3D map = Matrix3D(1,5,5); */
-/*         Pathfinder pathfinder = Pathfinder(map); */
-/*         Location start = Location(1,2,0); */
-/*         Location goal = Location(4,2,0); */
-/*         Path path = pathfinder.findPath(start, goal); */
-/*         /1* pathfinder.printDirMap(0); *1/ */
-/*         int sumX = 0; */
-/*         int sumY = 0; */
-/*         int sumZ = 0; */
-/*         for (int i = 0; i < MAX_PATH_LENGTH; i++) { */
-/*             unsigned int dir = path.getNextDirection(); */
-/*             if (dir == NO_DIRECTION) break; */
-/*             if (dir == EAST) sumX++; */
-/*             if (dir == WEST) sumX--; */
-/*             if (dir == NORTH) sumY++; */
-/*             if (dir == SOUTH) sumY--; */
-/*             if (dir == UP) sumZ++; */
-/*             if (dir == DOWN) sumZ--; */
-/*         } */
-/*         CHECK_EQUAL(3, sumX); */
-/*         CHECK_EQUAL(0, sumY); */
-/*         CHECK_EQUAL(0, sumZ); */
-/*     } */
+    TEST(SimplePath){
+        using namespace directions;
+        Matrix3D map = Matrix3D(1,5,5);
+        Pathfinder pathfinder = Pathfinder(map);
+        Location start = Location(1,2,0);
+        Location goal = Location(4,2,0);
+        Path path = pathfinder.findPath(start, goal);
+        /* pathfinder.printDirMap(0); */
+        int sumX = 0;
+        int sumY = 0;
+        int sumZ = 0;
+        for (int i = 0; i < MAX_PATH_LENGTH; i++) {
+            unsigned int dir = path.getNextDirection();
+            if (dir == NO_DIRECTION) break;
+            if (dir == EAST) sumX++;
+            if (dir == WEST) sumX--;
+            if (dir == NORTH) sumY++;
+            if (dir == SOUTH) sumY--;
+            if (dir == UP) sumZ++;
+            if (dir == DOWN) sumZ--;
+        }
+        CHECK_EQUAL(3, sumX);
+        CHECK_EQUAL(0, sumY);
+        CHECK_EQUAL(0, sumZ);
+    }
 
-/*     TEST(BlockedPath){ */
-/*         using namespace directions; */
-/*         Matrix3D map = Matrix3D(1,5,5); */
-/*         Pathfinder pathfinder = Pathfinder(map); */
-/*         unsigned int*** ptr = map.getMatrix(); */
-/*         /1* ptr[0][2][1] = ID::BLOCK_ALL; *1/ */
-/*         ptr[0][2][2] = BLOCK_ALL; */
-/*         /1* ptr[0][2][3] = ID::BLOCK_ALL; *1/ */
-/*         ptr[0][3][2] = BLOCK_ALL; */
-/*         ptr[0][1][2] = BLOCK_ALL; */
-/*         Location start = Location(0,2,0); */
-/*         Location goal = Location(4,2,0); */
-/*         /1* std::cout << "starting blocked path" << std::endl; *1/ */
-/*         Path path = pathfinder.findPath(start, goal); */
-/*         /1* pathfinder.printDirMap(0); *1/ */
-/*         /1* std::cout << "return from path " << std::endl; *1/ */
-/*         int sumX = 0; */
-/*         int sumY = 0; */
-/*         int sumZ = 0; */
-/*         for (int i = 0; i < MAX_PATH_LENGTH; i++) { */
-/*             unsigned int dir = path.getNextDirection(); */
-/*             if (dir == NO_DIRECTION) break; */
-/*             if (dir == EAST) sumX++; */
-/*             if (dir == WEST) sumX--; */
-/*             if (dir == NORTH) sumY++; */
-/*             if (dir == SOUTH) sumY--; */
-/*             if (dir == UP) sumZ++; */
-/*             if (dir == DOWN) sumZ--; */
-/*         } */
-/*         CHECK_EQUAL(4, sumX); */
-/*         CHECK_EQUAL(0, sumY); */
-/*         CHECK_EQUAL(0, sumZ); */
-/*     } */
+    TEST(BlockedPath){
+        using namespace directions;
+        Matrix3D map = Matrix3D(1,5,5);
+        Pathfinder pathfinder = Pathfinder(map);
+        unsigned int*** ptr = map.getMatrix();
+        /* ptr[0][2][1] = ID::BLOCK_ALL; */
+        ptr[0][2][2] = BLOCK_ALL;
+        /* ptr[0][2][3] = ID::BLOCK_ALL; */
+        ptr[0][3][2] = BLOCK_ALL;
+        ptr[0][1][2] = BLOCK_ALL;
+        Location start = Location(0,2,0);
+        Location goal = Location(4,2,0);
+        /* std::cout << "starting blocked path" << std::endl; */
+        Path path = pathfinder.findPath(start, goal);
+        /* pathfinder.printDirMap(0); */
+        /* std::cout << "return from path " << std::endl; */
+        int sumX = 0;
+        int sumY = 0;
+        int sumZ = 0;
+        for (int i = 0; i < MAX_PATH_LENGTH; i++) {
+            unsigned int dir = path.getNextDirection();
+            if (dir == NO_DIRECTION) break;
+            if (dir == EAST) sumX++;
+            if (dir == WEST) sumX--;
+            if (dir == NORTH) sumY++;
+            if (dir == SOUTH) sumY--;
+            if (dir == UP) sumZ++;
+            if (dir == DOWN) sumZ--;
+        }
+        CHECK_EQUAL(4, sumX);
+        CHECK_EQUAL(0, sumY);
+        CHECK_EQUAL(0, sumZ);
+    }
 
-/*     TEST(WallPath){ */
-/*         using namespace directions; */
-/*         Matrix3D map = Matrix3D(1,5,5); */
-/*         Pathfinder pathfinder = Pathfinder(map); */
-/*         unsigned int*** ptr = map.getMatrix(); */
-/*         ptr[0][3][2] = BLOCK_WEST; */
-/*         ptr[0][2][2] = BLOCK_WEST; */
-/*         ptr[0][1][2] = BLOCK_WEST; */
-/*         /1* ptr[0][3][2] = ID::BLOCK_EAST; *1/ */
-/*         /1* ptr[0][2][2] = ID::BLOCK_EAST; *1/ */
-/*         /1* ptr[0][1][2] = ID::BLOCK_EAST; *1/ */
-/*         Location start = Location(0,2,0); */
-/*         Location goal = Location(4,2,0); */
-/*         Path path1 = pathfinder.findPath(start, goal); */
-/*         /1* pathfinder.printDirMap(0); *1/ */
-/*         int sumX = 0; */
-/*         int sumY = 0; */
-/*         int sumZ = 0; */
-/*         for (int i = 0; i < MAX_PATH_LENGTH; i++) { */
-/*             unsigned int dir = path1.getNextDirection(); */
-/*             /1* cout << "direction: "<< dir << endl; *1/ */
-/*             if (dir == NO_DIRECTION) break; */
-/*             if (dir == EAST) sumX++; */
-/*             if (dir == WEST) sumX--; */
-/*             if (dir == NORTH) sumY++; */
-/*             if (dir == SOUTH) sumY--; */
-/*             if (dir == UP) sumZ++; */
-/*             if (dir == DOWN) sumZ--; */
-/*         } */
-/*         /1* cout << "DID IT" << endl; *1/ */
-/*         CHECK_EQUAL(4, sumX); */
-/*         CHECK_EQUAL(0, sumY); */
-/*         CHECK_EQUAL(0, sumZ); */
-/*     } */
+    TEST(WallPath){
+        using namespace directions;
+        Matrix3D map = Matrix3D(1,5,5);
+        Pathfinder pathfinder = Pathfinder(map);
+        unsigned int*** ptr = map.getMatrix();
+        ptr[0][3][2] = BLOCK_WEST;
+        ptr[0][2][2] = BLOCK_WEST;
+        ptr[0][1][2] = BLOCK_WEST;
+        /* ptr[0][3][2] = ID::BLOCK_EAST; */
+        /* ptr[0][2][2] = ID::BLOCK_EAST; */
+        /* ptr[0][1][2] = ID::BLOCK_EAST; */
+        Location start = Location(0,2,0);
+        Location goal = Location(4,2,0);
+        Path path1 = pathfinder.findPath(start, goal);
+        /* pathfinder.printDirMap(0); */
+        int sumX = 0;
+        int sumY = 0;
+        int sumZ = 0;
+        for (int i = 0; i < MAX_PATH_LENGTH; i++) {
+            unsigned int dir = path1.getNextDirection();
+            /* cout << "direction: "<< dir << endl; */
+            if (dir == NO_DIRECTION) break;
+            if (dir == EAST) sumX++;
+            if (dir == WEST) sumX--;
+            if (dir == NORTH) sumY++;
+            if (dir == SOUTH) sumY--;
+            if (dir == UP) sumZ++;
+            if (dir == DOWN) sumZ--;
+        }
+        /* cout << "DID IT" << endl; */
+        CHECK_EQUAL(4, sumX);
+        CHECK_EQUAL(0, sumY);
+        CHECK_EQUAL(0, sumZ);
+    }
 
-/*     TEST(ManyPaths){ */
-/*         using namespace directions; */
-/*         Matrix3D map = Matrix3D(50,50,50); */
-/*         Pathfinder pathfinder = Pathfinder(map); */
-/*         unsigned int*** ptr = map.getMatrix(); */
-/*         // Block one block in the middle of the path. */
-/*         ptr[2][2][2] = BLOCK_ALL; */
-/*         Location start = Location(0,2,2); */
-/*         Location goal = Location(4,2,2); */
-/*         int sumX = 0; */
-/*         int sumY = 0; */
-/*         int sumZ = 0; */
-/*         for (int run = 0; run < 10; run++) { */
-/*             Path path = pathfinder.findPath(start, goal); */
-/*             for (int i = 0; i < MAX_PATH_LENGTH; i++) { */
-/*                 int dir = path.getNextDirection(); */
-/*                 if (dir == NO_DIRECTION) break; */
-/*                 if (dir == EAST) sumX++; */
-/*                 if (dir == WEST) sumX--; */
-/*                 if (dir == NORTH) sumY++; */
-/*                 if (dir == SOUTH) sumY--; */
-/*                 if (dir == UP) sumZ++; */
-/*                 if (dir == DOWN) sumZ--; */
-/*             } */
-/*         } */
-/*         CHECK_EQUAL(4*10, sumX); */
-/*         CHECK_EQUAL(0*10, sumY); */
-/*         CHECK_EQUAL(0*10, sumZ); */
+    TEST(ManyPaths){
+        using namespace directions;
+        Matrix3D map = Matrix3D(50,50,50);
+        Pathfinder pathfinder = Pathfinder(map);
+        unsigned int*** ptr = map.getMatrix();
+        // Block one block in the middle of the path.
+        ptr[2][2][2] = BLOCK_ALL;
+        Location start = Location(0,2,2);
+        Location goal = Location(4,2,2);
+        int sumX = 0;
+        int sumY = 0;
+        int sumZ = 0;
+        for (int run = 0; run < 10; run++) {
+            Path path = pathfinder.findPath(start, goal);
+            for (int i = 0; i < MAX_PATH_LENGTH; i++) {
+                int dir = path.getNextDirection();
+                if (dir == NO_DIRECTION) break;
+                if (dir == EAST) sumX++;
+                if (dir == WEST) sumX--;
+                if (dir == NORTH) sumY++;
+                if (dir == SOUTH) sumY--;
+                if (dir == UP) sumZ++;
+                if (dir == DOWN) sumZ--;
+            }
+        }
+        CHECK_EQUAL(4*10, sumX);
+        CHECK_EQUAL(0*10, sumY);
+        CHECK_EQUAL(0*10, sumZ);
         
-/*     } */
-/* } */
+    }
+}
 
 SUITE(ShipItems){
-    TEST(AddAndRemoveItems){
+    TEST(CreateAndPlaceItems){
         // Problems can arise if items have the same UID.
         ShipItems ship = ShipItems();
 
@@ -686,32 +687,32 @@ SUITE(ShipItems){
 SUITE(ShipMap){
     TEST(PlaceRoom){
         // Generates false errors.
-        /* ShipMap ship = ShipMap(3,20,20); */
-        /* Location* loc1 = new Location[9]; */
-        /* Location* loc2 = new Location[9]; */
-        /* // Make room 3x3 at z = 1, y = 2, x = 2. */ 
-        /* for (int i = 0; i < 3; i++) { */
-        /*     for (int j = 0; j < 3; j++) { */
-        /*         loc1[i*3 + j].x = 1+j; */
-        /*         loc1[i*3 + j].y = 1+i; */
-        /*         loc1[i*3 + j].z = 1; */
-        /*     } */
-        /* } */
-        /* // Make room 3x3 next to previous at z = 1, y = 5, x = 5. */ 
-        /* for (int i = 0; i < 3; i++) { */
-        /*     for (int j = 0; j < 3; j++) { */
-        /*         loc2[i*3 + j].x = 4+j; */
-        /*         loc2[i*3 + j].y = 4+i; */
-        /*         loc2[i*3 + j].z = 1; */
-        /*     } */
-        /* } */
-        /* // Create the rooms in the ship */
-        /* int UID1 = 1; */
-        /* int UID2 = 2; */
-        /* ship.placeRoom(loc1, 9, UID1); */
-        /* ship.placeRoom(loc2, 9, UID2); */
-        /* delete loc1; */
-        /* delete loc2; */
+        ShipMap ship = ShipMap(3,20,20);
+        Location* loc1 = new Location[9];
+        Location* loc2 = new Location[9];
+        // Make room 3x3 at z = 1, y = 2, x = 2. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc1[i*3 + j].x = 1+j;
+                loc1[i*3 + j].y = 1+i;
+                loc1[i*3 + j].z = 1;
+            }
+        }
+        // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc2[i*3 + j].x = 4+j;
+                loc2[i*3 + j].y = 4+i;
+                loc2[i*3 + j].z = 1;
+            }
+        }
+        // Create the rooms in the ship
+        int UID1 = 1;
+        int UID2 = 2;
+        ship.placeRoom(loc1, 9, UID1);
+        ship.placeRoom(loc2, 9, UID2);
+        delete loc1;
+        delete loc2;
     }
 
     TEST(PlaceItem){
@@ -835,29 +836,29 @@ SUITE(ShipMaster){
         // Gives unittest memory errors in valgrind.
         // Create a room and check if the room has been
         // added to the rooms map.
-        /* ShipMaster ship = ShipMaster(5,5,5); */
-        /* Location* loc = new Location[9]; */
-        /* // Make room 3x3 at z = 2. */ 
-        /* for (int i = 0; i < 3; i++) { */
-        /*     for (int j = 0; j < 3; j++) { */
-        /*         loc[i*3 + j].x = 1+j; */
-        /*         loc[i*3 + j].y = 1+i; */
-        /*         loc[i*3 + j].z = 2; */
-        /*     } */
-        /* } */
-        /* // Create a room at the locations with ID = 1. */
-        /* Room* room = ship.createRoom(loc, 9, 1); */
-        /* unsigned int*** map = ship.shipMap->getMapRooms(); */
-        /* CHECK_EQUAL(1,map[2][1][1]); */
-        /* CHECK_EQUAL(1,map[2][1][2]); */
-        /* CHECK_EQUAL(1,map[2][1][3]); */
-        /* CHECK_EQUAL(1,map[2][2][1]); */
-        /* CHECK_EQUAL(1,map[2][2][2]); */
-        /* CHECK_EQUAL(1,map[2][2][3]); */
-        /* CHECK_EQUAL(1,map[2][3][1]); */
-        /* CHECK_EQUAL(1,map[2][3][2]); */
-        /* CHECK_EQUAL(1,map[2][3][3]); */
-        /* delete[] loc; */
+        ShipMaster ship = ShipMaster(5,5,5);
+        Location* loc = new Location[9];
+        // Make room 3x3 at z = 2. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc[i*3 + j].x = 1+j;
+                loc[i*3 + j].y = 1+i;
+                loc[i*3 + j].z = 2;
+            }
+        }
+        // Create a room at the locations with ID = 1.
+        Room* room = ship.createRoom(loc, 9, 1);
+        unsigned int*** map = ship.shipMap->getMapRooms();
+        CHECK_EQUAL(1,map[2][1][1]);
+        CHECK_EQUAL(1,map[2][1][2]);
+        CHECK_EQUAL(1,map[2][1][3]);
+        CHECK_EQUAL(1,map[2][2][1]);
+        CHECK_EQUAL(1,map[2][2][2]);
+        CHECK_EQUAL(1,map[2][2][3]);
+        CHECK_EQUAL(1,map[2][3][1]);
+        CHECK_EQUAL(1,map[2][3][2]);
+        CHECK_EQUAL(1,map[2][3][3]);
+        delete[] loc;
     }
 
     TEST(PlaceItems){
@@ -870,8 +871,8 @@ SUITE(ShipMaster){
         // Generates errors.
         CHECK(ship.placeItem(obj1));
         CHECK_EQUAL(0,ship.getItemPendingCount());
-        // Generates errors.
-        /* CHECK_EQUAL(1,ship.getItemPlacedCount()); */
+        // Generates false errors.
+        CHECK_EQUAL(1,ship.getItemPlacedCount());
     }
 
 
@@ -904,42 +905,44 @@ SUITE(ShipMaster){
         // and check that they have been placed correctly.
         bool placed;
         Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]);
-        /* CHECK(obj1->ID != 0); */
-        /* CHECK(ship.isVacant(obj1->loc)); */
-        /* CHECK(ship.placeItem(obj1)); */
+        CHECK(obj1->ID != 0);
+        CHECK(ship.isVacant(obj1->loc));
+        // Generates strange error.
+        CHECK(ship.placeItem(obj1));
 
-        /* Item* obj2 = ship.createItem(blocks::CENTER_CORN,loc2[0]); */
-        /* CHECK(obj2->ID != 0); */
-        /* CHECK(ship.isVacant(obj2->loc)); */
-        /* CHECK(ship.placeItem(obj2)); */
+        Item* obj2 = ship.createItem(blocks::CENTER_CORN,loc2[0]);
+        CHECK(obj2->ID != 0);
+        CHECK(ship.isVacant(obj2->loc));
+        // Generates strange error.
+        CHECK(ship.placeItem(obj2));
 
-        /* // Also add one object outside the rooms. */
-        /* Item* obj3 = ship.createItem(blocks::CENTER_CORN,Location(10,10,1)); */
-        /* ship.placeItem(obj3); */
-        /* // Check that the object have non-zero UIDs. */
-        /* CHECK(obj1->UID != 0); */
-        /* CHECK(obj2->UID != 0); */
-        /* CHECK(obj3->UID != 0); */
+        // Also add one object outside the rooms.
+        Item* obj3 = ship.createItem(blocks::CENTER_CORN,Location(10,10,1));
+        ship.placeItem(obj3);
+        // Check that the object have non-zero UIDs.
+        CHECK(obj1->UID != 0);
+        CHECK(obj2->UID != 0);
+        CHECK(obj3->UID != 0);
 
-        /* // Check if the objects have been added to the map. */
-        /* using namespace blocks; */
-        /* unsigned int*** map = ship.shipMap->getMap(); */
-        /* int x,y,z; */
-        /* x = loc1[0].x; */
-        /* y = loc1[0].y; */
-        /* z = loc1[0].z; */
-        /* CHECK_EQUAL(CENTER_CORN,map[z][y][x]); */
-        /* x = loc2[0].x; */
-        /* y = loc2[0].y; */
-        /* z = loc2[0].z; */
-        /* CHECK_EQUAL(CENTER_CORN,map[z][y][x]); */
-        /* CHECK_EQUAL(CENTER_CORN,map[1][10][10]); */
+        // Check if the objects have been added to the map.
+        using namespace blocks;
+        unsigned int*** map = ship.shipMap->getMap();
+        int x,y,z;
+        x = loc1[0].x;
+        y = loc1[0].y;
+        z = loc1[0].z;
+        CHECK_EQUAL(CENTER_CORN,map[z][y][x]);
+        x = loc2[0].x;
+        y = loc2[0].y;
+        z = loc2[0].z;
+        CHECK_EQUAL(CENTER_CORN,map[z][y][x]);
+        CHECK_EQUAL(CENTER_CORN,map[1][10][10]);
 
-        /* // Check that shipmap only holds one object and the rooms hold */
-        /* // the rest. */
-        /* CHECK_EQUAL(3,ship.getItemPlacedCount()); */
-        /* CHECK_EQUAL(1,room1->getItemCnt()); */
-        /* CHECK_EQUAL(1,room2->getItemCnt()); */
+        // Check that shipmap only holds one object and the rooms hold
+        // the rest.
+        CHECK_EQUAL(3,ship.getItemPlacedCount());
+        CHECK_EQUAL(1,room1->getItemCnt());
+        CHECK_EQUAL(1,room2->getItemCnt());
 
         delete[] loc1;
         delete[] loc2;
