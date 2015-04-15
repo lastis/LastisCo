@@ -22,7 +22,7 @@ public:
     bool    withinBounds(Location loc);
 
     int     getRoomUidFromLoc(Location loc);
-    void    placeItem(int ID, Location loc);
+    void    placeItem(int UID, Location loc);
     void    placeRoom(Location* locations, int N, int UID);
     bool    isVacant(int x, int y, int z);
     bool    isVacant(Location loc);

@@ -98,8 +98,8 @@ void ShipMap::insertBlocksFloor(int blockID, Location start, Location end){
     }
 }
 
-void ShipMap::placeItem(int ID, Location loc){
-    map[loc.z][loc.y][loc.x] = ID;
+void ShipMap::placeItem(int UID, Location loc){
+    map[loc.z][loc.y][loc.x] = UID;
 }
 
 void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
