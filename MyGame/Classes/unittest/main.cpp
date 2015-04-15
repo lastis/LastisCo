@@ -664,6 +664,7 @@ SUITE(Location){
 
 SUITE(ShipItems){
     TEST(AddAndRemoveItems){
+        // Problems can arise if items have the same UID.
         ShipItems ship = ShipItems();
 
         Location loc1 = Location(1,1,1);
@@ -675,9 +676,10 @@ SUITE(ShipItems){
         CHECK_EQUAL(2,ship.getItemPendingCount());
         CHECK(obj1->ID != 0);
         CHECK(obj2->ID != 0);
-        /* CHECK(ship.placeItem(obj1)); */
-        /* CHECK(ship.placeItem(obj2)); */
-        /* CHECK_EQUAL(2,ship.getItemPlacedCount()); */
+        CHECK(ship.placeItem(obj1));
+        CHECK(ship.placeItem(obj2));
+        CHECK_EQUAL(2,ship.getItemPlacedCount());
+        CHECK_EQUAL(0,ship.getItemPendingCount());
     }
 }
 
@@ -687,135 +689,135 @@ SUITE(ShipMaster){
     }
 
 
-/*     TEST(CreateRoom){ */
-/*         // Create a room and check if the room has been */
-/*         // added to the rooms map. */
-/*         ShipMaster ship = ShipMaster(5,5,5); */
-/*         Location* loc = new Location[9]; */
-/*         // Make room 3x3 at z = 2. */ 
-/*         for (int i = 0; i < 3; i++) { */
-/*             for (int j = 0; j < 3; j++) { */
-/*                 loc[i*3 + j].x = 1+j; */
-/*                 loc[i*3 + j].y = 1+i; */
-/*                 loc[i*3 + j].z = 2; */
-/*             } */
-/*         } */
-/*         // Create a room at the locations with ID = 1. */
-/*         Room* room = ship.createRoom(loc, 9, 1); */
-/*         unsigned int*** map = ship.shipMap->getMapRooms(); */
-/*         CHECK_EQUAL(1,map[2][1][1]); */
-/*         CHECK_EQUAL(1,map[2][1][2]); */
-/*         CHECK_EQUAL(1,map[2][1][3]); */
-/*         CHECK_EQUAL(1,map[2][2][1]); */
-/*         CHECK_EQUAL(1,map[2][2][2]); */
-/*         CHECK_EQUAL(1,map[2][2][3]); */
-/*         CHECK_EQUAL(1,map[2][3][1]); */
-/*         CHECK_EQUAL(1,map[2][3][2]); */
-/*         CHECK_EQUAL(1,map[2][3][3]); */
-/*         delete[] loc; */
-/*     } */
-
-    /* TEST(GetRoomFromLocation){ */
-    /*     ShipMap ship = ShipMap(3,20,20); */
-    /*     Location* loc1 = new Location[9]; */
-    /*     // Make room 3x3 at z = 1, y = 2, x = 2. */ 
+    /* TEST(CreateRoom){ */
+        /* // Gives unittest memory errors in valgrind.*/
+        /* // Create a room and check if the room has been */
+    /*     // added to the rooms map. */
+    /*     ShipMaster ship = ShipMaster(5,5,5); */
+    /*     Location* loc = new Location[9]; */
+    /*     // Make room 3x3 at z = 2. */ 
     /*     for (int i = 0; i < 3; i++) { */
     /*         for (int j = 0; j < 3; j++) { */
-    /*             loc1[i*3 + j].x = 2+j; */
-    /*             loc1[i*3 + j].y = 2+i; */
-    /*             loc1[i*3 + j].z = 1; */
+    /*             loc[i*3 + j].x = 1+j; */
+    /*             loc[i*3 + j].y = 1+i; */
+    /*             loc[i*3 + j].z = 2; */
     /*         } */
     /*     } */
-    /*     Location* loc2 = new Location[9]; */
-    /*     // Make room 3x3 next to previous at z = 1, y = 5, x = 5. */ 
-    /*     for (int i = 0; i < 3; i++) { */
-    /*         for (int j = 0; j < 3; j++) { */
-    /*             loc2[i*3 + j].x = 5+j; */
-    /*             loc2[i*3 + j].y = 5+i; */
-    /*             loc2[i*3 + j].z = 1; */
-    /*         } */
-    /*     } */
-    /*     // Create the rooms in the ship */
-    /*     ship.placeRoom(loc1, 9, 1); */
-    /*     ship.placeRoom(loc2, 9, 2); */
-
-    /*     CHECK(0 != ship.getRoomUidFromLoc(loc1[0])); */
-    /*     CHECK(0 != ship.getRoomUidFromLoc(loc2[0])); */
-
-    /*     delete[] loc1; */
-    /*     delete[] loc2; */
+    /*     // Create a room at the locations with ID = 1. */
+    /*     Room* room = ship.createRoom(loc, 9, 1); */
+    /*     unsigned int*** map = ship.shipMap->getMapRooms(); */
+    /*     CHECK_EQUAL(1,map[2][1][1]); */
+    /*     CHECK_EQUAL(1,map[2][1][2]); */
+    /*     CHECK_EQUAL(1,map[2][1][3]); */
+    /*     CHECK_EQUAL(1,map[2][2][1]); */
+    /*     CHECK_EQUAL(1,map[2][2][2]); */
+    /*     CHECK_EQUAL(1,map[2][2][3]); */
+    /*     CHECK_EQUAL(1,map[2][3][1]); */
+    /*     CHECK_EQUAL(1,map[2][3][2]); */
+    /*     CHECK_EQUAL(1,map[2][3][3]); */
+    /*     delete[] loc; */
     /* } */
 
+    TEST(GetRoomFromLocation){
+        ShipMap ship = ShipMap(3,20,20);
+        Location* loc1 = new Location[9];
+        // Make room 3x3 at z = 1, y = 2, x = 2. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc1[i*3 + j].x = 2+j;
+                loc1[i*3 + j].y = 2+i;
+                loc1[i*3 + j].z = 1;
+            }
+        }
+        Location* loc2 = new Location[9];
+        // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc2[i*3 + j].x = 5+j;
+                loc2[i*3 + j].y = 5+i;
+                loc2[i*3 + j].z = 1;
+            }
+        }
+        // Create the rooms in the ship
+        ship.placeRoom(loc1, 9, 1);
+        ship.placeRoom(loc2, 9, 2);
 
-    /* TEST(AddItemsToRooms){ */
-    /*     ShipMaster ship = ShipMaster(3,20,20); */
-    /*     Location* loc1 = new Location[9]; */
-    /*     // Make room 3x3 at z = 1, y = 2, x = 2. */ 
-    /*     for (int i = 0; i < 3; i++) { */
-    /*         for (int j = 0; j < 3; j++) { */
-    /*             loc1[i*3 + j].x = 1+j; */
-    /*             loc1[i*3 + j].y = 1+i; */
-    /*             loc1[i*3 + j].z = 1; */
-    /*         } */
-    /*     } */
-    /*     Location* loc2 = new Location[9]; */
-    /*     // Make room 3x3 next to previous at z = 1, y = 5, x = 5. */ 
-    /*     for (int i = 0; i < 3; i++) { */
-    /*         for (int j = 0; j < 3; j++) { */
-    /*             loc2[i*3 + j].x = 4+j; */
-    /*             loc2[i*3 + j].y = 4+i; */
-    /*             loc2[i*3 + j].z = 1; */
-    /*         } */
-    /*     } */
-    /*     // Create the rooms in the ship */
-    /*     Room* room1 = ship.createRoom(loc1, 9, 0); */
-    /*     Room* room2 = ship.createRoom(loc2, 9, 1); */
+        CHECK(0 != ship.getRoomUidFromLoc(loc1[0]));
+        CHECK(0 != ship.getRoomUidFromLoc(loc2[0]));
 
-    /*     // Add one corn object in the first location of room 1 and 2 */ 
-    /*     // and check that they have been placed correctly. */
-    /*     bool placed; */
-    /*     Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]); */
-    /*     CHECK(obj1->ID != 0); */
-    /*     CHECK(ship.isVacant(obj1->loc)); */
-    /*     CHECK(ship.placeItem(*obj1)); */
-
-    /*     Item* obj2 = ship.createItem(blocks::CENTER_CORN,loc2[0]); */
-    /*     CHECK(obj2->ID != 0); */
-    /*     CHECK(ship.isVacant(obj2->loc)); */
-    /*     CHECK(ship.placeItem(*obj2)); */
-
-    /*     // Also add one object outside the rooms. */
-    /*     Item* obj3 = ship.createItem(blocks::CENTER_CORN,Location(10,10,1)); */
-    /*     ship.placeItem(*obj3); */
-    /*     // Check that the object have non-zero UIDs. */
-    /*     CHECK(obj1->UID != 0); */
-    /*     CHECK(obj2->UID != 0); */
-    /*     CHECK(obj3->UID != 0); */
-
-    /*     // Check if the objects have been added to the map. */
-    /*     using namespace blocks; */
-    /*     unsigned int*** map = ship.shipMap->getMap(); */
-    /*     int x,y,z; */
-    /*     x = loc1[0].x; */
-    /*     y = loc1[0].y; */
-    /*     z = loc1[0].z; */
-    /*     CHECK_EQUAL(CENTER_CORN,map[z][y][x]); */
-    /*     x = loc2[0].x; */
-    /*     y = loc2[0].y; */
-    /*     z = loc2[0].z; */
-    /*     CHECK_EQUAL(CENTER_CORN,map[z][y][x]); */
-    /*     CHECK_EQUAL(CENTER_CORN,map[1][10][10]); */
-
-    /*     // Check that shipmap only holds one object and the rooms hold */
-    /*     // the rest. */
-    /*     CHECK_EQUAL(3,ship.getItemPlacedCount()); */
-    /*     CHECK_EQUAL(1,room1->getItemCnt()); */
-    /*     CHECK_EQUAL(1,room2->getItemCnt()); */
+        delete[] loc1;
+        delete[] loc2;
+    }
 
 
-    /*     delete[] loc1; */
-    /*     delete[] loc2; */
-    /* } */
+    TEST(AddItemsToRooms){
+        ShipMaster ship = ShipMaster(3,20,20);
+        Location* loc1 = new Location[9];
+        // Make room 3x3 at z = 1, y = 2, x = 2. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc1[i*3 + j].x = 1+j;
+                loc1[i*3 + j].y = 1+i;
+                loc1[i*3 + j].z = 1;
+            }
+        }
+        Location* loc2 = new Location[9];
+        // Make room 3x3 next to previous at z = 1, y = 5, x = 5. 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                loc2[i*3 + j].x = 4+j;
+                loc2[i*3 + j].y = 4+i;
+                loc2[i*3 + j].z = 1;
+            }
+        }
+        // Create the rooms in the ship
+        Room* room1 = ship.createRoom(loc1, 9, 0);
+        Room* room2 = ship.createRoom(loc2, 9, 1);
+
+        // Add one corn object in the first location of room 1 and 2 
+        // and check that they have been placed correctly.
+        bool placed;
+        Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]);
+        CHECK(obj1->ID != 0);
+        CHECK(ship.isVacant(obj1->loc));
+        CHECK(ship.placeItem(obj1));
+
+        /* Item* obj2 = ship.createItem(blocks::CENTER_CORN,loc2[0]); */
+        /* CHECK(obj2->ID != 0); */
+        /* CHECK(ship.isVacant(obj2->loc)); */
+        /* CHECK(ship.placeItem(obj2)); */
+
+        /* // Also add one object outside the rooms. */
+        /* Item* obj3 = ship.createItem(blocks::CENTER_CORN,Location(10,10,1)); */
+        /* ship.placeItem(obj3); */
+        /* // Check that the object have non-zero UIDs. */
+        /* CHECK(obj1->UID != 0); */
+        /* CHECK(obj2->UID != 0); */
+        /* CHECK(obj3->UID != 0); */
+
+        /* // Check if the objects have been added to the map. */
+        /* using namespace blocks; */
+        /* unsigned int*** map = ship.shipMap->getMap(); */
+        /* int x,y,z; */
+        /* x = loc1[0].x; */
+        /* y = loc1[0].y; */
+        /* z = loc1[0].z; */
+        /* CHECK_EQUAL(CENTER_CORN,map[z][y][x]); */
+        /* x = loc2[0].x; */
+        /* y = loc2[0].y; */
+        /* z = loc2[0].z; */
+        /* CHECK_EQUAL(CENTER_CORN,map[z][y][x]); */
+        /* CHECK_EQUAL(CENTER_CORN,map[1][10][10]); */
+
+        /* // Check that shipmap only holds one object and the rooms hold */
+        /* // the rest. */
+        /* CHECK_EQUAL(3,ship.getItemPlacedCount()); */
+        /* CHECK_EQUAL(1,room1->getItemCnt()); */
+        /* CHECK_EQUAL(1,room2->getItemCnt()); */
+
+        delete[] loc1;
+        delete[] loc2;
+    }
 
 /*     TEST(UpdateBlockedMap){ */
 /*         // Test if both sides of a wall is blocked when one wall is inserted */

@@ -43,7 +43,7 @@ Item* ShipItems::getItemPendingFromIndex(int i){
 
 bool ShipItems::placeItem(Item* obj){
     if (obj == NULL) return false;
-    /* itemsPending.popWithUID(obj.UID); */
+    itemsPending.popWithUID(obj->UID);
     itemsPlaced.add(obj);
     return true;
 }
@@ -64,12 +64,11 @@ Item* ShipItems::createItem(int ID, int UID, Location loc){
 
 
 ShipItems::~ShipItems(){
-    int N = itemsPlaced.getLength();
-    for (int i = 0; i < N; i++) {
+    while (!itemsPlaced.isEmpty()){
         delete itemsPlaced.pop();
     }
-    N = itemsPending.getLength();
-    for (int i = 0; i < N; i++) {
-        delete itemsPending.pop();
+    while (!itemsPending.isEmpty()){
+        Item* item =  itemsPending.pop();
+        if (item != NULL) delete item;
     }
 }
