@@ -670,11 +670,11 @@ SUITE(ShipItems){
         Location loc2 = Location(2,1,1);
         int UID1 = 1;
         int UID2 = 2;
-        /* Item* obj1 = ship.createItem(blocks::CENTER_CORN,UID1, loc1); */
-        /* Item* obj2 = ship.createItem(blocks::CENTER_CORN,UID2, loc2); */
-        /* CHECK_EQUAL(2,ship.getItemPendingCount()); */
-        /* CHECK(obj1->ID != 0); */
-        /* CHECK(obj2->ID != 0); */
+        Item* obj1 = ship.createItem(blocks::CENTER_CORN,UID1, loc1);
+        Item* obj2 = ship.createItem(blocks::CENTER_CORN,UID2, loc2);
+        CHECK_EQUAL(2,ship.getItemPendingCount());
+        CHECK(obj1->ID != 0);
+        CHECK(obj2->ID != 0);
         /* CHECK(ship.placeItem(obj1)); */
         /* CHECK(ship.placeItem(obj2)); */
         /* CHECK_EQUAL(2,ship.getItemPlacedCount()); */

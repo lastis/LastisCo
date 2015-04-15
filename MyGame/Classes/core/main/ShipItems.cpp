@@ -64,10 +64,12 @@ Item* ShipItems::createItem(int ID, int UID, Location loc){
 
 
 ShipItems::~ShipItems(){
-    for (int i = 0; i < itemsPlaced.getLength(); i++) {
+    int N = itemsPlaced.getLength();
+    for (int i = 0; i < N; i++) {
         delete itemsPlaced.pop();
     }
-    for (int i = 0; i < itemsPending.getLength(); i++) {
+    N = itemsPending.getLength();
+    for (int i = 0; i < N; i++) {
         delete itemsPending.pop();
     }
 }
