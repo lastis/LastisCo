@@ -860,14 +860,18 @@ SUITE(ShipMaster){
         /* delete[] loc; */
     }
 
-    TEST(AddItems){
+    TEST(PlaceItems){
         ShipMaster ship = ShipMaster(3,20,20);
         Location loc1 = Location(5,5,1);
         Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1);
+        CHECK_EQUAL(1,ship.getItemPendingCount());
         CHECK(obj1->ID != 0);
         CHECK(ship.isVacant(loc1));
         // Generates errors.
-        /* CHECK(ship.placeItem(obj1)); */
+        CHECK(ship.placeItem(obj1));
+        CHECK_EQUAL(0,ship.getItemPendingCount());
+        // Generates errors.
+        /* CHECK_EQUAL(1,ship.getItemPlacedCount()); */
     }
 
 
