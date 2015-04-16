@@ -43,6 +43,7 @@ Item* ShipItems::getItemPendingFromIndex(int i){
 
 bool ShipItems::placeItem(Item* obj){
     if (obj == NULL) return false;
+    obj->setPlaced(true);
     itemsPending.popWithUID(obj->UID);
     itemsPlaced.add(obj);
     return true;

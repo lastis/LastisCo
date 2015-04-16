@@ -107,7 +107,6 @@ bool ShipMaster::placeItem(Item* obj){
     // When the items become placed, they are removed from the pending
     // items list and added to a spesific room's object list and
     // the placed item list.
-    obj->setPlaced(true);
     shipMap->placeItem(obj->ID,obj->loc);
     shipItems->placeItem(obj);
     Room* room = getRoom(obj->loc);

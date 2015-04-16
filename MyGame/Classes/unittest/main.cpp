@@ -674,13 +674,47 @@ SUITE(ShipItems){
         int UID2 = 2;
         Item* obj1 = ship.createItem(blocks::CENTER_CORN,UID1, loc1);
         Item* obj2 = ship.createItem(blocks::CENTER_CORN,UID2, loc2);
+        CHECK(obj1->isPlaced() == false);
+        CHECK(obj2->isPlaced() == false);
         CHECK_EQUAL(2,ship.getItemPendingCount());
         CHECK(obj1->ID != 0);
         CHECK(obj2->ID != 0);
         CHECK(ship.placeItem(obj1));
         CHECK(ship.placeItem(obj2));
+        CHECK(obj1->isPlaced());
+        CHECK(obj2->isPlaced());
         CHECK_EQUAL(2,ship.getItemPlacedCount());
         CHECK_EQUAL(0,ship.getItemPendingCount());
+    }
+
+    TEST(UpdateItems){
+        ShipItems ship = ShipItems();
+
+        Location loc1 = Location(1,1,1);
+        Location loc2 = Location(2,1,1);
+        Location loc3 = Location(3,1,1);
+        Location loc4 = Location(4,1,1);
+        int UID1 = 1;
+        int UID2 = 2;
+        int UID3 = 3;
+        int UID4 = 4;
+        Corn* obj1 = (Corn*) ship.createItem(blocks::CENTER_CORN,UID1, loc1);
+        Corn* obj2 = (Corn*) ship.createItem(blocks::CENTER_CORN,UID2, loc2);
+        Corn* obj3 = (Corn*) ship.createItem(blocks::CENTER_CORN,UID3, loc3);
+        Corn* obj4 = (Corn*) ship.createItem(blocks::CENTER_CORN,UID4, loc4);
+        // Corn objects must be placed to be updated.
+        CHECK(ship.placeItem(obj1));
+        CHECK(ship.placeItem(obj2));
+        CHECK(ship.placeItem(obj3));
+        CHECK(ship.placeItem(obj4));
+        // Check that the time increases when we call update.
+        CHECK(obj1->isPlaced());
+        CHECK_EQUAL(0,obj1->time);
+        ship.update();
+        CHECK_EQUAL(1,obj1->time);
+        CHECK_EQUAL(1,obj2->time);
+        CHECK_EQUAL(1,obj3->time);
+        CHECK_EQUAL(1,obj4->time);
     }
 }
 
