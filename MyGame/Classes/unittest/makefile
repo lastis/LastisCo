@@ -1,6 +1,3 @@
-single:
-	g++ -D TESTING main.cpp \
-    -lunittest++
 compile:
 	g++ -D TESTING main.cpp \
     ../core/*.cpp           \
@@ -14,4 +11,4 @@ compile:
 test:
 	./a.out
 grind:
-	valgrind ./a.out
+	valgrind --suppressions=errors.supp ./a.out
