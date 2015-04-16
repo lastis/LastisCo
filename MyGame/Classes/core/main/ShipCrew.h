@@ -10,6 +10,7 @@ public:
     ShipCrew();
     ~ShipCrew();
     int     getCrewCount();
+    Person* getCrewFromIndex(int i);
     Person* createCrewMember(int ID, Location loc);
     void    update();
 

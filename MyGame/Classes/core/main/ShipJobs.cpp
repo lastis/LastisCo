@@ -9,10 +9,12 @@ ShipJobs::ShipJobs(ShipMaster& ship) :
 }
 
 void ShipJobs::update(){
-    /* int N = ship.shipCrew->cntCrew; */
-    /* for (int i = 0; i < N; i++) { */
-    /*     Person* person = ship.shipCrew->crew[i]; */
-    /* } */
+    int N = ship.getCrewCount();
+    for (int i = 0; i < N; i++) {
+        Person* person = ship.getCrewFromIndex(i);
+        if (person == NULL) continue;
+        jobFarm->deligateTask(*person);
+    }
 }
 
 ShipJobs::~ShipJobs(){

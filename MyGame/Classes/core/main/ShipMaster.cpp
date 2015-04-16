@@ -20,6 +20,14 @@ Person* ShipMaster::createCrewMember(int ID, Location loc){
     return shipCrew->createCrewMember(ID,loc);
 }
 
+int     ShipMaster::getCrewCount(){
+    return shipCrew->getCrewCount();
+}
+
+Person* ShipMaster::getCrewFromIndex(int i){
+    return shipCrew->getCrewFromIndex(i);
+}
+
 Item*   ShipMaster::getItemPlacedFromID(int ID){
     return shipItems->getItemPlacedFromUID(ID);
 }

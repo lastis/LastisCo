@@ -7,6 +7,11 @@ ShipCrew::ShipCrew(){
     }
 }
 
+Person* ShipCrew::getCrewFromIndex(int i){
+    if (i >= cntCrew) return NULL;
+    return crew[i];
+}
+
 int ShipCrew::getCrewCount(){
     return cntCrew;
 }

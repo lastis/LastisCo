@@ -43,6 +43,8 @@ public:
 
     // Crew methods.
     Person* createCrewMember(int ID, Location loc);
+    int     getCrewCount();
+    Person* getCrewFromIndex(int i);
 
 
 

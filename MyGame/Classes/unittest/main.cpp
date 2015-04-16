@@ -879,7 +879,36 @@ SUITE(ShipMaster){
 
     TEST(UpdateJobs){
         int cornID = blocks::CENTER_CORN;
+        int crewID = 1;
         ShipMaster ship = ShipMaster(3,20,20);
+        Location loc1 = Location(1,1,1);
+        Person* person = ship.createCrewMember(crewID,loc1);
+        person->addToInventory(blocks::CENTER_CORN,1);
+        // Make a 2x2 field of corn that we want to be sowed.
+        int crops = 4;
+        Corn** corn = new Corn*[crops]; 
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                corn[i*2 + j] = (Corn*) 
+                    ship.createItem(blocks::CENTER_CORN,Location(i,j,0));
+            }
+        }
+        CHECK_EQUAL(4,ship.getItemPendingCount());
+        int cnt = 0;
+        while (cnt < 100){
+            ship.update();
+            cnt++;
+            // Break the loop early if all corn is finished;
+            if (corn[0]->isFinished() == false) continue;
+            if (corn[1]->isFinished() == false) continue;
+            if (corn[2]->isFinished() == false) continue;
+            if (corn[3]->isFinished() == false) continue;
+            break;
+        }
+        for (int i = 0; i < crops; i++) {
+            CHECK(corn[i]->isPlaced());
+        }
+        delete[] corn;
     }
 
     TEST(UpdateCrew){
