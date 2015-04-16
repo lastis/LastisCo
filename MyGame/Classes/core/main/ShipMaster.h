@@ -42,7 +42,7 @@ public:
     Room*   getRoom(Location loc);
 
     // Crew methods.
-    Person* addCrewMember(int ID, Location loc);
+    Person* createCrewMember(int ID, Location loc);
 
 
 

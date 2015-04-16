@@ -11,8 +11,13 @@ ShipMaster::ShipMaster(int O, int N, int M) : O(O), N(N), M(M),
 }
 
 void ShipMaster::update(){
-    /* shipItems->update(); */
-    /* shipJobs->update(); */
+    shipItems->update();
+    shipJobs->update();
+    shipCrew->update();
+}
+
+Person* ShipMaster::createCrewMember(int ID, Location loc){
+    return shipCrew->createCrewMember(ID,loc);
 }
 
 Item*   ShipMaster::getItemPlacedFromID(int ID){

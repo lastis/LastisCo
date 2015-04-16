@@ -663,6 +663,18 @@ SUITE(Pathfinder){
     }
 }
 
+SUITE(ShipCrew){
+    TEST(AddCrew){
+        ShipCrew ship = ShipCrew();
+        Location loc1 = Location(1,1,1);
+        Location loc2 = Location(2,1,1);
+        int crewID = 1;
+        ship.createCrewMember(crewID,loc1);
+        ship.createCrewMember(crewID,loc2);
+        CHECK_EQUAL(2,ship.getCrewCount());
+    }
+}
+
 SUITE(ShipItems){
     TEST(CreateAndPlaceItems){
         // Problems can arise if items have the same UID.
@@ -863,6 +875,30 @@ SUITE(ShipMap){
 SUITE(ShipMaster){
     TEST(Instantiate){
         ShipMaster ship = ShipMaster(5,5,5); 
+    }
+
+    TEST(UpdateJobs){
+        int cornID = blocks::CENTER_CORN;
+        ShipMaster ship = ShipMaster(3,20,20);
+    }
+
+    TEST(UpdateCrew){
+        ShipMaster ship = ShipMaster(5,5,5);
+        int cornID = blocks::CENTER_CORN;
+        Location loc1 = Location(1,1,1);
+        Location loc2 = Location(2,1,1);
+
+        // Put the path in the task.
+        TaskMove* task = new TaskMove(ship,loc1,loc2);
+        int crewID = 1;
+        Person* person = ship.createCrewMember(crewID,loc1);
+        person->loc = loc1;
+        // Put the task in the person. 
+        person->setTask(task);
+        // Check that the person moves on update.
+        CHECK_EQUAL(1,person->loc.x);
+        ship.update();
+        CHECK_EQUAL(2,person->loc.x);
     }
 
     TEST(CreateRoom){

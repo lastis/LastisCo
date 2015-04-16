@@ -9,8 +9,9 @@ public:
 
     ShipCrew();
     ~ShipCrew();
-    int     getCountCrew();
-    Person* addCrewMember(int ID, Location loc);
+    int     getCrewCount();
+    Person* createCrewMember(int ID, Location loc);
+    void    update();
 
     int cntCrew;
     Person* crew[MAX_CREW];

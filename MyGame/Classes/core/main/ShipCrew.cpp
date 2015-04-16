@@ -7,11 +7,18 @@ ShipCrew::ShipCrew(){
     }
 }
 
-int ShipCrew::getCountCrew(){
+int ShipCrew::getCrewCount(){
     return cntCrew;
 }
 
-Person* ShipCrew::addCrewMember(int ID, Location loc){
+void ShipCrew::update(){
+    for (int i = 0; i < cntCrew; i++) {
+        Person* person = crew[i];
+        person->update();
+    }
+}
+
+Person* ShipCrew::createCrewMember(int ID, Location loc){
     if (ID == 0) return NULL;
     int x = loc.x;
     int y = loc.y;
