@@ -711,8 +711,8 @@ SUITE(ShipMap){
         int UID2 = 2;
         ship.placeRoom(loc1, 9, UID1);
         ship.placeRoom(loc2, 9, UID2);
-        delete loc1;
-        delete loc2;
+        delete[] loc1;
+        delete[] loc2;
     }
 
     TEST(PlaceItem){

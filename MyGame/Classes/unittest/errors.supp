@@ -1,0 +1,236 @@
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZN9TaskPlace6doTaskER6Person
+   fun:_ZN6Person6updateEv
+   fun:_ZNK9SuiteJobs11TestJobFarm7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZNK10SuiteTasks13TestTaskPlace7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN8UnitTest10CheckEqualIijEEvRNS_11TestResultsERKT_RKT0_RKNS_11TestDetailsE
+   fun:_ZNK15SuiteShipMaster14TestCreateRoom7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN8UnitTest10CheckEqualIijEEvRNS_11TestResultsERKT_RKT0_RKNS_11TestDetailsE
+   fun:_ZNK15SuiteShipMaster14TestCreateRoom7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN8UnitTest10CheckEqualIijEEvRNS_11TestResultsERKT_RKT0_RKNS_11TestDetailsE
+   fun:_ZNK15SuiteShipMaster14TestCreateRoom7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN8UnitTest10CheckEqualIijEEvRNS_11TestResultsERKT_RKT0_RKNS_11TestDetailsE
+   fun:_ZNK15SuiteShipMaster14TestCreateRoom7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN8UnitTest10CheckEqualIijEEvRNS_11TestResultsERKT_RKT0_RKNS_11TestDetailsE
+   fun:_ZNK15SuiteShipMaster14TestCreateRoom7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN8UnitTest10CheckEqualIijEEvRNS_11TestResultsERKT_RKT0_RKNS_11TestDetailsE
+   fun:_ZNK15SuiteShipMaster14TestCreateRoom7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN8UnitTest10CheckEqualIijEEvRNS_11TestResultsERKT_RKT0_RKNS_11TestDetailsE
+   fun:_ZNK15SuiteShipMaster14TestCreateRoom7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN8UnitTest10CheckEqualIijEEvRNS_11TestResultsERKT_RKT0_RKNS_11TestDetailsE
+   fun:_ZNK15SuiteShipMaster14TestCreateRoom7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN8UnitTest10CheckEqualIijEEvRNS_11TestResultsERKT_RKT0_RKNS_11TestDetailsE
+   fun:_ZNK15SuiteShipMaster14TestCreateRoom7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster14TestPlaceItems7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN9ShipRooms7getRoomEi
+   fun:_ZN10ShipMaster7getRoomE8Location
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value8
+   fun:_ZN9ShipRooms7getRoomEi
+   fun:_ZN10ShipMaster7getRoomE8Location
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN9ShipRooms7getRoomEi
+   fun:_ZN10ShipMaster7getRoomE8Location
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value8
+   fun:_ZN9ShipRooms7getRoomEi
+   fun:_ZN10ShipMaster7getRoomE8Location
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZNK15SuiteShipMaster19TestAddItemsToRooms7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
