@@ -47,6 +47,9 @@ namespace blocks{
 
     static const int COUNT = 6;
 
+    static const unsigned int NO_TEXTURE = 0;  
+    static const unsigned int CORN_TEXTURE_1 = 1;
+
     namespace properties{
         static const int NON_BLOCKING = 0;
         static const int BLOCKING = 1;
@@ -80,7 +83,7 @@ namespace blocks{
             textureID[CENTER_METAL]    = 0;
             textureID[WALL_METAL]      = 0;
             textureID[FLOOR_METAL]     = 0;
-            textureID[CENTER_CORN]     = 1;
+            textureID[CENTER_CORN]     = CORN_TEXTURE_1;
             initialized = true;
         }
     }

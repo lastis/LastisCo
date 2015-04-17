@@ -19,6 +19,7 @@ void ShipMap::initialize(int O, int N, int M){
     containerMapWallsNorth = Matrix3D(O,N,M);
     containerMapAccess = Matrix3D(O,N,M);
     containerMapRooms = Matrix3D(O,N,M);
+    containerMapTextures = Matrix3D(O,N,M);
 
     map = containerMap.getMatrix();
     mapFloor = containerMapFloor.getMatrix();
@@ -26,6 +27,7 @@ void ShipMap::initialize(int O, int N, int M){
     mapWallsNorth = containerMapWallsNorth.getMatrix();
     mapAccess = containerMapAccess.getMatrix();
     mapRooms = containerMapAccess.getMatrix();
+    mapTextures = containerMapTextures.getMatrix();
 
     pathfinder = Pathfinder(containerMapAccess);
     // Find a better way to do this?
@@ -133,6 +135,10 @@ void ShipMap::placeRoom(Location* locations, int N, int UID){
 bool ShipMap::isVacant(int x, int y, int z){
     if (map[z][y][x] == 0) return true;
     else return false;
+}
+
+unsigned int*** ShipMap::getMapTextures(){
+    return mapTextures;
 }
 
 bool ShipMap::isVacant(Location loc){
