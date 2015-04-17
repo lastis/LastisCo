@@ -1,7 +1,8 @@
 #ifndef __HELLOWORLD_SCENE_H__
 #define __HELLOWORLD_SCENE_H__
 
-#include "core/main/ShipMap.h"
+/* #include "MapVisualizer.h" */
+#include "core/main/ShipMaster.h"
 #include "cocos2d.h"
 
 using namespace cocos2d;

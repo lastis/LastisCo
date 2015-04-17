@@ -1,3 +1,5 @@
+#ifndef __MATRIX3D_H_INCLUDED__
+#define __MATRIX3D_H_INCLUDED__
 class Matrix3D {
 public:
 private:
@@ -29,3 +31,4 @@ private:
     void allocateMapMemory(int O, int N, int M);
     void freeMemory();
 };
+#endif

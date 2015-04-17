@@ -131,8 +131,8 @@ set(GAME_SRC
   Classes/core/main/ShipItems.cpp
   Classes/core/main/ShipJobs.cpp
   Classes/core/main/ShipMap.cpp
-  Classes/core/main/ShipRooms.cpp
   Classes/core/main/ShipMaster.cpp
+  Classes/core/main/ShipRooms.cpp
   Classes/core/map/Matrix3D.cpp
   Classes/core/map/Path.cpp
   Classes/core/map/Pathfinder.cpp

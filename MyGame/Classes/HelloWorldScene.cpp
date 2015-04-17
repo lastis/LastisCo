@@ -28,14 +28,21 @@ bool HelloWorld::init()
     {
         return false;
     }
+    
+    ShipMaster ship = ShipMaster(3,20,20);
+    TMXTiledMap* mapTiled = TMXTiledMap::create("res/ship.tmx");
+    /* MapVisualizer mapVis = MapVisualizer(ship,mapTiled); */
+
+    /* auto layer1 = mapTiled->getLayer("Layer_1"); */
+    /* unsigned int gid = layer1->getTileGIDAt(Vec2(0,0)); */
+    /* layer1->setTileGID(30,Vec2(0,1)); */
+    /* layer1->setTileGID(30,Vec2(0,2)); */
+    /* layer1->setTileGID(30,Vec2(0,3)); */
+    /* log("GID : %u",gid); */
+
+    this->addChild(mapTiled);
+    
  
-    auto tileMap = TMXTiledMap::create("res/ship.tmx");
-    auto layer1 = tileMap->getLayer("Layer_1");
-    unsigned int gid = layer1->getTileGIDAt(Vec2(0,0));
-    layer1->setTileGID(30,Vec2(0,1));
-    layer1->setTileGID(30,Vec2(0,2));
-    layer1->setTileGID(30,Vec2(0,3));
-    log("GID : %u",gid);
 
     /* tileMap = TMXTiledMap::create("res/TileMap.tmx"); */
  
@@ -60,7 +67,6 @@ bool HelloWorld::init()
 
     /* this->setViewPointCenter(player->getPosition()); */
  
-    this->addChild(tileMap);
     /* this->scheduleUpdate(); */
     return true;
 }

@@ -1,3 +1,6 @@
+#ifndef __PATHFINDER_H_INCLUDED__
+#define __PATHFINDER_H_INCLUDED__
+
 #include <iostream>
 #include "../identifiers.h"
 #include "PriorityQueue.h"
@@ -51,3 +54,4 @@ private:
     int nodeNr;
 
 };
+#endif
