@@ -215,16 +215,6 @@ SUITE(Rooms){
 }
 
 SUITE(PriorityQueue){
-    TEST(Init){
-        PathNode node1 = PathNode();
-        PathNode node2 = PathNode();
-        PathNode node3 = PathNode();
-        PathNode node4 = PathNode();
-        
-        PriorityQueue queue = PriorityQueue();
-        PriorityQueue queuelist[2];
-    }
-
     TEST(PushNPop){
         PathNode node1 = PathNode();
         PathNode node2 = PathNode();
@@ -302,7 +292,6 @@ SUITE(Matix3D){
 
 SUITE(Jobs){
     TEST(JobFarm){
-        int cornID = blocks::CENTER_CORN;
         // Test if we can give a person one seed and if he will place the rest.
         Person person = Person();
         person.loc = Location(8,1,0);
@@ -466,7 +455,13 @@ SUITE(Tasks){
 SUITE(Location){
     TEST(Init){
         Location loc1 = Location(3,3,3);
-        Location loc2 = Location(4,4,4);
+        Location loc2 = loc1;
+        CHECK_EQUAL(3,loc1.x);
+        CHECK_EQUAL(3,loc1.y);
+        CHECK_EQUAL(3,loc1.z);
+        CHECK_EQUAL(3,loc2.x);
+        CHECK_EQUAL(3,loc2.y);
+        CHECK_EQUAL(3,loc2.z);
     }
 
     TEST(Assignment){
@@ -809,7 +804,6 @@ SUITE(ShipMap){
         // TODO: Split this code into multiple tests.
         // Test if both sides of a wall is blocked when one wall is inserted
         ShipMap ship = ShipMap(5,5,5); 
-        unsigned int*** map = ship.getMap();
         unsigned int*** mapWallsNorth = ship.getMapNorthWalls();
         unsigned int*** mapWallsEast = ship.getMapEastWalls();
         unsigned int*** mapFloor = ship.getMapFloor();
@@ -878,7 +872,6 @@ SUITE(ShipMaster){
     }
 
     TEST(UpdateJobs){
-        int cornID = blocks::CENTER_CORN;
         int crewID = 1;
         ShipMaster ship = ShipMaster(3,20,20);
         Location loc1 = Location(1,1,1);
@@ -913,7 +906,6 @@ SUITE(ShipMaster){
 
     TEST(UpdateCrew){
         ShipMaster ship = ShipMaster(5,5,5);
-        int cornID = blocks::CENTER_CORN;
         Location loc1 = Location(1,1,1);
         Location loc2 = Location(2,1,1);
 
@@ -946,7 +938,7 @@ SUITE(ShipMaster){
             }
         }
         // Create a room at the locations with ID = 1.
-        Room* room = ship.createRoom(loc, 9, 1);
+        ship.createRoom(loc, 9, 1);
         unsigned int*** map = ship.shipMap->getMapRooms();
         CHECK_EQUAL(1,map[2][1][1]);
         CHECK_EQUAL(1,map[2][1][2]);
@@ -1002,7 +994,6 @@ SUITE(ShipMaster){
 
         // Add one corn object in the first location of room 1 and 2 
         // and check that they have been placed correctly.
-        bool placed;
         Item* obj1 = ship.createItem(blocks::CENTER_CORN,loc1[0]);
         CHECK(obj1->ID != 0);
         CHECK(ship.isVacant(obj1->loc));

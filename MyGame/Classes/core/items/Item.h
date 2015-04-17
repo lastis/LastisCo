@@ -9,6 +9,7 @@ class Person;
 class Item : public Base{
 public:
     Item():placed(false){};
+    virtual ~Item(){};
     void setPlaced(bool val){placed = val;};
     bool isPlaced(){return placed;}
     virtual void update() = 0;
