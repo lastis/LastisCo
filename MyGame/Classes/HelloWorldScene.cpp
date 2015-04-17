@@ -29,7 +29,7 @@ bool HelloWorld::init()
         return false;
     }
  
-    tileMap = TMXTiledMap::create("res/ship.tmx");
+    auto tileMap = TMXTiledMap::create("res/ship.tmx");
     auto layer1 = tileMap->getLayer("Layer_1");
     unsigned int gid = layer1->getTileGIDAt(Vec2(0,0));
     layer1->setTileGID(30,Vec2(0,1));

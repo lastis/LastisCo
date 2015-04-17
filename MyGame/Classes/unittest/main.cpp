@@ -872,6 +872,8 @@ SUITE(ShipMaster){
     }
 
     TEST(UpdateJobs){
+        // The ship has job farm implemented and will run it on all persons
+        // added to the object.
         int crewID = 1;
         ShipMaster ship = ShipMaster(3,20,20);
         Location loc1 = Location(1,1,1);

@@ -126,7 +126,12 @@ set(GAME_SRC
   Classes/core/jobs/TaskInteract.cpp
   Classes/core/jobs/TaskMove.cpp
   Classes/core/jobs/TaskPlace.cpp
+  Classes/core/main/ShipCrew.cpp
+  Classes/core/main/ShipItems.cpp
+  Classes/core/main/ShipJobs.cpp
   Classes/core/main/ShipMap.cpp
+  Classes/core/main/ShipMaster.cpp
+  Classes/core/main/ShipRooms.cpp
   Classes/core/map/Matrix3D.cpp
   Classes/core/map/Path.cpp
   Classes/core/map/Pathfinder.cpp
@@ -152,7 +157,12 @@ set(GAME_HEADERS
   Classes/core/jobs/TaskInteract.h
   Classes/core/jobs/TaskMove.h
   Classes/core/jobs/TaskPlace.h
+  Classes/core/main/ShipCrew.h
+  Classes/core/main/ShipItems.h
+  Classes/core/main/ShipJobs.h
   Classes/core/main/ShipMap.h
+  Classes/core/main/ShipMaster.h
+  Classes/core/main/ShipRooms.h
   Classes/core/map/Location.h
   Classes/core/map/Matrix3D.h
   Classes/core/map/Path.h
