@@ -16,6 +16,30 @@ void ShipMaster::update(){
     shipCrew->update();
 }
 
+unsigned int*** ShipMaster::getMap(){
+    return shipMap->getMap();
+}
+
+unsigned int*** ShipMaster::getMapFloor(){
+    return shipMap->getMapFloor();
+}
+
+unsigned int*** ShipMaster::getMapEastWalls(){
+    return shipMap->getMapEastWalls();
+}
+
+unsigned int*** ShipMaster::getMapNorthWalls(){
+    return shipMap->getMapNorthWalls();
+}
+
+unsigned int*** ShipMaster::getMapAccess(){
+    return shipMap->getMapAccess();
+}
+
+unsigned int*** ShipMaster::getMapRooms(){
+    return shipMap->getMapRooms();
+}
+
 Person* ShipMaster::createCrewMember(int ID, Location loc){
     return shipCrew->createCrewMember(ID,loc);
 }

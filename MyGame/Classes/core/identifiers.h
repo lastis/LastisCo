@@ -58,6 +58,7 @@ namespace blocks{
         // TODO: Make this const array.
         static unsigned int slots[COUNT+1];
         static unsigned int access[COUNT+1];
+        static unsigned int textureID[COUNT+1];
 
         static void initialize(){
             slots[CENTER_SPACE]     = CENTER;
@@ -73,6 +74,13 @@ namespace blocks{
             access[WALL_METAL]      = BLOCKING;
             access[FLOOR_METAL]     = BLOCKING;
             access[CENTER_CORN]     = BLOCKING;
+
+            textureID[CENTER_SPACE]    = 0;
+            textureID[CENTER_AIR]      = 0;
+            textureID[CENTER_METAL]    = 0;
+            textureID[WALL_METAL]      = 0;
+            textureID[FLOOR_METAL]     = 0;
+            textureID[CENTER_CORN]     = 1;
             initialized = true;
         }
     }
