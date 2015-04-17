@@ -31,7 +31,7 @@ bool HelloWorld::init()
     
     ShipMaster ship = ShipMaster(3,20,20);
     TMXTiledMap* mapTiled = TMXTiledMap::create("res/ship.tmx");
-    /* MapVisualizer mapVis = MapVisualizer(ship,mapTiled); */
+    MapVisualizer mapVis = MapVisualizer(ship,mapTiled);
 
     /* auto layer1 = mapTiled->getLayer("Layer_1"); */
     /* unsigned int gid = layer1->getTileGIDAt(Vec2(0,0)); */

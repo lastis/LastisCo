@@ -2,21 +2,21 @@
 
 using namespace cocos2d;
 
-/* MapVisualizer::MapVisualizer(ShipMaster& ship, TMXTiledMap* mapTiled) */ 
-/*     : ship(ship), */
-/*     mapTiled(mapTiled) */
-/* { */
-/*     /1* auto layer1 = mapTiled->getLayer("Layer_1"); *1/ */
-/*     /1* unsigned int gid = layer1->getTileGIDAt(Vec2(0,0)); *1/ */
-/*     /1* layer1->setTileGID(30,Vec2(0,1)); *1/ */
-/*     /1* layer1->setTileGID(30,Vec2(0,2)); *1/ */
-/*     /1* layer1->setTileGID(30,Vec2(0,3)); *1/ */
-/*     /1* log("GID : %u",gid); *1/ */
+MapVisualizer::MapVisualizer(ShipMaster& ship, TMXTiledMap* mapTiled) 
+    : ship(ship),
+    mapTiled(mapTiled)
+{
+    auto layer1 = mapTiled->getLayer("Layer_1");
+    unsigned int gid = layer1->getTileGIDAt(Vec2(0,0));
+    layer1->setTileGID(30,Vec2(0,1));
+    layer1->setTileGID(30,Vec2(0,2));
+    layer1->setTileGID(30,Vec2(0,3));
+    log("GID : %u",gid);
 
-/* } */
+}
 
-/* void MapVisualizer::update(){ */
-/*     // Copy the whole map from the ship to the TMX map. */
+void MapVisualizer::update(){
+    // Copy the whole map from the ship to the TMX map.
     
 
-/* } */
+}
