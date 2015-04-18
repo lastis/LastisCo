@@ -10,8 +10,10 @@ using namespace cocos2d;
 class HelloWorld : public cocos2d::Layer
 {
 private:
-    TMXTiledMap* tileMap;
-    TMXLayer* background;
+    TMXTiledMap* mapTiled;
+    /* TMXLayer* background; */
+    ShipMaster* ship;
+    MapVisualizer* mapVis;
 public:
     static cocos2d::Scene* createScene();
 
@@ -26,7 +28,7 @@ public:
     
     // Costum method.
     // Set the view on the given position.
-    void setViewPointCenter(Vec2 pos);
+    /* void setViewPointCenter(Vec2 pos); */
 
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);

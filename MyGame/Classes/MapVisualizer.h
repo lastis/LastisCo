@@ -8,10 +8,13 @@ using namespace cocos2d;
 
 class MapVisualizer {
 public:
-    MapVisualizer(ShipMaster& ship, TMXTiledMap* mapTiled);
+    MapVisualizer(ShipMaster* ship, TMXTiledMap* mapTiled);
     void update();
 
-    ShipMaster& ship;
+    unsigned int*** mapTextures;
+    int width;
+    int height;
+    ShipMaster* ship;
     TMXTiledMap* mapTiled;
 
 };

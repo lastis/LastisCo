@@ -18,6 +18,9 @@ Scene* HelloWorld::createScene()
 }
 
 void HelloWorld::update(float dt){
+    /* log("updating"); */
+    ship->update();
+    mapVis->update();
 
 }
  
@@ -29,9 +32,26 @@ bool HelloWorld::init()
         return false;
     }
     
-    ShipMaster ship = ShipMaster(3,20,20);
-    TMXTiledMap* mapTiled = TMXTiledMap::create("res/ship.tmx");
-    MapVisualizer mapVis = MapVisualizer(ship,mapTiled);
+    ship = new ShipMaster(3,20,20);
+
+    // The ship has job farm implemented and will run it on all persons
+    // added to the object.
+    int crewID = 1;
+    Location loc1 = Location(1,1,1);
+    Person* person = ship->createCrewMember(crewID,loc1);
+    person->addToInventory(blocks::CENTER_CORN,1);
+    // Make a 10x10 field of corn that we want to be sowed.
+    int crops = 100;
+    Corn** corn = new Corn*[crops]; 
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            corn[i*10 + j] = (Corn*) 
+                ship->createItem(blocks::CENTER_CORN,Location(i+2,j+2,1));
+        }
+    }
+        
+    mapTiled = TMXTiledMap::create("res/ship.tmx");
+    mapVis = new MapVisualizer(ship,mapTiled);
 
     /* auto layer1 = mapTiled->getLayer("Layer_1"); */
     /* unsigned int gid = layer1->getTileGIDAt(Vec2(0,0)); */
@@ -67,25 +87,25 @@ bool HelloWorld::init()
 
     /* this->setViewPointCenter(player->getPosition()); */
  
-    /* this->scheduleUpdate(); */
+    this->scheduleUpdate();
     return true;
 }
 
-void HelloWorld::setViewPointCenter(Vec2 pos) {
+/* void HelloWorld::setViewPointCenter(Vec2 pos) { */
 
-    Size winSize = Director::getInstance()->getWinSize();
+/*     Size winSize = Director::getInstance()->getWinSize(); */
 
-    int x = MAX(pos.x, winSize.width/2);
-    int y = MAX(pos.y, winSize.height/2);
-    x = MIN(x, 
-            (tileMap->getMapSize().width * 
-             this->tileMap->getTileSize().width) - winSize.width / 2);
-    y = MIN(y, (tileMap->getMapSize().height * 
-                tileMap->getTileSize().height) - winSize.height/2);
+/*     int x = MAX(pos.x, winSize.width/2); */
+/*     int y = MAX(pos.y, winSize.height/2); */
+/*     x = MIN(x, */ 
+/*             (tileMap->getMapSize().width * */ 
+/*              this->tileMap->getTileSize().width) - winSize.width / 2); */
+/*     y = MIN(y, (tileMap->getMapSize().height * */ 
+/*                 tileMap->getTileSize().height) - winSize.height/2); */
 
-    Vec2 actualPosition = Vec2(x, y);
-    Vec2 centerOfView = Vec2(winSize.width/2, winSize.height/2);
-    Vec2 viewPoint = centerOfView - actualPosition;
-    this->setPosition(viewPoint);
-}
+/*     Vec2 actualPosition = Vec2(x, y); */
+/*     Vec2 centerOfView = Vec2(winSize.width/2, winSize.height/2); */
+/*     Vec2 viewPoint = centerOfView - actualPosition; */
+/*     this->setPosition(viewPoint); */
+/* } */
 

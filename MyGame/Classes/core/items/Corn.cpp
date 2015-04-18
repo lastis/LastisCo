@@ -16,6 +16,8 @@ bool Corn::interact(Person& person){
     if (!isFinished()) return false;
     // Add multiple corns to his inventory.
     person.addToInventory(ID,2);
+    time = 0;
+    stage = STAGE_0;
     return true;
 }
 
@@ -39,6 +41,7 @@ bool Corn::isFinished(){
 
 void Corn::update(ShipMaster& ship){
     using namespace textures;
+    if (isPlaced() == false) return;
     switch (stage){
         case STAGE_0:
         ship.placeTexture(CORN_TEXTURE_1,loc);
@@ -50,7 +53,6 @@ void Corn::update(ShipMaster& ship){
         ship.placeTexture(CORN_TEXTURE_3,loc);
         break;
     }
-    if (isPlaced() == false) return;
     grow();
 }
 

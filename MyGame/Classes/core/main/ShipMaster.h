@@ -29,6 +29,7 @@ public:
     unsigned int*** getMapNorthWalls();
     unsigned int*** getMapAccess();
     unsigned int*** getMapRooms();
+    unsigned int*** getMapTextures();
 
     // Item methods.
     bool    placeItem(Item* obj);
