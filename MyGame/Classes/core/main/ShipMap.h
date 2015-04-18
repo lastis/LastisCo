@@ -35,6 +35,9 @@ public:
     unsigned int*** getMapAccess();
     unsigned int*** getMapRooms();
     unsigned int*** getMapTextures();
+    unsigned int*** getMapTexturesFloor();
+    unsigned int*** getMapTexturesEastWalls();
+    unsigned int*** getMapTexturesNorthWalls();
 private:
     void initialize(int O, int N, int M);
 
@@ -51,6 +54,9 @@ private:
     Matrix3D containerMapAccess;
     Matrix3D containerMapRooms;
     Matrix3D containerMapTextures;
+    Matrix3D containerMapTexturesFloor;
+    Matrix3D containerMapTexturesEastWalls;
+    Matrix3D containerMapTexturesNorthWalls;
     unsigned int*** map;
     unsigned int*** mapFloor;
     unsigned int*** mapWallsEast;
@@ -58,6 +64,9 @@ private:
     unsigned int*** mapAccess;
     unsigned int*** mapRooms;
     unsigned int*** mapTextures;
+    unsigned int*** mapTexturesFloor;
+    unsigned int*** mapTexturesEastWalls;
+    unsigned int*** mapTexturesNorthWalls;
     Pathfinder pathfinder;
 };
 #endif

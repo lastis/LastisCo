@@ -20,6 +20,9 @@ void ShipMap::initialize(int O, int N, int M){
     containerMapAccess = Matrix3D(O,N,M);
     containerMapRooms = Matrix3D(O,N,M);
     containerMapTextures = Matrix3D(O,N,M);
+    containerMapTexturesFloor = Matrix3D(O,N,M);
+    containerMapTexturesEastWalls = Matrix3D(O,N,M);
+    containerMapTexturesNorthWalls = Matrix3D(O,N,M);
 
     map = containerMap.getMatrix();
     mapFloor = containerMapFloor.getMatrix();
@@ -28,6 +31,9 @@ void ShipMap::initialize(int O, int N, int M){
     mapAccess = containerMapAccess.getMatrix();
     mapRooms = containerMapAccess.getMatrix();
     mapTextures = containerMapTextures.getMatrix();
+    mapTexturesFloor = containerMapTexturesFloor.getMatrix();
+    mapTexturesEastWalls = containerMapTexturesEastWalls.getMatrix();
+    mapTexturesNorthWalls = containerMapTexturesNorthWalls.getMatrix();
 
     pathfinder = Pathfinder(containerMapAccess);
     // Find a better way to do this?
