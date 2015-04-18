@@ -2,6 +2,7 @@
 #define __IDENTIFIERS_H_INCLUDED__
 
 static const int MAX_PATH_LENGTH = 20;
+static const int MAX_CREW = 100;
 
 namespace directions{
     static const int DIRECTIONS = 6;

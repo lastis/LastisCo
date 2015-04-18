@@ -4,6 +4,8 @@
 #include "cocos2d.h"
 #include "core/main/ShipMaster.h"
 #include "../cocos2d/cocos/2d/CCTMXTiledMap.h"
+#include "core/identifiers.h"
+#include "core/enteties/Person.h"
 using namespace cocos2d;
 
 class MapVisualizer {
@@ -17,6 +19,8 @@ public:
     ShipMaster* ship;
     TMXTiledMap* mapTiled;
     Layer* scene;
+    Person** crew;
+
 
 };
 #endif

@@ -53,7 +53,7 @@ public:
     Person* createCrewMember(int ID, Location loc);
     int     getCrewCount();
     Person* getCrewFromIndex(int i);
-
+    Person** getCrew();
 
 
     ShipCrew*   shipCrew;

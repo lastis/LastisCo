@@ -3,9 +3,7 @@
 using namespace cocos2d;
 
 MapVisualizer::MapVisualizer(ShipMaster* ship, TMXTiledMap* mapTiled, Layer* scene) 
-    : ship(ship),
-    mapTiled(mapTiled),
-    scene(scene)
+    : ship(ship), mapTiled(mapTiled), scene(scene), crew(ship->getCrew())
 {
     mapTextures = ship->getMapTextures();
     auto layer1 = mapTiled->getLayer("Layer_1");
@@ -19,12 +17,6 @@ MapVisualizer::MapVisualizer(ShipMaster* ship, TMXTiledMap* mapTiled, Layer* sce
             layer1->setTileGID(mapTextures[1][j][i],Vec2(i,j));
         }
     }
-
-    /* unsigned int gid = layer1->getTileGIDAt(Vec2(0,0)); */
-    /* layer1->setTileGID(30,Vec2(0,2)); */
-    /* layer1->setTileGID(30,Vec2(0,3)); */
-    /* log("GID : %u",gid); */
-
 }
 
 void MapVisualizer::update(){

@@ -2,9 +2,7 @@
 
 ShipCrew::ShipCrew(){
     cntCrew = 0;
-    for (int i = 0; i < MAX_CREW; i++) {
-        crew[i] = NULL;
-    }
+    crew = new Person*[MAX_CREW];
 }
 
 Person* ShipCrew::getCrewFromIndex(int i){
@@ -14,6 +12,10 @@ Person* ShipCrew::getCrewFromIndex(int i){
 
 int ShipCrew::getCrewCount(){
     return cntCrew;
+}
+
+Person** ShipCrew::getCrew(){
+    return crew;
 }
 
 void ShipCrew::update(ShipMaster& ship){
@@ -39,7 +41,5 @@ Person* ShipCrew::createCrewMember(int ID, Location loc){
 }
 
 ShipCrew::~ShipCrew(){
-    for (int i = 0; i < cntCrew; i++) {
-        delete crew[i];
-    }
+    delete[] crew;
 }

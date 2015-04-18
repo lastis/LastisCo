@@ -20,6 +20,9 @@ void ShipMaster::placeTexture(unsigned int ID, Location loc){
     shipMap->placeTexture(ID,loc);
 }
 
+Person** ShipMaster::getCrew(){
+    return shipCrew->getCrew();
+}
 unsigned int*** ShipMaster::getMapTextures(){
     return shipMap->getMapTextures();
 }
