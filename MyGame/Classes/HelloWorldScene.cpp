@@ -18,6 +18,9 @@ Scene* HelloWorld::createScene()
 }
 
 void HelloWorld::update(float dt){
+    time += dt;
+    if (time < 0.10) return;
+    time = 0;
     ship->update();
     mapVis->update();
 
@@ -31,6 +34,7 @@ bool HelloWorld::init()
         return false;
     }
     
+    time = 0;
     ship = new ShipMaster(3,20,20);
 
     // The ship has job farm implemented and will run it on all persons
@@ -48,18 +52,8 @@ bool HelloWorld::init()
     }
         
     mapTiled = TMXTiledMap::create("res/ship.tmx");
-    mapVis = new MapVisualizer(ship,mapTiled,this);
-
-    /* auto layer1 = mapTiled->getLayer("Layer_1"); */
-    /* unsigned int gid = layer1->getTileGIDAt(Vec2(0,0)); */
-    /* layer1->setTileGID(30,Vec2(0,1)); */
-    /* layer1->setTileGID(30,Vec2(0,2)); */
-    /* layer1->setTileGID(30,Vec2(0,3)); */
-    /* log("GID : %u",gid); */
-
     this->addChild(mapTiled);
-    
- 
+    mapVis = new MapVisualizer(ship,mapTiled,this);
 
     /* tileMap = TMXTiledMap::create("res/TileMap.tmx"); */
  

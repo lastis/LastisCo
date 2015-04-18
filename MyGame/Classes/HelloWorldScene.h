@@ -15,6 +15,7 @@ private:
     /* TMXLayer* background; */
     ShipMaster* ship;
     MapVisualizer* mapVis;
+    float time;
 public:
     static cocos2d::Scene* createScene();
 
