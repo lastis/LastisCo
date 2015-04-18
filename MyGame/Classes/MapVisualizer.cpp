@@ -2,9 +2,10 @@
 
 using namespace cocos2d;
 
-MapVisualizer::MapVisualizer(ShipMaster* ship, TMXTiledMap* mapTiled) 
+MapVisualizer::MapVisualizer(ShipMaster* ship, TMXTiledMap* mapTiled, Layer* scene) 
     : ship(ship),
-    mapTiled(mapTiled)
+    mapTiled(mapTiled),
+    scene(scene)
 {
     mapTextures = ship->getMapTextures();
     auto layer1 = mapTiled->getLayer("Layer_1");

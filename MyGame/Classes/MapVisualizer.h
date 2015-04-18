@@ -8,7 +8,7 @@ using namespace cocos2d;
 
 class MapVisualizer {
 public:
-    MapVisualizer(ShipMaster* ship, TMXTiledMap* mapTiled);
+    MapVisualizer(ShipMaster* ship, TMXTiledMap* mapTiled, Layer* scene);
     void update();
 
     unsigned int*** mapTextures;
@@ -16,6 +16,7 @@ public:
     int height;
     ShipMaster* ship;
     TMXTiledMap* mapTiled;
+    Layer* scene;
 
 };
 #endif

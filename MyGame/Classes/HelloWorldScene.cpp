@@ -18,7 +18,6 @@ Scene* HelloWorld::createScene()
 }
 
 void HelloWorld::update(float dt){
-    /* log("updating"); */
     ship->update();
     mapVis->update();
 
@@ -42,16 +41,14 @@ bool HelloWorld::init()
     person->addToInventory(blocks::CENTER_CORN,1);
     // Make a 10x10 field of corn that we want to be sowed.
     int crops = 100;
-    Corn** corn = new Corn*[crops]; 
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-            corn[i*10 + j] = (Corn*) 
-                ship->createItem(blocks::CENTER_CORN,Location(i+2,j+2,1));
+            ship->createItem(blocks::CENTER_CORN,Location(i+2,j+2,1));
         }
     }
         
     mapTiled = TMXTiledMap::create("res/ship.tmx");
-    mapVis = new MapVisualizer(ship,mapTiled);
+    mapVis = new MapVisualizer(ship,mapTiled,this);
 
     /* auto layer1 = mapTiled->getLayer("Layer_1"); */
     /* unsigned int gid = layer1->getTileGIDAt(Vec2(0,0)); */
@@ -109,3 +106,7 @@ bool HelloWorld::init()
 /*     this->setPosition(viewPoint); */
 /* } */
 
+HelloWorld::~HelloWorld(){
+    delete ship;
+    delete mapVis;
+}

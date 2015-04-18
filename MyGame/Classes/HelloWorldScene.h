@@ -10,6 +10,7 @@ using namespace cocos2d;
 class HelloWorld : public cocos2d::Layer
 {
 private:
+    ~HelloWorld();
     TMXTiledMap* mapTiled;
     /* TMXLayer* background; */
     ShipMaster* ship;
