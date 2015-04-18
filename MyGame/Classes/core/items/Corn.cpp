@@ -9,6 +9,7 @@ Corn::Corn(){
     ID = blocks::CENTER_CORN;
     time = 0;
     stage = STAGE_0;
+    changed = true;
 }
 
 bool Corn::interact(Person& person){
@@ -42,6 +43,8 @@ bool Corn::isFinished(){
 void Corn::update(ShipMaster& ship){
     using namespace textures;
     if (isPlaced() == false) return;
+    grow();
+    if (changed == false) return;
     switch (stage){
         case STAGE_0:
         ship.placeTexture(CORN_TEXTURE_1,loc);
@@ -53,7 +56,6 @@ void Corn::update(ShipMaster& ship){
         ship.placeTexture(CORN_TEXTURE_3,loc);
         break;
     }
-    grow();
 }
 
 void Corn::update(){
@@ -63,14 +65,17 @@ void Corn::update(){
 
 void Corn::grow(){
     time++;
-    if (time < STAGE_0) {
+    if (time == STAGE_0) {
         stage = STAGE_0;
+        changed = true;
     }
-    else if (time < STAGE_1) {
+    else if (time == STAGE_1) {
         stage = STAGE_1;
+        changed = true;
     }
-    else if (time < STAGE_2) {
+    else if (time == STAGE_2) {
         stage = STAGE_2;
+        changed = true;
     }
     else if (time == STAGE_FINAL) {
         stage = STAGE_FINAL;

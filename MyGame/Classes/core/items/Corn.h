@@ -17,6 +17,7 @@ public:
     bool isFinished();
     int getStage();
 
+    bool changed;
     int stage;
     int time;
     static const int STAGE_0 = 2;
