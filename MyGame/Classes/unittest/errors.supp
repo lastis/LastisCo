@@ -234,3 +234,95 @@
    fun:_ZN8UnitTest11RunAllTestsEv
    fun:main
 }
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster15TestUpdateItems7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster15TestUpdateItems7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster15TestUpdateItems7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster15TestUpdateItems7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster15TestUpdateItems7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster15TestUpdateItems7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_ZN10LinkedList10popWithUIDEi
+   fun:_ZN9ShipItems9placeItemEP4Item
+   fun:_ZN10ShipMaster9placeItemEP4Item
+   fun:_ZNK15SuiteShipMaster15TestUpdateItems7RunImplEv
+   fun:_ZN8UnitTest11ExecuteTestINS_4TestEEEvRT_RKNS_11TestDetailsE
+   fun:_ZNK8UnitTest10TestRunner7RunTestEPNS_11TestResultsEPNS_4TestEi
+   fun:_ZN8UnitTest11RunAllTestsEv
+   fun:main
+}
+
+
+
+
+
+
+
+
