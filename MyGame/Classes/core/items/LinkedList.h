@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Item.h"
 
+class ShipMaster;
 class LinkedList{
     // Struct inside the class LinkedList
     // This is one node which is not needed by the caller. It is just
@@ -18,9 +19,9 @@ public:
     LinkedList();
     ~LinkedList();
     void    add(Item* val);
-    /* void    deleteItems(); */
     bool    isEmpty();
     int     getLength();
+    void    update(ShipMaster& ship);
     void    update();
     Item*   findWithUID(int UID);
     Item*   findWithID(int ID);

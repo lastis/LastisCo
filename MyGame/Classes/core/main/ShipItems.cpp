@@ -5,8 +5,8 @@ ShipItems::ShipItems(){
 }
 
 void ShipItems::update(ShipMaster& ship){
-    itemsPending.update();
-    itemsPlaced.update();
+    itemsPending.update(ship);
+    itemsPlaced.update(ship);
 }
 
 void ShipItems::update(){
