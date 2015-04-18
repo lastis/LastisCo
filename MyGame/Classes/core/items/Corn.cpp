@@ -1,7 +1,9 @@
 #include "Corn.h"
 #include "../enteties/Person.h"
 #include "../identifiers.h"
+#include "../main/ShipMaster.h"
 #include <iostream>
+
 
 Corn::Corn(){
     ID = blocks::CENTER_CORN;
@@ -36,6 +38,18 @@ bool Corn::isFinished(){
 }
 
 void Corn::update(ShipMaster& ship){
+    using namespace textures;
+    switch (stage){
+        case STAGE_0:
+        ship.placeTexture(CORN_TEXTURE_1,loc);
+        break;
+        case STAGE_1:
+        ship.placeTexture(CORN_TEXTURE_2,loc);
+        break;
+        case STAGE_2:
+        ship.placeTexture(CORN_TEXTURE_3,loc);
+        break;
+    }
     if (isPlaced() == false) return;
     grow();
 }

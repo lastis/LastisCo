@@ -22,6 +22,7 @@ public:
     bool    isVacant(int x, int y, int z);
     bool    isVacant(Location loc);
     Path    findPath(Location start, Location end);
+    void    placeTexture(unsigned int ID, Location loc);
     unsigned int*** getMap();
     unsigned int*** getMapFloor();
     unsigned int*** getMapEastWalls();

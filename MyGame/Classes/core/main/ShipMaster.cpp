@@ -16,6 +16,10 @@ void ShipMaster::update(){
     shipCrew->update(*this);
 }
 
+void ShipMaster::placeTexture(unsigned int ID, Location loc){
+    shipMap->placeTexture(ID,loc);
+}
+
 unsigned int*** ShipMaster::getMap(){
     return shipMap->getMap();
 }

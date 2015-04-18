@@ -40,6 +40,10 @@ void ShipMap::initialize(int O, int N, int M){
     blocks::properties::initialize();
 }
 
+void ShipMap::placeTexture(unsigned int ID, Location loc){
+    mapTextures[loc.z][loc.y][loc.x] = ID;
+}
+
 
 Path ShipMap::findPath(Location start, Location end){
     return pathfinder.findPath(start, end);

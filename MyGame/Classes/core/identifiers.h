@@ -30,7 +30,9 @@ namespace directions{
 
 namespace textures {
     static const unsigned int NO_TEXTURE = 0;
-    static const unsigned int CORN_TEXTURE_1 = 1;
+    static const unsigned int CORN_TEXTURE_1 = 39;
+    static const unsigned int CORN_TEXTURE_2 = 38;
+    static const unsigned int CORN_TEXTURE_3 = 40;
 }
 
 namespace rooms{

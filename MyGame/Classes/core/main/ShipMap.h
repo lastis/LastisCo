@@ -21,6 +21,8 @@ public:
     inline void simplifyLocations(Location& loc1, Location& loc2);
     bool    withinBounds(Location loc);
 
+    void    placeTexture(unsigned int ID, Location loc);
+
     int     getRoomUidFromLoc(Location loc);
     void    placeItem(int UID, Location loc);
     void    placeRoom(Location* locations, int N, int UID);
