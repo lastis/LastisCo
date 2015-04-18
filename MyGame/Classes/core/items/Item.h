@@ -6,13 +6,14 @@
 // Base class for all objects. Used to be able to make an 
 // array of objects.
 class Person;
+class ShipMaster;
 class Item : public Base{
 public:
     Item():placed(false){};
     virtual ~Item(){};
     void setPlaced(bool val){placed = val;};
     bool isPlaced(){return placed;}
-    virtual void update() = 0;
+    virtual void update(ShipMaster& ship) = 0;
     virtual bool interact(Person& person) = 0;
     virtual bool place(Person& person) = 0;
     virtual bool canPlace(Person& person) = 0;
@@ -21,6 +22,7 @@ public:
 private:
     bool placed;
 };
+
 
 struct ItemTest : public Item {
     bool interact(Person& person){
@@ -41,8 +43,7 @@ struct ItemTest : public Item {
         return true;
     }
 
-    void update(){
+    void update(ShipMaster& ship){
     }
 };
-
 #endif

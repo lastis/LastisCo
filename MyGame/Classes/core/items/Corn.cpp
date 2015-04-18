@@ -35,6 +35,11 @@ bool Corn::isFinished(){
     return false;
 }
 
+void Corn::update(ShipMaster& ship){
+    if (isPlaced() == false) return;
+    grow();
+}
+
 void Corn::update(){
     if (isPlaced() == false) return;
     grow();

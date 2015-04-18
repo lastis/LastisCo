@@ -3,11 +3,13 @@
 #include "Item.h"
 
 class Person;
+class ShipMaster;
 class Corn : public Item{
 public:
     Corn();
     void grow();
     void reset();
+    void update(ShipMaster& ship);
     void update();
     bool interact(Person& person);
     bool place(Person& person);

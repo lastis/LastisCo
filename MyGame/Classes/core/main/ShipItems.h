@@ -10,7 +10,6 @@ public:
     ~ShipItems();
 
     void update(ShipMaster& ship);
-    void update();
 
     Item*   createItem(int ID, int UID, Location loc);
     bool    placeItem(Item* obj);

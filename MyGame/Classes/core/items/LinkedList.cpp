@@ -10,15 +10,7 @@ LinkedList::LinkedList(){
 void LinkedList::update(ShipMaster& ship){
     Node* n = head;
     while (n != NULL) {
-        n->val->update();
-        n = n->next;
-    }
-}
-
-void LinkedList::update(){
-    Node* n = head;
-    while (n != NULL) {
-        n->val->update();
+        n->val->update(ship);
         n = n->next;
     }
 }

@@ -9,11 +9,6 @@ void ShipItems::update(ShipMaster& ship){
     itemsPlaced.update(ship);
 }
 
-void ShipItems::update(){
-    itemsPending.update();
-    itemsPlaced.update();
-}
-
 int     ShipItems::getItemPlacedCount(){
     return itemsPlaced.getLength();
 }
