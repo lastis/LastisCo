@@ -12,5 +12,7 @@ test:
 	./a.out
 grind:
 	valgrind --suppressions=errors.supp ./a.out
+grindFull:
+	valgrind --leak-check=full --suppressions=errors.supp ./a.out
 supp:
 	valgrind --gen-suppressions=all --suppressions=errors.supp ./a.out

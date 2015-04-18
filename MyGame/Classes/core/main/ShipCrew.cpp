@@ -41,5 +41,8 @@ Person* ShipCrew::createCrewMember(int ID, Location loc){
 }
 
 ShipCrew::~ShipCrew(){
+    for (int i = 0; i < cntCrew; i++) {
+        delete crew[i];
+    }
     delete[] crew;
 }
