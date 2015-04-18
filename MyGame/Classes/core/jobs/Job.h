@@ -6,6 +6,7 @@ class ShipMaster;
 class Job {
 public:
     Job(ShipMaster& ship);
+    virtual ~Job(){};
     void setShipMaster(ShipMaster& ship);
     virtual bool deligateTask(Person& person) = 0;
 

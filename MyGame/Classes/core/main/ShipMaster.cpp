@@ -11,9 +11,9 @@ ShipMaster::ShipMaster(int O, int N, int M) : O(O), N(N), M(M),
 }
 
 void ShipMaster::update(){
-    shipItems->update();
-    shipJobs->update();
-    shipCrew->update();
+    shipItems->update(*this);
+    shipJobs->update(*this);
+    shipCrew->update(*this);
 }
 
 unsigned int*** ShipMaster::getMap(){

@@ -16,7 +16,7 @@ int ShipCrew::getCrewCount(){
     return cntCrew;
 }
 
-void ShipCrew::update(){
+void ShipCrew::update(ShipMaster& ship){
     for (int i = 0; i < cntCrew; i++) {
         Person* person = crew[i];
         person->update();
@@ -25,11 +25,11 @@ void ShipCrew::update(){
 
 Person* ShipCrew::createCrewMember(int ID, Location loc){
     if (ID == 0) return NULL;
-    int x = loc.x;
-    int y = loc.y;
-    int z = loc.z;
     // Create the crew member.
     Person* crewMember = new Person();
+    crewMember->loc.x = loc.x;
+    crewMember->loc.y = loc.y;
+    crewMember->loc.z = loc.z;
     // Avoid UID of 0.
     crewMember->UID = cntCrew+1;
     // Add the crew member to the list.

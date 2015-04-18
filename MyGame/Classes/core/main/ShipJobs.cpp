@@ -8,7 +8,7 @@ ShipJobs::ShipJobs(ShipMaster& ship) :
 
 }
 
-void ShipJobs::update(){
+void ShipJobs::update(ShipMaster& ship){
     int N = ship.getCrewCount();
     for (int i = 0; i < N; i++) {
         Person* person = ship.getCrewFromIndex(i);

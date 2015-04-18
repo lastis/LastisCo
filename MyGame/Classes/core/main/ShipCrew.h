@@ -3,6 +3,7 @@
 #include "../enteties/Person.h"
 #include <iostream>
 
+class ShipMaster;
 class ShipCrew {
 public:
     static const int MAX_CREW = 100;
@@ -12,7 +13,7 @@ public:
     int     getCrewCount();
     Person* getCrewFromIndex(int i);
     Person* createCrewMember(int ID, Location loc);
-    void    update();
+    void    update(ShipMaster& ship);
 
     int cntCrew;
     Person* crew[MAX_CREW];

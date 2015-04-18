@@ -5,7 +5,7 @@ class ShipJobs {
 public:
     ShipJobs(ShipMaster& ship);
     ~ShipJobs();
-    void update();
+    void update(ShipMaster& ship);
 
     ShipMaster& ship;
     JobFarm* jobFarm;
