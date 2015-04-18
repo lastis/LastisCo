@@ -28,6 +28,11 @@ namespace directions{
                                            + SOUTH + UP + DOWN;
 }
 
+namespace textures {
+    static const unsigned int NO_TEXTURE = 0;
+    static const unsigned int CORN_TEXTURE_1 = 1;
+}
+
 namespace rooms{
     static const int KITCHEN = 1;
     static const int BRIDGE = 2;
@@ -46,9 +51,6 @@ namespace blocks{
     static const unsigned int CENTER_CORN = 6;
 
     static const int COUNT = 6;
-
-    static const unsigned int NO_TEXTURE = 0;  
-    static const unsigned int CORN_TEXTURE_1 = 1;
 
     namespace properties{
         static const int NON_BLOCKING = 0;
