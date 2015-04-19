@@ -6,6 +6,9 @@
 
 using namespace blocks::properties;
 
+// The first argument in the parent class is what
+// slot the items occupies, center for corn and
+// the second paramter is if it blocks movement.
 Corn::Corn() : Item(CENTER,NON_BLOCKING){
     ID = blocks::CENTER_CORN;
     time = 0;
