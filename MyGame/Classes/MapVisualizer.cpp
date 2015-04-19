@@ -47,12 +47,10 @@ void MapVisualizer::update(){
         Person* crewMember = crew[i];
         int x = crewMember->loc.x;
         int y = crewMember->loc.y;
-        /* crewSprites[i]->setPosition(realPos); */
-        /* crewSprites[i]->setPosition(100,100); */
-        /* auto moveTo = MoveTo::create(0.1,Vec2(x,y)); */
-        /* crewSprites[i]->runAction(moveTo); */
         Vec2 realPos = layer1->getPositionAt(Vec2(x,y));
-        crewSprites[i]->setPosition(realPos);
+        auto moveTo = MoveTo::create(0.1,realPos);
+        crewSprites[i]->runAction(moveTo);
+        /* crewSprites[i]->setPosition(realPos); */
     }
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
