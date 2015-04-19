@@ -25,6 +25,12 @@ public:
     int     getItemPendingCount();
 
     LinkedList itemsPlaced;
+    LinkedList itemsFloor;
+    LinkedList itemsEastWalls;
+    LinkedList itemsNorthWalls;
     LinkedList itemsPending;
+    LinkedList itemsPendingFloor;
+    LinkedList itemsPendingNorthWalls;
+    LinkedList itemsPendingEastWalls;
 };
 #endif

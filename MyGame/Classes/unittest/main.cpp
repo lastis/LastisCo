@@ -23,6 +23,8 @@ SUITE(ItemMatrix){
         CHECK(pMat[0][0][0] == NULL);
         CHECK(pMat[4][4][4] == NULL);
 
+        Item* item = (Item*) new ItemTest();
+        pMat[0][0][0] = item;
     }
 }
 
