@@ -3,13 +3,16 @@
 
 #include "../Base.h"
 #include "../map/Location.h"
+#include "../identifiers.h"
 // Base class for all objects. Used to be able to make an 
 // array of objects.
 class Person;
 class ShipMaster;
 class Item : public Base{
 public:
-    Item():placed(false){};
+    Item(int slot, int blocking) : placed(false), slot(slot), blocking(blocking)
+    {
+    }
     virtual ~Item(){};
     void setPlaced(bool val){placed = val;};
     bool isPlaced(){return placed;}
@@ -20,11 +23,16 @@ public:
 
     Location loc;
 private:
-    bool placed;
+    bool    placed;
+    // Properties of the item.
+    int     slot;
+    int     blocking;
 };
 
 
 struct ItemTest : public Item {
+    ItemTest() : Item(0,0){
+    }
     bool interact(Person& person){
         // Items that cannot be interacted with should return
         // true, as false means the person is interacting with the

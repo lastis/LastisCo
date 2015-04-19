@@ -4,8 +4,9 @@
 #include "../main/ShipMaster.h"
 #include <iostream>
 
+using namespace blocks::properties;
 
-Corn::Corn(){
+Corn::Corn() : Item(CENTER,NON_BLOCKING){
     ID = blocks::CENTER_CORN;
     time = 0;
     stage = STAGE_0;

@@ -59,8 +59,8 @@ namespace blocks{
         static const int NON_BLOCKING = 0;
         static const int BLOCKING = 1;
         // Is a block floor, ontop of floor, both(eg. rock), or a wall.
-        static const int FLOOR = 0;
-        static const int CENTER = 1;
+        static const int CENTER = 0;
+        static const int FLOOR = 1;
         static const int WALL = 2;
 
         // TODO: Make this const array.

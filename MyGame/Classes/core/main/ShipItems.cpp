@@ -89,6 +89,7 @@ Item* ShipItems::createItem(int ID, int UID, Location loc){
     // Set the UID of the object. 
     obj->UID = UID;
     obj->loc = loc;
+    // Add the object to the correct item list.
     // Add the object to the pending items list. 
     itemsPending.add(obj);
     // Return the object because many times the creator wants it.
