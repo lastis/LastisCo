@@ -12,6 +12,7 @@ public:
     void update(ShipMaster& ship);
 
     Item*   createItem(int ID, int UID, Location loc);
+    Item*   createItem(int ID, int UID, Location loc, unsigned int direction);
     bool    placeItem(Item* obj);
 
     LinkedList& getItems();

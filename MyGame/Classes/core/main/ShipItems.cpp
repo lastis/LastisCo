@@ -82,6 +82,13 @@ bool ShipItems::placeItem(Item* obj){
 }
 
 Item* ShipItems::createItem(int ID, int UID, Location loc){
+    // The direction of north is default.
+    return createItem(ID,UID,loc,directions::NORTH);
+}
+
+Item* ShipItems::createItem(int ID,int UID,Location loc,unsigned int direction){
+
+    using namespace directions;
     if (ID == 0) return NULL;
     // Create the object. Item ID is set in its constructor.
     Item* obj = item_creator::createItem(ID);
@@ -89,9 +96,23 @@ Item* ShipItems::createItem(int ID, int UID, Location loc){
     // Set the UID of the object. 
     obj->UID = UID;
     obj->loc = loc;
+    using namespace blocks::properties;
     // Add the object to the correct item list.
-    // Add the object to the pending items list. 
-    itemsPending.add(obj);
+    switch (obj->slot) {
+        case CENTER:
+            itemsPending.add(obj);
+            break;
+        case FLOOR:
+            itemsPendingFloor.add(obj);
+            break;
+        case WALL:
+            // Direction is used to find which list the 
+            // wall goes into.
+            if (direction == NORTH) itemsPendingNorthWalls.add(obj);
+            else if (direction == EAST) itemsPendingNorthWalls.add(obj);
+            else  itemsPendingNorthWalls.add(obj);
+            break;
+    }
     // Return the object because many times the creator wants it.
     return obj;
 }

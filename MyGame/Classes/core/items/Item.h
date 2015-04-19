@@ -22,11 +22,11 @@ public:
     virtual bool canPlace(Person& person) = 0;
 
     Location loc;
-private:
-    bool    placed;
     // Properties of the item.
     int     slot;
     int     blocking;
+private:
+    bool    placed;
 };
 
 

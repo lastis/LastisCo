@@ -223,8 +223,6 @@ void ShipMap::updateMapAccess(ShipMaster& ship){
                 if (access[ID] == true){
                     mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_EAST;
                     mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
-                    /* std::cout << mapAccess[z][y][x+1] << std::endl; */
-                    /* std::cout << "yoman" << std::endl; */
                 }
                 ID = mapWallsNorth[z][y][x];
                 if (access[ID] == true){
