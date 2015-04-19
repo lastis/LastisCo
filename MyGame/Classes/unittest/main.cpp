@@ -25,6 +25,7 @@ SUITE(ItemMatrix){
 
         Item* item = (Item*) new ItemTest();
         pMat[0][0][0] = item;
+        delete item;
     }
 }
 
