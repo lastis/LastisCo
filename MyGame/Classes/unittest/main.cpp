@@ -123,6 +123,29 @@ SUITE(LinkedList){
         list1 = LinkedList();
     }
 
+    TEST(Iteration){
+        LinkedList list1 = LinkedList();
+        CHECK(list1.next() == NULL);
+        ItemTest obj1 = ItemTest();
+        ItemTest obj2 = ItemTest();
+        ItemTest obj3 = ItemTest();
+        obj1.ID = 1;
+        obj2.ID = 2;
+        obj3.ID = 3;
+        list1.add(&obj1);
+        list1.add(&obj2);
+        list1.add(&obj3);
+        CHECK_EQUAL(3,list1.next()->ID);
+        CHECK_EQUAL(2,list1.next()->ID);
+        CHECK_EQUAL(1,list1.next()->ID);
+        CHECK(list1.next() == NULL);
+        list1.resetIterator();
+        CHECK_EQUAL(3,list1.next()->ID);
+        CHECK_EQUAL(2,list1.next()->ID);
+        CHECK_EQUAL(1,list1.next()->ID);
+        CHECK(list1.next() == NULL);
+    }
+
     TEST(Add){
         LinkedList list1 = LinkedList();
         ItemTest obj1 = ItemTest();

@@ -13,8 +13,9 @@ class LinkedList{
         Node *next = NULL;
     };
 private:
-    Node *head; 
-    int length;
+    Node*   head; 
+    int     length;
+    Node*   iteratorNode;
 public:
     LinkedList();
     ~LinkedList();
@@ -28,6 +29,10 @@ public:
     Item*   popWithUID(int UID);
     Item*   popWithID(int ID);
     Item*   pop();
+    // These methods work as an iterator, maybe a proper iterator
+    // be implemented instead.
+    Item*   next();
+    void    resetIterator();
 
 };
 #endif

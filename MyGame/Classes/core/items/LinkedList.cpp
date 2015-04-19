@@ -5,6 +5,18 @@ using namespace std;
 LinkedList::LinkedList(){
     length = 0;
     head = NULL; 
+    iteratorNode = head;
+}
+
+Item* LinkedList::next(){
+    if (iteratorNode == NULL) return NULL;
+    Node* n = iteratorNode;
+    iteratorNode = iteratorNode->next;
+    return n->val;
+}
+
+void LinkedList::resetIterator(){
+    iteratorNode = head;
 }
 
 void LinkedList::update(ShipMaster& ship){
@@ -25,6 +37,7 @@ void LinkedList::add(Item* val){
                             // so the end of the list --> OK
     head = n;               // last but not least, make the head 
                             // point at the new node.
+    iteratorNode = head;
     length++;
 }
 

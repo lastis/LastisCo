@@ -14,6 +14,7 @@ public:
     Item*   createItem(int ID, int UID, Location loc);
     bool    placeItem(Item* obj);
 
+    // Depracated?
     Item*   getItemPlacedFromID(int ID);
     Item*   getItemPlacedFromUID(int UID);
     Item*   getItemPlacedFromIndex(int i);
