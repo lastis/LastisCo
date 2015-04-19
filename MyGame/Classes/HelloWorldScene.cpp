@@ -55,24 +55,8 @@ bool HelloWorld::init()
     this->addChild(mapTiled);
     mapVis = new MapVisualizer(ship,mapTiled,this);
 
-    /* tileMap = TMXTiledMap::create("res/TileMap.tmx"); */
- 
-
-    /* background = tileMap->getLayer("Background"); */
-    /* TMXObjectGroup *objectGroup = tileMap->getObjectGroup("Objects"); */
-     
-    /* if(objectGroup == NULL){ */
-    /*         CCLOG("tile map has no objects object layer"); */
-    /*             return false; */
-    /* } */
-     
-    /* ValueMap spawnPoint = objectGroup->getObject("SpawnPoint"); */
-     
-    /* int x = spawnPoint.at("x").asInt(); */
-    /* int y = spawnPoint.at("y").asInt(); */
-     
     /* Sprite* player = Sprite::create("res/Player.png"); */
-    /* player->setPosition(x,y); */
+    /* player->setPosition(100,100); */
      
     /* this->addChild(player); */
 
