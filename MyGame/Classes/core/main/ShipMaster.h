@@ -34,6 +34,15 @@ public:
     // Item methods.
     bool    placeItem(Item* obj);
     Item*   createItem(int ID, Location loc);
+    LinkedList& getItems();
+    LinkedList& getItemsFloor();
+    LinkedList& getItemsNorthWalls();
+    LinkedList& getItemsEastWalls();
+    LinkedList& getItemsPending();
+    LinkedList& getItemsPendingFloor();
+    LinkedList& getItemsPendingNorthWalls();
+    LinkedList& getItemsPendingEastWalls();
+    // Depractaed?
     Item*   getItemPlacedFromID(int ID);
     Item*   getItemPlacedFromUID(int UID);
     Item*   getItemPlacedFromIndex(int i);

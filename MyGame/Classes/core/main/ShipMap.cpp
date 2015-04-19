@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ShipMap.h"
+#include "ShipMaster.h"
 
 ShipMap::ShipMap(){
     ShipMap(1,1,1);
@@ -189,7 +190,7 @@ bool ShipMap::withinBounds(Location loc){
     return true;
 }
 
-void ShipMap::updateMapAccess(){
+void ShipMap::updateMapAccess(ShipMaster& ship){
     using namespace blocks::properties;
     // We cannot simply remove blocked paths the same way as we make them. 
     // Instead reset the whole map and make it anew.

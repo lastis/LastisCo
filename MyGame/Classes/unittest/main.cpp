@@ -808,70 +808,70 @@ SUITE(ShipMap){
         delete[] loc2;
     }
 
-    TEST(BlockCombination){
-        // TODO: Split this code into multiple tests.
-        // Test if both sides of a wall is blocked when one wall is inserted
-        ShipMap ship = ShipMap(5,5,5); 
-        unsigned int*** mapWallsNorth = ship.getMapNorthWalls();
-        unsigned int*** mapWallsEast = ship.getMapEastWalls();
-        unsigned int*** mapFloor = ship.getMapFloor();
-        unsigned int*** mapAccess = ship.getMapAccess();
-        mapFloor[2][2][2] = blocks::FLOOR_METAL;
-        mapWallsEast[2][2][2] = blocks::WALL_METAL;
-        mapWallsNorth[2][2][2] = blocks::WALL_METAL;
-        ship.updateMapAccess();
-        using namespace directions;
-        CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST);
-        CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST);
-        CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN);
-    }
+    /* TEST(BlockCombination){ */
+    /*     // TODO: Split this code into multiple tests. */
+    /*     // Test if both sides of a wall is blocked when one wall is inserted */
+    /*     ShipMap ship = ShipMap(5,5,5); */ 
+    /*     unsigned int*** mapWallsNorth = ship.getMapNorthWalls(); */
+    /*     unsigned int*** mapWallsEast = ship.getMapEastWalls(); */
+    /*     unsigned int*** mapFloor = ship.getMapFloor(); */
+    /*     unsigned int*** mapAccess = ship.getMapAccess(); */
+    /*     mapFloor[2][2][2] = blocks::FLOOR_METAL; */
+    /*     mapWallsEast[2][2][2] = blocks::WALL_METAL; */
+    /*     mapWallsNorth[2][2][2] = blocks::WALL_METAL; */
+    /*     ship.updateMapAccess(); */
+    /*     using namespace directions; */
+    /*     CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST); */
+    /*     CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST); */
+    /*     CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN); */
+    /* } */
 
-    TEST(UpdateBlockedMap){
-        // Test if both sides of a wall is blocked when one wall is inserted
-        ShipMap ship = ShipMap(5,5,5); 
-        unsigned int*** map = ship.getMap();
-        unsigned int*** mapWallsNorth = ship.getMapNorthWalls();
-        unsigned int*** mapWallsEast = ship.getMapEastWalls();
-        unsigned int*** mapAccess = ship.getMapAccess();
-        mapWallsEast[2][2][2] = blocks::WALL_METAL;
-        CHECK_EQUAL(0,mapAccess[2][2][2]);
-        ship.updateMapAccess();
-        CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]);
-        CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
-        ship.updateMapAccess();
-        CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]);
-        CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
-        // Remove the wall, is the map reset?
-        mapWallsEast[2][2][2] = 0;
-        ship.updateMapAccess();
-        CHECK_EQUAL(0,mapAccess[2][2][2]);
+    /* TEST(UpdateBlockedMap){ */
+    /*     // Test if both sides of a wall is blocked when one wall is inserted */
+    /*     ShipMap ship = ShipMap(5,5,5); */ 
+    /*     unsigned int*** map = ship.getMap(); */
+    /*     unsigned int*** mapWallsNorth = ship.getMapNorthWalls(); */
+    /*     unsigned int*** mapWallsEast = ship.getMapEastWalls(); */
+    /*     unsigned int*** mapAccess = ship.getMapAccess(); */
+    /*     mapWallsEast[2][2][2] = blocks::WALL_METAL; */
+    /*     CHECK_EQUAL(0,mapAccess[2][2][2]); */
+    /*     ship.updateMapAccess(); */
+    /*     CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]); */
+    /*     CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]); */
+    /*     ship.updateMapAccess(); */
+    /*     CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][2]); */
+    /*     CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]); */
+    /*     // Remove the wall, is the map reset? */
+    /*     mapWallsEast[2][2][2] = 0; */
+    /*     ship.updateMapAccess(); */
+    /*     CHECK_EQUAL(0,mapAccess[2][2][2]); */
 
-        // Check that the north wall works too.
-        mapWallsNorth[2][2][2] = blocks::WALL_METAL;
-        ship.updateMapAccess();
-        CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]);
-        CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]);
-        ship.updateMapAccess();
-        CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]);
-        CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]);
-        mapWallsNorth[2][2][2] = 0;
-        ship.updateMapAccess();
-        CHECK_EQUAL(0,mapAccess[2][2][2]);
+    /*     // Check that the north wall works too. */
+    /*     mapWallsNorth[2][2][2] = blocks::WALL_METAL; */
+    /*     ship.updateMapAccess(); */
+    /*     CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]); */
+    /*     CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]); */
+    /*     ship.updateMapAccess(); */
+    /*     CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][2][2]); */
+    /*     CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]); */
+    /*     mapWallsNorth[2][2][2] = 0; */
+    /*     ship.updateMapAccess(); */
+    /*     CHECK_EQUAL(0,mapAccess[2][2][2]); */
 
-        // Check blocks that block every direction.
-        map[2][2][2] = blocks::CENTER_METAL;
-        ship.updateMapAccess();
-        CHECK_EQUAL(directions::BLOCK_ALL,mapAccess[2][2][2]);
-        CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][1]);
-        CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]);
-        CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][1][2]);
-        CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]);
-        CHECK_EQUAL(directions::BLOCK_UP,mapAccess[1][2][2]);
-        CHECK_EQUAL(directions::BLOCK_DOWN,mapAccess[3][2][2]);
-        map[2][2][2] = 0;
-        ship.updateMapAccess();
-        CHECK_EQUAL(0,mapAccess[2][2][2]);
-    }
+    /*     // Check blocks that block every direction. */
+    /*     map[2][2][2] = blocks::CENTER_METAL; */
+    /*     ship.updateMapAccess(); */
+    /*     CHECK_EQUAL(directions::BLOCK_ALL,mapAccess[2][2][2]); */
+    /*     CHECK_EQUAL(directions::BLOCK_EAST,mapAccess[2][2][1]); */
+    /*     CHECK_EQUAL(directions::BLOCK_WEST,mapAccess[2][2][3]); */
+    /*     CHECK_EQUAL(directions::BLOCK_NORTH,mapAccess[2][1][2]); */
+    /*     CHECK_EQUAL(directions::BLOCK_SOUTH,mapAccess[2][3][2]); */
+    /*     CHECK_EQUAL(directions::BLOCK_UP,mapAccess[1][2][2]); */
+    /*     CHECK_EQUAL(directions::BLOCK_DOWN,mapAccess[3][2][2]); */
+    /*     map[2][2][2] = 0; */
+    /*     ship.updateMapAccess(); */
+    /*     CHECK_EQUAL(0,mapAccess[2][2][2]); */
+    /* } */
 }
 
 SUITE(ShipMaster){

@@ -19,6 +19,37 @@ void ShipMaster::update(){
 void ShipMaster::placeTexture(unsigned int ID, Location loc){
     shipMap->placeTexture(ID,loc);
 }
+LinkedList& ShipMaster::getItems(){
+    return shipItems->getItems();
+}
+
+LinkedList& ShipMaster::getItemsFloor(){
+    return shipItems->getItemsFloor();
+}
+
+LinkedList& ShipMaster::getItemsNorthWalls(){
+    return shipItems->getItemsNorthWalls();
+}
+
+LinkedList& ShipMaster::getItemsEastWalls(){
+    return shipItems->getItemsEastWalls();
+}
+
+LinkedList& ShipMaster::getItemsPending(){
+    return shipItems->getItemsPending();
+}
+
+LinkedList& ShipMaster::getItemsPendingFloor(){
+    return shipItems->getItemsPendingFloor();
+}
+
+LinkedList& ShipMaster::getItemsPendingNorthWalls(){
+    return shipItems->getItemsPendingNorthWalls();
+}
+
+LinkedList& ShipMaster::getItemsPendingEastWalls(){
+    return shipItems->getItemsPendingEastWalls();
+}
 
 Person** ShipMaster::getCrew(){
     return shipCrew->getCrew();

@@ -7,13 +7,14 @@
 #include "../enteties/Person.h"
 #include "../identifiers.h"
 
+class ShipMaster;
 class ShipMap {
 public:
     ShipMap();
     ShipMap(int O, int N, int M);
     ~ShipMap();
 
-    void updateMapAccess();
+    void updateMapAccess(ShipMaster& ship);
     void insertBlocksCenter(int blockID, Location start, Location end);
     void insertBlocksFloor(int blockID, Location start, Location end);
     void insertWallHorizontal(int blockID, Location start, Location end);
