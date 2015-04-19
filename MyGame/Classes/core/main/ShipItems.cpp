@@ -9,6 +9,38 @@ void ShipItems::update(ShipMaster& ship){
     itemsPlaced.update(ship);
 }
 
+LinkedList& ShipItems::getItems(){
+    return itemsPlaced;
+}
+
+LinkedList& ShipItems::getItemsFloor(){
+    return itemsFloor;
+}
+
+LinkedList& ShipItems::getItemsNorthWalls(){
+    return itemsNorthWalls;
+}
+
+LinkedList& ShipItems::getItemsEastWalls(){
+    return itemsEastWalls;
+}
+
+LinkedList& ShipItems::getItemsPending(){
+    return itemsPending;
+}
+
+LinkedList& ShipItems::getItemsPendingFloor(){
+    return itemsPendingFloor;
+}
+
+LinkedList& ShipItems::getItemsPendingNorthWalls(){
+    return itemsPendingNorthWalls;
+}
+
+LinkedList& ShipItems::getItemsPendingEastWalls(){
+    return itemsPendingEastWalls;
+}
+
 int     ShipItems::getItemPlacedCount(){
     return itemsPlaced.getLength();
 }

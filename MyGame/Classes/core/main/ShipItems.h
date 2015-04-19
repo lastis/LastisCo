@@ -14,6 +14,15 @@ public:
     Item*   createItem(int ID, int UID, Location loc);
     bool    placeItem(Item* obj);
 
+    LinkedList& getItems();
+    LinkedList& getItemsFloor();
+    LinkedList& getItemsNorthWalls();
+    LinkedList& getItemsEastWalls();
+    LinkedList& getItemsPending();
+    LinkedList& getItemsPendingFloor();
+    LinkedList& getItemsPendingNorthWalls();
+    LinkedList& getItemsPendingEastWalls();
+
     // Depracated?
     Item*   getItemPlacedFromID(int ID);
     Item*   getItemPlacedFromUID(int UID);
