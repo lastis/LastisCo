@@ -1,6 +1,7 @@
 #include <unittest++/UnitTest++.h>
 
 #include "../core/main/ShipMaster.h"
+#include "../core/items/ItemMatrix.h"
 #include <iostream>
 
 using namespace std;
@@ -12,6 +13,16 @@ SUITE(Identifiers){
     // code. 
     TEST(Initialization){
         blocks::properties::initialize();
+    }
+}
+
+SUITE(ItemMatrix){
+    TEST(AddAndRemove){
+        ItemMatrix mat = ItemMatrix(5,5,5);
+        Item**** pMat = mat.getMatrix();
+        CHECK(pMat[0][0][0] == NULL);
+        CHECK(pMat[4][4][4] == NULL);
+
     }
 }
 
