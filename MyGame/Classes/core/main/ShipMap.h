@@ -27,11 +27,12 @@ public:
     bool    isVacant(Location loc);
     Path    findPath(Location start, Location end);
 
+    unsigned int*** getMapAccess();
+    // Depracated?
     unsigned int*** getMap();
     unsigned int*** getMapFloor();
     unsigned int*** getMapEastWalls();
     unsigned int*** getMapNorthWalls();
-    unsigned int*** getMapAccess();
     unsigned int*** getMapRooms();
     unsigned int*** getMapTextures();
     unsigned int*** getMapTexturesFloor();
