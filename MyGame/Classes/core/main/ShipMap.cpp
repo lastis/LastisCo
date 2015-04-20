@@ -195,42 +195,64 @@ void ShipMap::updateMapAccess(ShipMaster& ship){
     // We cannot simply remove blocked paths the same way as we make them. 
     // Instead reset the whole map and make it anew.
     containerMapAccess.reset();
-    unsigned int ID;
-    // Ignore to surface of the cube to avoid out of bounds errors.
-    for (int z = 1; z < O-1; z++) {
-        for (int y = 1; y < N-1; y++) {
-            for (int x = 1; x < M-1; x++) {
-                // Make blocks and walls block pathing both ways.
-                // Start with floor.
-                ID = mapFloor[z][y][x];
-                if (access[ID] == true){
-                    mapAccess[z][y][x] = mapAccess[z  ][y][x] | directions::BLOCK_DOWN;
-                    mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
-                }
-                // Center piece
-                ID = map[z][y][x];
-                if (access[ID] == true){
-                    mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_ALL;
-                    mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
-                    mapAccess[z][y-1][x] = mapAccess[z][y-1][x] | directions::BLOCK_NORTH;
-                    mapAccess[z][y][x-1] = mapAccess[z][y][x-1] | directions::BLOCK_EAST;
-                    mapAccess[z+1][y][x] = mapAccess[z+1][y][x] | directions::BLOCK_DOWN;
-                    mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
-                    mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
-                }
-                // Walls
-                ID = mapWallsEast[z][y][x];
-                if (access[ID] == true){
-                    mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_EAST;
-                    mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
-                }
-                ID = mapWallsNorth[z][y][x];
-                if (access[ID] == true){
-                    mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_NORTH;
-                    mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
-                }
-            }
-        }
+    Item* obj;
+    // Go through all the items on the ship an block update
+    // the blocking map.
+    LinkedList& items = ship.getItems();
+    items.resetIterator();
+    obj = items.next();
+    while (obj != NULL) {
+        if (obj->blocking != BLOCKING) continue;
+        int x = obj->loc.x;
+        int y = obj->loc.y;
+        int z = obj->loc.z;
+        mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_ALL;
+        mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
+        mapAccess[z][y-1][x] = mapAccess[z][y-1][x] | directions::BLOCK_NORTH;
+        mapAccess[z][y][x-1] = mapAccess[z][y][x-1] | directions::BLOCK_EAST;
+        mapAccess[z+1][y][x] = mapAccess[z+1][y][x] | directions::BLOCK_DOWN;
+        mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
+        mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+        obj = items.next();
+    }
+    // Update blocking floor.
+    LinkedList& itemsFloor = ship.getItemsFloor();
+    itemsFloor.resetIterator();
+    obj = itemsFloor.next();
+    while (obj != NULL) {
+        if (obj->blocking != BLOCKING) continue;
+        int x = obj->loc.x;
+        int y = obj->loc.y;
+        int z = obj->loc.z;
+        mapAccess[z][y][x]= mapAccess[z  ][y][x] | directions::BLOCK_DOWN;
+        mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
+        obj = itemsFloor.next();
+    }
+    // Update blocking north walls.
+    LinkedList& itemsNorthWalls = ship.getItemsNorthWalls();
+    itemsNorthWalls.resetIterator();
+    obj = itemsNorthWalls.next();
+    while (obj != NULL) {
+        if (obj->blocking != BLOCKING) continue;
+        int x = obj->loc.x;
+        int y = obj->loc.y;
+        int z = obj->loc.z;
+        mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_NORTH;
+        mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
+        obj = itemsNorthWalls.next();
+    }
+    // Update blocking east walls.
+    LinkedList& itemsEastWalls = ship.getItemsEastWalls();
+    itemsEastWalls.resetIterator();
+    obj = itemsEastWalls.next();
+    while (obj != NULL) {
+        if (obj->blocking != BLOCKING) continue;
+        int x = obj->loc.x;
+        int y = obj->loc.y;
+        int z = obj->loc.z;
+        mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_EAST;
+        mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+        obj = itemsEastWalls.next();
     }
 }
 
