@@ -74,10 +74,36 @@ Item* ShipItems::getItemPendingFromIndex(int i){
 }
 
 bool ShipItems::placeItem(Item* obj){
+    using namespace directions;
+    using namespace blocks::properties;
     if (obj == NULL) return false;
     obj->setPlaced(true);
-    itemsPending.popWithUID(obj->UID);
-    itemsPlaced.add(obj);
+    /* itemsPending.popWithUID(obj->UID); */
+    /* itemsPlaced.add(obj); */
+    switch (obj->slot) {
+        case CENTER:
+            itemsPending.popWithUID(obj->UID);
+            itemsPlaced.add(obj);
+            break;
+        case FLOOR:
+            itemsPendingFloor.popWithUID(obj->UID);
+            itemsFloor.add(obj);
+            break;
+        case WALL:
+            // Direction is used to find which list the 
+            // wall goes into.
+            if (obj->direction == NORTH) {
+                itemsPendingNorthWalls.popWithUID(obj->UID);
+                itemsNorthWalls.add(obj);
+            }
+            if (obj->direction == EAST){
+                itemsPendingEastWalls.popWithUID(obj->UID);
+                itemsEastWalls.add(obj);
+            }
+            break;
+        default:
+            return false;
+    }
     return true;
 }
 
@@ -87,8 +113,8 @@ Item* ShipItems::createItem(int ID, int UID, Location loc){
 }
 
 Item* ShipItems::createItem(int ID,int UID,Location loc,unsigned int direction){
-
     using namespace directions;
+    using namespace blocks::properties;
     if (ID == 0) return NULL;
     // Create the object. Item ID is set in its constructor.
     Item* obj = item_creator::createItem(ID);
@@ -96,7 +122,7 @@ Item* ShipItems::createItem(int ID,int UID,Location loc,unsigned int direction){
     // Set the UID of the object. 
     obj->UID = UID;
     obj->loc = loc;
-    using namespace blocks::properties;
+    obj->direction = direction;
     // Add the object to the correct item list.
     switch (obj->slot) {
         case CENTER:
@@ -108,10 +134,16 @@ Item* ShipItems::createItem(int ID,int UID,Location loc,unsigned int direction){
         case WALL:
             // Direction is used to find which list the 
             // wall goes into.
-            if (direction == NORTH) itemsPendingNorthWalls.add(obj);
-            else if (direction == EAST) itemsPendingNorthWalls.add(obj);
-            else  itemsPendingNorthWalls.add(obj);
-            break;
+            if (direction == NORTH) {
+                itemsPendingNorthWalls.add(obj);
+                break;
+            }
+            if (direction == EAST) {
+                itemsPendingEastWalls.add(obj);
+                break;
+            }
+        default:
+            return NULL;
     }
     // Return the object because many times the creator wants it.
     return obj;

@@ -10,7 +10,8 @@ class Person;
 class ShipMaster;
 class Item : public Base{
 public:
-    Item(int slot, int blocking) : placed(false), slot(slot), blocking(blocking)
+    Item(int slot, int blocking) : placed(false), slot(slot), 
+    blocking(blocking), direction(directions::NORTH)
     {
     }
     virtual ~Item(){};
@@ -25,6 +26,7 @@ public:
     // Properties of the item.
     int     slot;
     int     blocking;
+    int     direction;
 private:
     bool    placed;
 };
