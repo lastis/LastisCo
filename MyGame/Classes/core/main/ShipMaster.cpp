@@ -19,6 +19,10 @@ void ShipMaster::placeTexture(unsigned int ID, Location loc){
     shipMap->placeTexture(ID,loc);
 }
 
+void ShipMaster::drawItem(Item* obj){
+    shipItems->getTextureList().add(obj);
+}
+
 LinkedList& ShipMaster::getTextureList(){
     return shipItems->getTextureList();
 }

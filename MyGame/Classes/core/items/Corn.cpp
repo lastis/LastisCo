@@ -16,6 +16,20 @@ Corn::Corn() : Item(CENTER,NON_BLOCKING){
     changed = true;
 }
 
+int Corn::getTextureID(){
+    using namespace textures;
+    switch (stage){
+        case STAGE_0:
+            return CORN_TEXTURE_1;
+        case STAGE_1:
+            return CORN_TEXTURE_2;
+        case STAGE_2:
+            return CORN_TEXTURE_3;
+        default:
+            return 0;
+    }
+}
+
 bool Corn::interact(Person& person){
     // Put corn in the persons inventory if fully grown.
     if (!isFinished()) return false;
@@ -48,18 +62,7 @@ void Corn::update(ShipMaster& ship){
     using namespace textures;
     if (isPlaced() == false) return;
     grow();
-    if (changed == false) return;
-    switch (stage){
-        case STAGE_0:
-        ship.placeTexture(CORN_TEXTURE_1,loc);
-        break;
-        case STAGE_1:
-        ship.placeTexture(CORN_TEXTURE_2,loc);
-        break;
-        case STAGE_2:
-        ship.placeTexture(CORN_TEXTURE_3,loc);
-        break;
-    }
+    if (changed) ship.drawItem(this);
 }
 
 void Corn::update(){

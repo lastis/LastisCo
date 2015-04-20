@@ -21,6 +21,7 @@ public:
     virtual bool interact(Person& person) = 0;
     virtual bool place(Person& person) = 0;
     virtual bool canPlace(Person& person) = 0;
+    virtual int getTextureID() = 0;
 
     Location loc;
     // Properties of the item.
@@ -54,6 +55,10 @@ struct ItemTest : public Item {
     }
 
     void update(ShipMaster& ship){
+    }
+
+    int getTextureID(){
+        return 0;
     }
 };
 #endif

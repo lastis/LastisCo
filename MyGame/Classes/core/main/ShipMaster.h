@@ -34,6 +34,7 @@ public:
     // Item methods.
     bool    placeItem(Item* obj);
     Item*   createItem(int ID, Location loc);
+    void    drawItem(Item* obj);
     LinkedList& getItems();
     LinkedList& getItemsFloor();
     LinkedList& getItemsNorthWalls();

@@ -11,6 +11,7 @@ public:
     bool interact(Person& person);
     bool place(Person& person);
     bool canPlace(Person& person);
+    int getTextureID();
 };
 
 #endif

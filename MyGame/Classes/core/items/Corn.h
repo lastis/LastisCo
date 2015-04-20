@@ -10,6 +10,7 @@ public:
     void grow();
     void reset();
     void update(ShipMaster& ship);
+    int getTextureID();
     void update();
     bool interact(Person& person);
     bool place(Person& person);

@@ -3,6 +3,10 @@ using namespace blocks;
 MetalBlock::MetalBlock() : Item(CENTER,BLOCKING) {
 }
 
+int MetalBlock::getTextureID(){
+    return 0;
+}
+
 bool MetalBlock::interact(Person& person){
     return true;
 }
