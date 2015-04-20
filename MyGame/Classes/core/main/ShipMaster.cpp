@@ -18,6 +18,11 @@ void ShipMaster::update(){
 void ShipMaster::placeTexture(unsigned int ID, Location loc){
     shipMap->placeTexture(ID,loc);
 }
+
+LinkedList& ShipMaster::getTextureList(){
+    return shipItems->getTextureList();
+}
+
 LinkedList& ShipMaster::getItems(){
     return shipItems->getItems();
 }

@@ -24,6 +24,8 @@ public:
     LinkedList& getItemsPendingNorthWalls();
     LinkedList& getItemsPendingEastWalls();
 
+    LinkedList& getTextureList();
+
     // Depracated?
     Item*   getItemPlacedFromID(int ID);
     Item*   getItemPlacedFromUID(int UID);
@@ -43,5 +45,7 @@ public:
     LinkedList itemsPendingFloor;
     LinkedList itemsPendingNorthWalls;
     LinkedList itemsPendingEastWalls;
+
+    LinkedList textureList;
 };
 #endif

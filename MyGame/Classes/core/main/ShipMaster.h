@@ -42,6 +42,8 @@ public:
     LinkedList& getItemsPendingFloor();
     LinkedList& getItemsPendingNorthWalls();
     LinkedList& getItemsPendingEastWalls();
+
+    LinkedList& getTextureList();
     // Depractaed?
     Item*   getItemPlacedFromID(int ID);
     Item*   getItemPlacedFromUID(int UID);

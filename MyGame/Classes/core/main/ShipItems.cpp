@@ -9,6 +9,10 @@ void ShipItems::update(ShipMaster& ship){
     itemsPlaced.update(ship);
 }
 
+LinkedList& ShipItems::getTextureList(){
+    return textureList;
+}
+
 LinkedList& ShipItems::getItems(){
     return itemsPlaced;
 }
@@ -145,6 +149,9 @@ Item* ShipItems::createItem(int ID,int UID,Location loc,unsigned int direction){
         default:
             return NULL;
     }
+    // If everything was ok, add the object to the texture list
+    // so it's texture will be drawn initially. 
+    textureList.add(obj);
     // Return the object because many times the creator wants it.
     return obj;
 }
