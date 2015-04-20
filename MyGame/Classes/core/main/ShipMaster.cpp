@@ -15,6 +15,10 @@ void ShipMaster::update(){
     shipCrew->update(*this);
 }
 
+void ShipMaster::updateMapAccess(){
+    shipMap->updateMapAccess(*this);
+}
+
 void ShipMaster::placeTexture(unsigned int ID, Location loc){
     shipMap->placeTexture(ID,loc);
 }

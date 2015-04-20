@@ -82,8 +82,6 @@ bool ShipItems::placeItem(Item* obj){
     using namespace blocks;
     if (obj == NULL) return false;
     obj->setPlaced(true);
-    /* itemsPending.popWithUID(obj->UID); */
-    /* itemsPlaced.add(obj); */
     switch (obj->slot) {
         case CENTER:
             itemsPending.popWithUID(obj->UID);

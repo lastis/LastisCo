@@ -3,6 +3,7 @@
 #include "../identifiers.h"
 #include "Item.h"
 #include "Corn.h"
+#include "MetalBlock.h"
 #include <iostream>
 
 namespace item_creator{
@@ -10,6 +11,8 @@ namespace item_creator{
     static Item* createItem(int ID){
         using namespace blocks;
         switch (ID) {
+            case CENTER_METAL : 
+                return new MetalBlock();
             case CENTER_CORN : 
                 return new Corn();
             default :

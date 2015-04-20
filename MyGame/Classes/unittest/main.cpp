@@ -860,13 +860,18 @@ SUITE(ShipMaster){
     }
 
     TEST(BlockCombination){
-        /* // TODO: Split this code into multiple tests. */
-        /* // Test if both sides of a wall is blocked when one wall is inserted */
-        /* ShipMaster ship = ShipMaster(5,5,5); */ 
-        /* using namespace directions; */
-        /* CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST); */
-        /* CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST); */
-        /* CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN); */
+        // Test if both sides of a wall is blocked when one wall is inserted
+        ShipMaster ship = ShipMaster(5,5,5); 
+        using namespace directions;
+        using namespace blocks;
+        MetalBlock* block = (MetalBlock*) ship.createItem(CENTER_METAL,Location(2,2,2));
+        ship.placeItem(block);
+        ship.updateMapAccess();
+        unsigned int*** mapAccess = ship.getMapAccess();
+        cout << mapAccess[2][2][2] << endl;
+        CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST);
+        CHECK_EQUAL(BLOCK_WEST,mapAccess[2][2][2]&BLOCK_WEST);
+        CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN);
     }
 
     TEST(UpdateItems){
