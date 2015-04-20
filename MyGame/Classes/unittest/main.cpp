@@ -808,23 +808,6 @@ SUITE(ShipMap){
         delete[] loc2;
     }
 
-    /* TEST(BlockCombination){ */
-    /*     // TODO: Split this code into multiple tests. */
-    /*     // Test if both sides of a wall is blocked when one wall is inserted */
-    /*     ShipMap ship = ShipMap(5,5,5); */ 
-    /*     unsigned int*** mapWallsNorth = ship.getMapNorthWalls(); */
-    /*     unsigned int*** mapWallsEast = ship.getMapEastWalls(); */
-    /*     unsigned int*** mapFloor = ship.getMapFloor(); */
-    /*     unsigned int*** mapAccess = ship.getMapAccess(); */
-    /*     mapFloor[2][2][2] = blocks::FLOOR_METAL; */
-    /*     mapWallsEast[2][2][2] = blocks::WALL_METAL; */
-    /*     mapWallsNorth[2][2][2] = blocks::WALL_METAL; */
-    /*     ship.updateMapAccess(); */
-    /*     using namespace directions; */
-    /*     CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST); */
-    /*     CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST); */
-    /*     CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN); */
-    /* } */
 
     /* TEST(UpdateBlockedMap){ */
     /*     // Test if both sides of a wall is blocked when one wall is inserted */
@@ -878,6 +861,16 @@ SUITE(ShipMaster){
     TEST(Instantiate){
         ShipMaster ship = ShipMaster(5,5,5); 
     }
+
+    /* TEST(BlockCombination){ */
+    /*     // TODO: Split this code into multiple tests. */
+    /*     // Test if both sides of a wall is blocked when one wall is inserted */
+    /*     ShipMaster ship = ShipMaster(5,5,5); */ 
+    /*     using namespace directions; */
+    /*     CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST); */
+    /*     CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST); */
+    /*     CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN); */
+    /* } */
 
     TEST(UpdateItems){
         ShipMaster ship = ShipMaster(5,5,5);
