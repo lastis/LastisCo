@@ -75,7 +75,7 @@ Item* ShipItems::getItemPendingFromIndex(int i){
 
 bool ShipItems::placeItem(Item* obj){
     using namespace directions;
-    using namespace blocks::properties;
+    using namespace blocks;
     if (obj == NULL) return false;
     obj->setPlaced(true);
     /* itemsPending.popWithUID(obj->UID); */
@@ -114,7 +114,7 @@ Item* ShipItems::createItem(int ID, int UID, Location loc){
 
 Item* ShipItems::createItem(int ID,int UID,Location loc,unsigned int direction){
     using namespace directions;
-    using namespace blocks::properties;
+    using namespace blocks;
     if (ID == 0) return NULL;
     // Create the object. Item ID is set in its constructor.
     Item* obj = item_creator::createItem(ID);

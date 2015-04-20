@@ -72,8 +72,8 @@ public:
     ShipRooms*  shipRooms;
 private:
     int O;
-    int N;
     int M;
+    int N;
     int itemUID;
     int roomUID;
     

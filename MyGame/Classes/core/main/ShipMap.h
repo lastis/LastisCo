@@ -15,10 +15,6 @@ public:
     ~ShipMap();
 
     void updateMapAccess(ShipMaster& ship);
-    void insertBlocksCenter(int blockID, Location start, Location end);
-    void insertBlocksFloor(int blockID, Location start, Location end);
-    void insertWallHorizontal(int blockID, Location start, Location end);
-    void insertWallVertical(int blockID, Location start, Location end);
     inline void simplifyLocations(Location& loc1, Location& loc2);
     bool    withinBounds(Location loc);
 

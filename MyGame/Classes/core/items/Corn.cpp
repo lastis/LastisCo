@@ -4,7 +4,7 @@
 #include "../main/ShipMaster.h"
 #include <iostream>
 
-using namespace blocks::properties;
+using namespace blocks;
 
 // The first argument in the parent class is what
 // slot the items occupies, center for corn and

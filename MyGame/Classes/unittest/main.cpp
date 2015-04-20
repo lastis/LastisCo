@@ -7,13 +7,10 @@
 using namespace std;
 
 SUITE(Identifiers){
-    // Not sure how to test this further. There might be merit to checking 
+    // Not sure how to test this. There might be merit to checking 
     // this somehow because many methods use these identifiers to do other
     // tests. It can be hard to trace back if the error comes from this 
     // code. 
-    TEST(Initialization){
-        blocks::properties::initialize();
-    }
 }
 
 SUITE(ItemMatrix){
@@ -862,15 +859,15 @@ SUITE(ShipMaster){
         ShipMaster ship = ShipMaster(5,5,5); 
     }
 
-    /* TEST(BlockCombination){ */
-    /*     // TODO: Split this code into multiple tests. */
-    /*     // Test if both sides of a wall is blocked when one wall is inserted */
-    /*     ShipMaster ship = ShipMaster(5,5,5); */ 
-    /*     using namespace directions; */
-    /*     CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST); */
-    /*     CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST); */
-    /*     CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN); */
-    /* } */
+    TEST(BlockCombination){
+        /* // TODO: Split this code into multiple tests. */
+        /* // Test if both sides of a wall is blocked when one wall is inserted */
+        /* ShipMaster ship = ShipMaster(5,5,5); */ 
+        /* using namespace directions; */
+        /* CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST); */
+        /* CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST); */
+        /* CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN); */
+    }
 
     TEST(UpdateItems){
         ShipMaster ship = ShipMaster(5,5,5);

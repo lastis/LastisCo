@@ -44,7 +44,6 @@ namespace rooms{
 }
 
 namespace blocks{
-    static bool initialized = false;
     // ID == 0 is used for error checking.
     static const unsigned int CENTER_SPACE = 1;  
     static const unsigned int CENTER_AIR = 2;
@@ -52,45 +51,52 @@ namespace blocks{
     static const unsigned int WALL_METAL = 4;
     static const unsigned int FLOOR_METAL = 5;
     static const unsigned int CENTER_CORN = 6;
-
     static const int COUNT = 6;
 
-    namespace properties{
-        static const int NON_BLOCKING = 0;
-        static const int BLOCKING = 1;
-        // Is a block floor, ontop of floor, both(eg. rock), or a wall.
-        static const int CENTER = 0;
-        static const int FLOOR = 1;
-        static const int WALL = 2;
+    static const int NON_BLOCKING = 0;
+    static const int BLOCKING = 1;
+    // Slot types.
+    static const int CENTER = 0;
+    static const int FLOOR = 1;
+    static const int WALL = 2;
 
-        // TODO: Make this const array.
-        static unsigned int slots[COUNT+1];
-        static unsigned int access[COUNT+1];
-        /* static unsigned int textureID[COUNT+1]; */
+    /* static bool initialized = false; */
+    /* namespace properties{ */
+    /*     static const int NON_BLOCKING = 0; */
+    /*     static const int BLOCKING = 1; */
+    /*     // Is a block floor, ontop of floor, both(eg. rock), or a wall. */
+    /*     static const int CENTER = 0; */
+    /*     static const int FLOOR = 1; */
+    /*     static const int WALL = 2; */
 
-        static void initialize(){
-            slots[CENTER_SPACE]     = CENTER;
-            slots[CENTER_AIR]       = CENTER;
-            slots[CENTER_METAL]     = CENTER;
-            slots[WALL_METAL]       = WALL;
-            slots[FLOOR_METAL]      = FLOOR;
-            slots[CENTER_CORN]      = CENTER;
+    /*     // TODO: Make this const array. */
+    /*     static unsigned int slots[COUNT+1]; */
+    /*     static unsigned int access[COUNT+1]; */
+    /*     /1* static unsigned int textureID[COUNT+1]; *1/ */
 
-            access[CENTER_SPACE]    = NON_BLOCKING;
-            access[CENTER_AIR]      = NON_BLOCKING;
-            access[CENTER_METAL]    = BLOCKING;
-            access[WALL_METAL]      = BLOCKING;
-            access[FLOOR_METAL]     = BLOCKING;
-            access[CENTER_CORN]     = BLOCKING;
+    /*     static void initialize(){ */
+    /*         slots[CENTER_SPACE]     = CENTER; */
+    /*         slots[CENTER_AIR]       = CENTER; */
+    /*         slots[CENTER_METAL]     = CENTER; */
+    /*         slots[WALL_METAL]       = WALL; */
+    /*         slots[FLOOR_METAL]      = FLOOR; */
+    /*         slots[CENTER_CORN]      = CENTER; */
 
-            /* textureID[CENTER_SPACE]    = 0; */
-            /* textureID[CENTER_AIR]      = 0; */
-            /* textureID[CENTER_METAL]    = 0; */
-            /* textureID[WALL_METAL]      = 0; */
-            /* textureID[FLOOR_METAL]     = 0; */
-            /* textureID[CENTER_CORN]     = CORN_TEXTURE_1; */
-            initialized = true;
-        }
-    }
+    /*         access[CENTER_SPACE]    = NON_BLOCKING; */
+    /*         access[CENTER_AIR]      = NON_BLOCKING; */
+    /*         access[CENTER_METAL]    = BLOCKING; */
+    /*         access[WALL_METAL]      = BLOCKING; */
+    /*         access[FLOOR_METAL]     = BLOCKING; */
+    /*         access[CENTER_CORN]     = BLOCKING; */
+
+    /*         /1* textureID[CENTER_SPACE]    = 0; *1/ */
+    /*         /1* textureID[CENTER_AIR]      = 0; *1/ */
+    /*         /1* textureID[CENTER_METAL]    = 0; *1/ */
+    /*         /1* textureID[WALL_METAL]      = 0; *1/ */
+    /*         /1* textureID[FLOOR_METAL]     = 0; *1/ */
+    /*         /1* textureID[CENTER_CORN]     = CORN_TEXTURE_1; *1/ */
+    /*         initialized = true; */
+    /*     } */
+    /* } */
 }
 #endif

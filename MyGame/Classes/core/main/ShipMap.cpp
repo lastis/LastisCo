@@ -38,7 +38,6 @@ void ShipMap::initialize(int O, int N, int M){
 
     pathfinder = Pathfinder(containerMapAccess);
     // Find a better way to do this?
-    blocks::properties::initialize();
 }
 
 void ShipMap::placeTexture(unsigned int ID, Location loc){
@@ -70,66 +69,8 @@ inline void ShipMap::simplifyLocations(Location& loc1, Location& loc2){
     }
 }
 
-void ShipMap::insertWallVertical(int blockID, Location start, Location end){
-    using namespace blocks;
-    using namespace blocks::properties;
-    if (slots[blockID] != WALL) return;
-    int z = start.z;
-    int x = start.x;
-    simplifyLocations(start,end);
-    for (int y = start.y; y < end.y; y++) {
-        if (mapWallsEast[z][y][x] != 0) continue;
-        mapWallsEast[z][y][x] = blockID;
-    }
-}
-
-void ShipMap::insertWallHorizontal(int blockID, Location start, Location end){
-    using namespace blocks;
-    using namespace blocks::properties;
-    if (slots[blockID] != WALL) return;
-    int z = start.z;
-    int y = start.y;
-    simplifyLocations(start,end);
-    for (int x = start.x; x < end.x; x++) {
-        if (mapWallsNorth[z][y][x] != 0) continue;
-        mapWallsNorth[z][y][x] = blockID;
-    }
-}
-
-void ShipMap::insertBlocksFloor(int blockID, Location start, Location end){
-    using namespace blocks;
-    using namespace blocks::properties;
-    if (slots[blockID] != FLOOR) return;
-    simplifyLocations(start,end);
-    for (int z = start.z; z < end.z; z++) {
-        for (int y = start.y; y < end.y; y++) {
-            for (int x = start.x; x < end.x; x++) {
-                if (map[z][y][x] != 0) continue;
-                map[z][y][x] = blockID;
-            }
-        }
-    }
-}
-
 void ShipMap::placeItem(int UID, Location loc){
     map[loc.z][loc.y][loc.x] = UID;
-}
-
-void ShipMap::insertBlocksCenter(int blockID, Location start, Location end){
-    using namespace blocks;
-    using namespace blocks::properties;
-    // Places blocks in a square contained by start and end.
-    if (slots[blockID] != CENTER) return;
-    simplifyLocations(start,end);
-    for (int z = start.z; z < end.z; z++) {
-        for (int y = start.y; y < end.y; y++) {
-            for (int x = start.x; x < end.x; x++) {
-                if (map[z][y][x] != 0) continue;
-                if (map[z][y][x] != CENTER_AIR) continue;
-                map[z][y][x] = blockID;
-            }
-        }
-    }
 }
 
 void ShipMap::placeRoom(Location* locations, int N, int UID){
@@ -191,7 +132,7 @@ bool ShipMap::withinBounds(Location loc){
 }
 
 void ShipMap::updateMapAccess(ShipMaster& ship){
-    using namespace blocks::properties;
+    using namespace blocks;
     // We cannot simply remove blocked paths the same way as we make them. 
     // Instead reset the whole map and make it anew.
     containerMapAccess.reset();
