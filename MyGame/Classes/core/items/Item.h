@@ -10,9 +10,10 @@ class Person;
 class ShipMaster;
 class Item : public Base{
 public:
-    Item(int slot, int blocking) : slot(slot), blocking(blocking), 
+    Item(int ID, int slot, int blocking) : slot(slot), blocking(blocking), 
     placed(false), direction(directions::NORTH)
     {
+        this->ID = ID;
     }
     virtual ~Item(){};
     
@@ -51,7 +52,7 @@ protected:
 
 
 struct ItemTest : public Item {
-    ItemTest() : Item(0,0){
+    ItemTest() : Item(0,0,0){
     }
     bool interact(Person& person){
         // Items that cannot be interacted with should return

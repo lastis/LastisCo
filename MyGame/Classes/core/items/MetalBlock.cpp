@@ -1,7 +1,7 @@
 #include "MetalBlock.h"
 using namespace blocks;
-MetalBlock::MetalBlock() : Item(CENTER,BLOCKING) {
-    ID = blocks::CENTER_METAL;
+MetalBlock::MetalBlock() : Item(blocks::CENTER_METAL,CENTER,BLOCKING) {
+    /* ID = blocks::CENTER_METAL; */
 }
 
 int MetalBlock::getTextureID(){
