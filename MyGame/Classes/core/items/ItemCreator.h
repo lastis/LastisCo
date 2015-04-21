@@ -4,6 +4,7 @@
 #include "Item.h"
 #include "Corn.h"
 #include "MetalBlock.h"
+#include "MetalWall.h"
 #include <iostream>
 
 namespace item_creator{
@@ -11,6 +12,8 @@ namespace item_creator{
     static Item* createItem(int ID){
         using namespace blocks;
         switch (ID) {
+            case WALL_METAL : 
+                return new MetalWall();
             case CENTER_METAL : 
                 return new MetalBlock();
             case CENTER_CORN : 

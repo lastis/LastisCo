@@ -158,9 +158,13 @@ Path ShipMaster::getPathToRoom(int UID, Location start){
 }
 
 Item*   ShipMaster::createItem(int ID, Location loc){
+        return createItem(ID,loc,directions::NORTH);
+}
+
+Item*   ShipMaster::createItem(int ID, Location loc, unsigned int direction){
     // Try to make a new item.
     int UID = itemUID + 1;
-    Item* obj = shipItems->createItem(ID,UID,loc);
+    Item* obj = shipItems->createItem(ID,UID,loc,direction);
     if (obj == NULL) return NULL;
     // If successfull, increase the UID counter.
     itemUID++;
@@ -193,12 +197,9 @@ Room* ShipMaster::getRoom(Location loc){
 bool ShipMaster::placeItem(Item* obj){
     if (obj == NULL) return false;
     if (obj->ID == 0) return false;
-    // Check if the location is occupied.
-    if (shipMap->isVacant(obj->loc) == false) return false;
     // When the items become placed, they are removed from the pending
     // items list and added to a spesific room's object list and
     // the placed item list.
-    shipMap->placeItem(obj->ID,obj->loc);
     shipItems->placeItem(obj);
     Room* room = getRoom(obj->loc);
     if (room != NULL) room->addItem(obj);

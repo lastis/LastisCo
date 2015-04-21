@@ -412,9 +412,6 @@ SUITE(Tasks){
         person.update(); // 4.
         CHECK_EQUAL(0, ship.getItemPendingCount());
         CHECK_EQUAL(1, ship.getItemPlacedCount());
-        unsigned int*** map = ship.shipMap->getMap();
-        int cornID = blocks::CENTER_CORN;
-        CHECK_EQUAL(cornID, map[0][1][4]);
     }
 
     TEST(TaskInteract){
@@ -864,14 +861,25 @@ SUITE(ShipMaster){
         ShipMaster ship = ShipMaster(5,5,5); 
         using namespace directions;
         using namespace blocks;
-        MetalBlock* block = (MetalBlock*) ship.createItem(CENTER_METAL,Location(2,2,2));
-        ship.placeItem(block);
+        MetalWall* wall1 = (MetalWall*) 
+            ship.createItem(WALL_METAL,Location(2,2,2), NORTH);
+        MetalWall* wall2 = (MetalWall*) 
+            ship.createItem(WALL_METAL,Location(2,2,2), EAST);
+        ship.placeItem(wall1);
+        ship.placeItem(wall2);
         ship.updateMapAccess();
         unsigned int*** mapAccess = ship.getMapAccess();
-        cout << mapAccess[2][2][2] << endl;
         CHECK_EQUAL(BLOCK_EAST,mapAccess[2][2][2]&BLOCK_EAST);
-        CHECK_EQUAL(BLOCK_WEST,mapAccess[2][2][2]&BLOCK_WEST);
-        CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN);
+        CHECK_EQUAL(BLOCK_NORTH,mapAccess[2][2][2]&BLOCK_NORTH);
+        /* CHECK_EQUAL(BLOCK_DOWN,mapAccess[2][2][2]&BLOCK_DOWN); */
+
+        CHECK_EQUAL(BLOCK_WEST,mapAccess[2][2][3]&BLOCK_WEST);
+        CHECK_EQUAL(BLOCK_SOUTH,mapAccess[2][3][2]&BLOCK_SOUTH);
+        /* CHECK_EQUAL(BLOCK_UP,mapAccess[1][2][2]&BLOCK_UP); */
+
+        CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_WEST);
+        CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_SOUTH);
+        /* CHECK_EQUAL(0,mapAccess[2][2][2]&BLOCK_UP); */
     }
 
     TEST(UpdateItems){
@@ -1044,20 +1052,6 @@ SUITE(ShipMaster){
         CHECK(obj1->UID != 0);
         CHECK(obj2->UID != 0);
         CHECK(obj3->UID != 0);
-
-        // Check if the objects have been added to the map.
-        using namespace blocks;
-        unsigned int*** map = ship.shipMap->getMap();
-        int x,y,z;
-        x = loc1[0].x;
-        y = loc1[0].y;
-        z = loc1[0].z;
-        CHECK_EQUAL(CENTER_CORN,map[z][y][x]);
-        x = loc2[0].x;
-        y = loc2[0].y;
-        z = loc2[0].z;
-        CHECK_EQUAL(CENTER_CORN,map[z][y][x]);
-        CHECK_EQUAL(CENTER_CORN,map[1][10][10]);
 
         // Check that shipmap only holds one object and the rooms hold
         // the rest.

@@ -94,16 +94,26 @@ bool ShipItems::placeItem(Item* obj){
         case WALL:
             // Direction is used to find which list the 
             // wall goes into.
-            if (obj->direction == NORTH) {
+            if (obj->getDirection() == NORTH) {
                 itemsPendingNorthWalls.popWithUID(obj->UID);
                 itemsNorthWalls.add(obj);
+                break;
             }
-            if (obj->direction == EAST){
+            if (obj->getDirection() == EAST){
                 itemsPendingEastWalls.popWithUID(obj->UID);
                 itemsEastWalls.add(obj);
+                break;
             }
-            break;
+#ifdef TESTING
+            std::cout << "Error in ShipItems place: Walls can only have " <<
+                "direction north or east." << std::endl;
+#endif
+            return false;
         default:
+#ifdef TESTING
+            std::cout << "Error in ShipItems place: Slot " <<
+                "is not correct." << std::endl;
+#endif
             return false;
     }
     return true;
@@ -124,7 +134,9 @@ Item* ShipItems::createItem(int ID,int UID,Location loc,unsigned int direction){
     // Set the UID of the object. 
     obj->UID = UID;
     obj->loc = loc;
-    obj->direction = direction;
+    // Setting the directions of a wall will inpact it's location,
+    // this is why the direction is set with a method.
+    obj->setDirection(direction);
     // Add the object to the correct item list.
     switch (obj->slot) {
         case CENTER:
@@ -144,6 +156,14 @@ Item* ShipItems::createItem(int ID,int UID,Location loc,unsigned int direction){
                 itemsPendingEastWalls.add(obj);
                 break;
             }
+#ifdef TESTING
+            std::cout << "Error in ShipItems create: Walls can only have " <<
+                "direction north or east." << std::endl;
+#endif
+            // This shouldn't happen, if it does, make the wall
+            // face north.
+            itemsPendingNorthWalls.add(obj);
+            break;
         default:
             return NULL;
     }

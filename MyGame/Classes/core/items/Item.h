@@ -11,25 +11,42 @@ class ShipMaster;
 class Item : public Base{
 public:
     Item(int slot, int blocking) : slot(slot), blocking(blocking), 
-    direction(directions::NORTH), placed(false)
+    placed(false), direction(directions::NORTH)
     {
     }
     virtual ~Item(){};
-    void setPlaced(bool val){placed = val;};
-    bool isPlaced(){return placed;}
-    virtual void update(ShipMaster& ship) = 0;
-    virtual bool interact(Person& person) = 0;
-    virtual bool place(Person& person) = 0;
-    virtual bool canPlace(Person& person) = 0;
-    virtual int getTextureID() = 0;
+    
+    virtual void    update(ShipMaster& ship) = 0;
+    virtual bool    interact(Person& person) = 0;
+    virtual bool    place(Person& person) = 0;
+    virtual bool    canPlace(Person& person) = 0;
+    virtual int     getTextureID() = 0;
+
+    virtual void setDirection(int direction){
+        this->direction = direction;
+    }
+
+    void setPlaced(bool val){
+        placed = val;
+    }
+
+    bool isPlaced(){
+        return placed;
+    }
+
+
+    int getDirection(){
+        return direction;
+    }
 
     Location loc;
     // Properties of the item.
     int     slot;
     int     blocking;
-    int     direction;
 private:
     bool    placed;
+protected: 
+    int     direction;
 };
 
 
