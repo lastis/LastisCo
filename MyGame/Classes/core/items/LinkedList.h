@@ -23,6 +23,7 @@ public:
     bool    isEmpty();
     int     getLength();
     void    update(ShipMaster& ship);
+    void    clear();
     Item*   findWithUID(int UID);
     Item*   findWithID(int ID);
     Item*   findWithIndex(int i);

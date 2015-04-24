@@ -16,13 +16,9 @@ SUITE(Identifiers){
 SUITE(ItemMatrix){
     TEST(AddAndRemove){
         ItemMatrix mat = ItemMatrix(5,5,5);
-        Item**** pMat = mat.getMatrix();
-        CHECK(pMat[0][0][0] == NULL);
-        CHECK(pMat[4][4][4] == NULL);
-
-        Item* item = (Item*) new ItemTest();
-        pMat[0][0][0] = item;
-        delete item;
+        LinkedList*** pMat = mat.getMatrix();
+        CHECK_EQUAL(0, pMat[0][0][0].getLength());
+        CHECK_EQUAL(0, pMat[4][4][4].getLength());
     }
 }
 

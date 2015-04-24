@@ -8,6 +8,9 @@
 #include "../identifiers.h"
 
 class ShipMaster;
+/** 
+ * \ingroup main
+ */
 class ShipMap {
 public:
     ShipMap();

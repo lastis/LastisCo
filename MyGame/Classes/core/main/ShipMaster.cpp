@@ -35,55 +35,12 @@ LinkedList& ShipMaster::getItems(){
     return shipItems->getItems();
 }
 
-LinkedList& ShipMaster::getItemsFloor(){
-    return shipItems->getItemsFloor();
-}
-
-LinkedList& ShipMaster::getItemsNorthWalls(){
-    return shipItems->getItemsNorthWalls();
-}
-
-LinkedList& ShipMaster::getItemsEastWalls(){
-    return shipItems->getItemsEastWalls();
-}
-
 LinkedList& ShipMaster::getItemsPending(){
     return shipItems->getItemsPending();
 }
 
-LinkedList& ShipMaster::getItemsPendingFloor(){
-    return shipItems->getItemsPendingFloor();
-}
-
-LinkedList& ShipMaster::getItemsPendingNorthWalls(){
-    return shipItems->getItemsPendingNorthWalls();
-}
-
-LinkedList& ShipMaster::getItemsPendingEastWalls(){
-    return shipItems->getItemsPendingEastWalls();
-}
-
 Person** ShipMaster::getCrew(){
     return shipCrew->getCrew();
-}
-unsigned int*** ShipMaster::getMapTextures(){
-    return shipMap->getMapTextures();
-}
-
-unsigned int*** ShipMaster::getMap(){
-    return shipMap->getMap();
-}
-
-unsigned int*** ShipMaster::getMapFloor(){
-    return shipMap->getMapFloor();
-}
-
-unsigned int*** ShipMaster::getMapEastWalls(){
-    return shipMap->getMapEastWalls();
-}
-
-unsigned int*** ShipMaster::getMapNorthWalls(){
-    return shipMap->getMapNorthWalls();
 }
 
 unsigned int*** ShipMaster::getMapAccess(){
@@ -114,20 +71,12 @@ Item*   ShipMaster::getItemPlacedFromUID(int UID){
     return shipItems->getItemPlacedFromUID(UID);
 }
 
-Item*   ShipMaster::getItemPlacedFromIndex(int i){
-    return shipItems->getItemPlacedFromIndex(i);
-}
-
 Item*   ShipMaster::getItemPendingFromID(int ID){
     return shipItems->getItemPendingFromID(ID);
 }
 
 Item*   ShipMaster::getItemPendingFromUID(int UID){
     return shipItems->getItemPendingFromUID(UID);
-}
-
-Item*   ShipMaster::getItemPendingFromIndex(int i){
-    return shipItems->getItemPendingFromIndex(i);
 }
 
 int     ShipMaster::getItemPlacedCount(){

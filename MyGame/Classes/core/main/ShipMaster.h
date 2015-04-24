@@ -10,6 +10,30 @@
 #include "../map/Location.h"
 #include "../items/Item.h"
 #include "../items/ItemCreator.h"
+
+/** \mainpage A simple manual
+ *
+ * Some general info.
+ *
+ * This manual is divided in the following sections:
+ * - \subpage intro
+ * - \subpage advanced "Advanced usage"
+ */
+
+/** \page intro Introduction
+ * This page introduces the user to the topic.
+ * Now you can proceed to the \ref advanced "advanced section".
+ * */
+
+
+/** Brief description of master.
+ * \defgroup main Main
+ * \ingroup main
+ */
+
+/** Here is ShipMaster
+ * \ingroup main
+ */
 class ShipMaster {
 public:
     ShipMaster();
@@ -24,14 +48,8 @@ public:
     Path    findPath(Location start, Location end);
     unsigned int*** getMapAccess();
     void    updateMapAccess();
-    // Depracated?
     void    placeTexture(unsigned int ID, Location loc);
-    unsigned int*** getMap();
-    unsigned int*** getMapFloor();
-    unsigned int*** getMapEastWalls();
-    unsigned int*** getMapNorthWalls();
     unsigned int*** getMapRooms();
-    unsigned int*** getMapTextures();
 
     // Item methods.
     bool    placeItem(Item* obj);
@@ -39,22 +57,12 @@ public:
     Item*   createItem(int ID, Location loc, unsigned int direction);
     void    drawItem(Item* obj);
     LinkedList& getItems();
-    LinkedList& getItemsFloor();
-    LinkedList& getItemsNorthWalls();
-    LinkedList& getItemsEastWalls();
     LinkedList& getItemsPending();
-    LinkedList& getItemsPendingFloor();
-    LinkedList& getItemsPendingNorthWalls();
-    LinkedList& getItemsPendingEastWalls();
-
     LinkedList& getTextureList();
-    // Depractaed?
     Item*   getItemPlacedFromID(int ID);
     Item*   getItemPlacedFromUID(int UID);
-    Item*   getItemPlacedFromIndex(int i);
     Item*   getItemPendingFromID(int ID);
     Item*   getItemPendingFromUID(int UID);
-    Item*   getItemPendingFromIndex(int i);
     int     getItemPlacedCount();
     int     getItemPendingCount();
 

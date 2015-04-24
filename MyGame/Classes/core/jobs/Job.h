@@ -3,6 +3,10 @@
 #include "../identifiers.h"
 #include "../enteties/Person.h"
 class ShipMaster;
+/** So here is a brief desc of Jobs.
+ * \defgroup jobs Jobs
+ * \ingroup jobs
+ */
 class Job {
 public:
     Job(ShipMaster& ship);

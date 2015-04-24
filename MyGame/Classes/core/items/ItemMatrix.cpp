@@ -30,17 +30,17 @@ void ItemMatrix::reset(){
     for (int i = 0; i < O; i++) {
         for (int j = 0; j < N; j++) {
             for (int k = 0; k < M; k++) {
-                matrix[i][j][k] = NULL;
+                matrix[i][j][k].clear();
             }
         }
     }
 }
 
-Item**** ItemMatrix::getMatrix(){
+LinkedList*** ItemMatrix::getMatrix(){
     return matrix;
 }
 
-Item**   ItemMatrix::getMatrixFlat(){
+LinkedList*   ItemMatrix::getMatrixFlat(){
     return matrixFlat;
 }
 int ItemMatrix::getO(){
@@ -73,9 +73,9 @@ void ItemMatrix::copy(const ItemMatrix &obj){
 
 void ItemMatrix::allocateMapMemory(int O, int N, int M){
 	// Allocate memory for pointers
-	Item**   ptr1   = new Item*[M*N*O];
-	Item***  ptr2   = new Item**[N*O];
-	Item**** ptr3   = new Item***[O];
+	LinkedList*   ptr1   = new LinkedList[M*N*O];
+	LinkedList**  ptr2   = new LinkedList*[N*O];
+	LinkedList*** ptr3   = new LinkedList**[O];
     ref1 = ptr1;
     ref2 = ptr2;
     ref3 = ptr3;

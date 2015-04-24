@@ -133,6 +133,7 @@ bool ShipMap::withinBounds(Location loc){
 
 void ShipMap::updateMapAccess(ShipMaster& ship){
     using namespace blocks;
+    using namespace directions;
     // We cannot simply remove blocked paths the same way as we make them. 
     // Instead reset the whole map and make it anew.
     containerMapAccess.reset();
@@ -147,53 +148,31 @@ void ShipMap::updateMapAccess(ShipMaster& ship){
         int x = obj->loc.x;
         int y = obj->loc.y;
         int z = obj->loc.z;
-        mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_ALL;
-        mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
-        mapAccess[z][y-1][x] = mapAccess[z][y-1][x] | directions::BLOCK_NORTH;
-        mapAccess[z][y][x-1] = mapAccess[z][y][x-1] | directions::BLOCK_EAST;
-        mapAccess[z+1][y][x] = mapAccess[z+1][y][x] | directions::BLOCK_DOWN;
-        mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
-        mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+        int slot = obj->slot;
+        if (slot == CENTER) {
+            mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_ALL;
+            mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
+            mapAccess[z][y-1][x] = mapAccess[z][y-1][x] | directions::BLOCK_NORTH;
+            mapAccess[z][y][x-1] = mapAccess[z][y][x-1] | directions::BLOCK_EAST;
+            mapAccess[z+1][y][x] = mapAccess[z+1][y][x] | directions::BLOCK_DOWN;
+            mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
+            mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+        }
+        else if (slot == FLOOR) {
+            mapAccess[z][y][x]= mapAccess[z  ][y][x] | directions::BLOCK_DOWN;
+            mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
+        }
+        else if (slot == WALL && obj->getDirection() == NORTH){
+            mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_NORTH;
+            mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
+        }
+        else if (slot == WALL && obj->getDirection() == EAST) {
+            mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_EAST;
+            mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
+        }
+        // If the object is a wall and it is not facing north or 
+        // east, we ignore it. 
         obj = items.next();
-    }
-    // Update blocking floor.
-    LinkedList& itemsFloor = ship.getItemsFloor();
-    itemsFloor.resetIterator();
-    obj = itemsFloor.next();
-    while (obj != NULL) {
-        if (obj->blocking != BLOCKING) continue;
-        int x = obj->loc.x;
-        int y = obj->loc.y;
-        int z = obj->loc.z;
-        mapAccess[z][y][x]= mapAccess[z  ][y][x] | directions::BLOCK_DOWN;
-        mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;
-        obj = itemsFloor.next();
-    }
-    // Update blocking north walls.
-    LinkedList& itemsNorthWalls = ship.getItemsNorthWalls();
-    itemsNorthWalls.resetIterator();
-    obj = itemsNorthWalls.next();
-    while (obj != NULL) {
-        if (obj->blocking != BLOCKING) continue;
-        int x = obj->loc.x;
-        int y = obj->loc.y;
-        int z = obj->loc.z;
-        mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_NORTH;
-        mapAccess[z][y+1][x] = mapAccess[z][y+1][x] | directions::BLOCK_SOUTH;
-        obj = itemsNorthWalls.next();
-    }
-    // Update blocking east walls.
-    LinkedList& itemsEastWalls = ship.getItemsEastWalls();
-    itemsEastWalls.resetIterator();
-    obj = itemsEastWalls.next();
-    while (obj != NULL) {
-        if (obj->blocking != BLOCKING) continue;
-        int x = obj->loc.x;
-        int y = obj->loc.y;
-        int z = obj->loc.z;
-        mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_EAST;
-        mapAccess[z][y][x+1] = mapAccess[z][y][x+1] | directions::BLOCK_WEST;
-        obj = itemsEastWalls.next();
     }
 }
 

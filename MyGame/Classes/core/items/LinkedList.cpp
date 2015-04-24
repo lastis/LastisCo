@@ -154,14 +154,12 @@ bool LinkedList::isEmpty(){
     else return false;
 }
 
-/* void LinkedList::deleteItems(){ */
-/*     while (!isEmpty()){ */
-/*         delete pop(); */
-/*     } */
-/* } */
-
-LinkedList::~LinkedList(){
-    while (!isEmpty()) {
+void LinkedList::clear(){
+    while (!isEmpty()){
         pop();
     }
+}
+
+LinkedList::~LinkedList(){
+    clear();
 }

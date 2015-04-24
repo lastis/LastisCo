@@ -1,6 +1,6 @@
 #ifndef __ITEM_MATRIX_H_INCLUDED__
 #define __ITEM_MATRIX_H_INCLUDED__
-#include "Item.h"
+#include "LinkedList.h"
 class ItemMatrix {
 public:
     ItemMatrix();
@@ -10,8 +10,8 @@ public:
     void copy(const ItemMatrix& obj);
     ItemMatrix& operator= (const ItemMatrix& obj);
     void reset();
-    Item**** getMatrix();
-    Item**   getMatrixFlat();
+    LinkedList*** getMatrix();
+    LinkedList*   getMatrixFlat();
     int getO();
     int getN();
     int getM();
@@ -21,13 +21,11 @@ private:
     void freeMemory();
 
 private:
-    // These are used for freeing memeory. A 3D
-    // matrix of pointer is a quadrouple pointer.
-    Item** ref1;
-    Item*** ref2;
-    Item**** ref3;
-    Item**** matrix;
-    Item** matrixFlat;
+    LinkedList* ref1;
+    LinkedList** ref2;
+    LinkedList*** ref3;
+    LinkedList*** matrix;
+    LinkedList* matrixFlat;
     int O;
     int N;
     int M;

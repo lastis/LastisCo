@@ -27,19 +27,22 @@ bool JobFarm::sow(Person& person){
 
 bool JobFarm::gather(Person& person){
     // Find better way to do this to avoid a lot of searches.
-    for (int i = 0; i < ship.getItemPlacedCount(); i++) {
-        Item* obj = ship.getItemPlacedFromIndex(i);
-        // Go through all the placed objects and check if they are finished.
-        // Going to need better ways to do all of this. 
-        if (obj == NULL) continue;
-        if (obj->ID != CENTER_CORN) continue;
-        Corn* corn = (Corn*) obj;
-        if (corn->isFinished() == false) continue;
-        TaskInteract* task = new TaskInteract(corn,ship,person.loc);
-        person.setTask(task);
-        return true;
+    // Go through all the placed objects and check if they are finished.
+    LinkedList& items = ship.getItems();
+    items.resetIterator();
+    Item* obj = items.next();
+    while (obj != NULL) {
+        if (obj->ID == CENTER_CORN){
+            Corn* corn = (Corn*) obj;
+            if (!corn->isFinished()){
+                TaskInteract* task = new TaskInteract(corn,ship,person.loc);
+                person.setTask(task);
+                return true;
+            }
+        }
+        obj = items.next();
     }
-    // Didn't find any finished crops.
+    // Didn't find corn.
     return false;
 }
 
@@ -48,14 +51,16 @@ bool JobFarm::hasSeeds(Person& person){
 }
 
 bool JobFarm::grownCrops(){
-    for (int i = 0; i < ship.getItemPlacedCount(); i++) {
-        Item* obj = ship.getItemPlacedFromIndex(i);
+    LinkedList& items = ship.getItems();
+    items.resetIterator();
+    Item* obj = items.next();
+    while (obj != NULL) {
         // Go through all the placed objects and check if they are finished.
-        // Going to need better ways to do all of this. 
-        if (obj == NULL) continue;
-        if (obj->ID != CENTER_CORN) continue;
-        Corn* corn = (Corn*) obj;
-        if (corn->isFinished()) return true;
+        if (obj->ID == CENTER_CORN) {
+            Corn* corn = (Corn*) obj;
+            if (!corn->isFinished()) return true;
+        }
+        obj = items.next();
     }
     return false;
 }

@@ -7,6 +7,9 @@
 #include "MetalWall.h"
 #include <iostream>
 
+/**
+ * \ingroup items
+ */
 namespace item_creator{
     // Method to create objects from a given ID.
     static Item* createItem(int ID){

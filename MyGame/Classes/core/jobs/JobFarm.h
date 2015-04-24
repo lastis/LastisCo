@@ -5,6 +5,9 @@
 #include "TaskMove.h"
 #include "TaskPlace.h"
 
+/**
+ * \ingroup jobs
+ */
 class JobFarm : public Job{
 public:
     JobFarm(ShipMaster& ship);
