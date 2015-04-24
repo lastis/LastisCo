@@ -1,0 +1,146 @@
+\hypertarget{classPerson}{\section{Person Class Reference}
+\label{classPerson}\index{Person@{Person}}
+}
+
+
+{\ttfamily \#include $<$Person.\-h$>$}
+
+Inheritance diagram for Person\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPerson}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPerson_a0397c6f89fafc12e738923f612bc41a3}{Person} ()
+\item 
+\hyperlink{classPerson_a700ffd693321c5fe6880262acf43d4da}{$\sim$\-Person} ()
+\item 
+void \hyperlink{classPerson_ae88c0a708c6a5c58fd76b305255c584e}{set\-Task} (\hyperlink{classTask}{Task} $\ast$\hyperlink{classPerson_a944dd7acfce7fb981e4c315f94b08ad9}{task})
+\item 
+bool \hyperlink{classPerson_a74924761363e651fbcde4aa0efb248f6}{has\-Task} ()
+\item 
+void \hyperlink{classPerson_ab895684028fe0d6a7bc23aec98ef8b0c}{update} ()
+\item 
+bool \hyperlink{classPerson_a0ce447d0c011c1060e9d5909f7621221}{add\-To\-Inventory} (int \hyperlink{classBase_a1dddc037afe2eae3e1364597e6a3cf46}{I\-D}, int amount)
+\item 
+bool \hyperlink{classPerson_ad266dba5486c59b07826bc2a78a2bc3e}{has\-In\-Inventory} (int \hyperlink{classBase_a1dddc037afe2eae3e1364597e6a3cf46}{I\-D}, int amount)
+\item 
+bool \hyperlink{classPerson_a7767ab0d8b5cdfc9cc69ce7739bf7be1}{take\-From\-Inventory} (int \hyperlink{classBase_a1dddc037afe2eae3e1364597e6a3cf46}{I\-D}, int amount)
+\item 
+int \hyperlink{classPerson_a9e7ac8aed6fa10fc1bba46e55779d7eb}{amount\-In\-Inventory} (int \hyperlink{classBase_a1dddc037afe2eae3e1364597e6a3cf46}{I\-D})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structLocation}{Location} \hyperlink{classPerson_a04c52986c5a7d61cb8a92e7069b22c11}{loc}
+\item 
+\hyperlink{classTask}{Task} $\ast$ \hyperlink{classPerson_a944dd7acfce7fb981e4c315f94b08ad9}{task}
+\item 
+unsigned int \hyperlink{classPerson_a26f2cf2da357f14c2185c218ca5c215c}{inventory} \mbox{[}\hyperlink{classPerson_a5d6040a07a5745a1dc62c6d6d540cca8}{I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E}\mbox{]}
+\item 
+unsigned int \hyperlink{classPerson_a98efc22a6f7c7f5fc099aa4fb7e70451}{inventory\-Amount} \mbox{[}\hyperlink{classPerson_a5d6040a07a5745a1dc62c6d6d540cca8}{I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E}\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classPerson_a5d6040a07a5745a1dc62c6d6d540cca8}{I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E} = 5
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPerson_a0397c6f89fafc12e738923f612bc41a3}{\index{Person@{Person}!Person@{Person}}
+\index{Person@{Person}!Person@{Person}}
+\subsubsection[{Person}]{\setlength{\rightskip}{0pt plus 5cm}Person\-::\-Person (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPerson_a0397c6f89fafc12e738923f612bc41a3}
+\hypertarget{classPerson_a700ffd693321c5fe6880262acf43d4da}{\index{Person@{Person}!$\sim$\-Person@{$\sim$\-Person}}
+\index{$\sim$\-Person@{$\sim$\-Person}!Person@{Person}}
+\subsubsection[{$\sim$\-Person}]{\setlength{\rightskip}{0pt plus 5cm}Person\-::$\sim$\-Person (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPerson_a700ffd693321c5fe6880262acf43d4da}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPerson_a0ce447d0c011c1060e9d5909f7621221}{\index{Person@{Person}!add\-To\-Inventory@{add\-To\-Inventory}}
+\index{add\-To\-Inventory@{add\-To\-Inventory}!Person@{Person}}
+\subsubsection[{add\-To\-Inventory}]{\setlength{\rightskip}{0pt plus 5cm}bool Person\-::add\-To\-Inventory (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{int}]{amount}
+\end{DoxyParamCaption}
+)}}\label{classPerson_a0ce447d0c011c1060e9d5909f7621221}
+\hypertarget{classPerson_a9e7ac8aed6fa10fc1bba46e55779d7eb}{\index{Person@{Person}!amount\-In\-Inventory@{amount\-In\-Inventory}}
+\index{amount\-In\-Inventory@{amount\-In\-Inventory}!Person@{Person}}
+\subsubsection[{amount\-In\-Inventory}]{\setlength{\rightskip}{0pt plus 5cm}int Person\-::amount\-In\-Inventory (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D}
+\end{DoxyParamCaption}
+)}}\label{classPerson_a9e7ac8aed6fa10fc1bba46e55779d7eb}
+\hypertarget{classPerson_ad266dba5486c59b07826bc2a78a2bc3e}{\index{Person@{Person}!has\-In\-Inventory@{has\-In\-Inventory}}
+\index{has\-In\-Inventory@{has\-In\-Inventory}!Person@{Person}}
+\subsubsection[{has\-In\-Inventory}]{\setlength{\rightskip}{0pt plus 5cm}bool Person\-::has\-In\-Inventory (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{int}]{amount}
+\end{DoxyParamCaption}
+)}}\label{classPerson_ad266dba5486c59b07826bc2a78a2bc3e}
+\hypertarget{classPerson_a74924761363e651fbcde4aa0efb248f6}{\index{Person@{Person}!has\-Task@{has\-Task}}
+\index{has\-Task@{has\-Task}!Person@{Person}}
+\subsubsection[{has\-Task}]{\setlength{\rightskip}{0pt plus 5cm}bool Person\-::has\-Task (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPerson_a74924761363e651fbcde4aa0efb248f6}
+\hypertarget{classPerson_ae88c0a708c6a5c58fd76b305255c584e}{\index{Person@{Person}!set\-Task@{set\-Task}}
+\index{set\-Task@{set\-Task}!Person@{Person}}
+\subsubsection[{set\-Task}]{\setlength{\rightskip}{0pt plus 5cm}void Person\-::set\-Task (
+\begin{DoxyParamCaption}
+\item[{{\bf Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)}}\label{classPerson_ae88c0a708c6a5c58fd76b305255c584e}
+\hypertarget{classPerson_a7767ab0d8b5cdfc9cc69ce7739bf7be1}{\index{Person@{Person}!take\-From\-Inventory@{take\-From\-Inventory}}
+\index{take\-From\-Inventory@{take\-From\-Inventory}!Person@{Person}}
+\subsubsection[{take\-From\-Inventory}]{\setlength{\rightskip}{0pt plus 5cm}bool Person\-::take\-From\-Inventory (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{int}]{amount}
+\end{DoxyParamCaption}
+)}}\label{classPerson_a7767ab0d8b5cdfc9cc69ce7739bf7be1}
+\hypertarget{classPerson_ab895684028fe0d6a7bc23aec98ef8b0c}{\index{Person@{Person}!update@{update}}
+\index{update@{update}!Person@{Person}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Person\-::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPerson_ab895684028fe0d6a7bc23aec98ef8b0c}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classPerson_a26f2cf2da357f14c2185c218ca5c215c}{\index{Person@{Person}!inventory@{inventory}}
+\index{inventory@{inventory}!Person@{Person}}
+\subsubsection[{inventory}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Person\-::inventory\mbox{[}{\bf I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E}\mbox{]}}}\label{classPerson_a26f2cf2da357f14c2185c218ca5c215c}
+\hypertarget{classPerson_a5d6040a07a5745a1dc62c6d6d540cca8}{\index{Person@{Person}!I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E@{I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E}}
+\index{I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E@{I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E}!Person@{Person}}
+\subsubsection[{I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}const int Person\-::\-I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E = 5\hspace{0.3cm}{\ttfamily [static]}}}\label{classPerson_a5d6040a07a5745a1dc62c6d6d540cca8}
+\hypertarget{classPerson_a98efc22a6f7c7f5fc099aa4fb7e70451}{\index{Person@{Person}!inventory\-Amount@{inventory\-Amount}}
+\index{inventory\-Amount@{inventory\-Amount}!Person@{Person}}
+\subsubsection[{inventory\-Amount}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Person\-::inventory\-Amount\mbox{[}{\bf I\-N\-V\-E\-N\-T\-O\-R\-Y\-\_\-\-S\-P\-A\-C\-E}\mbox{]}}}\label{classPerson_a98efc22a6f7c7f5fc099aa4fb7e70451}
+\hypertarget{classPerson_a04c52986c5a7d61cb8a92e7069b22c11}{\index{Person@{Person}!loc@{loc}}
+\index{loc@{loc}!Person@{Person}}
+\subsubsection[{loc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Location} Person\-::loc}}\label{classPerson_a04c52986c5a7d61cb8a92e7069b22c11}
+\hypertarget{classPerson_a944dd7acfce7fb981e4c315f94b08ad9}{\index{Person@{Person}!task@{task}}
+\index{task@{task}!Person@{Person}}
+\subsubsection[{task}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task}$\ast$ Person\-::task}}\label{classPerson_a944dd7acfce7fb981e4c315f94b08ad9}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+core/enteties/\hyperlink{Person_8h}{Person.\-h}\item 
+core/enteties/\hyperlink{Person_8cpp}{Person.\-cpp}\end{DoxyCompactItemize}

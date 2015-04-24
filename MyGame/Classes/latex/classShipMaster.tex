@@ -1,0 +1,476 @@
+\hypertarget{classShipMaster}{\section{Ship\-Master Class Reference}
+\label{classShipMaster}\index{Ship\-Master@{Ship\-Master}}
+}
+
+
+{\ttfamily \#include $<$Ship\-Master.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShipMaster_a607690189ed059378e939c9500909c9a}{Ship\-Master} ()
+\item 
+\hyperlink{classShipMaster_aad717c55623a33a03bab50381e0386e1}{Ship\-Master} (int O, int N, int M)
+\item 
+\hyperlink{classShipMaster_a1000b9a0ab83b8984a3d1e72f9db621e}{$\sim$\-Ship\-Master} ()
+\item 
+void \hyperlink{classShipMaster_a2e1b2737d8c4ab6ff0c64b046d437718}{update} ()
+\item 
+bool \hyperlink{classShipMaster_a2225b60d05aa9229f93856ad7b916b58}{is\-Vacant} (int x, int y, int z)
+\item 
+bool \hyperlink{classShipMaster_ae2f8c7068a577e8cddabc28583be8cf8}{is\-Vacant} (\hyperlink{structLocation}{Location} loc)
+\item 
+\hyperlink{classPath}{Path} \hyperlink{classShipMaster_aa5c31f505493362afdef36a00ba94956}{find\-Path} (\hyperlink{structLocation}{Location} start, \hyperlink{structLocation}{Location} end)
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_a334be261a5e3d9c50caa7506f0b2609c}{get\-Map\-Access} ()
+\item 
+void \hyperlink{classShipMaster_a73b87519cbfc8289f9628695ebcc0cdb}{update\-Map\-Access} ()
+\item 
+void \hyperlink{classShipMaster_ae90bf5dd5fa1cbf24a4ddbd7b84e3446}{place\-Texture} (unsigned int I\-D, \hyperlink{structLocation}{Location} loc)
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_a3e988a956e4bca6faf7e1f351637de0b}{get\-Map} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_abaee05a988ec56e50a3cef4c92a548cd}{get\-Map\-Floor} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_aae8c7eb8f14443c88607b45f41a1d844}{get\-Map\-East\-Walls} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_a9ced587d7eff477160077beb486dd697}{get\-Map\-North\-Walls} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_a59892b34be3b803dc72ab332b783ad2c}{get\-Map\-Rooms} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_a5d8b2504a339682a5928a41aa4e8727e}{get\-Map\-Textures} ()
+\item 
+bool \hyperlink{classShipMaster_aa9e9c11a116929e94bee491ab8dacf49}{place\-Item} (\hyperlink{classItem}{Item} $\ast$obj)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_a0e90a2352a439464d922d3fda25d71ca}{create\-Item} (int I\-D, \hyperlink{structLocation}{Location} loc)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_a07e5d7b5b90d5c5efc405175a3e93c3b}{create\-Item} (int I\-D, \hyperlink{structLocation}{Location} loc, unsigned int direction)
+\item 
+void \hyperlink{classShipMaster_ab378e743c7200449d2ac6d3b2c6c8f63}{draw\-Item} (\hyperlink{classItem}{Item} $\ast$obj)
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_a627afea5fc5988ad18c8a2dc4dcc7d91}{get\-Items} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_acbf6f2dc0fa10c792f57c259bc0ba85a}{get\-Items\-Floor} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_a00a16c26038f7607dde780dc8c4b4196}{get\-Items\-North\-Walls} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_add7ed53360a58b16bb8b7815ee19e0d5}{get\-Items\-East\-Walls} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_a28b969e9befa8df4df7fcf253aa3a119}{get\-Items\-Pending} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_a3298f3e61dc07deaca57a568d9710dac}{get\-Items\-Pending\-Floor} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_abc7ff7aa3b7ee6e600a3b048ed8c8cf6}{get\-Items\-Pending\-North\-Walls} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_a826c21aaa7040180cdda523ee0464c83}{get\-Items\-Pending\-East\-Walls} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_a4095febdcd811f31f8af7e512cc30962}{get\-Texture\-List} ()
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_a4e343f85e8732b670e37eb10793b9da5}{get\-Item\-Placed\-From\-I\-D} (int I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_aa6014ba22783d814119df0b8a45f4a3b}{get\-Item\-Placed\-From\-U\-I\-D} (int U\-I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_a7db9c67fae0acefa9a5b61f00d6f1056}{get\-Item\-Placed\-From\-Index} (int i)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_a49034c4d14496165dafa091998f9ed92}{get\-Item\-Pending\-From\-I\-D} (int I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_af65799a876a14901fdb2e385a35b32b2}{get\-Item\-Pending\-From\-U\-I\-D} (int U\-I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_ab11c3ab4556669be2863968c5b583d28}{get\-Item\-Pending\-From\-Index} (int i)
+\item 
+int \hyperlink{classShipMaster_a46e23864a829801068f1e1a9fca0ef82}{get\-Item\-Placed\-Count} ()
+\item 
+int \hyperlink{classShipMaster_a3581bacb31233e22e0ae5c372b4bdb7c}{get\-Item\-Pending\-Count} ()
+\item 
+\hyperlink{classRoom}{Room} $\ast$ \hyperlink{classShipMaster_a8e920cb8c50c68d858d2d90d9b8b377a}{create\-Room} (\hyperlink{structLocation}{Location} $\ast$locations, int N, int I\-D)
+\item 
+void \hyperlink{classShipMaster_aceb6ebe9dc8112ad8bcec3598b83b0e9}{place\-Room} (\hyperlink{structLocation}{Location} $\ast$locations, int N, int U\-I\-D)
+\item 
+\hyperlink{classPath}{Path} \hyperlink{classShipMaster_acd0cd7045dc4852607f50c13b3780a94}{get\-Path\-To\-Room} (int U\-I\-D, \hyperlink{structLocation}{Location} start)
+\item 
+\hyperlink{classRoom}{Room} $\ast$ \hyperlink{classShipMaster_a2418804a9b994f7a3c18b8d2edc77aed}{get\-Room} (\hyperlink{structLocation}{Location} loc)
+\item 
+\hyperlink{classPerson}{Person} $\ast$ \hyperlink{classShipMaster_af1e9d8713eb387b216cc80e11728ce4d}{create\-Crew\-Member} (int I\-D, \hyperlink{structLocation}{Location} loc)
+\item 
+int \hyperlink{classShipMaster_a49b39499c31975773052fa6c162000ed}{get\-Crew\-Count} ()
+\item 
+\hyperlink{classPerson}{Person} $\ast$ \hyperlink{classShipMaster_a0fa00005b82784c63799552a3a29bdb0}{get\-Crew\-From\-Index} (int i)
+\item 
+\hyperlink{classPerson}{Person} $\ast$$\ast$ \hyperlink{classShipMaster_a99b6b1f1035358b6083b3df3c7e52024}{get\-Crew} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShipCrew}{Ship\-Crew} $\ast$ \hyperlink{classShipMaster_a7f0c72b72e582c85dd582a1ffdceabdb}{ship\-Crew}
+\item 
+\hyperlink{classShipMap}{Ship\-Map} $\ast$ \hyperlink{classShipMaster_ad9033bf87a43b439646616bbc92dfe03}{ship\-Map}
+\item 
+\hyperlink{classShipItems}{Ship\-Items} $\ast$ \hyperlink{classShipMaster_a9eedfb4e38a7b7db557ce2d1330bfe4e}{ship\-Items}
+\item 
+\hyperlink{classShipJobs}{Ship\-Jobs} $\ast$ \hyperlink{classShipMaster_a1a204eb61598354bc650c3322d132a33}{ship\-Jobs}
+\item 
+\hyperlink{classShipRooms}{Ship\-Rooms} $\ast$ \hyperlink{classShipMaster_a8a39f20c1107f8d6f6c081817e40dbfd}{ship\-Rooms}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Here is \hyperlink{classShipMaster}{Ship\-Master} 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classShipMaster_a607690189ed059378e939c9500909c9a}{\index{Ship\-Master@{Ship\-Master}!Ship\-Master@{Ship\-Master}}
+\index{Ship\-Master@{Ship\-Master}!ShipMaster@{Ship\-Master}}
+\subsubsection[{Ship\-Master}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Master\-::\-Ship\-Master (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a607690189ed059378e939c9500909c9a}
+\hypertarget{classShipMaster_aad717c55623a33a03bab50381e0386e1}{\index{Ship\-Master@{Ship\-Master}!Ship\-Master@{Ship\-Master}}
+\index{Ship\-Master@{Ship\-Master}!ShipMaster@{Ship\-Master}}
+\subsubsection[{Ship\-Master}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Master\-::\-Ship\-Master (
+\begin{DoxyParamCaption}
+\item[{int}]{O, }
+\item[{int}]{N, }
+\item[{int}]{M}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_aad717c55623a33a03bab50381e0386e1}
+\hypertarget{classShipMaster_a1000b9a0ab83b8984a3d1e72f9db621e}{\index{Ship\-Master@{Ship\-Master}!$\sim$\-Ship\-Master@{$\sim$\-Ship\-Master}}
+\index{$\sim$\-Ship\-Master@{$\sim$\-Ship\-Master}!ShipMaster@{Ship\-Master}}
+\subsubsection[{$\sim$\-Ship\-Master}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Master\-::$\sim$\-Ship\-Master (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a1000b9a0ab83b8984a3d1e72f9db621e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classShipMaster_af1e9d8713eb387b216cc80e11728ce4d}{\index{Ship\-Master@{Ship\-Master}!create\-Crew\-Member@{create\-Crew\-Member}}
+\index{create\-Crew\-Member@{create\-Crew\-Member}!ShipMaster@{Ship\-Master}}
+\subsubsection[{create\-Crew\-Member}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Person} $\ast$ Ship\-Master\-::create\-Crew\-Member (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_af1e9d8713eb387b216cc80e11728ce4d}
+\hypertarget{classShipMaster_a0e90a2352a439464d922d3fda25d71ca}{\index{Ship\-Master@{Ship\-Master}!create\-Item@{create\-Item}}
+\index{create\-Item@{create\-Item}!ShipMaster@{Ship\-Master}}
+\subsubsection[{create\-Item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::create\-Item (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a0e90a2352a439464d922d3fda25d71ca}
+\hypertarget{classShipMaster_a07e5d7b5b90d5c5efc405175a3e93c3b}{\index{Ship\-Master@{Ship\-Master}!create\-Item@{create\-Item}}
+\index{create\-Item@{create\-Item}!ShipMaster@{Ship\-Master}}
+\subsubsection[{create\-Item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::create\-Item (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{{\bf Location}}]{loc, }
+\item[{unsigned int}]{direction}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a07e5d7b5b90d5c5efc405175a3e93c3b}
+\hypertarget{classShipMaster_a8e920cb8c50c68d858d2d90d9b8b377a}{\index{Ship\-Master@{Ship\-Master}!create\-Room@{create\-Room}}
+\index{create\-Room@{create\-Room}!ShipMaster@{Ship\-Master}}
+\subsubsection[{create\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Room} $\ast$ Ship\-Master\-::create\-Room (
+\begin{DoxyParamCaption}
+\item[{{\bf Location} $\ast$}]{locations, }
+\item[{int}]{N, }
+\item[{int}]{I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a8e920cb8c50c68d858d2d90d9b8b377a}
+\hypertarget{classShipMaster_ab378e743c7200449d2ac6d3b2c6c8f63}{\index{Ship\-Master@{Ship\-Master}!draw\-Item@{draw\-Item}}
+\index{draw\-Item@{draw\-Item}!ShipMaster@{Ship\-Master}}
+\subsubsection[{draw\-Item}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Master\-::draw\-Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Item} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_ab378e743c7200449d2ac6d3b2c6c8f63}
+\hypertarget{classShipMaster_aa5c31f505493362afdef36a00ba94956}{\index{Ship\-Master@{Ship\-Master}!find\-Path@{find\-Path}}
+\index{find\-Path@{find\-Path}!ShipMaster@{Ship\-Master}}
+\subsubsection[{find\-Path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Path} Ship\-Master\-::find\-Path (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{start, }
+\item[{{\bf Location}}]{end}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_aa5c31f505493362afdef36a00ba94956}
+\hypertarget{classShipMaster_a99b6b1f1035358b6083b3df3c7e52024}{\index{Ship\-Master@{Ship\-Master}!get\-Crew@{get\-Crew}}
+\index{get\-Crew@{get\-Crew}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Crew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Person} $\ast$$\ast$ Ship\-Master\-::get\-Crew (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a99b6b1f1035358b6083b3df3c7e52024}
+\hypertarget{classShipMaster_a49b39499c31975773052fa6c162000ed}{\index{Ship\-Master@{Ship\-Master}!get\-Crew\-Count@{get\-Crew\-Count}}
+\index{get\-Crew\-Count@{get\-Crew\-Count}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Crew\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Master\-::get\-Crew\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a49b39499c31975773052fa6c162000ed}
+\hypertarget{classShipMaster_a0fa00005b82784c63799552a3a29bdb0}{\index{Ship\-Master@{Ship\-Master}!get\-Crew\-From\-Index@{get\-Crew\-From\-Index}}
+\index{get\-Crew\-From\-Index@{get\-Crew\-From\-Index}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Crew\-From\-Index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Person} $\ast$ Ship\-Master\-::get\-Crew\-From\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a0fa00005b82784c63799552a3a29bdb0}
+\hypertarget{classShipMaster_a3581bacb31233e22e0ae5c372b4bdb7c}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Pending\-Count@{get\-Item\-Pending\-Count}}
+\index{get\-Item\-Pending\-Count@{get\-Item\-Pending\-Count}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Item\-Pending\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Master\-::get\-Item\-Pending\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a3581bacb31233e22e0ae5c372b4bdb7c}
+\hypertarget{classShipMaster_a49034c4d14496165dafa091998f9ed92}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Pending\-From\-I\-D@{get\-Item\-Pending\-From\-I\-D}}
+\index{get\-Item\-Pending\-From\-I\-D@{get\-Item\-Pending\-From\-I\-D}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Item\-Pending\-From\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Pending\-From\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a49034c4d14496165dafa091998f9ed92}
+\hypertarget{classShipMaster_ab11c3ab4556669be2863968c5b583d28}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Pending\-From\-Index@{get\-Item\-Pending\-From\-Index}}
+\index{get\-Item\-Pending\-From\-Index@{get\-Item\-Pending\-From\-Index}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Item\-Pending\-From\-Index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Pending\-From\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_ab11c3ab4556669be2863968c5b583d28}
+\hypertarget{classShipMaster_af65799a876a14901fdb2e385a35b32b2}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Pending\-From\-U\-I\-D@{get\-Item\-Pending\-From\-U\-I\-D}}
+\index{get\-Item\-Pending\-From\-U\-I\-D@{get\-Item\-Pending\-From\-U\-I\-D}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Item\-Pending\-From\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Pending\-From\-U\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{U\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_af65799a876a14901fdb2e385a35b32b2}
+\hypertarget{classShipMaster_a46e23864a829801068f1e1a9fca0ef82}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Placed\-Count@{get\-Item\-Placed\-Count}}
+\index{get\-Item\-Placed\-Count@{get\-Item\-Placed\-Count}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Item\-Placed\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Master\-::get\-Item\-Placed\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a46e23864a829801068f1e1a9fca0ef82}
+\hypertarget{classShipMaster_a4e343f85e8732b670e37eb10793b9da5}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Placed\-From\-I\-D@{get\-Item\-Placed\-From\-I\-D}}
+\index{get\-Item\-Placed\-From\-I\-D@{get\-Item\-Placed\-From\-I\-D}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Item\-Placed\-From\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Placed\-From\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a4e343f85e8732b670e37eb10793b9da5}
+\hypertarget{classShipMaster_a7db9c67fae0acefa9a5b61f00d6f1056}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Placed\-From\-Index@{get\-Item\-Placed\-From\-Index}}
+\index{get\-Item\-Placed\-From\-Index@{get\-Item\-Placed\-From\-Index}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Item\-Placed\-From\-Index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Placed\-From\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a7db9c67fae0acefa9a5b61f00d6f1056}
+\hypertarget{classShipMaster_aa6014ba22783d814119df0b8a45f4a3b}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Placed\-From\-U\-I\-D@{get\-Item\-Placed\-From\-U\-I\-D}}
+\index{get\-Item\-Placed\-From\-U\-I\-D@{get\-Item\-Placed\-From\-U\-I\-D}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Item\-Placed\-From\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Placed\-From\-U\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{U\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_aa6014ba22783d814119df0b8a45f4a3b}
+\hypertarget{classShipMaster_a627afea5fc5988ad18c8a2dc4dcc7d91}{\index{Ship\-Master@{Ship\-Master}!get\-Items@{get\-Items}}
+\index{get\-Items@{get\-Items}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Items}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a627afea5fc5988ad18c8a2dc4dcc7d91}
+\hypertarget{classShipMaster_add7ed53360a58b16bb8b7815ee19e0d5}{\index{Ship\-Master@{Ship\-Master}!get\-Items\-East\-Walls@{get\-Items\-East\-Walls}}
+\index{get\-Items\-East\-Walls@{get\-Items\-East\-Walls}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Items\-East\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items\-East\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_add7ed53360a58b16bb8b7815ee19e0d5}
+\hypertarget{classShipMaster_acbf6f2dc0fa10c792f57c259bc0ba85a}{\index{Ship\-Master@{Ship\-Master}!get\-Items\-Floor@{get\-Items\-Floor}}
+\index{get\-Items\-Floor@{get\-Items\-Floor}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Items\-Floor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items\-Floor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_acbf6f2dc0fa10c792f57c259bc0ba85a}
+\hypertarget{classShipMaster_a00a16c26038f7607dde780dc8c4b4196}{\index{Ship\-Master@{Ship\-Master}!get\-Items\-North\-Walls@{get\-Items\-North\-Walls}}
+\index{get\-Items\-North\-Walls@{get\-Items\-North\-Walls}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Items\-North\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items\-North\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a00a16c26038f7607dde780dc8c4b4196}
+\hypertarget{classShipMaster_a28b969e9befa8df4df7fcf253aa3a119}{\index{Ship\-Master@{Ship\-Master}!get\-Items\-Pending@{get\-Items\-Pending}}
+\index{get\-Items\-Pending@{get\-Items\-Pending}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Items\-Pending}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items\-Pending (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a28b969e9befa8df4df7fcf253aa3a119}
+\hypertarget{classShipMaster_a826c21aaa7040180cdda523ee0464c83}{\index{Ship\-Master@{Ship\-Master}!get\-Items\-Pending\-East\-Walls@{get\-Items\-Pending\-East\-Walls}}
+\index{get\-Items\-Pending\-East\-Walls@{get\-Items\-Pending\-East\-Walls}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Items\-Pending\-East\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items\-Pending\-East\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a826c21aaa7040180cdda523ee0464c83}
+\hypertarget{classShipMaster_a3298f3e61dc07deaca57a568d9710dac}{\index{Ship\-Master@{Ship\-Master}!get\-Items\-Pending\-Floor@{get\-Items\-Pending\-Floor}}
+\index{get\-Items\-Pending\-Floor@{get\-Items\-Pending\-Floor}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Items\-Pending\-Floor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items\-Pending\-Floor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a3298f3e61dc07deaca57a568d9710dac}
+\hypertarget{classShipMaster_abc7ff7aa3b7ee6e600a3b048ed8c8cf6}{\index{Ship\-Master@{Ship\-Master}!get\-Items\-Pending\-North\-Walls@{get\-Items\-Pending\-North\-Walls}}
+\index{get\-Items\-Pending\-North\-Walls@{get\-Items\-Pending\-North\-Walls}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Items\-Pending\-North\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items\-Pending\-North\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_abc7ff7aa3b7ee6e600a3b048ed8c8cf6}
+\hypertarget{classShipMaster_a3e988a956e4bca6faf7e1f351637de0b}{\index{Ship\-Master@{Ship\-Master}!get\-Map@{get\-Map}}
+\index{get\-Map@{get\-Map}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Map}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Master\-::get\-Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a3e988a956e4bca6faf7e1f351637de0b}
+\hypertarget{classShipMaster_a334be261a5e3d9c50caa7506f0b2609c}{\index{Ship\-Master@{Ship\-Master}!get\-Map\-Access@{get\-Map\-Access}}
+\index{get\-Map\-Access@{get\-Map\-Access}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Map\-Access}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Master\-::get\-Map\-Access (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a334be261a5e3d9c50caa7506f0b2609c}
+\hypertarget{classShipMaster_aae8c7eb8f14443c88607b45f41a1d844}{\index{Ship\-Master@{Ship\-Master}!get\-Map\-East\-Walls@{get\-Map\-East\-Walls}}
+\index{get\-Map\-East\-Walls@{get\-Map\-East\-Walls}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Map\-East\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Master\-::get\-Map\-East\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_aae8c7eb8f14443c88607b45f41a1d844}
+\hypertarget{classShipMaster_abaee05a988ec56e50a3cef4c92a548cd}{\index{Ship\-Master@{Ship\-Master}!get\-Map\-Floor@{get\-Map\-Floor}}
+\index{get\-Map\-Floor@{get\-Map\-Floor}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Map\-Floor}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Master\-::get\-Map\-Floor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_abaee05a988ec56e50a3cef4c92a548cd}
+\hypertarget{classShipMaster_a9ced587d7eff477160077beb486dd697}{\index{Ship\-Master@{Ship\-Master}!get\-Map\-North\-Walls@{get\-Map\-North\-Walls}}
+\index{get\-Map\-North\-Walls@{get\-Map\-North\-Walls}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Map\-North\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Master\-::get\-Map\-North\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a9ced587d7eff477160077beb486dd697}
+\hypertarget{classShipMaster_a59892b34be3b803dc72ab332b783ad2c}{\index{Ship\-Master@{Ship\-Master}!get\-Map\-Rooms@{get\-Map\-Rooms}}
+\index{get\-Map\-Rooms@{get\-Map\-Rooms}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Map\-Rooms}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Master\-::get\-Map\-Rooms (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a59892b34be3b803dc72ab332b783ad2c}
+\hypertarget{classShipMaster_a5d8b2504a339682a5928a41aa4e8727e}{\index{Ship\-Master@{Ship\-Master}!get\-Map\-Textures@{get\-Map\-Textures}}
+\index{get\-Map\-Textures@{get\-Map\-Textures}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Map\-Textures}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Master\-::get\-Map\-Textures (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a5d8b2504a339682a5928a41aa4e8727e}
+\hypertarget{classShipMaster_acd0cd7045dc4852607f50c13b3780a94}{\index{Ship\-Master@{Ship\-Master}!get\-Path\-To\-Room@{get\-Path\-To\-Room}}
+\index{get\-Path\-To\-Room@{get\-Path\-To\-Room}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Path\-To\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Path} Ship\-Master\-::get\-Path\-To\-Room (
+\begin{DoxyParamCaption}
+\item[{int}]{U\-I\-D, }
+\item[{{\bf Location}}]{start}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_acd0cd7045dc4852607f50c13b3780a94}
+\hypertarget{classShipMaster_a2418804a9b994f7a3c18b8d2edc77aed}{\index{Ship\-Master@{Ship\-Master}!get\-Room@{get\-Room}}
+\index{get\-Room@{get\-Room}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Room} $\ast$ Ship\-Master\-::get\-Room (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a2418804a9b994f7a3c18b8d2edc77aed}
+\hypertarget{classShipMaster_a4095febdcd811f31f8af7e512cc30962}{\index{Ship\-Master@{Ship\-Master}!get\-Texture\-List@{get\-Texture\-List}}
+\index{get\-Texture\-List@{get\-Texture\-List}!ShipMaster@{Ship\-Master}}
+\subsubsection[{get\-Texture\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Texture\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a4095febdcd811f31f8af7e512cc30962}
+\hypertarget{classShipMaster_a2225b60d05aa9229f93856ad7b916b58}{\index{Ship\-Master@{Ship\-Master}!is\-Vacant@{is\-Vacant}}
+\index{is\-Vacant@{is\-Vacant}!ShipMaster@{Ship\-Master}}
+\subsubsection[{is\-Vacant}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Master\-::is\-Vacant (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{z}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a2225b60d05aa9229f93856ad7b916b58}
+\hypertarget{classShipMaster_ae2f8c7068a577e8cddabc28583be8cf8}{\index{Ship\-Master@{Ship\-Master}!is\-Vacant@{is\-Vacant}}
+\index{is\-Vacant@{is\-Vacant}!ShipMaster@{Ship\-Master}}
+\subsubsection[{is\-Vacant}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Master\-::is\-Vacant (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_ae2f8c7068a577e8cddabc28583be8cf8}
+\hypertarget{classShipMaster_aa9e9c11a116929e94bee491ab8dacf49}{\index{Ship\-Master@{Ship\-Master}!place\-Item@{place\-Item}}
+\index{place\-Item@{place\-Item}!ShipMaster@{Ship\-Master}}
+\subsubsection[{place\-Item}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Master\-::place\-Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Item} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_aa9e9c11a116929e94bee491ab8dacf49}
+\hypertarget{classShipMaster_aceb6ebe9dc8112ad8bcec3598b83b0e9}{\index{Ship\-Master@{Ship\-Master}!place\-Room@{place\-Room}}
+\index{place\-Room@{place\-Room}!ShipMaster@{Ship\-Master}}
+\subsubsection[{place\-Room}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Master\-::place\-Room (
+\begin{DoxyParamCaption}
+\item[{{\bf Location} $\ast$}]{locations, }
+\item[{int}]{N, }
+\item[{int}]{U\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_aceb6ebe9dc8112ad8bcec3598b83b0e9}
+\hypertarget{classShipMaster_ae90bf5dd5fa1cbf24a4ddbd7b84e3446}{\index{Ship\-Master@{Ship\-Master}!place\-Texture@{place\-Texture}}
+\index{place\-Texture@{place\-Texture}!ShipMaster@{Ship\-Master}}
+\subsubsection[{place\-Texture}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Master\-::place\-Texture (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{I\-D, }
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_ae90bf5dd5fa1cbf24a4ddbd7b84e3446}
+\hypertarget{classShipMaster_a2e1b2737d8c4ab6ff0c64b046d437718}{\index{Ship\-Master@{Ship\-Master}!update@{update}}
+\index{update@{update}!ShipMaster@{Ship\-Master}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Master\-::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a2e1b2737d8c4ab6ff0c64b046d437718}
+\hypertarget{classShipMaster_a73b87519cbfc8289f9628695ebcc0cdb}{\index{Ship\-Master@{Ship\-Master}!update\-Map\-Access@{update\-Map\-Access}}
+\index{update\-Map\-Access@{update\-Map\-Access}!ShipMaster@{Ship\-Master}}
+\subsubsection[{update\-Map\-Access}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Master\-::update\-Map\-Access (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMaster_a73b87519cbfc8289f9628695ebcc0cdb}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classShipMaster_a7f0c72b72e582c85dd582a1ffdceabdb}{\index{Ship\-Master@{Ship\-Master}!ship\-Crew@{ship\-Crew}}
+\index{ship\-Crew@{ship\-Crew}!ShipMaster@{Ship\-Master}}
+\subsubsection[{ship\-Crew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Crew}$\ast$ Ship\-Master\-::ship\-Crew}}\label{classShipMaster_a7f0c72b72e582c85dd582a1ffdceabdb}
+\hypertarget{classShipMaster_a9eedfb4e38a7b7db557ce2d1330bfe4e}{\index{Ship\-Master@{Ship\-Master}!ship\-Items@{ship\-Items}}
+\index{ship\-Items@{ship\-Items}!ShipMaster@{Ship\-Master}}
+\subsubsection[{ship\-Items}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Items}$\ast$ Ship\-Master\-::ship\-Items}}\label{classShipMaster_a9eedfb4e38a7b7db557ce2d1330bfe4e}
+\hypertarget{classShipMaster_a1a204eb61598354bc650c3322d132a33}{\index{Ship\-Master@{Ship\-Master}!ship\-Jobs@{ship\-Jobs}}
+\index{ship\-Jobs@{ship\-Jobs}!ShipMaster@{Ship\-Master}}
+\subsubsection[{ship\-Jobs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Jobs}$\ast$ Ship\-Master\-::ship\-Jobs}}\label{classShipMaster_a1a204eb61598354bc650c3322d132a33}
+\hypertarget{classShipMaster_ad9033bf87a43b439646616bbc92dfe03}{\index{Ship\-Master@{Ship\-Master}!ship\-Map@{ship\-Map}}
+\index{ship\-Map@{ship\-Map}!ShipMaster@{Ship\-Master}}
+\subsubsection[{ship\-Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Map}$\ast$ Ship\-Master\-::ship\-Map}}\label{classShipMaster_ad9033bf87a43b439646616bbc92dfe03}
+\hypertarget{classShipMaster_a8a39f20c1107f8d6f6c081817e40dbfd}{\index{Ship\-Master@{Ship\-Master}!ship\-Rooms@{ship\-Rooms}}
+\index{ship\-Rooms@{ship\-Rooms}!ShipMaster@{Ship\-Master}}
+\subsubsection[{ship\-Rooms}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Rooms}$\ast$ Ship\-Master\-::ship\-Rooms}}\label{classShipMaster_a8a39f20c1107f8d6f6c081817e40dbfd}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+core/main/\hyperlink{ShipMaster_8h}{Ship\-Master.\-h}\item 
+core/main/\hyperlink{ShipMaster_8cpp}{Ship\-Master.\-cpp}\end{DoxyCompactItemize}

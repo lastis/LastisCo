@@ -1,0 +1,116 @@
+\hypertarget{classTask}{\section{Task Class Reference}
+\label{classTask}\index{Task@{Task}}
+}
+
+
+{\ttfamily \#include $<$Task.\-h$>$}
+
+Inheritance diagram for Task\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTask}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTask_abf784be50708a30e505f06e95205b326}{Task} (\hyperlink{classShipMaster}{Ship\-Master} \&\hyperlink{classTask_af765f4e3eab35d064f5cf18506b7c9a2}{ship})
+\item 
+virtual void \hyperlink{classTask_a186a7a8e9fa7d9bbd8c9fd3bf742250f}{do\-Task} (\hyperlink{classPerson}{Person} \&person)=0
+\item 
+bool \hyperlink{classTask_ae74007e9c8f09fea6504fd7c18550b9a}{walk\-One\-Step} (\hyperlink{classPerson}{Person} \&person)
+\item 
+void \hyperlink{classTask_a4090ed9b1ff941f0e284df65007a0dbc}{set\-Path} (\hyperlink{classPath}{Path} \hyperlink{classTask_a31352b3b35827e5898ceb39332fb1d77}{path})
+\item 
+void \hyperlink{classTask_a488b0f976e503b6af2dcc8cbfedbe6d8}{set\-Finished} (bool val)
+\item 
+bool \hyperlink{classTask_aa8013289fde3086e1c8816f65ed9298e}{is\-Finished} ()
+\item 
+bool \hyperlink{classTask_a096a6563f747c3b5f62bc4cf55efa37d}{has\-Path} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classTask_a81aa161cc48dc53e86b3d8dfa9d5dfe7}{finished}
+\item 
+\hyperlink{classPath}{Path} \hyperlink{classTask_a31352b3b35827e5898ceb39332fb1d77}{path}
+\item 
+\hyperlink{classShipMaster}{Ship\-Master} \& \hyperlink{classTask_af765f4e3eab35d064f5cf18506b7c9a2}{ship}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTask_abf784be50708a30e505f06e95205b326}{\index{Task@{Task}!Task@{Task}}
+\index{Task@{Task}!Task@{Task}}
+\subsubsection[{Task}]{\setlength{\rightskip}{0pt plus 5cm}Task\-::\-Task (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Master} \&}]{ship}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classTask_abf784be50708a30e505f06e95205b326}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTask_a186a7a8e9fa7d9bbd8c9fd3bf742250f}{\index{Task@{Task}!do\-Task@{do\-Task}}
+\index{do\-Task@{do\-Task}!Task@{Task}}
+\subsubsection[{do\-Task}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Task\-::do\-Task (
+\begin{DoxyParamCaption}
+\item[{{\bf Person} \&}]{person}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classTask_a186a7a8e9fa7d9bbd8c9fd3bf742250f}
+
+
+Implemented in \hyperlink{classTaskInteract_ae70faf65b992b6d6d6a32597b3b2ecec}{Task\-Interact}, \hyperlink{classTaskPlace_ac5edec0398ebab6ec06908a5d45162ef}{Task\-Place}, and \hyperlink{classTaskMove_a89ecbe18c5db0ba78a375cd0fda9daf8}{Task\-Move}.
+
+\hypertarget{classTask_a096a6563f747c3b5f62bc4cf55efa37d}{\index{Task@{Task}!has\-Path@{has\-Path}}
+\index{has\-Path@{has\-Path}!Task@{Task}}
+\subsubsection[{has\-Path}]{\setlength{\rightskip}{0pt plus 5cm}bool Task\-::has\-Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTask_a096a6563f747c3b5f62bc4cf55efa37d}
+\hypertarget{classTask_aa8013289fde3086e1c8816f65ed9298e}{\index{Task@{Task}!is\-Finished@{is\-Finished}}
+\index{is\-Finished@{is\-Finished}!Task@{Task}}
+\subsubsection[{is\-Finished}]{\setlength{\rightskip}{0pt plus 5cm}bool Task\-::is\-Finished (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTask_aa8013289fde3086e1c8816f65ed9298e}
+\hypertarget{classTask_a488b0f976e503b6af2dcc8cbfedbe6d8}{\index{Task@{Task}!set\-Finished@{set\-Finished}}
+\index{set\-Finished@{set\-Finished}!Task@{Task}}
+\subsubsection[{set\-Finished}]{\setlength{\rightskip}{0pt plus 5cm}void Task\-::set\-Finished (
+\begin{DoxyParamCaption}
+\item[{bool}]{val}
+\end{DoxyParamCaption}
+)}}\label{classTask_a488b0f976e503b6af2dcc8cbfedbe6d8}
+\hypertarget{classTask_a4090ed9b1ff941f0e284df65007a0dbc}{\index{Task@{Task}!set\-Path@{set\-Path}}
+\index{set\-Path@{set\-Path}!Task@{Task}}
+\subsubsection[{set\-Path}]{\setlength{\rightskip}{0pt plus 5cm}void Task\-::set\-Path (
+\begin{DoxyParamCaption}
+\item[{{\bf Path}}]{path}
+\end{DoxyParamCaption}
+)}}\label{classTask_a4090ed9b1ff941f0e284df65007a0dbc}
+\hypertarget{classTask_ae74007e9c8f09fea6504fd7c18550b9a}{\index{Task@{Task}!walk\-One\-Step@{walk\-One\-Step}}
+\index{walk\-One\-Step@{walk\-One\-Step}!Task@{Task}}
+\subsubsection[{walk\-One\-Step}]{\setlength{\rightskip}{0pt plus 5cm}bool Task\-::walk\-One\-Step (
+\begin{DoxyParamCaption}
+\item[{{\bf Person} \&}]{person}
+\end{DoxyParamCaption}
+)}}\label{classTask_ae74007e9c8f09fea6504fd7c18550b9a}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classTask_a81aa161cc48dc53e86b3d8dfa9d5dfe7}{\index{Task@{Task}!finished@{finished}}
+\index{finished@{finished}!Task@{Task}}
+\subsubsection[{finished}]{\setlength{\rightskip}{0pt plus 5cm}bool Task\-::finished}}\label{classTask_a81aa161cc48dc53e86b3d8dfa9d5dfe7}
+\hypertarget{classTask_a31352b3b35827e5898ceb39332fb1d77}{\index{Task@{Task}!path@{path}}
+\index{path@{path}!Task@{Task}}
+\subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Path} Task\-::path}}\label{classTask_a31352b3b35827e5898ceb39332fb1d77}
+\hypertarget{classTask_af765f4e3eab35d064f5cf18506b7c9a2}{\index{Task@{Task}!ship@{ship}}
+\index{ship@{ship}!Task@{Task}}
+\subsubsection[{ship}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship\-Master}\& Task\-::ship}}\label{classTask_af765f4e3eab35d064f5cf18506b7c9a2}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+core/jobs/\hyperlink{Task_8h}{Task.\-h}\item 
+core/jobs/\hyperlink{Task_8cpp}{Task.\-cpp}\end{DoxyCompactItemize}

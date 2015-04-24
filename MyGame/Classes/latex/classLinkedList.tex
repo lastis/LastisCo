@@ -1,0 +1,148 @@
+\hypertarget{classLinkedList}{\section{Linked\-List Class Reference}
+\label{classLinkedList}\index{Linked\-List@{Linked\-List}}
+}
+
+
+{\ttfamily \#include $<$Linked\-List.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLinkedList_afe7f78983e173f8018927cf2ad11a5aa}{Linked\-List} ()
+\item 
+\hyperlink{classLinkedList_a35811ed58ff0d8d9cc9b309b8d8f5111}{$\sim$\-Linked\-List} ()
+\item 
+void \hyperlink{classLinkedList_a78172a81bf60fbbd33e65305826d028b}{add} (\hyperlink{classItem}{Item} $\ast$val)
+\item 
+bool \hyperlink{classLinkedList_a03ff22f881325da2d37f640ab2380bf2}{is\-Empty} ()
+\item 
+int \hyperlink{classLinkedList_a92bb5271734b51ab089d75bf52aee919}{get\-Length} ()
+\item 
+void \hyperlink{classLinkedList_ae973d79346684a26166c539896d2d1b7}{update} (\hyperlink{classShipMaster}{Ship\-Master} \&ship)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classLinkedList_a52c070ab08f67e26ec260412024fb20e}{find\-With\-U\-I\-D} (int U\-I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classLinkedList_ae051024e7e6ba32002ba0f40a7843f0d}{find\-With\-I\-D} (int I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classLinkedList_ab7bc50ad1c97b0559d00e5a6e2da78cd}{find\-With\-Index} (int i)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classLinkedList_abfe92bb8d0e4ab6072a09a74a515111e}{pop\-With\-U\-I\-D} (int U\-I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classLinkedList_a181a5fd6df446be45690966536aaf3c6}{pop\-With\-I\-D} (int I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classLinkedList_a30b300a0ad095ac7c19717cb3894ddb2}{pop} ()
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classLinkedList_a7106d9f9335485f9f4bc6945d25d9804}{next} ()
+\item 
+void \hyperlink{classLinkedList_aa97c4254d7eacee2b33ce306c3162b61}{reset\-Iterator} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classLinkedList_afe7f78983e173f8018927cf2ad11a5aa}{\index{Linked\-List@{Linked\-List}!Linked\-List@{Linked\-List}}
+\index{Linked\-List@{Linked\-List}!LinkedList@{Linked\-List}}
+\subsubsection[{Linked\-List}]{\setlength{\rightskip}{0pt plus 5cm}Linked\-List\-::\-Linked\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_afe7f78983e173f8018927cf2ad11a5aa}
+\hypertarget{classLinkedList_a35811ed58ff0d8d9cc9b309b8d8f5111}{\index{Linked\-List@{Linked\-List}!$\sim$\-Linked\-List@{$\sim$\-Linked\-List}}
+\index{$\sim$\-Linked\-List@{$\sim$\-Linked\-List}!LinkedList@{Linked\-List}}
+\subsubsection[{$\sim$\-Linked\-List}]{\setlength{\rightskip}{0pt plus 5cm}Linked\-List\-::$\sim$\-Linked\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_a35811ed58ff0d8d9cc9b309b8d8f5111}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLinkedList_a78172a81bf60fbbd33e65305826d028b}{\index{Linked\-List@{Linked\-List}!add@{add}}
+\index{add@{add}!LinkedList@{Linked\-List}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\-List\-::add (
+\begin{DoxyParamCaption}
+\item[{{\bf Item} $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_a78172a81bf60fbbd33e65305826d028b}
+\hypertarget{classLinkedList_ae051024e7e6ba32002ba0f40a7843f0d}{\index{Linked\-List@{Linked\-List}!find\-With\-I\-D@{find\-With\-I\-D}}
+\index{find\-With\-I\-D@{find\-With\-I\-D}!LinkedList@{Linked\-List}}
+\subsubsection[{find\-With\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Linked\-List\-::find\-With\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_ae051024e7e6ba32002ba0f40a7843f0d}
+\hypertarget{classLinkedList_ab7bc50ad1c97b0559d00e5a6e2da78cd}{\index{Linked\-List@{Linked\-List}!find\-With\-Index@{find\-With\-Index}}
+\index{find\-With\-Index@{find\-With\-Index}!LinkedList@{Linked\-List}}
+\subsubsection[{find\-With\-Index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Linked\-List\-::find\-With\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_ab7bc50ad1c97b0559d00e5a6e2da78cd}
+\hypertarget{classLinkedList_a52c070ab08f67e26ec260412024fb20e}{\index{Linked\-List@{Linked\-List}!find\-With\-U\-I\-D@{find\-With\-U\-I\-D}}
+\index{find\-With\-U\-I\-D@{find\-With\-U\-I\-D}!LinkedList@{Linked\-List}}
+\subsubsection[{find\-With\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Linked\-List\-::find\-With\-U\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{U\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_a52c070ab08f67e26ec260412024fb20e}
+\hypertarget{classLinkedList_a92bb5271734b51ab089d75bf52aee919}{\index{Linked\-List@{Linked\-List}!get\-Length@{get\-Length}}
+\index{get\-Length@{get\-Length}!LinkedList@{Linked\-List}}
+\subsubsection[{get\-Length}]{\setlength{\rightskip}{0pt plus 5cm}int Linked\-List\-::get\-Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_a92bb5271734b51ab089d75bf52aee919}
+\hypertarget{classLinkedList_a03ff22f881325da2d37f640ab2380bf2}{\index{Linked\-List@{Linked\-List}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!LinkedList@{Linked\-List}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}bool Linked\-List\-::is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_a03ff22f881325da2d37f640ab2380bf2}
+\hypertarget{classLinkedList_a7106d9f9335485f9f4bc6945d25d9804}{\index{Linked\-List@{Linked\-List}!next@{next}}
+\index{next@{next}!LinkedList@{Linked\-List}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Linked\-List\-::next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_a7106d9f9335485f9f4bc6945d25d9804}
+\hypertarget{classLinkedList_a30b300a0ad095ac7c19717cb3894ddb2}{\index{Linked\-List@{Linked\-List}!pop@{pop}}
+\index{pop@{pop}!LinkedList@{Linked\-List}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Linked\-List\-::pop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_a30b300a0ad095ac7c19717cb3894ddb2}
+\hypertarget{classLinkedList_a181a5fd6df446be45690966536aaf3c6}{\index{Linked\-List@{Linked\-List}!pop\-With\-I\-D@{pop\-With\-I\-D}}
+\index{pop\-With\-I\-D@{pop\-With\-I\-D}!LinkedList@{Linked\-List}}
+\subsubsection[{pop\-With\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Linked\-List\-::pop\-With\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_a181a5fd6df446be45690966536aaf3c6}
+\hypertarget{classLinkedList_abfe92bb8d0e4ab6072a09a74a515111e}{\index{Linked\-List@{Linked\-List}!pop\-With\-U\-I\-D@{pop\-With\-U\-I\-D}}
+\index{pop\-With\-U\-I\-D@{pop\-With\-U\-I\-D}!LinkedList@{Linked\-List}}
+\subsubsection[{pop\-With\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Linked\-List\-::pop\-With\-U\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{U\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_abfe92bb8d0e4ab6072a09a74a515111e}
+\hypertarget{classLinkedList_aa97c4254d7eacee2b33ce306c3162b61}{\index{Linked\-List@{Linked\-List}!reset\-Iterator@{reset\-Iterator}}
+\index{reset\-Iterator@{reset\-Iterator}!LinkedList@{Linked\-List}}
+\subsubsection[{reset\-Iterator}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\-List\-::reset\-Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_aa97c4254d7eacee2b33ce306c3162b61}
+\hypertarget{classLinkedList_ae973d79346684a26166c539896d2d1b7}{\index{Linked\-List@{Linked\-List}!update@{update}}
+\index{update@{update}!LinkedList@{Linked\-List}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\-List\-::update (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Master} \&}]{ship}
+\end{DoxyParamCaption}
+)}}\label{classLinkedList_ae973d79346684a26166c539896d2d1b7}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+core/items/\hyperlink{LinkedList_8h}{Linked\-List.\-h}\item 
+core/items/\hyperlink{LinkedList_8cpp}{Linked\-List.\-cpp}\end{DoxyCompactItemize}

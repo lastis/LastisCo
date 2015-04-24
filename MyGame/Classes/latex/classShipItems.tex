@@ -1,0 +1,285 @@
+\hypertarget{classShipItems}{\section{Ship\-Items Class Reference}
+\label{classShipItems}\index{Ship\-Items@{Ship\-Items}}
+}
+
+
+{\ttfamily \#include $<$Ship\-Items.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShipItems_adc14b59e747ba46333bdd33b864392c6}{Ship\-Items} ()
+\item 
+\hyperlink{classShipItems_a41194d8cb17bfaa10a5cd6abb80ba78b}{$\sim$\-Ship\-Items} ()
+\item 
+void \hyperlink{classShipItems_a3a5ab7ad8035ae1b3b6da0483f5ce792}{update} (\hyperlink{classShipMaster}{Ship\-Master} \&ship)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipItems_a49cdd4419f853d178c0cc1afd105121a}{create\-Item} (int I\-D, int U\-I\-D, \hyperlink{structLocation}{Location} loc)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipItems_a61bdf01e758998d328b172e241aa816a}{create\-Item} (int I\-D, int U\-I\-D, \hyperlink{structLocation}{Location} loc, unsigned int direction)
+\item 
+bool \hyperlink{classShipItems_a838f560346a9d7b0f1bb128aaf93b1c7}{place\-Item} (\hyperlink{classItem}{Item} $\ast$obj)
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipItems_adf57cc0e0699cb38bdb29e8d45b1243d}{get\-Items} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipItems_a334be479ae34538c698413213690b829}{get\-Items\-Floor} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipItems_aa5d2ec2c87801bc7340fdddc65ec95a4}{get\-Items\-North\-Walls} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipItems_adf71794304e06b37678c3eeee818f56b}{get\-Items\-East\-Walls} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipItems_ac77750d78a0d268e330940a73961238f}{get\-Items\-Pending} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipItems_ab23eaeae958ff5d19843daf9a26948fe}{get\-Items\-Pending\-Floor} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipItems_ab80fb1f4389cb89879aa3001a7e13ba3}{get\-Items\-Pending\-North\-Walls} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipItems_a24260da3cc2e9fc75d64e5bfebae0870}{get\-Items\-Pending\-East\-Walls} ()
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipItems_ae6e53eb02579b4e64ad640ba56fe3759}{get\-Texture\-List} ()
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipItems_aaebf0d993affd21ec619233e0e654ae7}{get\-Item\-Placed\-From\-I\-D} (int I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipItems_a7204e19a3782177c271deddcd437af77}{get\-Item\-Placed\-From\-U\-I\-D} (int U\-I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipItems_a88b0664405e31a83c8ea42082f13dfc8}{get\-Item\-Placed\-From\-Index} (int i)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipItems_aa79604b85e2271567b30926eecedeb53}{get\-Item\-Pending\-From\-I\-D} (int I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipItems_ac02604d50a2f4926821b963d1abba9a4}{get\-Item\-Pending\-From\-U\-I\-D} (int u\-I\-D)
+\item 
+\hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipItems_a194911994a15932faa60a08a6258f122}{get\-Item\-Pending\-From\-Index} (int i)
+\item 
+int \hyperlink{classShipItems_ad48bad514797b873e253cf21a7d40288}{get\-Item\-Placed\-Count} ()
+\item 
+int \hyperlink{classShipItems_a9473269de6b8e8f7bdd41236ea294c1b}{get\-Item\-Pending\-Count} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipItems_a3e71d1f18d3eee132394a9c524cb43e4}{items\-Placed}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipItems_a737ad4ba94bb66145177591ce4540d8b}{items\-Floor}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipItems_ad6fa92d081c83d2df321d0771b32add1}{items\-East\-Walls}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipItems_af103aec8600076fb6c9520aaec193747}{items\-North\-Walls}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipItems_a4549ab087c77cf3bfade68ddec7ef8ee}{items\-Pending}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipItems_a0001695d214b41ca614297329504f46e}{items\-Pending\-Floor}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipItems_ad5d679f77e2cd8eba65fdac2dcf814ab}{items\-Pending\-North\-Walls}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipItems_a009d6b07df69f4f5d9c912b49fa678c4}{items\-Pending\-East\-Walls}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipItems_adb0d04e59dc21442a04199a6d0043011}{texture\-List}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classShipItems_adc14b59e747ba46333bdd33b864392c6}{\index{Ship\-Items@{Ship\-Items}!Ship\-Items@{Ship\-Items}}
+\index{Ship\-Items@{Ship\-Items}!ShipItems@{Ship\-Items}}
+\subsubsection[{Ship\-Items}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Items\-::\-Ship\-Items (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_adc14b59e747ba46333bdd33b864392c6}
+\hypertarget{classShipItems_a41194d8cb17bfaa10a5cd6abb80ba78b}{\index{Ship\-Items@{Ship\-Items}!$\sim$\-Ship\-Items@{$\sim$\-Ship\-Items}}
+\index{$\sim$\-Ship\-Items@{$\sim$\-Ship\-Items}!ShipItems@{Ship\-Items}}
+\subsubsection[{$\sim$\-Ship\-Items}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Items\-::$\sim$\-Ship\-Items (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a41194d8cb17bfaa10a5cd6abb80ba78b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classShipItems_a49cdd4419f853d178c0cc1afd105121a}{\index{Ship\-Items@{Ship\-Items}!create\-Item@{create\-Item}}
+\index{create\-Item@{create\-Item}!ShipItems@{Ship\-Items}}
+\subsubsection[{create\-Item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Items\-::create\-Item (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{int}]{U\-I\-D, }
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a49cdd4419f853d178c0cc1afd105121a}
+\hypertarget{classShipItems_a61bdf01e758998d328b172e241aa816a}{\index{Ship\-Items@{Ship\-Items}!create\-Item@{create\-Item}}
+\index{create\-Item@{create\-Item}!ShipItems@{Ship\-Items}}
+\subsubsection[{create\-Item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Items\-::create\-Item (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{int}]{U\-I\-D, }
+\item[{{\bf Location}}]{loc, }
+\item[{unsigned int}]{direction}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a61bdf01e758998d328b172e241aa816a}
+\hypertarget{classShipItems_a9473269de6b8e8f7bdd41236ea294c1b}{\index{Ship\-Items@{Ship\-Items}!get\-Item\-Pending\-Count@{get\-Item\-Pending\-Count}}
+\index{get\-Item\-Pending\-Count@{get\-Item\-Pending\-Count}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Item\-Pending\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Items\-::get\-Item\-Pending\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a9473269de6b8e8f7bdd41236ea294c1b}
+\hypertarget{classShipItems_aa79604b85e2271567b30926eecedeb53}{\index{Ship\-Items@{Ship\-Items}!get\-Item\-Pending\-From\-I\-D@{get\-Item\-Pending\-From\-I\-D}}
+\index{get\-Item\-Pending\-From\-I\-D@{get\-Item\-Pending\-From\-I\-D}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Item\-Pending\-From\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Items\-::get\-Item\-Pending\-From\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_aa79604b85e2271567b30926eecedeb53}
+\hypertarget{classShipItems_a194911994a15932faa60a08a6258f122}{\index{Ship\-Items@{Ship\-Items}!get\-Item\-Pending\-From\-Index@{get\-Item\-Pending\-From\-Index}}
+\index{get\-Item\-Pending\-From\-Index@{get\-Item\-Pending\-From\-Index}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Item\-Pending\-From\-Index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Items\-::get\-Item\-Pending\-From\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a194911994a15932faa60a08a6258f122}
+\hypertarget{classShipItems_ac02604d50a2f4926821b963d1abba9a4}{\index{Ship\-Items@{Ship\-Items}!get\-Item\-Pending\-From\-U\-I\-D@{get\-Item\-Pending\-From\-U\-I\-D}}
+\index{get\-Item\-Pending\-From\-U\-I\-D@{get\-Item\-Pending\-From\-U\-I\-D}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Item\-Pending\-From\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Items\-::get\-Item\-Pending\-From\-U\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{u\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_ac02604d50a2f4926821b963d1abba9a4}
+\hypertarget{classShipItems_ad48bad514797b873e253cf21a7d40288}{\index{Ship\-Items@{Ship\-Items}!get\-Item\-Placed\-Count@{get\-Item\-Placed\-Count}}
+\index{get\-Item\-Placed\-Count@{get\-Item\-Placed\-Count}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Item\-Placed\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Items\-::get\-Item\-Placed\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_ad48bad514797b873e253cf21a7d40288}
+\hypertarget{classShipItems_aaebf0d993affd21ec619233e0e654ae7}{\index{Ship\-Items@{Ship\-Items}!get\-Item\-Placed\-From\-I\-D@{get\-Item\-Placed\-From\-I\-D}}
+\index{get\-Item\-Placed\-From\-I\-D@{get\-Item\-Placed\-From\-I\-D}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Item\-Placed\-From\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Items\-::get\-Item\-Placed\-From\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_aaebf0d993affd21ec619233e0e654ae7}
+\hypertarget{classShipItems_a88b0664405e31a83c8ea42082f13dfc8}{\index{Ship\-Items@{Ship\-Items}!get\-Item\-Placed\-From\-Index@{get\-Item\-Placed\-From\-Index}}
+\index{get\-Item\-Placed\-From\-Index@{get\-Item\-Placed\-From\-Index}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Item\-Placed\-From\-Index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Items\-::get\-Item\-Placed\-From\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a88b0664405e31a83c8ea42082f13dfc8}
+\hypertarget{classShipItems_a7204e19a3782177c271deddcd437af77}{\index{Ship\-Items@{Ship\-Items}!get\-Item\-Placed\-From\-U\-I\-D@{get\-Item\-Placed\-From\-U\-I\-D}}
+\index{get\-Item\-Placed\-From\-U\-I\-D@{get\-Item\-Placed\-From\-U\-I\-D}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Item\-Placed\-From\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Items\-::get\-Item\-Placed\-From\-U\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{U\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a7204e19a3782177c271deddcd437af77}
+\hypertarget{classShipItems_adf57cc0e0699cb38bdb29e8d45b1243d}{\index{Ship\-Items@{Ship\-Items}!get\-Items@{get\-Items}}
+\index{get\-Items@{get\-Items}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Items}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Items\-::get\-Items (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_adf57cc0e0699cb38bdb29e8d45b1243d}
+\hypertarget{classShipItems_adf71794304e06b37678c3eeee818f56b}{\index{Ship\-Items@{Ship\-Items}!get\-Items\-East\-Walls@{get\-Items\-East\-Walls}}
+\index{get\-Items\-East\-Walls@{get\-Items\-East\-Walls}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Items\-East\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Items\-::get\-Items\-East\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_adf71794304e06b37678c3eeee818f56b}
+\hypertarget{classShipItems_a334be479ae34538c698413213690b829}{\index{Ship\-Items@{Ship\-Items}!get\-Items\-Floor@{get\-Items\-Floor}}
+\index{get\-Items\-Floor@{get\-Items\-Floor}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Items\-Floor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Items\-::get\-Items\-Floor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a334be479ae34538c698413213690b829}
+\hypertarget{classShipItems_aa5d2ec2c87801bc7340fdddc65ec95a4}{\index{Ship\-Items@{Ship\-Items}!get\-Items\-North\-Walls@{get\-Items\-North\-Walls}}
+\index{get\-Items\-North\-Walls@{get\-Items\-North\-Walls}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Items\-North\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Items\-::get\-Items\-North\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_aa5d2ec2c87801bc7340fdddc65ec95a4}
+\hypertarget{classShipItems_ac77750d78a0d268e330940a73961238f}{\index{Ship\-Items@{Ship\-Items}!get\-Items\-Pending@{get\-Items\-Pending}}
+\index{get\-Items\-Pending@{get\-Items\-Pending}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Items\-Pending}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Items\-::get\-Items\-Pending (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_ac77750d78a0d268e330940a73961238f}
+\hypertarget{classShipItems_a24260da3cc2e9fc75d64e5bfebae0870}{\index{Ship\-Items@{Ship\-Items}!get\-Items\-Pending\-East\-Walls@{get\-Items\-Pending\-East\-Walls}}
+\index{get\-Items\-Pending\-East\-Walls@{get\-Items\-Pending\-East\-Walls}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Items\-Pending\-East\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Items\-::get\-Items\-Pending\-East\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a24260da3cc2e9fc75d64e5bfebae0870}
+\hypertarget{classShipItems_ab23eaeae958ff5d19843daf9a26948fe}{\index{Ship\-Items@{Ship\-Items}!get\-Items\-Pending\-Floor@{get\-Items\-Pending\-Floor}}
+\index{get\-Items\-Pending\-Floor@{get\-Items\-Pending\-Floor}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Items\-Pending\-Floor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Items\-::get\-Items\-Pending\-Floor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_ab23eaeae958ff5d19843daf9a26948fe}
+\hypertarget{classShipItems_ab80fb1f4389cb89879aa3001a7e13ba3}{\index{Ship\-Items@{Ship\-Items}!get\-Items\-Pending\-North\-Walls@{get\-Items\-Pending\-North\-Walls}}
+\index{get\-Items\-Pending\-North\-Walls@{get\-Items\-Pending\-North\-Walls}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Items\-Pending\-North\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Items\-::get\-Items\-Pending\-North\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_ab80fb1f4389cb89879aa3001a7e13ba3}
+\hypertarget{classShipItems_ae6e53eb02579b4e64ad640ba56fe3759}{\index{Ship\-Items@{Ship\-Items}!get\-Texture\-List@{get\-Texture\-List}}
+\index{get\-Texture\-List@{get\-Texture\-List}!ShipItems@{Ship\-Items}}
+\subsubsection[{get\-Texture\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Items\-::get\-Texture\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_ae6e53eb02579b4e64ad640ba56fe3759}
+\hypertarget{classShipItems_a838f560346a9d7b0f1bb128aaf93b1c7}{\index{Ship\-Items@{Ship\-Items}!place\-Item@{place\-Item}}
+\index{place\-Item@{place\-Item}!ShipItems@{Ship\-Items}}
+\subsubsection[{place\-Item}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Items\-::place\-Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Item} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a838f560346a9d7b0f1bb128aaf93b1c7}
+\hypertarget{classShipItems_a3a5ab7ad8035ae1b3b6da0483f5ce792}{\index{Ship\-Items@{Ship\-Items}!update@{update}}
+\index{update@{update}!ShipItems@{Ship\-Items}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Items\-::update (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Master} \&}]{ship}
+\end{DoxyParamCaption}
+)}}\label{classShipItems_a3a5ab7ad8035ae1b3b6da0483f5ce792}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classShipItems_ad6fa92d081c83d2df321d0771b32add1}{\index{Ship\-Items@{Ship\-Items}!items\-East\-Walls@{items\-East\-Walls}}
+\index{items\-East\-Walls@{items\-East\-Walls}!ShipItems@{Ship\-Items}}
+\subsubsection[{items\-East\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Items\-::items\-East\-Walls}}\label{classShipItems_ad6fa92d081c83d2df321d0771b32add1}
+\hypertarget{classShipItems_a737ad4ba94bb66145177591ce4540d8b}{\index{Ship\-Items@{Ship\-Items}!items\-Floor@{items\-Floor}}
+\index{items\-Floor@{items\-Floor}!ShipItems@{Ship\-Items}}
+\subsubsection[{items\-Floor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Items\-::items\-Floor}}\label{classShipItems_a737ad4ba94bb66145177591ce4540d8b}
+\hypertarget{classShipItems_af103aec8600076fb6c9520aaec193747}{\index{Ship\-Items@{Ship\-Items}!items\-North\-Walls@{items\-North\-Walls}}
+\index{items\-North\-Walls@{items\-North\-Walls}!ShipItems@{Ship\-Items}}
+\subsubsection[{items\-North\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Items\-::items\-North\-Walls}}\label{classShipItems_af103aec8600076fb6c9520aaec193747}
+\hypertarget{classShipItems_a4549ab087c77cf3bfade68ddec7ef8ee}{\index{Ship\-Items@{Ship\-Items}!items\-Pending@{items\-Pending}}
+\index{items\-Pending@{items\-Pending}!ShipItems@{Ship\-Items}}
+\subsubsection[{items\-Pending}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Items\-::items\-Pending}}\label{classShipItems_a4549ab087c77cf3bfade68ddec7ef8ee}
+\hypertarget{classShipItems_a009d6b07df69f4f5d9c912b49fa678c4}{\index{Ship\-Items@{Ship\-Items}!items\-Pending\-East\-Walls@{items\-Pending\-East\-Walls}}
+\index{items\-Pending\-East\-Walls@{items\-Pending\-East\-Walls}!ShipItems@{Ship\-Items}}
+\subsubsection[{items\-Pending\-East\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Items\-::items\-Pending\-East\-Walls}}\label{classShipItems_a009d6b07df69f4f5d9c912b49fa678c4}
+\hypertarget{classShipItems_a0001695d214b41ca614297329504f46e}{\index{Ship\-Items@{Ship\-Items}!items\-Pending\-Floor@{items\-Pending\-Floor}}
+\index{items\-Pending\-Floor@{items\-Pending\-Floor}!ShipItems@{Ship\-Items}}
+\subsubsection[{items\-Pending\-Floor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Items\-::items\-Pending\-Floor}}\label{classShipItems_a0001695d214b41ca614297329504f46e}
+\hypertarget{classShipItems_ad5d679f77e2cd8eba65fdac2dcf814ab}{\index{Ship\-Items@{Ship\-Items}!items\-Pending\-North\-Walls@{items\-Pending\-North\-Walls}}
+\index{items\-Pending\-North\-Walls@{items\-Pending\-North\-Walls}!ShipItems@{Ship\-Items}}
+\subsubsection[{items\-Pending\-North\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Items\-::items\-Pending\-North\-Walls}}\label{classShipItems_ad5d679f77e2cd8eba65fdac2dcf814ab}
+\hypertarget{classShipItems_a3e71d1f18d3eee132394a9c524cb43e4}{\index{Ship\-Items@{Ship\-Items}!items\-Placed@{items\-Placed}}
+\index{items\-Placed@{items\-Placed}!ShipItems@{Ship\-Items}}
+\subsubsection[{items\-Placed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Items\-::items\-Placed}}\label{classShipItems_a3e71d1f18d3eee132394a9c524cb43e4}
+\hypertarget{classShipItems_adb0d04e59dc21442a04199a6d0043011}{\index{Ship\-Items@{Ship\-Items}!texture\-List@{texture\-List}}
+\index{texture\-List@{texture\-List}!ShipItems@{Ship\-Items}}
+\subsubsection[{texture\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Items\-::texture\-List}}\label{classShipItems_adb0d04e59dc21442a04199a6d0043011}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+core/main/\hyperlink{ShipItems_8h}{Ship\-Items.\-h}\item 
+core/main/\hyperlink{ShipItems_8cpp}{Ship\-Items.\-cpp}\end{DoxyCompactItemize}

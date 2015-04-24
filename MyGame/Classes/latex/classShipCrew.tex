@@ -1,0 +1,102 @@
+\hypertarget{classShipCrew}{\section{Ship\-Crew Class Reference}
+\label{classShipCrew}\index{Ship\-Crew@{Ship\-Crew}}
+}
+
+
+{\ttfamily \#include $<$Ship\-Crew.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShipCrew_a09256cf7b653e02e695947aa6a502021}{Ship\-Crew} ()
+\item 
+\hyperlink{classShipCrew_a8103bf86507ab0a53144cc130ea7017a}{$\sim$\-Ship\-Crew} ()
+\item 
+int \hyperlink{classShipCrew_adfcbfe662d0d9eafc7377c3e57848ca5}{get\-Crew\-Count} ()
+\item 
+\hyperlink{classPerson}{Person} $\ast$ \hyperlink{classShipCrew_a030e3995d99e3c8ca05595ecb6803ee9}{get\-Crew\-From\-Index} (int i)
+\item 
+\hyperlink{classPerson}{Person} $\ast$ \hyperlink{classShipCrew_a4eda642a62a32bf2e673e40adf3b4961}{create\-Crew\-Member} (int I\-D, \hyperlink{structLocation}{Location} loc)
+\item 
+\hyperlink{classPerson}{Person} $\ast$$\ast$ \hyperlink{classShipCrew_a70e2c2aacf48a0a673e167531f0c4f7e}{get\-Crew} ()
+\item 
+void \hyperlink{classShipCrew_ada9b840371438fccc3fa7b5023e1ff46}{update} (\hyperlink{classShipMaster}{Ship\-Master} \&ship)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classShipCrew_acb418bcac20c237b52e992950480ced3}{cnt\-Crew}
+\item 
+\hyperlink{classPerson}{Person} $\ast$$\ast$ \hyperlink{classShipCrew_add436cb1633b1163196048997c525083}{crew}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classShipCrew_a09256cf7b653e02e695947aa6a502021}{\index{Ship\-Crew@{Ship\-Crew}!Ship\-Crew@{Ship\-Crew}}
+\index{Ship\-Crew@{Ship\-Crew}!ShipCrew@{Ship\-Crew}}
+\subsubsection[{Ship\-Crew}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Crew\-::\-Ship\-Crew (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipCrew_a09256cf7b653e02e695947aa6a502021}
+\hypertarget{classShipCrew_a8103bf86507ab0a53144cc130ea7017a}{\index{Ship\-Crew@{Ship\-Crew}!$\sim$\-Ship\-Crew@{$\sim$\-Ship\-Crew}}
+\index{$\sim$\-Ship\-Crew@{$\sim$\-Ship\-Crew}!ShipCrew@{Ship\-Crew}}
+\subsubsection[{$\sim$\-Ship\-Crew}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Crew\-::$\sim$\-Ship\-Crew (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipCrew_a8103bf86507ab0a53144cc130ea7017a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classShipCrew_a4eda642a62a32bf2e673e40adf3b4961}{\index{Ship\-Crew@{Ship\-Crew}!create\-Crew\-Member@{create\-Crew\-Member}}
+\index{create\-Crew\-Member@{create\-Crew\-Member}!ShipCrew@{Ship\-Crew}}
+\subsubsection[{create\-Crew\-Member}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Person} $\ast$ Ship\-Crew\-::create\-Crew\-Member (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipCrew_a4eda642a62a32bf2e673e40adf3b4961}
+\hypertarget{classShipCrew_a70e2c2aacf48a0a673e167531f0c4f7e}{\index{Ship\-Crew@{Ship\-Crew}!get\-Crew@{get\-Crew}}
+\index{get\-Crew@{get\-Crew}!ShipCrew@{Ship\-Crew}}
+\subsubsection[{get\-Crew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Person} $\ast$$\ast$ Ship\-Crew\-::get\-Crew (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipCrew_a70e2c2aacf48a0a673e167531f0c4f7e}
+\hypertarget{classShipCrew_adfcbfe662d0d9eafc7377c3e57848ca5}{\index{Ship\-Crew@{Ship\-Crew}!get\-Crew\-Count@{get\-Crew\-Count}}
+\index{get\-Crew\-Count@{get\-Crew\-Count}!ShipCrew@{Ship\-Crew}}
+\subsubsection[{get\-Crew\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Crew\-::get\-Crew\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipCrew_adfcbfe662d0d9eafc7377c3e57848ca5}
+\hypertarget{classShipCrew_a030e3995d99e3c8ca05595ecb6803ee9}{\index{Ship\-Crew@{Ship\-Crew}!get\-Crew\-From\-Index@{get\-Crew\-From\-Index}}
+\index{get\-Crew\-From\-Index@{get\-Crew\-From\-Index}!ShipCrew@{Ship\-Crew}}
+\subsubsection[{get\-Crew\-From\-Index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Person} $\ast$ Ship\-Crew\-::get\-Crew\-From\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{classShipCrew_a030e3995d99e3c8ca05595ecb6803ee9}
+\hypertarget{classShipCrew_ada9b840371438fccc3fa7b5023e1ff46}{\index{Ship\-Crew@{Ship\-Crew}!update@{update}}
+\index{update@{update}!ShipCrew@{Ship\-Crew}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Crew\-::update (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Master} \&}]{ship}
+\end{DoxyParamCaption}
+)}}\label{classShipCrew_ada9b840371438fccc3fa7b5023e1ff46}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classShipCrew_acb418bcac20c237b52e992950480ced3}{\index{Ship\-Crew@{Ship\-Crew}!cnt\-Crew@{cnt\-Crew}}
+\index{cnt\-Crew@{cnt\-Crew}!ShipCrew@{Ship\-Crew}}
+\subsubsection[{cnt\-Crew}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Crew\-::cnt\-Crew}}\label{classShipCrew_acb418bcac20c237b52e992950480ced3}
+\hypertarget{classShipCrew_add436cb1633b1163196048997c525083}{\index{Ship\-Crew@{Ship\-Crew}!crew@{crew}}
+\index{crew@{crew}!ShipCrew@{Ship\-Crew}}
+\subsubsection[{crew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Person}$\ast$$\ast$ Ship\-Crew\-::crew}}\label{classShipCrew_add436cb1633b1163196048997c525083}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+core/main/\hyperlink{ShipCrew_8h}{Ship\-Crew.\-h}\item 
+core/main/\hyperlink{ShipCrew_8cpp}{Ship\-Crew.\-cpp}\end{DoxyCompactItemize}

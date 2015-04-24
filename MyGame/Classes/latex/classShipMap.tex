@@ -1,0 +1,239 @@
+\hypertarget{classShipMap}{\section{Ship\-Map Class Reference}
+\label{classShipMap}\index{Ship\-Map@{Ship\-Map}}
+}
+
+
+{\ttfamily \#include $<$Ship\-Map.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShipMap_af52a69332839e08c8f4c6e24758f32da}{Ship\-Map} ()
+\item 
+\hyperlink{classShipMap_a0c3e21f65831db22a2c276f54b2584f7}{Ship\-Map} (int O, int N, int M)
+\item 
+\hyperlink{classShipMap_a82afc59f9e7ed5b8d208de36bab9236c}{$\sim$\-Ship\-Map} ()
+\item 
+void \hyperlink{classShipMap_a7c66418320a5bb788dbbe3a122e76cd7}{update\-Map\-Access} (\hyperlink{classShipMaster}{Ship\-Master} \&ship)
+\item 
+void \hyperlink{classShipMap_a2ff8a4864984373340f94eaed37debe7}{simplify\-Locations} (\hyperlink{structLocation}{Location} \&loc1, \hyperlink{structLocation}{Location} \&loc2)
+\item 
+bool \hyperlink{classShipMap_a6817875f83a1ae67fe9124823b80b4b1}{within\-Bounds} (\hyperlink{structLocation}{Location} loc)
+\item 
+void \hyperlink{classShipMap_a01d56312b189102d019a1da898957b73}{place\-Texture} (unsigned int I\-D, \hyperlink{structLocation}{Location} loc)
+\item 
+int \hyperlink{classShipMap_ae3df616ce12eb77874e27ae82331e131}{get\-Room\-Uid\-From\-Loc} (\hyperlink{structLocation}{Location} loc)
+\item 
+void \hyperlink{classShipMap_a7d2147c38abb30590644e2dbc3af94ea}{place\-Item} (int U\-I\-D, \hyperlink{structLocation}{Location} loc)
+\item 
+void \hyperlink{classShipMap_aa9c0f0f672b58f5ce32e2052432d5145}{place\-Room} (\hyperlink{structLocation}{Location} $\ast$locations, int N, int U\-I\-D)
+\item 
+bool \hyperlink{classShipMap_af80dd87cdd6c203a0870c3cbdb498418}{is\-Vacant} (int x, int y, int z)
+\item 
+bool \hyperlink{classShipMap_a0c89267eede90614d46a33cd7129b1d0}{is\-Vacant} (\hyperlink{structLocation}{Location} loc)
+\item 
+\hyperlink{classPath}{Path} \hyperlink{classShipMap_ac66dd983ca92d5e3d0696f2a25da90e1}{find\-Path} (\hyperlink{structLocation}{Location} start, \hyperlink{structLocation}{Location} end)
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_a2281c139f8f1d4a9023cbfc7a8ebc5f9}{get\-Map\-Access} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_abde984e7f9b9172965e58157981857ae}{get\-Map} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_a5ab9f1b8d8a8efb91dbc1555ddd835da}{get\-Map\-Floor} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_a2272771cebf1ad7459d87108bcce9fa8}{get\-Map\-East\-Walls} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_a85804cf36ce82bbcc1722732deaea2f5}{get\-Map\-North\-Walls} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_a96d0a84da234e73df2d0a44531da71e7}{get\-Map\-Rooms} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_a4de11bdb01a85083627dc41016967bce}{get\-Map\-Textures} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_a3701cc7e75f89719e2c137203b3ada7f}{get\-Map\-Textures\-Floor} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_a6b16ec5869e5cb347d847c975b3fd01f}{get\-Map\-Textures\-East\-Walls} ()
+\item 
+unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_aecdbc1ca649c823dc139aefcce416ebb}{get\-Map\-Textures\-North\-Walls} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classShipMap_af52a69332839e08c8f4c6e24758f32da}{\index{Ship\-Map@{Ship\-Map}!Ship\-Map@{Ship\-Map}}
+\index{Ship\-Map@{Ship\-Map}!ShipMap@{Ship\-Map}}
+\subsubsection[{Ship\-Map}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Map\-::\-Ship\-Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_af52a69332839e08c8f4c6e24758f32da}
+\hypertarget{classShipMap_a0c3e21f65831db22a2c276f54b2584f7}{\index{Ship\-Map@{Ship\-Map}!Ship\-Map@{Ship\-Map}}
+\index{Ship\-Map@{Ship\-Map}!ShipMap@{Ship\-Map}}
+\subsubsection[{Ship\-Map}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Map\-::\-Ship\-Map (
+\begin{DoxyParamCaption}
+\item[{int}]{O, }
+\item[{int}]{N, }
+\item[{int}]{M}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a0c3e21f65831db22a2c276f54b2584f7}
+\hypertarget{classShipMap_a82afc59f9e7ed5b8d208de36bab9236c}{\index{Ship\-Map@{Ship\-Map}!$\sim$\-Ship\-Map@{$\sim$\-Ship\-Map}}
+\index{$\sim$\-Ship\-Map@{$\sim$\-Ship\-Map}!ShipMap@{Ship\-Map}}
+\subsubsection[{$\sim$\-Ship\-Map}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Map\-::$\sim$\-Ship\-Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a82afc59f9e7ed5b8d208de36bab9236c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classShipMap_ac66dd983ca92d5e3d0696f2a25da90e1}{\index{Ship\-Map@{Ship\-Map}!find\-Path@{find\-Path}}
+\index{find\-Path@{find\-Path}!ShipMap@{Ship\-Map}}
+\subsubsection[{find\-Path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Path} Ship\-Map\-::find\-Path (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{start, }
+\item[{{\bf Location}}]{end}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_ac66dd983ca92d5e3d0696f2a25da90e1}
+\hypertarget{classShipMap_abde984e7f9b9172965e58157981857ae}{\index{Ship\-Map@{Ship\-Map}!get\-Map@{get\-Map}}
+\index{get\-Map@{get\-Map}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_abde984e7f9b9172965e58157981857ae}
+\hypertarget{classShipMap_a2281c139f8f1d4a9023cbfc7a8ebc5f9}{\index{Ship\-Map@{Ship\-Map}!get\-Map\-Access@{get\-Map\-Access}}
+\index{get\-Map\-Access@{get\-Map\-Access}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map\-Access}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map\-Access (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a2281c139f8f1d4a9023cbfc7a8ebc5f9}
+\hypertarget{classShipMap_a2272771cebf1ad7459d87108bcce9fa8}{\index{Ship\-Map@{Ship\-Map}!get\-Map\-East\-Walls@{get\-Map\-East\-Walls}}
+\index{get\-Map\-East\-Walls@{get\-Map\-East\-Walls}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map\-East\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map\-East\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a2272771cebf1ad7459d87108bcce9fa8}
+\hypertarget{classShipMap_a5ab9f1b8d8a8efb91dbc1555ddd835da}{\index{Ship\-Map@{Ship\-Map}!get\-Map\-Floor@{get\-Map\-Floor}}
+\index{get\-Map\-Floor@{get\-Map\-Floor}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map\-Floor}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map\-Floor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a5ab9f1b8d8a8efb91dbc1555ddd835da}
+\hypertarget{classShipMap_a85804cf36ce82bbcc1722732deaea2f5}{\index{Ship\-Map@{Ship\-Map}!get\-Map\-North\-Walls@{get\-Map\-North\-Walls}}
+\index{get\-Map\-North\-Walls@{get\-Map\-North\-Walls}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map\-North\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map\-North\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a85804cf36ce82bbcc1722732deaea2f5}
+\hypertarget{classShipMap_a96d0a84da234e73df2d0a44531da71e7}{\index{Ship\-Map@{Ship\-Map}!get\-Map\-Rooms@{get\-Map\-Rooms}}
+\index{get\-Map\-Rooms@{get\-Map\-Rooms}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map\-Rooms}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map\-Rooms (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a96d0a84da234e73df2d0a44531da71e7}
+\hypertarget{classShipMap_a4de11bdb01a85083627dc41016967bce}{\index{Ship\-Map@{Ship\-Map}!get\-Map\-Textures@{get\-Map\-Textures}}
+\index{get\-Map\-Textures@{get\-Map\-Textures}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map\-Textures}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map\-Textures (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a4de11bdb01a85083627dc41016967bce}
+\hypertarget{classShipMap_a6b16ec5869e5cb347d847c975b3fd01f}{\index{Ship\-Map@{Ship\-Map}!get\-Map\-Textures\-East\-Walls@{get\-Map\-Textures\-East\-Walls}}
+\index{get\-Map\-Textures\-East\-Walls@{get\-Map\-Textures\-East\-Walls}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map\-Textures\-East\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int$\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map\-Textures\-East\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a6b16ec5869e5cb347d847c975b3fd01f}
+\hypertarget{classShipMap_a3701cc7e75f89719e2c137203b3ada7f}{\index{Ship\-Map@{Ship\-Map}!get\-Map\-Textures\-Floor@{get\-Map\-Textures\-Floor}}
+\index{get\-Map\-Textures\-Floor@{get\-Map\-Textures\-Floor}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map\-Textures\-Floor}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int$\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map\-Textures\-Floor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a3701cc7e75f89719e2c137203b3ada7f}
+\hypertarget{classShipMap_aecdbc1ca649c823dc139aefcce416ebb}{\index{Ship\-Map@{Ship\-Map}!get\-Map\-Textures\-North\-Walls@{get\-Map\-Textures\-North\-Walls}}
+\index{get\-Map\-Textures\-North\-Walls@{get\-Map\-Textures\-North\-Walls}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Map\-Textures\-North\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int$\ast$$\ast$$\ast$ Ship\-Map\-::get\-Map\-Textures\-North\-Walls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_aecdbc1ca649c823dc139aefcce416ebb}
+\hypertarget{classShipMap_ae3df616ce12eb77874e27ae82331e131}{\index{Ship\-Map@{Ship\-Map}!get\-Room\-Uid\-From\-Loc@{get\-Room\-Uid\-From\-Loc}}
+\index{get\-Room\-Uid\-From\-Loc@{get\-Room\-Uid\-From\-Loc}!ShipMap@{Ship\-Map}}
+\subsubsection[{get\-Room\-Uid\-From\-Loc}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Map\-::get\-Room\-Uid\-From\-Loc (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_ae3df616ce12eb77874e27ae82331e131}
+\hypertarget{classShipMap_af80dd87cdd6c203a0870c3cbdb498418}{\index{Ship\-Map@{Ship\-Map}!is\-Vacant@{is\-Vacant}}
+\index{is\-Vacant@{is\-Vacant}!ShipMap@{Ship\-Map}}
+\subsubsection[{is\-Vacant}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Map\-::is\-Vacant (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{z}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_af80dd87cdd6c203a0870c3cbdb498418}
+\hypertarget{classShipMap_a0c89267eede90614d46a33cd7129b1d0}{\index{Ship\-Map@{Ship\-Map}!is\-Vacant@{is\-Vacant}}
+\index{is\-Vacant@{is\-Vacant}!ShipMap@{Ship\-Map}}
+\subsubsection[{is\-Vacant}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Map\-::is\-Vacant (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a0c89267eede90614d46a33cd7129b1d0}
+\hypertarget{classShipMap_a7d2147c38abb30590644e2dbc3af94ea}{\index{Ship\-Map@{Ship\-Map}!place\-Item@{place\-Item}}
+\index{place\-Item@{place\-Item}!ShipMap@{Ship\-Map}}
+\subsubsection[{place\-Item}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Map\-::place\-Item (
+\begin{DoxyParamCaption}
+\item[{int}]{U\-I\-D, }
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a7d2147c38abb30590644e2dbc3af94ea}
+\hypertarget{classShipMap_aa9c0f0f672b58f5ce32e2052432d5145}{\index{Ship\-Map@{Ship\-Map}!place\-Room@{place\-Room}}
+\index{place\-Room@{place\-Room}!ShipMap@{Ship\-Map}}
+\subsubsection[{place\-Room}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Map\-::place\-Room (
+\begin{DoxyParamCaption}
+\item[{{\bf Location} $\ast$}]{locations, }
+\item[{int}]{N, }
+\item[{int}]{U\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_aa9c0f0f672b58f5ce32e2052432d5145}
+\hypertarget{classShipMap_a01d56312b189102d019a1da898957b73}{\index{Ship\-Map@{Ship\-Map}!place\-Texture@{place\-Texture}}
+\index{place\-Texture@{place\-Texture}!ShipMap@{Ship\-Map}}
+\subsubsection[{place\-Texture}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Map\-::place\-Texture (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{I\-D, }
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a01d56312b189102d019a1da898957b73}
+\hypertarget{classShipMap_a2ff8a4864984373340f94eaed37debe7}{\index{Ship\-Map@{Ship\-Map}!simplify\-Locations@{simplify\-Locations}}
+\index{simplify\-Locations@{simplify\-Locations}!ShipMap@{Ship\-Map}}
+\subsubsection[{simplify\-Locations}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Map\-::simplify\-Locations (
+\begin{DoxyParamCaption}
+\item[{{\bf Location} \&}]{loc1, }
+\item[{{\bf Location} \&}]{loc2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classShipMap_a2ff8a4864984373340f94eaed37debe7}
+\hypertarget{classShipMap_a7c66418320a5bb788dbbe3a122e76cd7}{\index{Ship\-Map@{Ship\-Map}!update\-Map\-Access@{update\-Map\-Access}}
+\index{update\-Map\-Access@{update\-Map\-Access}!ShipMap@{Ship\-Map}}
+\subsubsection[{update\-Map\-Access}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Map\-::update\-Map\-Access (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Master} \&}]{ship}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a7c66418320a5bb788dbbe3a122e76cd7}
+\hypertarget{classShipMap_a6817875f83a1ae67fe9124823b80b4b1}{\index{Ship\-Map@{Ship\-Map}!within\-Bounds@{within\-Bounds}}
+\index{within\-Bounds@{within\-Bounds}!ShipMap@{Ship\-Map}}
+\subsubsection[{within\-Bounds}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Map\-::within\-Bounds (
+\begin{DoxyParamCaption}
+\item[{{\bf Location}}]{loc}
+\end{DoxyParamCaption}
+)}}\label{classShipMap_a6817875f83a1ae67fe9124823b80b4b1}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+core/main/\hyperlink{ShipMap_8h}{Ship\-Map.\-h}\item 
+core/main/\hyperlink{ShipMap_8cpp}{Ship\-Map.\-cpp}\end{DoxyCompactItemize}

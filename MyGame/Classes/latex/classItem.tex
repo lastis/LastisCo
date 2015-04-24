@@ -1,0 +1,177 @@
+\hypertarget{classItem}{\section{Item Class Reference}
+\label{classItem}\index{Item@{Item}}
+}
+
+
+{\ttfamily \#include $<$Item.\-h$>$}
+
+Inheritance diagram for Item\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classItem}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classItem_aeccb01d448bffa2c4b89a49d4d39ea6f}{Item} (int \hyperlink{classBase_a1dddc037afe2eae3e1364597e6a3cf46}{I\-D}, int \hyperlink{classItem_adcfbfc3a87d2112c62b812dac2c72993}{slot}, int \hyperlink{classItem_a5166900b24ba9e746a7ad34c00353cdd}{blocking})
+\item 
+virtual \hyperlink{classItem_a33cc9c0bc556b5a33a9d0d58d37c602b}{$\sim$\-Item} ()
+\item 
+virtual void \hyperlink{classItem_af7cb35b77955c00a38fc0f952da762f4}{update} (\hyperlink{classShipMaster}{Ship\-Master} \&ship)=0
+\item 
+virtual bool \hyperlink{classItem_a65a4d68109b4aa82c62d262ab4786145}{interact} (\hyperlink{classPerson}{Person} \&person)=0
+\item 
+virtual bool \hyperlink{classItem_a2fc04b2fdd729977c419e0a1c5c8fa87}{place} (\hyperlink{classPerson}{Person} \&person)=0
+\item 
+virtual bool \hyperlink{classItem_afa9967b10984b1886ed6097eab7239e3}{can\-Place} (\hyperlink{classPerson}{Person} \&person)=0
+\item 
+virtual int \hyperlink{classItem_a38889163e99a1f5ec9b811b8e64fbc36}{get\-Texture\-I\-D} ()=0
+\item 
+virtual void \hyperlink{classItem_aa4aea30738280ffbc897ed3a9b64362a}{set\-Direction} (int \hyperlink{classItem_a1812b51dc93d2142c0641c536fbef617}{direction})
+\item 
+void \hyperlink{classItem_ab347bc647966f28266a36e3af34c35cc}{set\-Placed} (bool val)
+\item 
+bool \hyperlink{classItem_aca2ca239027e41044ce015c14c4feff6}{is\-Placed} ()
+\item 
+int \hyperlink{classItem_a9f232e560cdaec93805b428349477c68}{get\-Direction} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structLocation}{Location} \hyperlink{classItem_ade907eeeea58df68fcacde1e5568779b}{loc}
+\item 
+int \hyperlink{classItem_adcfbfc3a87d2112c62b812dac2c72993}{slot}
+\item 
+int \hyperlink{classItem_a5166900b24ba9e746a7ad34c00353cdd}{blocking}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classItem_a1812b51dc93d2142c0641c536fbef617}{direction}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classItem_aeccb01d448bffa2c4b89a49d4d39ea6f}{\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\subsubsection[{Item}]{\setlength{\rightskip}{0pt plus 5cm}Item\-::\-Item (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{int}]{slot, }
+\item[{int}]{blocking}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_aeccb01d448bffa2c4b89a49d4d39ea6f}
+\hypertarget{classItem_a33cc9c0bc556b5a33a9d0d58d37c602b}{\index{Item@{Item}!$\sim$\-Item@{$\sim$\-Item}}
+\index{$\sim$\-Item@{$\sim$\-Item}!Item@{Item}}
+\subsubsection[{$\sim$\-Item}]{\setlength{\rightskip}{0pt plus 5cm}virtual Item\-::$\sim$\-Item (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classItem_a33cc9c0bc556b5a33a9d0d58d37c602b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classItem_afa9967b10984b1886ed6097eab7239e3}{\index{Item@{Item}!can\-Place@{can\-Place}}
+\index{can\-Place@{can\-Place}!Item@{Item}}
+\subsubsection[{can\-Place}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Item\-::can\-Place (
+\begin{DoxyParamCaption}
+\item[{{\bf Person} \&}]{person}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classItem_afa9967b10984b1886ed6097eab7239e3}
+
+
+Implemented in \hyperlink{structItemTest_a22ad8ab142e30bc5b1d45425ed1d26b5}{Item\-Test}, \hyperlink{classCorn_a120e5ee8556cff62e32ad81456a8809f}{Corn}, \hyperlink{classMetalBlock_a3ebb02bfb392a81c292d8f1fa0e7054e}{Metal\-Block}, and \hyperlink{classMetalWall_acd888cb6afaa418a3a92f14eda27a9a5}{Metal\-Wall}.
+
+\hypertarget{classItem_a9f232e560cdaec93805b428349477c68}{\index{Item@{Item}!get\-Direction@{get\-Direction}}
+\index{get\-Direction@{get\-Direction}!Item@{Item}}
+\subsubsection[{get\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::get\-Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_a9f232e560cdaec93805b428349477c68}
+\hypertarget{classItem_a38889163e99a1f5ec9b811b8e64fbc36}{\index{Item@{Item}!get\-Texture\-I\-D@{get\-Texture\-I\-D}}
+\index{get\-Texture\-I\-D@{get\-Texture\-I\-D}!Item@{Item}}
+\subsubsection[{get\-Texture\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Item\-::get\-Texture\-I\-D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classItem_a38889163e99a1f5ec9b811b8e64fbc36}
+
+
+Implemented in \hyperlink{structItemTest_a040963d27bd3bc753664ece6845f9650}{Item\-Test}, \hyperlink{classMetalBlock_aed60769587273b97c098defb6bb19a0f}{Metal\-Block}, \hyperlink{classMetalWall_a2c647de3c51c744da75cae0096e0042d}{Metal\-Wall}, and \hyperlink{classCorn_ac0b6aa014ed83b6c488cf8e77b0f7822}{Corn}.
+
+\hypertarget{classItem_a65a4d68109b4aa82c62d262ab4786145}{\index{Item@{Item}!interact@{interact}}
+\index{interact@{interact}!Item@{Item}}
+\subsubsection[{interact}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Item\-::interact (
+\begin{DoxyParamCaption}
+\item[{{\bf Person} \&}]{person}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classItem_a65a4d68109b4aa82c62d262ab4786145}
+
+
+Implemented in \hyperlink{structItemTest_a75e6ddccebab853a259a0957c15407e1}{Item\-Test}, \hyperlink{classCorn_aa3aef7eecbd7cb36a85cdb7d5acd9f28}{Corn}, \hyperlink{classMetalBlock_ae5da009046d9443f292fbf7d955d3dc9}{Metal\-Block}, and \hyperlink{classMetalWall_a6c5791ba1b0f1c4c6b9f064ceb0d217d}{Metal\-Wall}.
+
+\hypertarget{classItem_aca2ca239027e41044ce015c14c4feff6}{\index{Item@{Item}!is\-Placed@{is\-Placed}}
+\index{is\-Placed@{is\-Placed}!Item@{Item}}
+\subsubsection[{is\-Placed}]{\setlength{\rightskip}{0pt plus 5cm}bool Item\-::is\-Placed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_aca2ca239027e41044ce015c14c4feff6}
+\hypertarget{classItem_a2fc04b2fdd729977c419e0a1c5c8fa87}{\index{Item@{Item}!place@{place}}
+\index{place@{place}!Item@{Item}}
+\subsubsection[{place}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Item\-::place (
+\begin{DoxyParamCaption}
+\item[{{\bf Person} \&}]{person}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classItem_a2fc04b2fdd729977c419e0a1c5c8fa87}
+
+
+Implemented in \hyperlink{structItemTest_ad30228b68d1b22411270e6b304a87249}{Item\-Test}, \hyperlink{classCorn_a4554f0e4db0d59d303749c76310d4476}{Corn}, \hyperlink{classMetalBlock_a58537a96320a39f4c46659994698c394}{Metal\-Block}, and \hyperlink{classMetalWall_abd5c87f2cde822123cecaafb24edddd4}{Metal\-Wall}.
+
+\hypertarget{classItem_aa4aea30738280ffbc897ed3a9b64362a}{\index{Item@{Item}!set\-Direction@{set\-Direction}}
+\index{set\-Direction@{set\-Direction}!Item@{Item}}
+\subsubsection[{set\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Item\-::set\-Direction (
+\begin{DoxyParamCaption}
+\item[{int}]{direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classItem_aa4aea30738280ffbc897ed3a9b64362a}
+\hypertarget{classItem_ab347bc647966f28266a36e3af34c35cc}{\index{Item@{Item}!set\-Placed@{set\-Placed}}
+\index{set\-Placed@{set\-Placed}!Item@{Item}}
+\subsubsection[{set\-Placed}]{\setlength{\rightskip}{0pt plus 5cm}void Item\-::set\-Placed (
+\begin{DoxyParamCaption}
+\item[{bool}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_ab347bc647966f28266a36e3af34c35cc}
+\hypertarget{classItem_af7cb35b77955c00a38fc0f952da762f4}{\index{Item@{Item}!update@{update}}
+\index{update@{update}!Item@{Item}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Item\-::update (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Master} \&}]{ship}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classItem_af7cb35b77955c00a38fc0f952da762f4}
+
+
+Implemented in \hyperlink{structItemTest_aa5a51547e6dacf11363e439222377b45}{Item\-Test}, \hyperlink{classCorn_ab9eee4022f2efe2142e987c3bed88a43}{Corn}, \hyperlink{classMetalBlock_a3eeed50e628c1b553fa145b0ff3aaa8a}{Metal\-Block}, and \hyperlink{classMetalWall_a1beefd8e4e1e8a12d0f0c97a0286722e}{Metal\-Wall}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classItem_a5166900b24ba9e746a7ad34c00353cdd}{\index{Item@{Item}!blocking@{blocking}}
+\index{blocking@{blocking}!Item@{Item}}
+\subsubsection[{blocking}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::blocking}}\label{classItem_a5166900b24ba9e746a7ad34c00353cdd}
+\hypertarget{classItem_a1812b51dc93d2142c0641c536fbef617}{\index{Item@{Item}!direction@{direction}}
+\index{direction@{direction}!Item@{Item}}
+\subsubsection[{direction}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::direction\hspace{0.3cm}{\ttfamily [protected]}}}\label{classItem_a1812b51dc93d2142c0641c536fbef617}
+\hypertarget{classItem_ade907eeeea58df68fcacde1e5568779b}{\index{Item@{Item}!loc@{loc}}
+\index{loc@{loc}!Item@{Item}}
+\subsubsection[{loc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Location} Item\-::loc}}\label{classItem_ade907eeeea58df68fcacde1e5568779b}
+\hypertarget{classItem_adcfbfc3a87d2112c62b812dac2c72993}{\index{Item@{Item}!slot@{slot}}
+\index{slot@{slot}!Item@{Item}}
+\subsubsection[{slot}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::slot}}\label{classItem_adcfbfc3a87d2112c62b812dac2c72993}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+core/items/\hyperlink{Item_8h}{Item.\-h}\end{DoxyCompactItemize}
