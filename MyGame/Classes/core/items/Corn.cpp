@@ -62,6 +62,7 @@ void Corn::update(ShipMaster& ship){
     using namespace textures;
     if (isPlaced() == false) return;
     grow();
+    // Line works but should be done somewhere else.
     if (changed) ship.drawItem(this);
 }
 

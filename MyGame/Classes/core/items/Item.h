@@ -8,6 +8,9 @@
 // array of objects.
 class Person;
 class ShipMaster;
+/**
+ * \defgroup items Items
+ */
 class Item : public Base{
 public:
     Item(int ID, int slot, int blocking) : slot(slot), blocking(blocking), 

@@ -3,30 +3,32 @@
 using namespace cocos2d;
 
 MapVisualizer::MapVisualizer(ShipMaster* ship, TMXTiledMap* mapTiled, Layer* scene) 
-    : ship(ship), mapTiled(mapTiled), scene(scene), crew(ship->getCrew())
+    : ship(ship), mapTiled(mapTiled), scene(scene), crew(ship->getCrew()),
+        itemsToDraw(ship->getTextureList())
 {
     crewSprites = new Sprite*[MAX_CREW];
     crewCount = 0;
 
-    mapTextures = ship->getMapTextures();
     layer1 = mapTiled->getLayer("Layer_1");
-    auto size = mapTiled->getMapSize();
-    height = size.height;
-    width = size.width;
-    log("height : %u",height);
-    log("width : %u",width);
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            layer1->setTileGID(mapTextures[1][j][i],Vec2(i,j));
-        }
+    /* auto size = mapTiled->getMapSize(); */
+    /* height = size.height; */
+    /* width = size.width; */
+    /* log("height : %u",height); */
+    /* log("width : %u",width); */
+    itemsToDraw.resetIterator();
+    Item* obj = itemsToDraw.next();
+    while (obj != NULL) {
+        Location& loc = obj->loc;
+        layer1->setTileGID(obj->getTextureID(),Vec2(loc.x,loc.y));
+        obj = itemsToDraw.next();
     }
+    itemsToDraw.clear();
     addCrewTexture(ship->getCrewCount());
 }
 
 void MapVisualizer::addCrewTexture(int count){
     int diff = count - crewCount;
     for (int i = 0; i < diff; i++) {
-        /* log("Index : %d",crewCount+i); */
         Sprite* newCrewSprite = Sprite::create("res/Player.png");
         crewSprites[crewCount+i] = newCrewSprite;
         Person* newCrew = crew[crewCount+i];
@@ -52,11 +54,15 @@ void MapVisualizer::update(){
         crewSprites[i]->runAction(moveTo);
         /* crewSprites[i]->setPosition(realPos); */
     }
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            layer1->setTileGID(mapTextures[1][j][i],Vec2(i,j));
-        }
+    itemsToDraw.resetIterator();
+    Item* obj = itemsToDraw.next();
+    while (obj != NULL) {
+        Location& loc = obj->loc;
+        layer1->setTileGID(obj->getTextureID(),Vec2(loc.x,loc.y));
+        obj = itemsToDraw.next();
+        /* log("y : %u",loc.y); */
     }
+    itemsToDraw.clear();
 }
 MapVisualizer::~MapVisualizer(){
     delete[] crewSprites;

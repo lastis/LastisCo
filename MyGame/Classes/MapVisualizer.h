@@ -14,13 +14,15 @@ public:
     void update();
     void addCrewTexture(int amount);
 
-    unsigned int*** mapTextures;
     int width;
     int height;
     ShipMaster* ship;
+    LinkedList& itemsToDraw;
+
     TMXTiledMap* mapTiled;
     Layer* scene;
     TMXLayer* layer1;
+
     int crewCount;
     Person** crew;
     Sprite** crewSprites;

@@ -55,13 +55,6 @@ bool HelloWorld::init()
     this->addChild(mapTiled);
     mapVis = new MapVisualizer(ship,mapTiled,this);
 
-    /* Sprite* player = Sprite::create("res/Player.png"); */
-    /* player->setPosition(100,100); */
-     
-    /* this->addChild(player); */
-
-    /* this->setViewPointCenter(player->getPosition()); */
- 
     this->scheduleUpdate();
     return true;
 }

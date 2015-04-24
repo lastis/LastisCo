@@ -120,7 +120,10 @@ set(GAME_SRC
   Classes/core/Base.cpp
   Classes/core/enteties/Person.cpp
   Classes/core/items/Corn.cpp
+  Classes/core/items/ItemMatrix.cpp
   Classes/core/items/LinkedList.cpp
+  Classes/core/items/MetalBlock.cpp
+  Classes/core/items/MetalWall.cpp
   Classes/core/jobs/Job.cpp
   Classes/core/jobs/JobFarm.cpp
   Classes/core/jobs/Task.cpp
@@ -152,7 +155,10 @@ set(GAME_HEADERS
   Classes/core/items/Corn.h
   Classes/core/items/Item.h
   Classes/core/items/ItemCreator.h
+  Classes/core/items/ItemMatrix.h
   Classes/core/items/LinkedList.h
+  Classes/core/items/MetalBlock.h
+  Classes/core/items/MetalWall.h
   Classes/core/jobs/Job.h
   Classes/core/jobs/JobFarm.h
   Classes/core/jobs/Task.h

@@ -21,9 +21,9 @@ public:
     bool changed;
     int stage;
     int time;
-    static const int STAGE_0 = 2;
-    static const int STAGE_1 = 4;
-    static const int STAGE_2 = 6;
+    static const int STAGE_0 = 5;
+    static const int STAGE_1 = 10;
+    static const int STAGE_2 = 15;
     static const int STAGE_FINAL = STAGE_2;
 
 };
