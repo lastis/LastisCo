@@ -144,11 +144,11 @@ void ShipMap::updateMapAccess(ShipMaster& ship){
     items.resetIterator();
     obj = items.next();
     while (obj != NULL) {
-        if (obj->blocking != BLOCKING) continue;
+        if (obj->getBlocking() != BLOCKING) continue;
         int x = obj->loc.x;
         int y = obj->loc.y;
         int z = obj->loc.z;
-        int slot = obj->slot;
+        int slot = obj->getSlot();
         if (slot == CENTER) {
             mapAccess[z][y][x] = mapAccess[z][y][x] | directions::BLOCK_ALL;
             mapAccess[z-1][y][x] = mapAccess[z-1][y][x] | directions::BLOCK_UP;

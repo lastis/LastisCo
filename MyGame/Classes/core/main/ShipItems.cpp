@@ -52,7 +52,7 @@ bool ShipItems::placeItem(Item* obj){
     using namespace directions;
     using namespace blocks;
     if (obj == NULL) return false;
-    obj->setPlaced(true);
+    obj->placed = true;
     itemsPending.popWithUID(obj->UID);
     itemsPlaced.add(obj);
     Location& loc = obj->loc;

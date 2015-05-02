@@ -12,12 +12,15 @@ class ShipMaster;
  * \defgroup items Items
  */
 class Item : public Base{
+    friend class ShipItems;
 public:
     Item(int ID, int slot, int blocking) : slot(slot), blocking(blocking), 
     placed(false), direction(directions::NORTH)
     {
         this->ID = ID;
     }
+    // Virtual destructor ensures that the destructor is called
+    // on child classes.
     virtual ~Item(){};
     
     virtual void    update(ShipMaster& ship) = 0;
@@ -38,18 +41,28 @@ public:
         return placed;
     }
 
+    Location getLoc(){
+        return loc;
+    }
 
     int getDirection(){
         return direction;
     }
 
+    int getBlocking(){
+        return blocking;
+    }
+
+    int getSlot(){
+        return slot;
+    }
+
     Location loc;
+protected: 
     // Properties of the item.
     int     slot;
     int     blocking;
-private:
     bool    placed;
-protected: 
     int     direction;
 };
 
