@@ -35,17 +35,13 @@ SUITE(Items){
         // Check that initializtion is correct and the update method.
         CHECK_EQUAL(stage0, stage);
         CHECK_EQUAL(0, time);
-        corn.update(); // 1
-        CHECK_EQUAL(1, time);
-        corn.update(); // 2
-        corn.update(); // 3
-        corn.update(); // 4
-        corn.update(); // 5
-        corn.update(); // 6
+        for (int i = 0; i < Corn::STAGE_FINAL; i++) {
+            corn.update();
+        }
         CHECK(corn.isFinished());
         int stageFinal = Corn::STAGE_FINAL;
         CHECK_EQUAL(stageFinal, stage);
-        corn.update(); // 7
+        corn.update(); 
         CHECK_EQUAL(stageFinal, stage);
         corn.reset();
         CHECK_EQUAL(stage0, stage);
@@ -53,16 +49,13 @@ SUITE(Items){
 
         // Check interaction works and the person gets two
         // corns.
-        corn.update(); // 1
-        corn.update(); // 2
-        corn.update(); // 3
-        corn.update(); // 4
-        corn.update(); // 5
-        corn.update(); // 6
+        for (int i = 0; i < Corn::STAGE_FINAL; i++) {
+            corn.update();
+        }
         Person person = Person();
         corn.interact(person);
-        int amount = 2;
-        CHECK(person.hasInInventory(cornID,amount));
+        int amount = person.amountInInventory(cornID);
+        CHECK(amount != 0);
     }
 }
 
@@ -422,12 +415,9 @@ SUITE(Tasks){
         corn->setPlaced(true);
         corn->loc = goal;
         // Make the corn "ripe".
-        corn->update(); // 1
-        corn->update(); // 2
-        corn->update(); // 3
-        corn->update(); // 4
-        corn->update(); // 5
-        corn->update(); // 6
+        for (int i = 0; i < Corn::STAGE_FINAL; i++) {
+            corn->update();
+        }
         CHECK(corn->isFinished());
 
         TaskInteract* task = new TaskInteract(corn,ship,start);
