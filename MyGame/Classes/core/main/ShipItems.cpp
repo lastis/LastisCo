@@ -77,7 +77,7 @@ Item* ShipItems::createItem(int ID,int UID,Location loc,unsigned int direction){
     // Set the UID of the object. 
     obj->UID = UID;
     obj->loc = loc;
-    obj->setDirection(direction);
+    obj->direction = direction;
     // Add the object to the correct item list.
     itemsPending.add(obj);
     // If everything was ok, add the object to the texture list

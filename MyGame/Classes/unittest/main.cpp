@@ -438,7 +438,6 @@ SUITE(Tasks){
         CHECK(person.hasInInventory(cornID,amount));
         // The task should also have been removed from the person.
         CHECK(person.hasTask() == false);
-        delete corn;
     }
 
     TEST(WalkTask){

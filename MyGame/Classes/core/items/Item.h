@@ -29,10 +29,6 @@ public:
     virtual bool    canPlace(Person& person) = 0;
     virtual int     getTextureID() = 0;
 
-    virtual void setDirection(int direction){
-        this->direction = direction;
-    }
-
     bool isPlaced(){
         return placed;
     }
