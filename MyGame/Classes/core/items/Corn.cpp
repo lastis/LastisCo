@@ -45,7 +45,7 @@ bool Corn::place(Person& person){
     bool enoughSeeds = person.takeFromInventory(ID, 1);
     if (!enoughSeeds) return false;
     // Put the object in placed state.
-    setPlaced(true);
+    placed = true;
     return true;
 }
 

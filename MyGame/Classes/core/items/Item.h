@@ -33,10 +33,6 @@ public:
         this->direction = direction;
     }
 
-    void setPlaced(bool val){
-        placed = val;
-    }
-
     bool isPlaced(){
         return placed;
     }
