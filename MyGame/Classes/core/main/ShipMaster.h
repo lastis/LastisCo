@@ -10,29 +10,15 @@
 #include "../map/Location.h"
 #include "../items/Item.h"
 #include "../items/ItemCreator.h"
-
-/** \mainpage A simple manual
+/** \brief These classes are super classes that is the game system and define
+ * one ship.
+ * \defgroup main Main 
  *
- * Some general info.
- *
- * This manual is divided in the following sections:
- * - \subpage intro
- * - \subpage advanced "Advanced usage"
  */
 
-/** \page intro Introduction
- * This page introduces the user to the topic.
- * Now you can proceed to the \ref advanced "advanced section".
- * */
-
-
-/** Brief description of master.
- * \defgroup main Main
+/** \brief Main access point for interacting with the game system. 
  * \ingroup main
- */
-
-/** Here is ShipMaster
- * \ingroup main
+ * 
  */
 class ShipMaster {
 public:

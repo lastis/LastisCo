@@ -1,6 +1,7 @@
 #ifndef __SHIP_ITEMS_H_INCLUDED__
 #define __SHIP_ITEMS_H_INCLUDED__
 #include "../items/Item.h"
+#include "../items/Weaponry.h"
 #include "../items/LinkedList.h"
 #include "../items/ItemMatrix.h"
 #include "../items/ItemCreator.h"
