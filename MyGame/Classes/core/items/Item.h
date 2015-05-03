@@ -14,8 +14,12 @@ class ShipMaster;
 class Item : public Base{
     friend class ShipItems;
 public:
-    Item(int ID, int slot, int blocking) : slot(slot), blocking(blocking), 
-    placed(false), direction(directions::NORTH)
+    Item(int ID, int slot, int blocking, int type) : 
+        type(type),
+        slot(slot),
+        blocking(blocking), 
+        placed(false), 
+        direction(directions::NORTH)
     {
         this->ID = ID;
     }
@@ -52,6 +56,7 @@ public:
     Location loc;
 protected: 
     // Properties of the item.
+    int     type;
     int     slot;
     int     blocking;
     bool    placed;
@@ -60,7 +65,7 @@ protected:
 
 
 struct ItemTest : public Item {
-    ItemTest() : Item(0,0,0){
+    ItemTest() : Item(0,0,0,blocks::UNSPECIFIED){
     }
     bool interact(Person& person){
         // Items that cannot be interacted with should return

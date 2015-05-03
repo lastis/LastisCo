@@ -1,6 +1,6 @@
 #include "MetalBlock.h"
 using namespace blocks;
-MetalBlock::MetalBlock() : Item(blocks::CENTER_METAL,CENTER,BLOCKING) {
+MetalBlock::MetalBlock() : Item(blocks::CENTER_METAL,CENTER,BLOCKING,UNSPECIFIED) {
     /* ID = blocks::CENTER_METAL; */
 }
 

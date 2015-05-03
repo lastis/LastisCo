@@ -1,6 +1,6 @@
 #include "MetalWall.h"
 using namespace blocks;
-MetalWall::MetalWall() : Item(blocks::WALL_METAL,WALL,BLOCKING) {
+MetalWall::MetalWall() : Item(blocks::WALL_METAL,WALL,BLOCKING,UNSPECIFIED) {
 }
 
 int MetalWall::getTextureID(){

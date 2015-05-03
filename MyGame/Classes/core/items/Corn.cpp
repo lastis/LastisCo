@@ -9,7 +9,7 @@ using namespace blocks;
 // The first argument in the parent class is what
 // slot the items occupies, center for corn and
 // the second paramter is if it blocks movement.
-Corn::Corn() : Item(blocks::CENTER_CORN,CENTER,NON_BLOCKING){
+Corn::Corn() : Item(CENTER_CORN,CENTER,NON_BLOCKING,UNSPECIFIED){
     /* ID = blocks::CENTER_CORN; */
     time = 0;
     stage = STAGE_0;
