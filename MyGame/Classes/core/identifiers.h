@@ -43,6 +43,13 @@ namespace rooms{
     static const int WEAPONS = 4;
 }
 
+/** \brief Contains item IDs, and property specifiers.
+ *
+ * Contains all item IDs as well as flags for specifying if
+ * * an item blocks movement,
+ * * which space the block occupies, 
+ * * identifier for what "group classification" the block has.
+ */         
 namespace blocks{
     // ID == 0 is used for error checking.
     static const unsigned int CENTER_SPACE = 1;  

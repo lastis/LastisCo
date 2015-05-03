@@ -19,6 +19,7 @@ public:
 
     LinkedList& getItems();
     LinkedList& getItemsPending();
+    LinkedList& getItemsWeaponry();
     LinkedList& getTextureList();
 
     Item*   getItemPlacedFromID(int ID);
@@ -33,6 +34,7 @@ public:
     ItemMatrix itemsMapContainer;
     LinkedList itemsPlaced; 
     LinkedList itemsPending;
+    LinkedList itemsWeaponry;
     LinkedList textureList;
     LinkedList listUpdate;
     LinkedList*** itemsMap;

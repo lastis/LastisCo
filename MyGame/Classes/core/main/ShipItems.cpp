@@ -48,6 +48,14 @@ Item*   ShipItems::getItemPendingFromUID(int UID){
     return itemsPending.findWithUID(UID);
 }
 
+/** \brief Place an item on the map, usually "activates" the item. 
+ *
+ * Usually used when an object has finished construction and 
+ * is thus ready to be interacted with. This places the item in 
+ * the corresponding lists it needs to placed in and will be used
+ * to block movement, get the placed variable set to true, and other
+ * things connected to being placed.
+ */         
 bool ShipItems::placeItem(Item* obj){
     using namespace directions;
     using namespace blocks;
@@ -56,6 +64,9 @@ bool ShipItems::placeItem(Item* obj){
     itemsPending.popWithUID(obj->UID);
     itemsPlaced.add(obj);
     Location& loc = obj->loc;
+    if (obj->type == WEAPONRY){
+        itemsWeaponry.add(obj);
+    }
     // The status of the item changed, so we should draw it again.
     textureList.add(obj);
     /* itemsMap[loc.z][loc.y][loc.x].add(obj); */
