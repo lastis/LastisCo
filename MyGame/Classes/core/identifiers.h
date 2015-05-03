@@ -71,5 +71,12 @@ namespace blocks{
     static const int UNSPECIFIED = 1;
     static const int WEAPONRY = 2;
 
+    // Damage target types.
+    static const int ENTETY = 1;
+    static const int CONSTRUCT = 2;
+    static const int CONSTRUCT_SOFT = 3;
+    static const int SHIELD = 3;
+    
+
 }
 #endif
