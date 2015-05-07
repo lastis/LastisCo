@@ -4,6 +4,7 @@
 #include "MapVisualizer.h"
 #include "core/main/ShipMaster.h"
 #include "cocos2d.h"
+#include "network/SocketIO.h"
 
 using namespace cocos2d;
 

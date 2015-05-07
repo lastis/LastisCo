@@ -34,6 +34,8 @@ bool HelloWorld::init()
         return false;
     }
     
+    auto* instance = network::SocketIO::getInstance();
+
     time = 0;
     ship = new ShipMaster(3,20,20);
 
