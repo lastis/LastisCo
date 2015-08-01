@@ -2,13 +2,15 @@
 #define __PATH_NODE_H_INCLUDED__
 
 #include "Location.h"
+/** A path node used by the pathfinding algorithm.
+ * \ingroup map
+ */         
 struct PathNode{
     int x;
     int y;
     int z;
     int fValue;
     int gValue;
-    /* PathNode* link; */
 
     PathNode(){
         x = 0;
@@ -16,7 +18,6 @@ struct PathNode{
         z = 0;
         fValue = 0;
         gValue = 0;
-        /* link = NULL; */
     }
 
     PathNode(Location loc){
@@ -25,7 +26,6 @@ struct PathNode{
         z = loc.z;
         fValue = 0;
         gValue = 0;
-        /* link = NULL; */
     }
     
 
@@ -35,7 +35,6 @@ struct PathNode{
         this->z = z;
         fValue = 0;
         gValue = 0;
-        /* link = NULL; */
     }
 
     PathNode(const PathNode &obj){
@@ -53,7 +52,6 @@ struct PathNode{
         z = obj.z;
         fValue = obj.fValue;
         gValue = obj.gValue;
-        /* link = obj.link; */
     }
 };
 #endif

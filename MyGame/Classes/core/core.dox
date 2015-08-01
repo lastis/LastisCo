@@ -1,0 +1,7 @@
+/** \defgroup core Core
+ * \brief The directory "core" contains everything of the game mechanics. 
+ *
+ * Some
+ * main namespaces and classes are contained in this directories. See other 
+ * modules for more information the subdirectories. 
+ */         

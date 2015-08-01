@@ -4,11 +4,108 @@
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{namespaceglobals}{globals}
+\begin{DoxyCompactList}\small\item\em Global values. \end{DoxyCompactList}\item 
 \hyperlink{namespacedirections}{directions}
-\item 
+\begin{DoxyCompactList}\small\item\em Direction identifiers. \end{DoxyCompactList}\item 
 \hyperlink{namespacetextures}{textures}
-\item 
+\begin{DoxyCompactList}\small\item\em Texture I\-Ds.
+
+Each id represents the U\-I\-D of a tile in the tilset. This should match the U\-I\-D in Tiled. \end{DoxyCompactList}\item 
 \hyperlink{namespacerooms}{rooms}
-\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{classRoom}{Room} I\-Ds. \end{DoxyCompactList}\item 
 \hyperlink{namespaceblocks}{blocks}
+\begin{DoxyCompactList}\small\item\em Contains item I\-Ds, and property specifiers.
+
+Contains all item I\-Ds as well as flags for specifying if. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{namespaceglobals_ad06f2af5cf1c7c3b13ea34b6f0903af0}{globals\-::\-M\-A\-X\-\_\-\-P\-A\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H} = 20
+\begin{DoxyCompactList}\small\item\em Maximum path length return from the pathfinding algorithm. \end{DoxyCompactList}\item 
+const int \hyperlink{namespaceglobals_a3209a1ea09047e47023bbe9982b4945b}{globals\-::\-M\-A\-X\-\_\-\-C\-R\-E\-W} = 100
+\begin{DoxyCompactList}\small\item\em Maximum number of actors in the local world. \end{DoxyCompactList}\item 
+const int \hyperlink{namespacedirections_ae9cfa895df6c71a9a932353c2d698748}{directions\-::\-D\-I\-R\-E\-C\-T\-I\-O\-N\-S} = 6
+\begin{DoxyCompactList}\small\item\em Number of directions. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{namespacedirections_a07f0f35a8e192bdbfbe343b4cc3ac5f0}{directions\-::\-N\-O\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N} = 0
+\item 
+const unsigned int \hyperlink{namespacedirections_aaac74a9680a4a4485ea7966d9cc1e7a0}{directions\-::\-E\-A\-S\-T} = 1$<$$<$0
+\item 
+const unsigned int \hyperlink{namespacedirections_abe28a39304326df4cd876a6f8267b8a0}{directions\-::\-N\-O\-R\-T\-H} = 1$<$$<$1
+\item 
+const unsigned int \hyperlink{namespacedirections_a9164128a01e52cb46cea45b60d3e0d24}{directions\-::\-U\-P} = 1$<$$<$2
+\item 
+const unsigned int \hyperlink{namespacedirections_a6050c968985dc0ca37f492dbd9665b59}{directions\-::\-W\-E\-S\-T} = 1$<$$<$3
+\item 
+const unsigned int \hyperlink{namespacedirections_a01f808fbd532b480f6df835ba039eeb3}{directions\-::\-S\-O\-U\-T\-H} = 1$<$$<$4
+\item 
+const unsigned int \hyperlink{namespacedirections_ac5b0521b6f55c6c27dd493c816eaf61a}{directions\-::\-D\-O\-W\-N} = 1$<$$<$5
+\item 
+const unsigned int \hyperlink{namespacedirections_afb925db0683d3de68b06587ccc1be620}{directions\-::\-B\-L\-O\-C\-K\-\_\-\-N\-O\-N\-E} = 0
+\item 
+const unsigned int \hyperlink{namespacedirections_ad1c6d7e5b1f142442ae7a7d527281e9f}{directions\-::\-B\-L\-O\-C\-K\-\_\-\-W\-E\-S\-T} = 1$<$$<$0
+\item 
+const unsigned int \hyperlink{namespacedirections_a19a70e2862864e20ea8b52f15f18a4d4}{directions\-::\-B\-L\-O\-C\-K\-\_\-\-S\-O\-U\-T\-H} = 1$<$$<$1
+\item 
+const unsigned int \hyperlink{namespacedirections_aee5c7106d29fd47f5dedb475537fa6ad}{directions\-::\-B\-L\-O\-C\-K\-\_\-\-D\-O\-W\-N} = 1$<$$<$2
+\item 
+const unsigned int \hyperlink{namespacedirections_aeafc68d54c090e0e7fc49c20f75f6f71}{directions\-::\-B\-L\-O\-C\-K\-\_\-\-E\-A\-S\-T} = 1$<$$<$3
+\item 
+const unsigned int \hyperlink{namespacedirections_aafa10fc7e4d258d59153b41e0c3c3972}{directions\-::\-B\-L\-O\-C\-K\-\_\-\-N\-O\-R\-T\-H} = 1$<$$<$4
+\item 
+const unsigned int \hyperlink{namespacedirections_a75d6cf52d7c325364a0288afdc7affd8}{directions\-::\-B\-L\-O\-C\-K\-\_\-\-U\-P} = 1$<$$<$5
+\item 
+const unsigned int \hyperlink{namespacedirections_a3a3b00ffd9ec88e2780368bd7604e31b}{directions\-::\-B\-L\-O\-C\-K\-\_\-\-A\-L\-L}
+\item 
+const unsigned int \hyperlink{namespacetextures_a0441d01cbc4e61c26642f3ae2199ff01}{textures\-::\-N\-O\-\_\-\-T\-E\-X\-T\-U\-R\-E} = 0
+\item 
+const unsigned int \hyperlink{namespacetextures_ad9d822633e938b097758d935dbf7addf}{textures\-::\-C\-O\-R\-N\-\_\-\-T\-E\-X\-T\-U\-R\-E\-\_\-1} = 39
+\item 
+const unsigned int \hyperlink{namespacetextures_a4ea11f59a0eb308393ca4a67d75d8e1d}{textures\-::\-C\-O\-R\-N\-\_\-\-T\-E\-X\-T\-U\-R\-E\-\_\-2} = 38
+\item 
+const unsigned int \hyperlink{namespacetextures_a1b3b07f0dfd7b82f409765d6153bc641}{textures\-::\-C\-O\-R\-N\-\_\-\-T\-E\-X\-T\-U\-R\-E\-\_\-3} = 40
+\item 
+const int \hyperlink{namespacerooms_af442e0eb93ff764fd8719778cf57198c}{rooms\-::\-K\-I\-T\-C\-H\-E\-N} = 1
+\item 
+const int \hyperlink{namespacerooms_af6e6156e1e069732b4a871a08c0a0764}{rooms\-::\-B\-R\-I\-D\-G\-E} = 2
+\item 
+const int \hyperlink{namespacerooms_adb86c88291085e8000065eb5ded8d372}{rooms\-::\-E\-N\-G\-I\-N\-E} = 3
+\item 
+const int \hyperlink{namespacerooms_a70b442e599b3d5be772a5288cfc8ce71}{rooms\-::\-W\-E\-A\-P\-O\-N\-S} = 4
+\item 
+const unsigned int \hyperlink{namespaceblocks_a737c0542023b22bab8672250922590e6}{blocks\-::\-C\-E\-N\-T\-E\-R\-\_\-\-S\-P\-A\-C\-E} = 1
+\item 
+const unsigned int \hyperlink{namespaceblocks_a3327185e4957b8756fcd8b0aeae2cbcb}{blocks\-::\-C\-E\-N\-T\-E\-R\-\_\-\-A\-I\-R} = 2
+\item 
+const unsigned int \hyperlink{namespaceblocks_a32435f4674386fdba12f33155aea4310}{blocks\-::\-C\-E\-N\-T\-E\-R\-\_\-\-M\-E\-T\-A\-L} = 3
+\item 
+const unsigned int \hyperlink{namespaceblocks_a443c0848965126c5e669c5e88fd44426}{blocks\-::\-W\-A\-L\-L\-\_\-\-M\-E\-T\-A\-L} = 4
+\item 
+const unsigned int \hyperlink{namespaceblocks_a0b0352a68a2e1ee22c3fd2e94181d15d}{blocks\-::\-F\-L\-O\-O\-R\-\_\-\-M\-E\-T\-A\-L} = 5
+\item 
+const unsigned int \hyperlink{namespaceblocks_a447728bb17162a7d87ed06d4db11060a}{blocks\-::\-C\-E\-N\-T\-E\-R\-\_\-\-C\-O\-R\-N} = 6
+\item 
+const int \hyperlink{namespaceblocks_aea8b288e0f2f0df691ade96adb6f0833}{blocks\-::\-C\-O\-U\-N\-T} = 6
+\item 
+const int \hyperlink{namespaceblocks_a0493803a45dd00ed11cc9be729da4317}{blocks\-::\-N\-O\-N\-\_\-\-B\-L\-O\-C\-K\-I\-N\-G} = 0
+\item 
+const int \hyperlink{namespaceblocks_a12de5833d1f76be099d7371038e239cd}{blocks\-::\-B\-L\-O\-C\-K\-I\-N\-G} = 1
+\item 
+const int \hyperlink{namespaceblocks_a293bbaa7ca5f1014dc69c2caaa414095}{blocks\-::\-C\-E\-N\-T\-E\-R} = 0
+\item 
+const int \hyperlink{namespaceblocks_af99b22467101d71649b471215cc001fb}{blocks\-::\-F\-L\-O\-O\-R} = 1
+\item 
+const int \hyperlink{namespaceblocks_abc4e6acf8b46e7e8ef24cdc3e4f2a744}{blocks\-::\-W\-A\-L\-L} = 2
+\item 
+const int \hyperlink{namespaceblocks_a6bdd8efa1c06420d581b18dd63651633}{blocks\-::\-U\-N\-S\-P\-E\-C\-I\-F\-I\-E\-D} = 1
+\item 
+const int \hyperlink{namespaceblocks_a60a02114e9d8f1775ff2cd109606f78f}{blocks\-::\-W\-E\-A\-P\-O\-N\-R\-Y} = 2
+\item 
+const int \hyperlink{namespaceblocks_a4d5910f765824bac56f2737496e51a7d}{blocks\-::\-E\-N\-T\-E\-T\-Y} = 1
+\item 
+const int \hyperlink{namespaceblocks_a94050edf77a38898d8d81e0621a5cd62}{blocks\-::\-C\-O\-N\-S\-T\-R\-U\-C\-T} = 2
+\item 
+const int \hyperlink{namespaceblocks_a8a40b228670ab6718cd7678691a660e0}{blocks\-::\-C\-O\-N\-S\-T\-R\-U\-C\-T\-\_\-\-S\-O\-F\-T} = 3
+\item 
+const int \hyperlink{namespaceblocks_a2dbfa556ff23144609daefecf564ddb0}{blocks\-::\-S\-H\-I\-E\-L\-D} = 3
 \end{DoxyCompactItemize}

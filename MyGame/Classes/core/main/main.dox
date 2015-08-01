@@ -1,0 +1,6 @@
+/** \brief These classes are super classes that is the game system and define
+ * the map the player can interact with.
+ * \defgroup main Main 
+ *
+ *
+ */

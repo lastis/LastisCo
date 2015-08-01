@@ -1,0 +1,119 @@
+\hypertarget{classAppDelegate}{\section{App\-Delegate Class Reference}
+\label{classAppDelegate}\index{App\-Delegate@{App\-Delegate}}
+}
+
+
+The cocos2d Application.  
+
+
+
+
+{\ttfamily \#include $<$App\-Delegate.\-h$>$}
+
+Inheritance diagram for App\-Delegate\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAppDelegate}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAppDelegate_a7d26ade6fbc9d35ecc9185792303f82d}{App\-Delegate} ()
+\item 
+virtual \hyperlink{classAppDelegate_a9f89424b5e296e3668deaa0265fc5ac1}{$\sim$\-App\-Delegate} ()
+\item 
+virtual void \hyperlink{classAppDelegate_a2de4e8ab7d04bde311684e1d4ceb2c0f}{init\-G\-L\-Context\-Attrs} ()
+\item 
+virtual bool \hyperlink{classAppDelegate_a68cbaed49edf7581dc59a09d5062fff3}{application\-Did\-Finish\-Launching} ()
+\begin{DoxyCompactList}\small\item\em Implement Director and Scene init code here. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classAppDelegate_a17cb09777419781698324e0415bffd3a}{application\-Did\-Enter\-Background} ()
+\begin{DoxyCompactList}\small\item\em The function be called when the application enter background. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classAppDelegate_ac4d653e3f74a91efef5f2def58fe3108}{application\-Will\-Enter\-Foreground} ()
+\begin{DoxyCompactList}\small\item\em The function be called when the application enter foreground. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The cocos2d Application. 
+
+The reason for implement as private inheritance is to hide some interface call by Director. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classAppDelegate_a7d26ade6fbc9d35ecc9185792303f82d}{\index{App\-Delegate@{App\-Delegate}!App\-Delegate@{App\-Delegate}}
+\index{App\-Delegate@{App\-Delegate}!AppDelegate@{App\-Delegate}}
+\subsubsection[{App\-Delegate}]{\setlength{\rightskip}{0pt plus 5cm}App\-Delegate\-::\-App\-Delegate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAppDelegate_a7d26ade6fbc9d35ecc9185792303f82d}
+\hypertarget{classAppDelegate_a9f89424b5e296e3668deaa0265fc5ac1}{\index{App\-Delegate@{App\-Delegate}!$\sim$\-App\-Delegate@{$\sim$\-App\-Delegate}}
+\index{$\sim$\-App\-Delegate@{$\sim$\-App\-Delegate}!AppDelegate@{App\-Delegate}}
+\subsubsection[{$\sim$\-App\-Delegate}]{\setlength{\rightskip}{0pt plus 5cm}App\-Delegate\-::$\sim$\-App\-Delegate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAppDelegate_a9f89424b5e296e3668deaa0265fc5ac1}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classAppDelegate_a17cb09777419781698324e0415bffd3a}{\index{App\-Delegate@{App\-Delegate}!application\-Did\-Enter\-Background@{application\-Did\-Enter\-Background}}
+\index{application\-Did\-Enter\-Background@{application\-Did\-Enter\-Background}!AppDelegate@{App\-Delegate}}
+\subsubsection[{application\-Did\-Enter\-Background}]{\setlength{\rightskip}{0pt plus 5cm}void App\-Delegate\-::application\-Did\-Enter\-Background (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAppDelegate_a17cb09777419781698324e0415bffd3a}
+
+
+The function be called when the application enter background. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & pointer of the application \\
+\hline
+\end{DoxyParams}
+\hypertarget{classAppDelegate_a68cbaed49edf7581dc59a09d5062fff3}{\index{App\-Delegate@{App\-Delegate}!application\-Did\-Finish\-Launching@{application\-Did\-Finish\-Launching}}
+\index{application\-Did\-Finish\-Launching@{application\-Did\-Finish\-Launching}!AppDelegate@{App\-Delegate}}
+\subsubsection[{application\-Did\-Finish\-Launching}]{\setlength{\rightskip}{0pt plus 5cm}bool App\-Delegate\-::application\-Did\-Finish\-Launching (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAppDelegate_a68cbaed49edf7581dc59a09d5062fff3}
+
+
+Implement Director and Scene init code here. 
+
+\begin{DoxyReturn}{Returns}
+true Initialize success, app continue. 
+
+false Initialize failed, app terminate. 
+\end{DoxyReturn}
+\hypertarget{classAppDelegate_ac4d653e3f74a91efef5f2def58fe3108}{\index{App\-Delegate@{App\-Delegate}!application\-Will\-Enter\-Foreground@{application\-Will\-Enter\-Foreground}}
+\index{application\-Will\-Enter\-Foreground@{application\-Will\-Enter\-Foreground}!AppDelegate@{App\-Delegate}}
+\subsubsection[{application\-Will\-Enter\-Foreground}]{\setlength{\rightskip}{0pt plus 5cm}void App\-Delegate\-::application\-Will\-Enter\-Foreground (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAppDelegate_ac4d653e3f74a91efef5f2def58fe3108}
+
+
+The function be called when the application enter foreground. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & pointer of the application \\
+\hline
+\end{DoxyParams}
+\hypertarget{classAppDelegate_a2de4e8ab7d04bde311684e1d4ceb2c0f}{\index{App\-Delegate@{App\-Delegate}!init\-G\-L\-Context\-Attrs@{init\-G\-L\-Context\-Attrs}}
+\index{init\-G\-L\-Context\-Attrs@{init\-G\-L\-Context\-Attrs}!AppDelegate@{App\-Delegate}}
+\subsubsection[{init\-G\-L\-Context\-Attrs}]{\setlength{\rightskip}{0pt plus 5cm}void App\-Delegate\-::init\-G\-L\-Context\-Attrs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAppDelegate_a2de4e8ab7d04bde311684e1d4ceb2c0f}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{AppDelegate_8h}{App\-Delegate.\-h}\item 
+\hyperlink{AppDelegate_8cpp}{App\-Delegate.\-cpp}\end{DoxyCompactItemize}

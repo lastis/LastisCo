@@ -10,15 +10,13 @@
 #include "../map/Location.h"
 #include "../items/Item.h"
 #include "../items/ItemCreator.h"
-/** \brief These classes are super classes that is the game system and define
- * one ship.
- * \defgroup main Main 
- *
- */
 
 /** \brief Main access point for interacting with the game system. 
  * \ingroup main
- * 
+ *
+ *
+ * Everything that is contained in the local world should call methods through 
+ * this class. Here one can search for a path or create new items for instance. 
  */
 class ShipMaster {
 public:
@@ -28,7 +26,10 @@ public:
 
     void update();
 
-    // Map methods.
+    /** \name LocalWorld methods.
+     * \sa ShipMap
+     */         
+    //@{
     bool    isVacant(int x, int y, int z);
     bool    isVacant(Location loc);
     Path    findPath(Location start, Location end);
@@ -36,8 +37,12 @@ public:
     void    updateMapAccess();
     void    placeTexture(unsigned int ID, Location loc);
     unsigned int*** getMapRooms();
+    //@}
 
-    // Item methods.
+    /** \name Item methods.
+     * \sa ShipItems
+     */         
+    //@{
     bool    placeItem(Item* obj);
     Item*   createItem(int ID, Location loc);
     Item*   createItem(int ID, Location loc, unsigned int direction);
@@ -51,18 +56,28 @@ public:
     Item*   getItemPendingFromUID(int UID);
     int     getItemPlacedCount();
     int     getItemPendingCount();
+    //@}
 
-    // Room methods.
+    /** \name Room methods.
+     * Should probably be buildning methods.
+     * \sa ShipRooms
+     */         
+    //@{
     Room*   createRoom(Location* locations, int N, int ID);
     void    placeRoom(Location* locations, int N, int UID);
     Path    getPathToRoom(int UID, Location start);
     Room*   getRoom(Location loc);
+    //@}
 
-    // Crew methods.
+    /** \name Actor (person) methods.
+     * \sa ShipCrew
+     */         
+    //@{
     Person* createCrewMember(int ID, Location loc);
     int     getCrewCount();
     Person* getCrewFromIndex(int i);
     Person** getCrew();
+    //@}
 
 
     ShipCrew*   shipCrew;

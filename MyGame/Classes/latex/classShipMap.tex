@@ -3,6 +3,11 @@
 }
 
 
+Contains the local world.  
+
+
+
+
 {\ttfamily \#include $<$Ship\-Map.\-h$>$}
 
 \subsection*{Public Member Functions}
@@ -17,7 +22,7 @@
 void \hyperlink{classShipMap_a7c66418320a5bb788dbbe3a122e76cd7}{update\-Map\-Access} (\hyperlink{classShipMaster}{Ship\-Master} \&ship)
 \item 
 void \hyperlink{classShipMap_a2ff8a4864984373340f94eaed37debe7}{simplify\-Locations} (\hyperlink{structLocation}{Location} \&loc1, \hyperlink{structLocation}{Location} \&loc2)
-\item 
+\begin{DoxyCompactList}\small\item\em Makes all coordinates of loc1 less than loc2. \end{DoxyCompactList}\item 
 bool \hyperlink{classShipMap_a6817875f83a1ae67fe9124823b80b4b1}{within\-Bounds} (\hyperlink{structLocation}{Location} loc)
 \item 
 void \hyperlink{classShipMap_a01d56312b189102d019a1da898957b73}{place\-Texture} (unsigned int I\-D, \hyperlink{structLocation}{Location} loc)
@@ -54,6 +59,11 @@ unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_a6b16ec5869e5cb347d847c9
 \item 
 unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_aecdbc1ca649c823dc139aefcce416ebb}{get\-Map\-Textures\-North\-Walls} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains the local world. 
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -217,6 +227,17 @@ unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMap_aecdbc1ca649c823dc139aef
 \item[{{\bf Location} \&}]{loc2}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classShipMap_a2ff8a4864984373340f94eaed37debe7}
+
+
+Makes all coordinates of loc1 less than loc2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc1} & \hyperlink{structLocation}{Location} 1. \\
+\hline
+{\em loc2} & \hyperlink{structLocation}{Location} 2. \\
+\hline
+\end{DoxyParams}
 \hypertarget{classShipMap_a7c66418320a5bb788dbbe3a122e76cd7}{\index{Ship\-Map@{Ship\-Map}!update\-Map\-Access@{update\-Map\-Access}}
 \index{update\-Map\-Access@{update\-Map\-Access}!ShipMap@{Ship\-Map}}
 \subsubsection[{update\-Map\-Access}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Map\-::update\-Map\-Access (

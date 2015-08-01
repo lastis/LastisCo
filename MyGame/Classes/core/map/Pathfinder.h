@@ -9,26 +9,67 @@
 #include "PathNode.h"
 #include "Path.h"
 
+/** \brief Pathfinding algorithm object.
+ * \ingroup map
+ * \sa findPath
+ */         
 class Pathfinder {
 
-    static const int X_DIR[directions::DIRECTIONS];
+private:
+    static const int X_DIR[directions::DIRECTIONS]; 
     static const int Y_DIR[directions::DIRECTIONS];
     static const int Z_DIR[directions::DIRECTIONS];
     
 
 public:
     // Functions.
+    /** \brief Empty constructor.
+     */         
     Pathfinder();
+
+    /** \brief Initialize the pathfinde with a local world map.
+     * \parma map Local world.
+     */         
     Pathfinder(Matrix3D& map);
+
     ~Pathfinder();
+
     Pathfinder(const Pathfinder &obj);
+
     Pathfinder& operator= (const Pathfinder& obj);
+
+    /** \brief Copy function. 
+     * \param obj Pathfinder to copy. 
+     */         
     void copy(const Pathfinder &obj);
+
+    /** \brief Frees internal memory.
+     */         
     void freeMemory();
+
+    /** \brief Frees memory of nodeHooks
+     */         
     void freePathNodes();
+
+    /** \brief Assigned a different local world to the pathfinding object.
+     * \param map New local world. 
+     */         
     void setMap(Matrix3D& map);
+
+    /** \brief Finds a path from start to goal.
+     *
+     * \param start Location of start.
+     * \param goal Location of goal.
+     * \return A path object containg the path.
+     */         
     Path findPath(Location start, Location goal);
 #ifdef TESTING
+    /** \brief Debug: Prints the whole direction matrix.
+     *
+     * The A* algorithm generates paths while running. These trial paths
+     * are stored in a matrix. Can be printed with this function.
+     * \param zDim Which level z level to show. 
+     */         
     void printDirMap(int zDim);
 #endif
 private:
@@ -49,8 +90,7 @@ private:
     unsigned int*** blocked; 
     unsigned int*** dirMap;
     int xDim, yDim, zDim; 
-    // Used for deleting propertly.
-    PathNode** nodeHooks;
+    PathNode** nodeHooks; ///< Empty list of nodes, filled during pathfinding. 
     int nodeNr;
 
 };

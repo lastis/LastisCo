@@ -15,6 +15,11 @@ struct PriorityNode
     }
 };
 
+/** \brief Holds PathNode objects.
+ * \ingroup map
+ *
+ * Used by the pathfinding algorithm to sort path nodes by fValue.
+ */         
 class PriorityQueue{
 public:
     PriorityQueue();

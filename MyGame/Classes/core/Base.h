@@ -1,7 +1,9 @@
 #ifndef __BASE_H_INCLUDED__
 #define __BASE_H_INCLUDED__
 
-/// All objects which have an ID and UID inherit from Base. 
+/** \brief All objects which have an ID and UID inherit from Base. 
+ * \ingroup core
+ */         
 class Base {
 public:
     Base();

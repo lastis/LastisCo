@@ -3,6 +3,11 @@
 }
 
 
+Contains a path, usually from a pathfinding algorithm.  
+
+
+
+
 {\ttfamily \#include $<$Path.\-h$>$}
 
 \subsection*{Public Member Functions}
@@ -11,7 +16,7 @@
 \hyperlink{classPath_af26cfab021ddf49af73da3b2beca85ac}{Path} ()
 \item 
 \hyperlink{classPath_ab3bdc2d36faec392cee7036599cac1e8}{Path} (unsigned int $\ast$\hyperlink{classPath_a15e858fcafd08883c9aa4460e9a63961}{path}, int \hyperlink{classPath_a899a5337cfcdac6fb6ff020dd7b4cf7d}{length})
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \hyperlink{classPath_a141da9ff89c85e0ba410b5a73864c267}{$\sim$\-Path} ()
 \item 
 \hyperlink{classPath_a7e773507a877600083364271852ed19f}{Path} (const \hyperlink{classPath}{Path} \&obj)
@@ -21,7 +26,7 @@
 void \hyperlink{classPath_ab9976c0fbf9ef118d8fb321aa904afbc}{copy} (const \hyperlink{classPath}{Path} \&obj)
 \item 
 unsigned int \hyperlink{classPath_a03ca062f08b780af43c39e27f02425c9}{get\-Next\-Direction} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the next direction. \end{DoxyCompactList}\item 
 bool \hyperlink{classPath_a025d58fe0a4ba7e2e525ac39f2e42d48}{is\-Complete} ()
 \item 
 bool \hyperlink{classPath_ab164e32a921ddff93de3206fbc9223ab}{has\-Path} ()
@@ -39,6 +44,9 @@ int \hyperlink{classPath_a2519662bb0102f3b02af7a739d55add7}{index}
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Contains a path, usually from a pathfinding algorithm. 
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classPath_af26cfab021ddf49af73da3b2beca85ac}{\index{Path@{Path}!Path@{Path}}
 \index{Path@{Path}!Path@{Path}}
@@ -55,6 +63,17 @@ int \hyperlink{classPath_a2519662bb0102f3b02af7a739d55add7}{index}
 \item[{int}]{length}
 \end{DoxyParamCaption}
 )}}\label{classPath_ab3bdc2d36faec392cee7036599cac1e8}
+
+
+Constructor. 
+
+The length of path can be longer than length. 
+\begin{DoxyParams}{Parameters}
+{\em path} & Unsigned int array of directions. \\
+\hline
+{\em length} & Length of the array. \\
+\hline
+\end{DoxyParams}
 \hypertarget{classPath_a141da9ff89c85e0ba410b5a73864c267}{\index{Path@{Path}!$\sim$\-Path@{$\sim$\-Path}}
 \index{$\sim$\-Path@{$\sim$\-Path}!Path@{Path}}
 \subsubsection[{$\sim$\-Path}]{\setlength{\rightskip}{0pt plus 5cm}Path\-::$\sim$\-Path (
@@ -86,13 +105,20 @@ int \hyperlink{classPath_a2519662bb0102f3b02af7a739d55add7}{index}
 {}
 \end{DoxyParamCaption}
 )}}\label{classPath_adf15aa16c75bdf6a02b9a52af0264a54}
-\hypertarget{classPath_a03ca062f08b780af43c39e27f02425c9}{\index{Path@{Path}!get\-Next\-Direction@{get\-Next\-Direction}}
+Get the length of the path. \hypertarget{classPath_a03ca062f08b780af43c39e27f02425c9}{\index{Path@{Path}!get\-Next\-Direction@{get\-Next\-Direction}}
 \index{get\-Next\-Direction@{get\-Next\-Direction}!Path@{Path}}
 \subsubsection[{get\-Next\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Path\-::get\-Next\-Direction (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{classPath_a03ca062f08b780af43c39e27f02425c9}
+
+
+Get the next direction. 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{namespacedirections}{directions}. 
+\end{DoxySeeAlso}
 \hypertarget{classPath_ab164e32a921ddff93de3206fbc9223ab}{\index{Path@{Path}!has\-Path@{has\-Path}}
 \index{has\-Path@{has\-Path}!Path@{Path}}
 \subsubsection[{has\-Path}]{\setlength{\rightskip}{0pt plus 5cm}bool Path\-::has\-Path (
@@ -100,14 +126,14 @@ int \hyperlink{classPath_a2519662bb0102f3b02af7a739d55add7}{index}
 {}
 \end{DoxyParamCaption}
 )}}\label{classPath_ab164e32a921ddff93de3206fbc9223ab}
-\hypertarget{classPath_a025d58fe0a4ba7e2e525ac39f2e42d48}{\index{Path@{Path}!is\-Complete@{is\-Complete}}
+Check if a path has been assigned to the object. \hypertarget{classPath_a025d58fe0a4ba7e2e525ac39f2e42d48}{\index{Path@{Path}!is\-Complete@{is\-Complete}}
 \index{is\-Complete@{is\-Complete}!Path@{Path}}
 \subsubsection[{is\-Complete}]{\setlength{\rightskip}{0pt plus 5cm}bool Path\-::is\-Complete (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{classPath_a025d58fe0a4ba7e2e525ac39f2e42d48}
-\hypertarget{classPath_a8fed62e1c09866defe99985648111462}{\index{Path@{Path}!operator=@{operator=}}
+Check if the path has given it last direction. \hypertarget{classPath_a8fed62e1c09866defe99985648111462}{\index{Path@{Path}!operator=@{operator=}}
 \index{operator=@{operator=}!Path@{Path}}
 \subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Path} \& Path\-::operator= (
 \begin{DoxyParamCaption}

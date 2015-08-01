@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "Pathfinder.h"
+using namespace globals;
 
 const int Pathfinder::X_DIR[] = {1, 0, 0, -1, 0, 0};
 const int Pathfinder::Y_DIR[] = {0, 1, 0, 0, -1, 0};
@@ -138,7 +139,8 @@ Path Pathfinder::findPath(Location start, Location goal){
     }
 #endif
     using namespace directions;
-    // This is a quickfix to fill the path from start to finish.
+    // This is a quickfix to fill the path from start to finish instead of 
+    // reverse.
     Location temp = start;
     start = goal;
     goal = temp;
@@ -269,10 +271,8 @@ Path Pathfinder::findPath(Location start, Location goal){
                 // Add the better node instead.
                 nodeList[index].push(node2);
             }
-            /* else delete node2; */
         }
         // Else delete node 1. 
-        /* delete node1; */
     }
     // Return empty path. 
     Path pathContainer = Path(NULL,0);

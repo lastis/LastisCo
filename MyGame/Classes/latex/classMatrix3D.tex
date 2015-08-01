@@ -3,6 +3,11 @@
 }
 
 
+Custom 3\-D matrix class.  
+
+
+
+
 {\ttfamily \#include $<$Matrix3\-D.\-h$>$}
 
 \subsection*{Public Member Functions}
@@ -21,18 +26,21 @@ void \hyperlink{classMatrix3D_a8e59f8086014545c9903c19285e1633c}{copy} (const \h
 \hyperlink{classMatrix3D}{Matrix3\-D} \& \hyperlink{classMatrix3D_a6fdf8e427536d117728ebaa553299536}{operator=} (const \hyperlink{classMatrix3D}{Matrix3\-D} \&obj)
 \item 
 void \hyperlink{classMatrix3D_ac33fc82014b8044fca2d2a0c66198af7}{reset} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Sett all values to 0. \end{DoxyCompactList}\item 
 unsigned int $\ast$$\ast$$\ast$ \hyperlink{classMatrix3D_add08639722074b7937673ec3c32244a0}{get\-Matrix} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the underlying 3d pointer array. \end{DoxyCompactList}\item 
 unsigned int $\ast$ \hyperlink{classMatrix3D_a50c9ddd36d2bb1c04c6439990f0770da}{get\-Matrix\-Flat} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the underlying 1d pointer array. \end{DoxyCompactList}\item 
 int \hyperlink{classMatrix3D_aeae51b36ac95e7776c59d2055eea33b1}{get\-O} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get dim O. \end{DoxyCompactList}\item 
 int \hyperlink{classMatrix3D_aa3c40df02838ee04d18ae40c6c4c5e3f}{get\-N} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get dim N. \end{DoxyCompactList}\item 
 int \hyperlink{classMatrix3D_af0071aecbd9d8af56d2d30c92f9d970e}{get\-M} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get dim M. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Custom 3\-D matrix class. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classMatrix3D_afe9c6b7abe858fe9f6aea8f0607a00a7}{\index{Matrix3\-D@{Matrix3\-D}!Matrix3\-D@{Matrix3\-D}}
@@ -82,6 +90,10 @@ int \hyperlink{classMatrix3D_af0071aecbd9d8af56d2d30c92f9d970e}{get\-M} ()
 {}
 \end{DoxyParamCaption}
 )}}\label{classMatrix3D_af0071aecbd9d8af56d2d30c92f9d970e}
+
+
+Get dim M. 
+
 \hypertarget{classMatrix3D_add08639722074b7937673ec3c32244a0}{\index{Matrix3\-D@{Matrix3\-D}!get\-Matrix@{get\-Matrix}}
 \index{get\-Matrix@{get\-Matrix}!Matrix3D@{Matrix3\-D}}
 \subsubsection[{get\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Matrix3\-D\-::get\-Matrix (
@@ -89,6 +101,10 @@ int \hyperlink{classMatrix3D_af0071aecbd9d8af56d2d30c92f9d970e}{get\-M} ()
 {}
 \end{DoxyParamCaption}
 )}}\label{classMatrix3D_add08639722074b7937673ec3c32244a0}
+
+
+Get the underlying 3d pointer array. 
+
 \hypertarget{classMatrix3D_a50c9ddd36d2bb1c04c6439990f0770da}{\index{Matrix3\-D@{Matrix3\-D}!get\-Matrix\-Flat@{get\-Matrix\-Flat}}
 \index{get\-Matrix\-Flat@{get\-Matrix\-Flat}!Matrix3D@{Matrix3\-D}}
 \subsubsection[{get\-Matrix\-Flat}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$ Matrix3\-D\-::get\-Matrix\-Flat (
@@ -96,6 +112,10 @@ int \hyperlink{classMatrix3D_af0071aecbd9d8af56d2d30c92f9d970e}{get\-M} ()
 {}
 \end{DoxyParamCaption}
 )}}\label{classMatrix3D_a50c9ddd36d2bb1c04c6439990f0770da}
+
+
+Get the underlying 1d pointer array. 
+
 \hypertarget{classMatrix3D_aa3c40df02838ee04d18ae40c6c4c5e3f}{\index{Matrix3\-D@{Matrix3\-D}!get\-N@{get\-N}}
 \index{get\-N@{get\-N}!Matrix3D@{Matrix3\-D}}
 \subsubsection[{get\-N}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix3\-D\-::get\-N (
@@ -103,6 +123,10 @@ int \hyperlink{classMatrix3D_af0071aecbd9d8af56d2d30c92f9d970e}{get\-M} ()
 {}
 \end{DoxyParamCaption}
 )}}\label{classMatrix3D_aa3c40df02838ee04d18ae40c6c4c5e3f}
+
+
+Get dim N. 
+
 \hypertarget{classMatrix3D_aeae51b36ac95e7776c59d2055eea33b1}{\index{Matrix3\-D@{Matrix3\-D}!get\-O@{get\-O}}
 \index{get\-O@{get\-O}!Matrix3D@{Matrix3\-D}}
 \subsubsection[{get\-O}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix3\-D\-::get\-O (
@@ -110,6 +134,10 @@ int \hyperlink{classMatrix3D_af0071aecbd9d8af56d2d30c92f9d970e}{get\-M} ()
 {}
 \end{DoxyParamCaption}
 )}}\label{classMatrix3D_aeae51b36ac95e7776c59d2055eea33b1}
+
+
+Get dim O. 
+
 \hypertarget{classMatrix3D_a6fdf8e427536d117728ebaa553299536}{\index{Matrix3\-D@{Matrix3\-D}!operator=@{operator=}}
 \index{operator=@{operator=}!Matrix3D@{Matrix3\-D}}
 \subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix3\-D} \& Matrix3\-D\-::operator= (
@@ -124,6 +152,10 @@ int \hyperlink{classMatrix3D_af0071aecbd9d8af56d2d30c92f9d970e}{get\-M} ()
 {}
 \end{DoxyParamCaption}
 )}}\label{classMatrix3D_ac33fc82014b8044fca2d2a0c66198af7}
+
+
+Sett all values to 0. 
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

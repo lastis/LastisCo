@@ -8,8 +8,10 @@
 #include "../identifiers.h"
 
 class ShipMaster;
-/** 
+/** \brief Contains the local world.
  * \ingroup main
+ *
+ * 
  */
 class ShipMap {
 public:
@@ -18,6 +20,11 @@ public:
     ~ShipMap();
 
     void updateMapAccess(ShipMaster& ship);
+
+    /** \brief Makes all coordinates of loc1 less than loc2.
+     * \param loc1 Location 1.
+     * \param loc2 Location 2.
+     */         
     inline void simplifyLocations(Location& loc1, Location& loc2);
     bool    withinBounds(Location loc);
 

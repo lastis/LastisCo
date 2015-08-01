@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['item_5fcreator',['item_creator',['../namespaceitem__creator.html',1,'']]]
+  ['globals',['globals',['../namespaceglobals.html',1,'']]]
 ];

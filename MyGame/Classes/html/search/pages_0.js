@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['a_20simple_20manual',['A simple manual',['../index.html',1,'']]]
+  ['unnamed_20game',['Unnamed Game',['../index.html',1,'']]]
 ];

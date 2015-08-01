@@ -5,6 +5,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace globals; // From identifiers.h
 
 SUITE(Identifiers){
     // Not sure how to test this. There might be merit to checking 
@@ -492,7 +493,7 @@ SUITE(Location){
     TEST(Distance){
         Location loc1 = Location(3,3,3);
         Location loc2 = Location(4,4,4);
-        CHECK_EQUAL(3,Location::distanceManhatten(loc1,loc2));
+        CHECK_EQUAL(3,util::distanceManhatten(loc1,loc2));
     }
 }
 

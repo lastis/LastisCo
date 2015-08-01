@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5frooms',['MAX_ROOMS',['../classShipRooms.html#a4c6a08678ec28bde999016e8980b7493',1,'ShipRooms']]]
+  ['jobfarm',['jobFarm',['../classShipJobs.html#ac9319906c1485fe075283f56a635937a',1,'ShipJobs']]]
 ];

@@ -1,3 +1,106 @@
 \hypertarget{namespacedirections}{\section{directions Namespace Reference}
 \label{namespacedirections}\index{directions@{directions}}
 }
+
+
+Direction identifiers.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{namespacedirections_ae9cfa895df6c71a9a932353c2d698748}{D\-I\-R\-E\-C\-T\-I\-O\-N\-S} = 6
+\begin{DoxyCompactList}\small\item\em Number of directions. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{namespacedirections_a07f0f35a8e192bdbfbe343b4cc3ac5f0}{N\-O\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N} = 0
+\item 
+const unsigned int \hyperlink{namespacedirections_aaac74a9680a4a4485ea7966d9cc1e7a0}{E\-A\-S\-T} = 1$<$$<$0
+\item 
+const unsigned int \hyperlink{namespacedirections_abe28a39304326df4cd876a6f8267b8a0}{N\-O\-R\-T\-H} = 1$<$$<$1
+\item 
+const unsigned int \hyperlink{namespacedirections_a9164128a01e52cb46cea45b60d3e0d24}{U\-P} = 1$<$$<$2
+\item 
+const unsigned int \hyperlink{namespacedirections_a6050c968985dc0ca37f492dbd9665b59}{W\-E\-S\-T} = 1$<$$<$3
+\item 
+const unsigned int \hyperlink{namespacedirections_a01f808fbd532b480f6df835ba039eeb3}{S\-O\-U\-T\-H} = 1$<$$<$4
+\item 
+const unsigned int \hyperlink{namespacedirections_ac5b0521b6f55c6c27dd493c816eaf61a}{D\-O\-W\-N} = 1$<$$<$5
+\item 
+const unsigned int \hyperlink{namespacedirections_afb925db0683d3de68b06587ccc1be620}{B\-L\-O\-C\-K\-\_\-\-N\-O\-N\-E} = 0
+\item 
+const unsigned int \hyperlink{namespacedirections_ad1c6d7e5b1f142442ae7a7d527281e9f}{B\-L\-O\-C\-K\-\_\-\-W\-E\-S\-T} = 1$<$$<$0
+\item 
+const unsigned int \hyperlink{namespacedirections_a19a70e2862864e20ea8b52f15f18a4d4}{B\-L\-O\-C\-K\-\_\-\-S\-O\-U\-T\-H} = 1$<$$<$1
+\item 
+const unsigned int \hyperlink{namespacedirections_aee5c7106d29fd47f5dedb475537fa6ad}{B\-L\-O\-C\-K\-\_\-\-D\-O\-W\-N} = 1$<$$<$2
+\item 
+const unsigned int \hyperlink{namespacedirections_aeafc68d54c090e0e7fc49c20f75f6f71}{B\-L\-O\-C\-K\-\_\-\-E\-A\-S\-T} = 1$<$$<$3
+\item 
+const unsigned int \hyperlink{namespacedirections_aafa10fc7e4d258d59153b41e0c3c3972}{B\-L\-O\-C\-K\-\_\-\-N\-O\-R\-T\-H} = 1$<$$<$4
+\item 
+const unsigned int \hyperlink{namespacedirections_a75d6cf52d7c325364a0288afdc7affd8}{B\-L\-O\-C\-K\-\_\-\-U\-P} = 1$<$$<$5
+\item 
+const unsigned int \hyperlink{namespacedirections_a3a3b00ffd9ec88e2780368bd7604e31b}{B\-L\-O\-C\-K\-\_\-\-A\-L\-L}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Direction identifiers. The values of the directions are used in the pathfinding algorithm and use bit operations. There are variables 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacedirections_a3a3b00ffd9ec88e2780368bd7604e31b}{\index{directions@{directions}!B\-L\-O\-C\-K\-\_\-\-A\-L\-L@{B\-L\-O\-C\-K\-\_\-\-A\-L\-L}}
+\index{B\-L\-O\-C\-K\-\_\-\-A\-L\-L@{B\-L\-O\-C\-K\-\_\-\-A\-L\-L}!directions@{directions}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-B\-L\-O\-C\-K\-\_\-\-A\-L\-L}}\label{namespacedirections_a3a3b00ffd9ec88e2780368bd7604e31b}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \hyperlink{namespacedirections_aaac74a9680a4a4485ea7966d9cc1e7a0}{EAST} + \hyperlink{namespacedirections_a6050c968985dc0ca37f492dbd9665b59}{WEST} + \hyperlink{namespacedirections_abe28a39304326df4cd876a6f8267b8a0}{NORTH} 
+        + \hyperlink{namespacedirections_a01f808fbd532b480f6df835ba039eeb3}{SOUTH} + \hyperlink{namespacedirections_a9164128a01e52cb46cea45b60d3e0d24}{UP} + \hyperlink{namespacedirections_ac5b0521b6f55c6c27dd493c816eaf61a}{DOWN}
+\end{DoxyCode}
+Blocks the pathfinder in all directions. \hypertarget{namespacedirections_aee5c7106d29fd47f5dedb475537fa6ad}{\index{directions@{directions}!B\-L\-O\-C\-K\-\_\-\-D\-O\-W\-N@{B\-L\-O\-C\-K\-\_\-\-D\-O\-W\-N}}
+\index{B\-L\-O\-C\-K\-\_\-\-D\-O\-W\-N@{B\-L\-O\-C\-K\-\_\-\-D\-O\-W\-N}!directions@{directions}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-B\-L\-O\-C\-K\-\_\-\-D\-O\-W\-N = 1$<$$<$2}}\label{namespacedirections_aee5c7106d29fd47f5dedb475537fa6ad}
+Blocks the pathfinder in down direction. \hypertarget{namespacedirections_aeafc68d54c090e0e7fc49c20f75f6f71}{\index{directions@{directions}!B\-L\-O\-C\-K\-\_\-\-E\-A\-S\-T@{B\-L\-O\-C\-K\-\_\-\-E\-A\-S\-T}}
+\index{B\-L\-O\-C\-K\-\_\-\-E\-A\-S\-T@{B\-L\-O\-C\-K\-\_\-\-E\-A\-S\-T}!directions@{directions}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-E\-A\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-B\-L\-O\-C\-K\-\_\-\-E\-A\-S\-T = 1$<$$<$3}}\label{namespacedirections_aeafc68d54c090e0e7fc49c20f75f6f71}
+Blocks the pathfinder in east direction. \hypertarget{namespacedirections_afb925db0683d3de68b06587ccc1be620}{\index{directions@{directions}!B\-L\-O\-C\-K\-\_\-\-N\-O\-N\-E@{B\-L\-O\-C\-K\-\_\-\-N\-O\-N\-E}}
+\index{B\-L\-O\-C\-K\-\_\-\-N\-O\-N\-E@{B\-L\-O\-C\-K\-\_\-\-N\-O\-N\-E}!directions@{directions}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-N\-O\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-B\-L\-O\-C\-K\-\_\-\-N\-O\-N\-E = 0}}\label{namespacedirections_afb925db0683d3de68b06587ccc1be620}
+Box with this value does not block the pathfinder. \hypertarget{namespacedirections_aafa10fc7e4d258d59153b41e0c3c3972}{\index{directions@{directions}!B\-L\-O\-C\-K\-\_\-\-N\-O\-R\-T\-H@{B\-L\-O\-C\-K\-\_\-\-N\-O\-R\-T\-H}}
+\index{B\-L\-O\-C\-K\-\_\-\-N\-O\-R\-T\-H@{B\-L\-O\-C\-K\-\_\-\-N\-O\-R\-T\-H}!directions@{directions}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-N\-O\-R\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-B\-L\-O\-C\-K\-\_\-\-N\-O\-R\-T\-H = 1$<$$<$4}}\label{namespacedirections_aafa10fc7e4d258d59153b41e0c3c3972}
+Blocks the pathfinder in north direction. \hypertarget{namespacedirections_a19a70e2862864e20ea8b52f15f18a4d4}{\index{directions@{directions}!B\-L\-O\-C\-K\-\_\-\-S\-O\-U\-T\-H@{B\-L\-O\-C\-K\-\_\-\-S\-O\-U\-T\-H}}
+\index{B\-L\-O\-C\-K\-\_\-\-S\-O\-U\-T\-H@{B\-L\-O\-C\-K\-\_\-\-S\-O\-U\-T\-H}!directions@{directions}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-S\-O\-U\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-B\-L\-O\-C\-K\-\_\-\-S\-O\-U\-T\-H = 1$<$$<$1}}\label{namespacedirections_a19a70e2862864e20ea8b52f15f18a4d4}
+Blocks the pathfinder in south direction. \hypertarget{namespacedirections_a75d6cf52d7c325364a0288afdc7affd8}{\index{directions@{directions}!B\-L\-O\-C\-K\-\_\-\-U\-P@{B\-L\-O\-C\-K\-\_\-\-U\-P}}
+\index{B\-L\-O\-C\-K\-\_\-\-U\-P@{B\-L\-O\-C\-K\-\_\-\-U\-P}!directions@{directions}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-B\-L\-O\-C\-K\-\_\-\-U\-P = 1$<$$<$5}}\label{namespacedirections_a75d6cf52d7c325364a0288afdc7affd8}
+Blocks the pathfinder in up direction. \hypertarget{namespacedirections_ad1c6d7e5b1f142442ae7a7d527281e9f}{\index{directions@{directions}!B\-L\-O\-C\-K\-\_\-\-W\-E\-S\-T@{B\-L\-O\-C\-K\-\_\-\-W\-E\-S\-T}}
+\index{B\-L\-O\-C\-K\-\_\-\-W\-E\-S\-T@{B\-L\-O\-C\-K\-\_\-\-W\-E\-S\-T}!directions@{directions}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-W\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-B\-L\-O\-C\-K\-\_\-\-W\-E\-S\-T = 1$<$$<$0}}\label{namespacedirections_ad1c6d7e5b1f142442ae7a7d527281e9f}
+Blocks the pathfinder in west direction. \hypertarget{namespacedirections_ae9cfa895df6c71a9a932353c2d698748}{\index{directions@{directions}!D\-I\-R\-E\-C\-T\-I\-O\-N\-S@{D\-I\-R\-E\-C\-T\-I\-O\-N\-S}}
+\index{D\-I\-R\-E\-C\-T\-I\-O\-N\-S@{D\-I\-R\-E\-C\-T\-I\-O\-N\-S}!directions@{directions}}
+\subsubsection[{D\-I\-R\-E\-C\-T\-I\-O\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}const int directions\-::\-D\-I\-R\-E\-C\-T\-I\-O\-N\-S = 6}}\label{namespacedirections_ae9cfa895df6c71a9a932353c2d698748}
+
+
+Number of directions. 
+
+\hypertarget{namespacedirections_ac5b0521b6f55c6c27dd493c816eaf61a}{\index{directions@{directions}!D\-O\-W\-N@{D\-O\-W\-N}}
+\index{D\-O\-W\-N@{D\-O\-W\-N}!directions@{directions}}
+\subsubsection[{D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-D\-O\-W\-N = 1$<$$<$5}}\label{namespacedirections_ac5b0521b6f55c6c27dd493c816eaf61a}
+\hypertarget{namespacedirections_aaac74a9680a4a4485ea7966d9cc1e7a0}{\index{directions@{directions}!E\-A\-S\-T@{E\-A\-S\-T}}
+\index{E\-A\-S\-T@{E\-A\-S\-T}!directions@{directions}}
+\subsubsection[{E\-A\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-E\-A\-S\-T = 1$<$$<$0}}\label{namespacedirections_aaac74a9680a4a4485ea7966d9cc1e7a0}
+\hypertarget{namespacedirections_a07f0f35a8e192bdbfbe343b4cc3ac5f0}{\index{directions@{directions}!N\-O\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N@{N\-O\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N}}
+\index{N\-O\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N@{N\-O\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N}!directions@{directions}}
+\subsubsection[{N\-O\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-N\-O\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N = 0}}\label{namespacedirections_a07f0f35a8e192bdbfbe343b4cc3ac5f0}
+\hypertarget{namespacedirections_abe28a39304326df4cd876a6f8267b8a0}{\index{directions@{directions}!N\-O\-R\-T\-H@{N\-O\-R\-T\-H}}
+\index{N\-O\-R\-T\-H@{N\-O\-R\-T\-H}!directions@{directions}}
+\subsubsection[{N\-O\-R\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-N\-O\-R\-T\-H = 1$<$$<$1}}\label{namespacedirections_abe28a39304326df4cd876a6f8267b8a0}
+\hypertarget{namespacedirections_a01f808fbd532b480f6df835ba039eeb3}{\index{directions@{directions}!S\-O\-U\-T\-H@{S\-O\-U\-T\-H}}
+\index{S\-O\-U\-T\-H@{S\-O\-U\-T\-H}!directions@{directions}}
+\subsubsection[{S\-O\-U\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-S\-O\-U\-T\-H = 1$<$$<$4}}\label{namespacedirections_a01f808fbd532b480f6df835ba039eeb3}
+\hypertarget{namespacedirections_a9164128a01e52cb46cea45b60d3e0d24}{\index{directions@{directions}!U\-P@{U\-P}}
+\index{U\-P@{U\-P}!directions@{directions}}
+\subsubsection[{U\-P}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-U\-P = 1$<$$<$2}}\label{namespacedirections_a9164128a01e52cb46cea45b60d3e0d24}
+\hypertarget{namespacedirections_a6050c968985dc0ca37f492dbd9665b59}{\index{directions@{directions}!W\-E\-S\-T@{W\-E\-S\-T}}
+\index{W\-E\-S\-T@{W\-E\-S\-T}!directions@{directions}}
+\subsubsection[{W\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int directions\-::\-W\-E\-S\-T = 1$<$$<$3}}\label{namespacedirections_a6050c968985dc0ca37f492dbd9665b59}

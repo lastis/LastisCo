@@ -14,7 +14,7 @@ Inheritance diagram for Item\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classItem_aeccb01d448bffa2c4b89a49d4d39ea6f}{Item} (int \hyperlink{classBase_a1dddc037afe2eae3e1364597e6a3cf46}{I\-D}, int \hyperlink{classItem_adcfbfc3a87d2112c62b812dac2c72993}{slot}, int \hyperlink{classItem_a5166900b24ba9e746a7ad34c00353cdd}{blocking})
+\hyperlink{classItem_ab416fe589031d8b8b8a1513431e9c37b}{Item} (int \hyperlink{classBase_a1dddc037afe2eae3e1364597e6a3cf46}{I\-D}, int \hyperlink{classItem_adcfbfc3a87d2112c62b812dac2c72993}{slot}, int \hyperlink{classItem_a5166900b24ba9e746a7ad34c00353cdd}{blocking}, int \hyperlink{classItem_a22a98aed7ce8f0314b597a5739c415b7}{type})
 \item 
 virtual \hyperlink{classItem_a33cc9c0bc556b5a33a9d0d58d37c602b}{$\sim$\-Item} ()
 \item 
@@ -28,40 +28,52 @@ virtual bool \hyperlink{classItem_afa9967b10984b1886ed6097eab7239e3}{can\-Place}
 \item 
 virtual int \hyperlink{classItem_a38889163e99a1f5ec9b811b8e64fbc36}{get\-Texture\-I\-D} ()=0
 \item 
-virtual void \hyperlink{classItem_aa4aea30738280ffbc897ed3a9b64362a}{set\-Direction} (int \hyperlink{classItem_a1812b51dc93d2142c0641c536fbef617}{direction})
-\item 
-void \hyperlink{classItem_ab347bc647966f28266a36e3af34c35cc}{set\-Placed} (bool val)
-\item 
 bool \hyperlink{classItem_aca2ca239027e41044ce015c14c4feff6}{is\-Placed} ()
 \item 
+\hyperlink{structLocation}{Location} \hyperlink{classItem_aa72f158c8814721821eda26979106747}{get\-Loc} ()
+\item 
 int \hyperlink{classItem_a9f232e560cdaec93805b428349477c68}{get\-Direction} ()
+\item 
+int \hyperlink{classItem_a7e37d9c1fc049f82e521be5393d62329}{get\-Blocking} ()
+\item 
+int \hyperlink{classItem_a72be057b702678421b8c9b7efc8a9298}{get\-Slot} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{structLocation}{Location} \hyperlink{classItem_ade907eeeea58df68fcacde1e5568779b}{loc}
-\item 
-int \hyperlink{classItem_adcfbfc3a87d2112c62b812dac2c72993}{slot}
-\item 
-int \hyperlink{classItem_a5166900b24ba9e746a7ad34c00353cdd}{blocking}
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
+int \hyperlink{classItem_a22a98aed7ce8f0314b597a5739c415b7}{type}
+\item 
+int \hyperlink{classItem_adcfbfc3a87d2112c62b812dac2c72993}{slot}
+\item 
+int \hyperlink{classItem_a5166900b24ba9e746a7ad34c00353cdd}{blocking}
+\item 
+bool \hyperlink{classItem_a0b61e2b275f9a5958d7238a0d6578235}{placed}
+\item 
 int \hyperlink{classItem_a1812b51dc93d2142c0641c536fbef617}{direction}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classItem_a93f19dfd48656b5ff656596791c0923d}{Ship\-Items}
 \end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classItem_aeccb01d448bffa2c4b89a49d4d39ea6f}{\index{Item@{Item}!Item@{Item}}
+\hypertarget{classItem_ab416fe589031d8b8b8a1513431e9c37b}{\index{Item@{Item}!Item@{Item}}
 \index{Item@{Item}!Item@{Item}}
 \subsubsection[{Item}]{\setlength{\rightskip}{0pt plus 5cm}Item\-::\-Item (
 \begin{DoxyParamCaption}
 \item[{int}]{I\-D, }
 \item[{int}]{slot, }
-\item[{int}]{blocking}
+\item[{int}]{blocking, }
+\item[{int}]{type}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_aeccb01d448bffa2c4b89a49d4d39ea6f}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_ab416fe589031d8b8b8a1513431e9c37b}
 \hypertarget{classItem_a33cc9c0bc556b5a33a9d0d58d37c602b}{\index{Item@{Item}!$\sim$\-Item@{$\sim$\-Item}}
 \index{$\sim$\-Item@{$\sim$\-Item}!Item@{Item}}
 \subsubsection[{$\sim$\-Item}]{\setlength{\rightskip}{0pt plus 5cm}virtual Item\-::$\sim$\-Item (
@@ -83,6 +95,13 @@ int \hyperlink{classItem_a1812b51dc93d2142c0641c536fbef617}{direction}
 
 Implemented in \hyperlink{structItemTest_a22ad8ab142e30bc5b1d45425ed1d26b5}{Item\-Test}, \hyperlink{classCorn_a120e5ee8556cff62e32ad81456a8809f}{Corn}, \hyperlink{classMetalBlock_a3ebb02bfb392a81c292d8f1fa0e7054e}{Metal\-Block}, and \hyperlink{classMetalWall_acd888cb6afaa418a3a92f14eda27a9a5}{Metal\-Wall}.
 
+\hypertarget{classItem_a7e37d9c1fc049f82e521be5393d62329}{\index{Item@{Item}!get\-Blocking@{get\-Blocking}}
+\index{get\-Blocking@{get\-Blocking}!Item@{Item}}
+\subsubsection[{get\-Blocking}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::get\-Blocking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_a7e37d9c1fc049f82e521be5393d62329}
 \hypertarget{classItem_a9f232e560cdaec93805b428349477c68}{\index{Item@{Item}!get\-Direction@{get\-Direction}}
 \index{get\-Direction@{get\-Direction}!Item@{Item}}
 \subsubsection[{get\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::get\-Direction (
@@ -90,6 +109,20 @@ Implemented in \hyperlink{structItemTest_a22ad8ab142e30bc5b1d45425ed1d26b5}{Item
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_a9f232e560cdaec93805b428349477c68}
+\hypertarget{classItem_aa72f158c8814721821eda26979106747}{\index{Item@{Item}!get\-Loc@{get\-Loc}}
+\index{get\-Loc@{get\-Loc}!Item@{Item}}
+\subsubsection[{get\-Loc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Location} Item\-::get\-Loc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_aa72f158c8814721821eda26979106747}
+\hypertarget{classItem_a72be057b702678421b8c9b7efc8a9298}{\index{Item@{Item}!get\-Slot@{get\-Slot}}
+\index{get\-Slot@{get\-Slot}!Item@{Item}}
+\subsubsection[{get\-Slot}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::get\-Slot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_a72be057b702678421b8c9b7efc8a9298}
 \hypertarget{classItem_a38889163e99a1f5ec9b811b8e64fbc36}{\index{Item@{Item}!get\-Texture\-I\-D@{get\-Texture\-I\-D}}
 \index{get\-Texture\-I\-D@{get\-Texture\-I\-D}!Item@{Item}}
 \subsubsection[{get\-Texture\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Item\-::get\-Texture\-I\-D (
@@ -130,20 +163,6 @@ Implemented in \hyperlink{structItemTest_a75e6ddccebab853a259a0957c15407e1}{Item
 
 Implemented in \hyperlink{structItemTest_ad30228b68d1b22411270e6b304a87249}{Item\-Test}, \hyperlink{classCorn_a4554f0e4db0d59d303749c76310d4476}{Corn}, \hyperlink{classMetalBlock_a58537a96320a39f4c46659994698c394}{Metal\-Block}, and \hyperlink{classMetalWall_abd5c87f2cde822123cecaafb24edddd4}{Metal\-Wall}.
 
-\hypertarget{classItem_aa4aea30738280ffbc897ed3a9b64362a}{\index{Item@{Item}!set\-Direction@{set\-Direction}}
-\index{set\-Direction@{set\-Direction}!Item@{Item}}
-\subsubsection[{set\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Item\-::set\-Direction (
-\begin{DoxyParamCaption}
-\item[{int}]{direction}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classItem_aa4aea30738280ffbc897ed3a9b64362a}
-\hypertarget{classItem_ab347bc647966f28266a36e3af34c35cc}{\index{Item@{Item}!set\-Placed@{set\-Placed}}
-\index{set\-Placed@{set\-Placed}!Item@{Item}}
-\subsubsection[{set\-Placed}]{\setlength{\rightskip}{0pt plus 5cm}void Item\-::set\-Placed (
-\begin{DoxyParamCaption}
-\item[{bool}]{val}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classItem_ab347bc647966f28266a36e3af34c35cc}
 \hypertarget{classItem_af7cb35b77955c00a38fc0f952da762f4}{\index{Item@{Item}!update@{update}}
 \index{update@{update}!Item@{Item}}
 \subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Item\-::update (
@@ -157,19 +176,31 @@ Implemented in \hyperlink{structItemTest_aa5a51547e6dacf11363e439222377b45}{Item
 
 
 
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classItem_a93f19dfd48656b5ff656596791c0923d}{\index{Item@{Item}!Ship\-Items@{Ship\-Items}}
+\index{Ship\-Items@{Ship\-Items}!Item@{Item}}
+\subsubsection[{Ship\-Items}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Ship\-Items}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classItem_a93f19dfd48656b5ff656596791c0923d}
+
+
 \subsection{Member Data Documentation}
 \hypertarget{classItem_a5166900b24ba9e746a7ad34c00353cdd}{\index{Item@{Item}!blocking@{blocking}}
 \index{blocking@{blocking}!Item@{Item}}
-\subsubsection[{blocking}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::blocking}}\label{classItem_a5166900b24ba9e746a7ad34c00353cdd}
+\subsubsection[{blocking}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::blocking\hspace{0.3cm}{\ttfamily [protected]}}}\label{classItem_a5166900b24ba9e746a7ad34c00353cdd}
 \hypertarget{classItem_a1812b51dc93d2142c0641c536fbef617}{\index{Item@{Item}!direction@{direction}}
 \index{direction@{direction}!Item@{Item}}
 \subsubsection[{direction}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::direction\hspace{0.3cm}{\ttfamily [protected]}}}\label{classItem_a1812b51dc93d2142c0641c536fbef617}
 \hypertarget{classItem_ade907eeeea58df68fcacde1e5568779b}{\index{Item@{Item}!loc@{loc}}
 \index{loc@{loc}!Item@{Item}}
 \subsubsection[{loc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Location} Item\-::loc}}\label{classItem_ade907eeeea58df68fcacde1e5568779b}
+\hypertarget{classItem_a0b61e2b275f9a5958d7238a0d6578235}{\index{Item@{Item}!placed@{placed}}
+\index{placed@{placed}!Item@{Item}}
+\subsubsection[{placed}]{\setlength{\rightskip}{0pt plus 5cm}bool Item\-::placed\hspace{0.3cm}{\ttfamily [protected]}}}\label{classItem_a0b61e2b275f9a5958d7238a0d6578235}
 \hypertarget{classItem_adcfbfc3a87d2112c62b812dac2c72993}{\index{Item@{Item}!slot@{slot}}
 \index{slot@{slot}!Item@{Item}}
-\subsubsection[{slot}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::slot}}\label{classItem_adcfbfc3a87d2112c62b812dac2c72993}
+\subsubsection[{slot}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::slot\hspace{0.3cm}{\ttfamily [protected]}}}\label{classItem_adcfbfc3a87d2112c62b812dac2c72993}
+\hypertarget{classItem_a22a98aed7ce8f0314b597a5739c415b7}{\index{Item@{Item}!type@{type}}
+\index{type@{type}!Item@{Item}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}int Item\-::type\hspace{0.3cm}{\ttfamily [protected]}}}\label{classItem_a22a98aed7ce8f0314b597a5739c415b7}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

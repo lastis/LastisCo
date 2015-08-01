@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['items',['Items',['../group__items.html',1,'']]]
+  ['core',['Core',['../group__core.html',1,'']]]
 ];

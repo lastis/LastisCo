@@ -19,7 +19,6 @@ bool PriorityQueue::has(PathNode* node){
 }
 
 void PriorityQueue::push(PathNode* node){
-    /* if (has(node)) std::cout << "HAS NODE, BAD STUFF" << std::endl; */
     PriorityNode* container = new PriorityNode();
     container->item = node;
     if (front == NULL || node->fValue < front->item->fValue){

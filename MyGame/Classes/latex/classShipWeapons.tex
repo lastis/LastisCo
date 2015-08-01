@@ -1,0 +1,73 @@
+\hypertarget{classShipWeapons}{\section{Ship\-Weapons Class Reference}
+\label{classShipWeapons}\index{Ship\-Weapons@{Ship\-Weapons}}
+}
+
+
+System that resolves firing from one ship at an other.  
+
+
+
+
+{\ttfamily \#include $<$Ship\-Weapons.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShipWeapons_a3f54e78543b8a76d095ac401b338cec0}{Ship\-Weapons} ()
+\item 
+void \hyperlink{classShipWeapons_a34f64cad92d6bfde6f5013e6d819c016}{fire} (\hyperlink{classItem}{Item} $\ast$weapon)
+\item 
+void \hyperlink{classShipWeapons_a0545919bc45a47c20b240886b40253dd}{fire\-At\-Ship} (\hyperlink{classShipMaster}{Ship\-Master} target\-Ship)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLinkedList}{Linked\-List} \hyperlink{classShipWeapons_a9a443981bc70bf02a67be7f85106ae8a}{weapons}
+\begin{DoxyCompactList}\small\item\em List of weapons that will be fired by this object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+System that resolves firing from one ship at an other. 
+
+When a weapon (\hyperlink{classItem}{Item}) is ready to fire, it will call the fire method in \hyperlink{classShipMaster}{Ship\-Master}, which will in turn put that item in a list of weapons that are pending to be resolved. \hyperlink{classShipWeapons}{Ship\-Weapons} will then resolve the firing when the \hyperlink{classShipWeapons_a0545919bc45a47c20b240886b40253dd}{fire\-At\-Ship()} method is called. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classShipWeapons_a3f54e78543b8a76d095ac401b338cec0}{\index{Ship\-Weapons@{Ship\-Weapons}!Ship\-Weapons@{Ship\-Weapons}}
+\index{Ship\-Weapons@{Ship\-Weapons}!ShipWeapons@{Ship\-Weapons}}
+\subsubsection[{Ship\-Weapons}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Weapons\-::\-Ship\-Weapons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShipWeapons_a3f54e78543b8a76d095ac401b338cec0}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classShipWeapons_a34f64cad92d6bfde6f5013e6d819c016}{\index{Ship\-Weapons@{Ship\-Weapons}!fire@{fire}}
+\index{fire@{fire}!ShipWeapons@{Ship\-Weapons}}
+\subsubsection[{fire}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Weapons\-::fire (
+\begin{DoxyParamCaption}
+\item[{{\bf Item} $\ast$}]{weapon}
+\end{DoxyParamCaption}
+)}}\label{classShipWeapons_a34f64cad92d6bfde6f5013e6d819c016}
+\hypertarget{classShipWeapons_a0545919bc45a47c20b240886b40253dd}{\index{Ship\-Weapons@{Ship\-Weapons}!fire\-At\-Ship@{fire\-At\-Ship}}
+\index{fire\-At\-Ship@{fire\-At\-Ship}!ShipWeapons@{Ship\-Weapons}}
+\subsubsection[{fire\-At\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Weapons\-::fire\-At\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship\-Master}}]{target\-Ship}
+\end{DoxyParamCaption}
+)}}\label{classShipWeapons_a0545919bc45a47c20b240886b40253dd}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classShipWeapons_a9a443981bc70bf02a67be7f85106ae8a}{\index{Ship\-Weapons@{Ship\-Weapons}!weapons@{weapons}}
+\index{weapons@{weapons}!ShipWeapons@{Ship\-Weapons}}
+\subsubsection[{weapons}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} Ship\-Weapons\-::weapons}}\label{classShipWeapons_a9a443981bc70bf02a67be7f85106ae8a}
+
+
+List of weapons that will be fired by this object. 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+core/main/\hyperlink{ShipWeapons_8h}{Ship\-Weapons.\-h}\end{DoxyCompactItemize}

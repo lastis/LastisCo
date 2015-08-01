@@ -1,4 +1,5 @@
 #include "ShipCrew.h"
+using namespace globals;
 
 ShipCrew::ShipCrew(){
     cntCrew = 0;

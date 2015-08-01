@@ -1,0 +1,104 @@
+\hypertarget{classWeaponry}{\section{Weaponry Class Reference}
+\label{classWeaponry}\index{Weaponry@{Weaponry}}
+}
+
+
+Parent class for weapon blocks that can fire on an enemy ship.  
+
+
+
+
+{\ttfamily \#include $<$Weaponry.\-h$>$}
+
+Inheritance diagram for Weaponry\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classWeaponry}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWeaponry_a4a16e01bf2e344703c502020931e0cda}{Weaponry} (int \hyperlink{classBase_a1dddc037afe2eae3e1364597e6a3cf46}{I\-D}, int \hyperlink{classItem_adcfbfc3a87d2112c62b812dac2c72993}{slot}, int \hyperlink{classItem_a5166900b24ba9e746a7ad34c00353cdd}{blocking})
+\item 
+virtual void \hyperlink{classWeaponry_a25e7854098914225b10722fccbe7a3a8}{get\-Targets} (\hyperlink{structLocation}{Location} $\ast$\hyperlink{classItem_ade907eeeea58df68fcacde1e5568779b}{loc}, int \&N)=0
+\begin{DoxyCompactList}\small\item\em Get locations of where the weapon is targeting. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classWeaponry_a65e4ba85708c33bf0a6b138e7db19e69}{get\-Damage} (int target\-Type)=0
+\begin{DoxyCompactList}\small\item\em Get the amount of damage given the spesific target type. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classWeaponry_abf73f52293778d70c1639a7f866f0e86}{get\-Damage\-Type} ()=0
+\begin{DoxyCompactList}\small\item\em Get the identifier of the type of weapon damage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Parent class for weapon blocks that can fire on an enemy ship. 
+
+Objects that are ment to fire on enemy ships should inherit this class to be integrated correctly into the ship system. Overriding the virtual methods ensures the weapon can be handled by the system. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classWeaponry_a4a16e01bf2e344703c502020931e0cda}{\index{Weaponry@{Weaponry}!Weaponry@{Weaponry}}
+\index{Weaponry@{Weaponry}!Weaponry@{Weaponry}}
+\subsubsection[{Weaponry}]{\setlength{\rightskip}{0pt plus 5cm}Weaponry\-::\-Weaponry (
+\begin{DoxyParamCaption}
+\item[{int}]{I\-D, }
+\item[{int}]{slot, }
+\item[{int}]{blocking}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classWeaponry_a4a16e01bf2e344703c502020931e0cda}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classWeaponry_a65e4ba85708c33bf0a6b138e7db19e69}{\index{Weaponry@{Weaponry}!get\-Damage@{get\-Damage}}
+\index{get\-Damage@{get\-Damage}!Weaponry@{Weaponry}}
+\subsubsection[{get\-Damage}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Weaponry\-::get\-Damage (
+\begin{DoxyParamCaption}
+\item[{int}]{target\-Type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classWeaponry_a65e4ba85708c33bf0a6b138e7db19e69}
+
+
+Get the amount of damage given the spesific target type. 
+
+E.\-g. A plasma laser might do more damage to shields. 
+\begin{DoxyParams}{Parameters}
+{\em target\-Type} & Target type identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{identifiers_8h}{identifiers.\-h} 
+\end{DoxySeeAlso}
+\hypertarget{classWeaponry_abf73f52293778d70c1639a7f866f0e86}{\index{Weaponry@{Weaponry}!get\-Damage\-Type@{get\-Damage\-Type}}
+\index{get\-Damage\-Type@{get\-Damage\-Type}!Weaponry@{Weaponry}}
+\subsubsection[{get\-Damage\-Type}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Weaponry\-::get\-Damage\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classWeaponry_abf73f52293778d70c1639a7f866f0e86}
+
+
+Get the identifier of the type of weapon damage. 
+
+This can effect how the damage is received by the target hit. \hypertarget{classWeaponry_a25e7854098914225b10722fccbe7a3a8}{\index{Weaponry@{Weaponry}!get\-Targets@{get\-Targets}}
+\index{get\-Targets@{get\-Targets}!Weaponry@{Weaponry}}
+\subsubsection[{get\-Targets}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Weaponry\-::get\-Targets (
+\begin{DoxyParamCaption}
+\item[{{\bf Location} $\ast$}]{loc, }
+\item[{int \&}]{N}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classWeaponry_a25e7854098914225b10722fccbe7a3a8}
+
+
+Get locations of where the weapon is targeting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & Output list of target locations. \\
+\hline
+{\em N} & Output number of target locations. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+core/items/\hyperlink{Weaponry_8h}{Weaponry.\-h}\end{DoxyCompactItemize}
