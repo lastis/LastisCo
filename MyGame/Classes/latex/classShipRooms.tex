@@ -3,6 +3,11 @@
 }
 
 
+Handles the differnt buildings in the local world.  
+
+
+
+
 {\ttfamily \#include $<$Ship\-Rooms.\-h$>$}
 
 \subsection*{Public Member Functions}
@@ -13,25 +18,33 @@
 \hyperlink{classShipRooms_a91ffe6717a8fe8111221214b60a2a58e}{$\sim$\-Ship\-Rooms} ()
 \item 
 \hyperlink{classRoom}{Room} $\ast$ \hyperlink{classShipRooms_ac12f32192d9d412ed326ece60b9d4546}{create\-Room} (\hyperlink{structLocation}{Location} locations, int I\-D, int U\-I\-D)
-\item 
+\begin{DoxyCompactList}\small\item\em Create a room at the locations, not finished. \end{DoxyCompactList}\item 
 \hyperlink{classRoom}{Room} $\ast$ \hyperlink{classShipRooms_a8b495f2e403bbcf1662a8cf0b7ee0ca8}{get\-Room} (int U\-I\-D)
-\item 
+\begin{DoxyCompactList}\small\item\em Get a room with the given U\-I\-D. \end{DoxyCompactList}\item 
 int \hyperlink{classShipRooms_a75d0e81e4a6c2377bcfb76a015b1585e}{get\-Room\-Count} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get number of buildings. \end{DoxyCompactList}\item 
 bool \hyperlink{classShipRooms_a7ef60080c85ae4495e9ff4dc7fd74818}{is\-Full} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em See if the array is full of buildings. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{classShipRooms_abfd5908b44d8d104c0357035db2a11a0}{cnt\-Rooms}
-\item 
+\begin{DoxyCompactList}\small\item\em Index of the last building in the array + 1. \end{DoxyCompactList}\item 
 \hyperlink{classRoom}{Room} $\ast$ \hyperlink{classShipRooms_a52ced61edb73b269c13ad86c37d58678}{rooms} \mbox{[}\hyperlink{classShipRooms_a4c6a08678ec28bde999016e8980b7493}{M\-A\-X\-\_\-\-R\-O\-O\-M\-S}\mbox{]}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Array of buildings. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 static const int \hyperlink{classShipRooms_a4c6a08678ec28bde999016e8980b7493}{M\-A\-X\-\_\-\-R\-O\-O\-M\-S} = 20
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Maximum number of rooms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles the differnt buildings in the local world. 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classRoom}{Room} 
+\end{DoxySeeAlso}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -61,13 +74,21 @@ static const int \hyperlink{classShipRooms_a4c6a08678ec28bde999016e8980b7493}{M\
 \item[{int}]{U\-I\-D}
 \end{DoxyParamCaption}
 )}}\label{classShipRooms_ac12f32192d9d412ed326ece60b9d4546}
-\hypertarget{classShipRooms_a8b495f2e403bbcf1662a8cf0b7ee0ca8}{\index{Ship\-Rooms@{Ship\-Rooms}!get\-Room@{get\-Room}}
+
+
+Create a room at the locations, not finished. 
+
+Can only create a room with a single location but should obviously be changed to take an array of locations. \hypertarget{classShipRooms_a8b495f2e403bbcf1662a8cf0b7ee0ca8}{\index{Ship\-Rooms@{Ship\-Rooms}!get\-Room@{get\-Room}}
 \index{get\-Room@{get\-Room}!ShipRooms@{Ship\-Rooms}}
 \subsubsection[{get\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Room} $\ast$ Ship\-Rooms\-::get\-Room (
 \begin{DoxyParamCaption}
 \item[{int}]{U\-I\-D}
 \end{DoxyParamCaption}
 )}}\label{classShipRooms_a8b495f2e403bbcf1662a8cf0b7ee0ca8}
+
+
+Get a room with the given U\-I\-D. 
+
 \hypertarget{classShipRooms_a75d0e81e4a6c2377bcfb76a015b1585e}{\index{Ship\-Rooms@{Ship\-Rooms}!get\-Room\-Count@{get\-Room\-Count}}
 \index{get\-Room\-Count@{get\-Room\-Count}!ShipRooms@{Ship\-Rooms}}
 \subsubsection[{get\-Room\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Rooms\-::get\-Room\-Count (
@@ -75,6 +96,10 @@ static const int \hyperlink{classShipRooms_a4c6a08678ec28bde999016e8980b7493}{M\
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipRooms_a75d0e81e4a6c2377bcfb76a015b1585e}
+
+
+Get number of buildings. 
+
 \hypertarget{classShipRooms_a7ef60080c85ae4495e9ff4dc7fd74818}{\index{Ship\-Rooms@{Ship\-Rooms}!is\-Full@{is\-Full}}
 \index{is\-Full@{is\-Full}!ShipRooms@{Ship\-Rooms}}
 \subsubsection[{is\-Full}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Rooms\-::is\-Full (
@@ -84,16 +109,32 @@ static const int \hyperlink{classShipRooms_a4c6a08678ec28bde999016e8980b7493}{M\
 )}}\label{classShipRooms_a7ef60080c85ae4495e9ff4dc7fd74818}
 
 
+See if the array is full of buildings. 
+
+
+
 \subsection{Member Data Documentation}
 \hypertarget{classShipRooms_abfd5908b44d8d104c0357035db2a11a0}{\index{Ship\-Rooms@{Ship\-Rooms}!cnt\-Rooms@{cnt\-Rooms}}
 \index{cnt\-Rooms@{cnt\-Rooms}!ShipRooms@{Ship\-Rooms}}
 \subsubsection[{cnt\-Rooms}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Rooms\-::cnt\-Rooms}}\label{classShipRooms_abfd5908b44d8d104c0357035db2a11a0}
+
+
+Index of the last building in the array + 1. 
+
 \hypertarget{classShipRooms_a4c6a08678ec28bde999016e8980b7493}{\index{Ship\-Rooms@{Ship\-Rooms}!M\-A\-X\-\_\-\-R\-O\-O\-M\-S@{M\-A\-X\-\_\-\-R\-O\-O\-M\-S}}
 \index{M\-A\-X\-\_\-\-R\-O\-O\-M\-S@{M\-A\-X\-\_\-\-R\-O\-O\-M\-S}!ShipRooms@{Ship\-Rooms}}
 \subsubsection[{M\-A\-X\-\_\-\-R\-O\-O\-M\-S}]{\setlength{\rightskip}{0pt plus 5cm}const int Ship\-Rooms\-::\-M\-A\-X\-\_\-\-R\-O\-O\-M\-S = 20\hspace{0.3cm}{\ttfamily [static]}}}\label{classShipRooms_a4c6a08678ec28bde999016e8980b7493}
+
+
+Maximum number of rooms. 
+
 \hypertarget{classShipRooms_a52ced61edb73b269c13ad86c37d58678}{\index{Ship\-Rooms@{Ship\-Rooms}!rooms@{rooms}}
 \index{rooms@{rooms}!ShipRooms@{Ship\-Rooms}}
 \subsubsection[{rooms}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Room}$\ast$ Ship\-Rooms\-::rooms\mbox{[}{\bf M\-A\-X\-\_\-\-R\-O\-O\-M\-S}\mbox{]}}}\label{classShipRooms_a52ced61edb73b269c13ad86c37d58678}
+
+
+Array of buildings. 
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

@@ -50,7 +50,7 @@ Item*   ShipItems::getItemPendingFromUID(int UID){
 
 /** \brief Place an item on the map, usually "activates" the item. 
  *
- * Usually used when an object has finished construction and 
+ * Used when an object has finished construction and 
  * is thus ready to be interacted with. This places the item in 
  * the corresponding lists it needs to placed in and will be used
  * to block movement, get the placed variable set to true, and other

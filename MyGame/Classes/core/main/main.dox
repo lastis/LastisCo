@@ -3,4 +3,6 @@
  * \defgroup main Main 
  *
  *
+ * The name Ship for all classes in main will be renamed in future release as
+ * the game will no longer be a space game. 
  */

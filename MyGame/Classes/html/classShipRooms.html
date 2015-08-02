@@ -92,9 +92,12 @@ $(document).ready(function(){initNavTree('classShipRooms.html','');});
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classShipRooms-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ShipRooms Class Reference</div>  </div>
+<div class="title">ShipRooms Class Reference<div class="ingroups"><a class="el" href="group__main.html">Main</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Handles the differnt buildings in the local world.  
+ <a href="classShipRooms.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ShipRooms_8h_source.html">ShipRooms.h</a>&gt;</code></p>
 <table class="memberdecls">
@@ -105,27 +108,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a91ffe6717a8fe8111221214b60a2a58e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipRooms.html#a91ffe6717a8fe8111221214b60a2a58e">~ShipRooms</a> ()</td></tr>
 <tr class="separator:a91ffe6717a8fe8111221214b60a2a58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac12f32192d9d412ed326ece60b9d4546"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRoom.html">Room</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipRooms.html#ac12f32192d9d412ed326ece60b9d4546">createRoom</a> (<a class="el" href="structLocation.html">Location</a> locations, int ID, int UID)</td></tr>
+<tr class="memdesc:ac12f32192d9d412ed326ece60b9d4546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a room at the locations, not finished.  <a href="#ac12f32192d9d412ed326ece60b9d4546">More...</a><br/></td></tr>
 <tr class="separator:ac12f32192d9d412ed326ece60b9d4546"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b495f2e403bbcf1662a8cf0b7ee0ca8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRoom.html">Room</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipRooms.html#a8b495f2e403bbcf1662a8cf0b7ee0ca8">getRoom</a> (int UID)</td></tr>
+<tr class="memdesc:a8b495f2e403bbcf1662a8cf0b7ee0ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a room with the given UID.  <a href="#a8b495f2e403bbcf1662a8cf0b7ee0ca8">More...</a><br/></td></tr>
 <tr class="separator:a8b495f2e403bbcf1662a8cf0b7ee0ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75d0e81e4a6c2377bcfb76a015b1585e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipRooms.html#a75d0e81e4a6c2377bcfb76a015b1585e">getRoomCount</a> ()</td></tr>
+<tr class="memdesc:a75d0e81e4a6c2377bcfb76a015b1585e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get number of buildings.  <a href="#a75d0e81e4a6c2377bcfb76a015b1585e">More...</a><br/></td></tr>
 <tr class="separator:a75d0e81e4a6c2377bcfb76a015b1585e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef60080c85ae4495e9ff4dc7fd74818"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipRooms.html#a7ef60080c85ae4495e9ff4dc7fd74818">isFull</a> ()</td></tr>
+<tr class="memdesc:a7ef60080c85ae4495e9ff4dc7fd74818"><td class="mdescLeft">&#160;</td><td class="mdescRight">See if the array is full of buildings.  <a href="#a7ef60080c85ae4495e9ff4dc7fd74818">More...</a><br/></td></tr>
 <tr class="separator:a7ef60080c85ae4495e9ff4dc7fd74818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:abfd5908b44d8d104c0357035db2a11a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipRooms.html#abfd5908b44d8d104c0357035db2a11a0">cntRooms</a></td></tr>
+<tr class="memdesc:abfd5908b44d8d104c0357035db2a11a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the last building in the array + 1.  <a href="#abfd5908b44d8d104c0357035db2a11a0">More...</a><br/></td></tr>
 <tr class="separator:abfd5908b44d8d104c0357035db2a11a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52ced61edb73b269c13ad86c37d58678"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRoom.html">Room</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipRooms.html#a52ced61edb73b269c13ad86c37d58678">rooms</a> [<a class="el" href="classShipRooms.html#a4c6a08678ec28bde999016e8980b7493">MAX_ROOMS</a>]</td></tr>
+<tr class="memdesc:a52ced61edb73b269c13ad86c37d58678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of buildings.  <a href="#a52ced61edb73b269c13ad86c37d58678">More...</a><br/></td></tr>
 <tr class="separator:a52ced61edb73b269c13ad86c37d58678"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a4c6a08678ec28bde999016e8980b7493"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipRooms.html#a4c6a08678ec28bde999016e8980b7493">MAX_ROOMS</a> = 20</td></tr>
+<tr class="memdesc:a4c6a08678ec28bde999016e8980b7493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of rooms.  <a href="#a4c6a08678ec28bde999016e8980b7493">More...</a><br/></td></tr>
 <tr class="separator:a4c6a08678ec28bde999016e8980b7493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles the differnt buildings in the local world. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classRoom.html">Room</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae299a6bbd005215c8658477a7b597145"></a>
 <div class="memitem">
 <div class="memproto">
@@ -187,6 +200,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Create a room at the locations, not finished. </p>
+<p>Can only create a room with a single location but should obviously be changed to take an array of locations. </p>
+
 </div>
 </div>
 <a class="anchor" id="a8b495f2e403bbcf1662a8cf0b7ee0ca8"></a>
@@ -203,6 +219,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get a room with the given UID. </p>
+
 </div>
 </div>
 <a class="anchor" id="a75d0e81e4a6c2377bcfb76a015b1585e"></a>
@@ -217,6 +235,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get number of buildings. </p>
 
 </div>
 </div>
@@ -233,6 +253,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>See if the array is full of buildings. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -245,6 +267,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Index of the last building in the array + 1. </p>
 
 </div>
 </div>
@@ -266,6 +290,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Maximum number of rooms. </p>
+
 </div>
 </div>
 <a class="anchor" id="a52ced61edb73b269c13ad86c37d58678"></a>
@@ -277,6 +303,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Array of buildings. </p>
 
 </div>
 </div>
@@ -290,7 +318,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classShipRooms.html">ShipRooms</a></li>
-    <li class="footer">Generated on Sat Aug 1 2015 23:25:19 for My Project by
+    <li class="footer">Generated on Sun Aug 2 2015 14:03:27 for My Project by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -17,9 +17,7 @@ var dir_f96f8c7b5cad81125417a80d80a7b0d6 =
     [ "ShipMaster.cpp", "ShipMaster_8cpp.html", null ],
     [ "ShipMaster.h", "ShipMaster_8h.html", null ],
     [ "ShipRooms.cpp", "ShipRooms_8cpp.html", null ],
-    [ "ShipRooms.h", "ShipRooms_8h.html", [
-      [ "ShipRooms", "classShipRooms.html", "classShipRooms" ]
-    ] ],
+    [ "ShipRooms.h", "ShipRooms_8h.html", null ],
     [ "ShipWeapons.cpp", "ShipWeapons_8cpp.html", null ],
     [ "ShipWeapons.h", "ShipWeapons_8h.html", null ]
 ];

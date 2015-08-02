@@ -16,7 +16,7 @@ Main access point for interacting with the game system.
 \hyperlink{classShipMaster_a607690189ed059378e939c9500909c9a}{Ship\-Master} ()
 \item 
 \hyperlink{classShipMaster_aad717c55623a33a03bab50381e0386e1}{Ship\-Master} (int O, int N, int M)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a new game and local world. \end{DoxyCompactList}\item 
 \hyperlink{classShipMaster_a1000b9a0ab83b8984a3d1e72f9db621e}{$\sim$\-Ship\-Master} ()
 \item 
 void \hyperlink{classShipMaster_a2e1b2737d8c4ab6ff0c64b046d437718}{update} ()
@@ -28,19 +28,19 @@ void \hyperlink{classShipMaster_a2e1b2737d8c4ab6ff0c64b046d437718}{update} ()
 }\begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{classShipMaster_a2225b60d05aa9229f93856ad7b916b58}{is\-Vacant} (int x, int y, int z)
-\item 
+\begin{DoxyCompactList}\small\item\em Check if the main map is occupied by an I\-D. \end{DoxyCompactList}\item 
 bool \hyperlink{classShipMaster_ae2f8c7068a577e8cddabc28583be8cf8}{is\-Vacant} (\hyperlink{structLocation}{Location} loc)
-\item 
+\begin{DoxyCompactList}\small\item\em Check if the main map is occupied by an I\-D. \end{DoxyCompactList}\item 
 \hyperlink{classPath}{Path} \hyperlink{classShipMaster_aa5c31f505493362afdef36a00ba94956}{find\-Path} (\hyperlink{structLocation}{Location} start, \hyperlink{structLocation}{Location} end)
-\item 
+\begin{DoxyCompactList}\small\item\em Find a path using the pathfinding algorithm. \end{DoxyCompactList}\item 
 unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_a334be261a5e3d9c50caa7506f0b2609c}{get\-Map\-Access} ()
-\item 
+\begin{DoxyCompactList}\small\item\em See \hyperlink{classShipMap}{Ship\-Map}. \end{DoxyCompactList}\item 
 void \hyperlink{classShipMaster_a73b87519cbfc8289f9628695ebcc0cdb}{update\-Map\-Access} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the map representing blocked movement. \end{DoxyCompactList}\item 
 void \hyperlink{classShipMaster_ae90bf5dd5fa1cbf24a4ddbd7b84e3446}{place\-Texture} (unsigned int I\-D, \hyperlink{structLocation}{Location} loc)
-\item 
+\begin{DoxyCompactList}\small\item\em Not being used. \end{DoxyCompactList}\item 
 unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_a59892b34be3b803dc72ab332b783ad2c}{get\-Map\-Rooms} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Not being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}{\bf Item methods.}\par
 {\em \begin{DoxySeeAlso}{See Also}
@@ -49,31 +49,31 @@ unsigned int $\ast$$\ast$$\ast$ \hyperlink{classShipMaster_a59892b34be3b803dc72a
 }\begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{classShipMaster_aa9e9c11a116929e94bee491ab8dacf49}{place\-Item} (\hyperlink{classItem}{Item} $\ast$obj)
-\item 
+\begin{DoxyCompactList}\small\item\em Place an item. \end{DoxyCompactList}\item 
 \hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_a0e90a2352a439464d922d3fda25d71ca}{create\-Item} (int I\-D, \hyperlink{structLocation}{Location} loc)
-\item 
+\begin{DoxyCompactList}\small\item\em Main method to create items. \end{DoxyCompactList}\item 
 \hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_a07e5d7b5b90d5c5efc405175a3e93c3b}{create\-Item} (int I\-D, \hyperlink{structLocation}{Location} loc, unsigned int direction)
-\item 
+\begin{DoxyCompactList}\small\item\em Main method to create items. \end{DoxyCompactList}\item 
 void \hyperlink{classShipMaster_ab378e743c7200449d2ac6d3b2c6c8f63}{draw\-Item} (\hyperlink{classItem}{Item} $\ast$obj)
-\item 
+\begin{DoxyCompactList}\small\item\em Adds item to the texture list in \hyperlink{classShipItems}{Ship\-Items}. \end{DoxyCompactList}\item 
 \hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_a627afea5fc5988ad18c8a2dc4dcc7d91}{get\-Items} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get \hyperlink{classLinkedList}{Linked\-List} of placed items from \hyperlink{classShipItems}{Ship\-Items}. \end{DoxyCompactList}\item 
 \hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_a28b969e9befa8df4df7fcf253aa3a119}{get\-Items\-Pending} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get \hyperlink{classLinkedList}{Linked\-List} of pending items. \end{DoxyCompactList}\item 
 \hyperlink{classLinkedList}{Linked\-List} \& \hyperlink{classShipMaster_a4095febdcd811f31f8af7e512cc30962}{get\-Texture\-List} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the texture list. \end{DoxyCompactList}\item 
 \hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_a4e343f85e8732b670e37eb10793b9da5}{get\-Item\-Placed\-From\-I\-D} (int I\-D)
-\item 
+\begin{DoxyCompactList}\small\item\em Get placed \hyperlink{classItem}{Item} from it's I\-D. \end{DoxyCompactList}\item 
 \hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_aa6014ba22783d814119df0b8a45f4a3b}{get\-Item\-Placed\-From\-U\-I\-D} (int U\-I\-D)
-\item 
+\begin{DoxyCompactList}\small\item\em Get placed \hyperlink{classItem}{Item} from it's U\-I\-D. \end{DoxyCompactList}\item 
 \hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_a49034c4d14496165dafa091998f9ed92}{get\-Item\-Pending\-From\-I\-D} (int I\-D)
-\item 
+\begin{DoxyCompactList}\small\item\em Get pending to be placed \hyperlink{classItem}{Item} from it's I\-D. \end{DoxyCompactList}\item 
 \hyperlink{classItem}{Item} $\ast$ \hyperlink{classShipMaster_af65799a876a14901fdb2e385a35b32b2}{get\-Item\-Pending\-From\-U\-I\-D} (int U\-I\-D)
-\item 
+\begin{DoxyCompactList}\small\item\em Get pending to be placed \hyperlink{classItem}{Item} from it's U\-I\-D. \end{DoxyCompactList}\item 
 int \hyperlink{classShipMaster_a46e23864a829801068f1e1a9fca0ef82}{get\-Item\-Placed\-Count} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Number of placed items. \end{DoxyCompactList}\item 
 int \hyperlink{classShipMaster_a3581bacb31233e22e0ae5c372b4bdb7c}{get\-Item\-Pending\-Count} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Number of pending to be placed items. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}{\bf Room methods.}\par
 {\em Should probably be buildning methods. \begin{DoxySeeAlso}{See Also}
@@ -82,13 +82,13 @@ int \hyperlink{classShipMaster_a3581bacb31233e22e0ae5c372b4bdb7c}{get\-Item\-Pen
 }\begin{DoxyCompactItemize}
 \item 
 \hyperlink{classRoom}{Room} $\ast$ \hyperlink{classShipMaster_a8e920cb8c50c68d858d2d90d9b8b377a}{create\-Room} (\hyperlink{structLocation}{Location} $\ast$locations, int N, int I\-D)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a building at the given locations. \end{DoxyCompactList}\item 
 void \hyperlink{classShipMaster_aceb6ebe9dc8112ad8bcec3598b83b0e9}{place\-Room} (\hyperlink{structLocation}{Location} $\ast$locations, int N, int U\-I\-D)
-\item 
+\begin{DoxyCompactList}\small\item\em Probably not needed because of create\-Room. \end{DoxyCompactList}\item 
 \hyperlink{classPath}{Path} \hyperlink{classShipMaster_acd0cd7045dc4852607f50c13b3780a94}{get\-Path\-To\-Room} (int U\-I\-D, \hyperlink{structLocation}{Location} start)
-\item 
+\begin{DoxyCompactList}\small\item\em Find a path from start to a buildning. \end{DoxyCompactList}\item 
 \hyperlink{classRoom}{Room} $\ast$ \hyperlink{classShipMaster_a2418804a9b994f7a3c18b8d2edc77aed}{get\-Room} (\hyperlink{structLocation}{Location} loc)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get a buildning object from a location. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}{\bf Actor (person) methods.}\par
 {\em \begin{DoxySeeAlso}{See Also}
@@ -97,13 +97,13 @@ void \hyperlink{classShipMaster_aceb6ebe9dc8112ad8bcec3598b83b0e9}{place\-Room} 
 }\begin{DoxyCompactItemize}
 \item 
 \hyperlink{classPerson}{Person} $\ast$ \hyperlink{classShipMaster_af1e9d8713eb387b216cc80e11728ce4d}{create\-Crew\-Member} (int I\-D, \hyperlink{structLocation}{Location} loc)
-\item 
+\begin{DoxyCompactList}\small\item\em Create a new Actor. \end{DoxyCompactList}\item 
 int \hyperlink{classShipMaster_a49b39499c31975773052fa6c162000ed}{get\-Crew\-Count} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Number of actors. \end{DoxyCompactList}\item 
 \hyperlink{classPerson}{Person} $\ast$ \hyperlink{classShipMaster_a0fa00005b82784c63799552a3a29bdb0}{get\-Crew\-From\-Index} (int i)
-\item 
+\begin{DoxyCompactList}\small\item\em Get crew from the list of actors in \hyperlink{classShipCrew}{Ship\-Crew}. \end{DoxyCompactList}\item 
 \hyperlink{classPerson}{Person} $\ast$$\ast$ \hyperlink{classShipMaster_a99b6b1f1035358b6083b3df3c7e52024}{get\-Crew} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get crew list from \hyperlink{classShipCrew}{Ship\-Crew}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -142,7 +142,11 @@ Everything that is contained in the local world should call methods through this
 \item[{int}]{M}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_aad717c55623a33a03bab50381e0386e1}
-\hypertarget{classShipMaster_a1000b9a0ab83b8984a3d1e72f9db621e}{\index{Ship\-Master@{Ship\-Master}!$\sim$\-Ship\-Master@{$\sim$\-Ship\-Master}}
+
+
+Creates a new game and local world. 
+
+Initializes instances of the other main classes, \hyperlink{classShipCrew}{Ship\-Crew}, \hyperlink{classShipItems}{Ship\-Items}, \hyperlink{classShipJobs}{Ship\-Jobs}, \hyperlink{classShipMap}{Ship\-Map}, \hyperlink{classShipRooms}{Ship\-Rooms}, \hyperlink{classShipWeapons}{Ship\-Weapons}. \hypertarget{classShipMaster_a1000b9a0ab83b8984a3d1e72f9db621e}{\index{Ship\-Master@{Ship\-Master}!$\sim$\-Ship\-Master@{$\sim$\-Ship\-Master}}
 \index{$\sim$\-Ship\-Master@{$\sim$\-Ship\-Master}!ShipMaster@{Ship\-Master}}
 \subsubsection[{$\sim$\-Ship\-Master}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-Master\-::$\sim$\-Ship\-Master (
 \begin{DoxyParamCaption}
@@ -160,6 +164,20 @@ Everything that is contained in the local world should call methods through this
 \item[{{\bf Location}}]{loc}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_af1e9d8713eb387b216cc80e11728ce4d}
+
+
+Create a new Actor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em I\-D} & I\-D of the race. \\
+\hline
+{\em loc} & Inital location. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Created Actor. 
+\end{DoxyReturn}
 \hypertarget{classShipMaster_a0e90a2352a439464d922d3fda25d71ca}{\index{Ship\-Master@{Ship\-Master}!create\-Item@{create\-Item}}
 \index{create\-Item@{create\-Item}!ShipMaster@{Ship\-Master}}
 \subsubsection[{create\-Item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::create\-Item (
@@ -168,6 +186,23 @@ Everything that is contained in the local world should call methods through this
 \item[{{\bf Location}}]{loc}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a0e90a2352a439464d922d3fda25d71ca}
+
+
+Main method to create items. 
+
+Creates a new item object with the \hyperlink{classShipItems_a49cdd4419f853d178c0cc1afd105121a}{Ship\-Items\-::create\-Item} and assigns it an U\-I\-D. Direction is north. 
+\begin{DoxyParams}{Parameters}
+{\em I\-D} & I\-D of the item from blocks namespace. \\
+\hline
+{\em loc} & Inital \hyperlink{structLocation}{Location} of the item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Finished item object. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{namespaceblocks}{blocks} 
+\end{DoxySeeAlso}
 \hypertarget{classShipMaster_a07e5d7b5b90d5c5efc405175a3e93c3b}{\index{Ship\-Master@{Ship\-Master}!create\-Item@{create\-Item}}
 \index{create\-Item@{create\-Item}!ShipMaster@{Ship\-Master}}
 \subsubsection[{create\-Item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::create\-Item (
@@ -177,6 +212,25 @@ Everything that is contained in the local world should call methods through this
 \item[{unsigned int}]{direction}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a07e5d7b5b90d5c5efc405175a3e93c3b}
+
+
+Main method to create items. 
+
+Creates a new item object with the \hyperlink{classShipItems_a49cdd4419f853d178c0cc1afd105121a}{Ship\-Items\-::create\-Item} and assigns it an U\-I\-D. 
+\begin{DoxyParams}{Parameters}
+{\em I\-D} & I\-D of the item from blocks namespace. \\
+\hline
+{\em loc} & Inital \hyperlink{structLocation}{Location} of the item. \\
+\hline
+{\em direction} & Inital direction of the item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Finished item object. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{namespaceblocks}{blocks} 
+\end{DoxySeeAlso}
 \hypertarget{classShipMaster_a8e920cb8c50c68d858d2d90d9b8b377a}{\index{Ship\-Master@{Ship\-Master}!create\-Room@{create\-Room}}
 \index{create\-Room@{create\-Room}!ShipMaster@{Ship\-Master}}
 \subsubsection[{create\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Room} $\ast$ Ship\-Master\-::create\-Room (
@@ -186,6 +240,25 @@ Everything that is contained in the local world should call methods through this
 \item[{int}]{I\-D}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a8e920cb8c50c68d858d2d90d9b8b377a}
+
+
+Creates a building at the given locations. 
+
+Calls \hyperlink{classShipRooms_ac12f32192d9d412ed326ece60b9d4546}{Ship\-Rooms\-::create\-Room} and \hyperlink{classShipMap_aa9c0f0f672b58f5ce32e2052432d5145}{Ship\-Map\-::place\-Room}. Also assigns the room an U\-I\-D unique to the room. 
+\begin{DoxyParams}{Parameters}
+{\em locations} & Array of locations. \\
+\hline
+{\em N} & Length of array. \\
+\hline
+{\em I\-D} & I\-D of the buildning. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classRoom}{Room} object. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classShipRooms}{Ship\-Rooms}, \hyperlink{classShipMap}{Ship\-Map} 
+\end{DoxySeeAlso}
 \hypertarget{classShipMaster_ab378e743c7200449d2ac6d3b2c6c8f63}{\index{Ship\-Master@{Ship\-Master}!draw\-Item@{draw\-Item}}
 \index{draw\-Item@{draw\-Item}!ShipMaster@{Ship\-Master}}
 \subsubsection[{draw\-Item}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Master\-::draw\-Item (
@@ -193,6 +266,15 @@ Everything that is contained in the local world should call methods through this
 \item[{{\bf Item} $\ast$}]{obj}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_ab378e743c7200449d2ac6d3b2c6c8f63}
+
+
+Adds item to the texture list in \hyperlink{classShipItems}{Ship\-Items}. 
+
+This list is used for drawing and emptied when drawing is finished. The drawing algorithm will call \hyperlink{classItem_a38889163e99a1f5ec9b811b8e64fbc36}{Item\-::get\-Texture\-I\-D}. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & \hyperlink{classItem}{Item} to draw. \\
+\hline
+\end{DoxyParams}
 \hypertarget{classShipMaster_aa5c31f505493362afdef36a00ba94956}{\index{Ship\-Master@{Ship\-Master}!find\-Path@{find\-Path}}
 \index{find\-Path@{find\-Path}!ShipMaster@{Ship\-Master}}
 \subsubsection[{find\-Path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Path} Ship\-Master\-::find\-Path (
@@ -201,6 +283,23 @@ Everything that is contained in the local world should call methods through this
 \item[{{\bf Location}}]{end}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_aa5c31f505493362afdef36a00ba94956}
+
+
+Find a path using the pathfinding algorithm. 
+
+Max length of the path is set in the globals namespace. 
+\begin{DoxyParams}{Parameters}
+{\em start} & Start location. \\
+\hline
+{\em end} & End location. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classPath}{Path} object with the path. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{namespaceglobals}{globals} 
+\end{DoxySeeAlso}
 \hypertarget{classShipMaster_a99b6b1f1035358b6083b3df3c7e52024}{\index{Ship\-Master@{Ship\-Master}!get\-Crew@{get\-Crew}}
 \index{get\-Crew@{get\-Crew}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Crew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Person} $\ast$$\ast$ Ship\-Master\-::get\-Crew (
@@ -208,6 +307,10 @@ Everything that is contained in the local world should call methods through this
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a99b6b1f1035358b6083b3df3c7e52024}
+
+
+Get crew list from \hyperlink{classShipCrew}{Ship\-Crew}. 
+
 \hypertarget{classShipMaster_a49b39499c31975773052fa6c162000ed}{\index{Ship\-Master@{Ship\-Master}!get\-Crew\-Count@{get\-Crew\-Count}}
 \index{get\-Crew\-Count@{get\-Crew\-Count}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Crew\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Master\-::get\-Crew\-Count (
@@ -215,6 +318,10 @@ Everything that is contained in the local world should call methods through this
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a49b39499c31975773052fa6c162000ed}
+
+
+Number of actors. 
+
 \hypertarget{classShipMaster_a0fa00005b82784c63799552a3a29bdb0}{\index{Ship\-Master@{Ship\-Master}!get\-Crew\-From\-Index@{get\-Crew\-From\-Index}}
 \index{get\-Crew\-From\-Index@{get\-Crew\-From\-Index}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Crew\-From\-Index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Person} $\ast$ Ship\-Master\-::get\-Crew\-From\-Index (
@@ -222,6 +329,13 @@ Everything that is contained in the local world should call methods through this
 \item[{int}]{i}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a0fa00005b82784c63799552a3a29bdb0}
+
+
+Get crew from the list of actors in \hyperlink{classShipCrew}{Ship\-Crew}. 
+
+\begin{DoxyReturn}{Returns}
+Null if not found. 
+\end{DoxyReturn}
 \hypertarget{classShipMaster_a3581bacb31233e22e0ae5c372b4bdb7c}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Pending\-Count@{get\-Item\-Pending\-Count}}
 \index{get\-Item\-Pending\-Count@{get\-Item\-Pending\-Count}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Item\-Pending\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Master\-::get\-Item\-Pending\-Count (
@@ -229,6 +343,10 @@ Everything that is contained in the local world should call methods through this
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a3581bacb31233e22e0ae5c372b4bdb7c}
+
+
+Number of pending to be placed items. 
+
 \hypertarget{classShipMaster_a49034c4d14496165dafa091998f9ed92}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Pending\-From\-I\-D@{get\-Item\-Pending\-From\-I\-D}}
 \index{get\-Item\-Pending\-From\-I\-D@{get\-Item\-Pending\-From\-I\-D}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Item\-Pending\-From\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Pending\-From\-I\-D (
@@ -236,6 +354,13 @@ Everything that is contained in the local world should call methods through this
 \item[{int}]{I\-D}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a49034c4d14496165dafa091998f9ed92}
+
+
+Get pending to be placed \hyperlink{classItem}{Item} from it's I\-D. 
+
+\begin{DoxyReturn}{Returns}
+First item with the matching I\-D. 
+\end{DoxyReturn}
 \hypertarget{classShipMaster_af65799a876a14901fdb2e385a35b32b2}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Pending\-From\-U\-I\-D@{get\-Item\-Pending\-From\-U\-I\-D}}
 \index{get\-Item\-Pending\-From\-U\-I\-D@{get\-Item\-Pending\-From\-U\-I\-D}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Item\-Pending\-From\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Pending\-From\-U\-I\-D (
@@ -243,6 +368,13 @@ Everything that is contained in the local world should call methods through this
 \item[{int}]{U\-I\-D}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_af65799a876a14901fdb2e385a35b32b2}
+
+
+Get pending to be placed \hyperlink{classItem}{Item} from it's U\-I\-D. 
+
+\begin{DoxyReturn}{Returns}
+First item with the matching U\-I\-D. 
+\end{DoxyReturn}
 \hypertarget{classShipMaster_a46e23864a829801068f1e1a9fca0ef82}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Placed\-Count@{get\-Item\-Placed\-Count}}
 \index{get\-Item\-Placed\-Count@{get\-Item\-Placed\-Count}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Item\-Placed\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-Master\-::get\-Item\-Placed\-Count (
@@ -250,6 +382,10 @@ Everything that is contained in the local world should call methods through this
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a46e23864a829801068f1e1a9fca0ef82}
+
+
+Number of placed items. 
+
 \hypertarget{classShipMaster_a4e343f85e8732b670e37eb10793b9da5}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Placed\-From\-I\-D@{get\-Item\-Placed\-From\-I\-D}}
 \index{get\-Item\-Placed\-From\-I\-D@{get\-Item\-Placed\-From\-I\-D}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Item\-Placed\-From\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Placed\-From\-I\-D (
@@ -257,6 +393,13 @@ Everything that is contained in the local world should call methods through this
 \item[{int}]{I\-D}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a4e343f85e8732b670e37eb10793b9da5}
+
+
+Get placed \hyperlink{classItem}{Item} from it's I\-D. 
+
+\begin{DoxyReturn}{Returns}
+First item with the matching I\-D. 
+\end{DoxyReturn}
 \hypertarget{classShipMaster_aa6014ba22783d814119df0b8a45f4a3b}{\index{Ship\-Master@{Ship\-Master}!get\-Item\-Placed\-From\-U\-I\-D@{get\-Item\-Placed\-From\-U\-I\-D}}
 \index{get\-Item\-Placed\-From\-U\-I\-D@{get\-Item\-Placed\-From\-U\-I\-D}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Item\-Placed\-From\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Item} $\ast$ Ship\-Master\-::get\-Item\-Placed\-From\-U\-I\-D (
@@ -264,6 +407,13 @@ Everything that is contained in the local world should call methods through this
 \item[{int}]{U\-I\-D}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_aa6014ba22783d814119df0b8a45f4a3b}
+
+
+Get placed \hyperlink{classItem}{Item} from it's U\-I\-D. 
+
+\begin{DoxyReturn}{Returns}
+First item with the matching U\-I\-D. 
+\end{DoxyReturn}
 \hypertarget{classShipMaster_a627afea5fc5988ad18c8a2dc4dcc7d91}{\index{Ship\-Master@{Ship\-Master}!get\-Items@{get\-Items}}
 \index{get\-Items@{get\-Items}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Items}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items (
@@ -271,20 +421,32 @@ Everything that is contained in the local world should call methods through this
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a627afea5fc5988ad18c8a2dc4dcc7d91}
-\hypertarget{classShipMaster_a28b969e9befa8df4df7fcf253aa3a119}{\index{Ship\-Master@{Ship\-Master}!get\-Items\-Pending@{get\-Items\-Pending}}
+
+
+Get \hyperlink{classLinkedList}{Linked\-List} of placed items from \hyperlink{classShipItems}{Ship\-Items}. 
+
+As of now all items are contained in this list. \hypertarget{classShipMaster_a28b969e9befa8df4df7fcf253aa3a119}{\index{Ship\-Master@{Ship\-Master}!get\-Items\-Pending@{get\-Items\-Pending}}
 \index{get\-Items\-Pending@{get\-Items\-Pending}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Items\-Pending}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Items\-Pending (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a28b969e9befa8df4df7fcf253aa3a119}
-\hypertarget{classShipMaster_a334be261a5e3d9c50caa7506f0b2609c}{\index{Ship\-Master@{Ship\-Master}!get\-Map\-Access@{get\-Map\-Access}}
+
+
+Get \hyperlink{classLinkedList}{Linked\-List} of pending items. 
+
+Pending items are not placed yet, and can for instance be under construction. \hypertarget{classShipMaster_a334be261a5e3d9c50caa7506f0b2609c}{\index{Ship\-Master@{Ship\-Master}!get\-Map\-Access@{get\-Map\-Access}}
 \index{get\-Map\-Access@{get\-Map\-Access}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Map\-Access}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Master\-::get\-Map\-Access (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a334be261a5e3d9c50caa7506f0b2609c}
+
+
+See \hyperlink{classShipMap}{Ship\-Map}. 
+
 \hypertarget{classShipMaster_a59892b34be3b803dc72ab332b783ad2c}{\index{Ship\-Master@{Ship\-Master}!get\-Map\-Rooms@{get\-Map\-Rooms}}
 \index{get\-Map\-Rooms@{get\-Map\-Rooms}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Map\-Rooms}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int $\ast$$\ast$$\ast$ Ship\-Master\-::get\-Map\-Rooms (
@@ -292,7 +454,11 @@ Everything that is contained in the local world should call methods through this
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a59892b34be3b803dc72ab332b783ad2c}
-\hypertarget{classShipMaster_acd0cd7045dc4852607f50c13b3780a94}{\index{Ship\-Master@{Ship\-Master}!get\-Path\-To\-Room@{get\-Path\-To\-Room}}
+
+
+Not being used. 
+
+Get the map of the different buildnings \hypertarget{classShipMaster_acd0cd7045dc4852607f50c13b3780a94}{\index{Ship\-Master@{Ship\-Master}!get\-Path\-To\-Room@{get\-Path\-To\-Room}}
 \index{get\-Path\-To\-Room@{get\-Path\-To\-Room}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Path\-To\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Path} Ship\-Master\-::get\-Path\-To\-Room (
 \begin{DoxyParamCaption}
@@ -300,6 +466,20 @@ Everything that is contained in the local world should call methods through this
 \item[{{\bf Location}}]{start}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_acd0cd7045dc4852607f50c13b3780a94}
+
+
+Find a path from start to a buildning. 
+
+Uses \hyperlink{classRoom_a160f390cd743ed1287815a41221a448b}{Room\-::center} as goal. 
+\begin{DoxyParams}{Parameters}
+{\em U\-I\-D} & U\-I\-D of the room. \\
+\hline
+{\em start} & Start location. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classPath}{Path} object with the path. 
+\end{DoxyReturn}
 \hypertarget{classShipMaster_a2418804a9b994f7a3c18b8d2edc77aed}{\index{Ship\-Master@{Ship\-Master}!get\-Room@{get\-Room}}
 \index{get\-Room@{get\-Room}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Room}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Room} $\ast$ Ship\-Master\-::get\-Room (
@@ -307,6 +487,18 @@ Everything that is contained in the local world should call methods through this
 \item[{{\bf Location}}]{loc}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a2418804a9b994f7a3c18b8d2edc77aed}
+
+
+Get a buildning object from a location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & \hyperlink{structLocation}{Location} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classRoom}{Room} object. Null of not found. 
+\end{DoxyReturn}
 \hypertarget{classShipMaster_a4095febdcd811f31f8af7e512cc30962}{\index{Ship\-Master@{Ship\-Master}!get\-Texture\-List@{get\-Texture\-List}}
 \index{get\-Texture\-List@{get\-Texture\-List}!ShipMaster@{Ship\-Master}}
 \subsubsection[{get\-Texture\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\-List} \& Ship\-Master\-::get\-Texture\-List (
@@ -314,7 +506,11 @@ Everything that is contained in the local world should call methods through this
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a4095febdcd811f31f8af7e512cc30962}
-\hypertarget{classShipMaster_a2225b60d05aa9229f93856ad7b916b58}{\index{Ship\-Master@{Ship\-Master}!is\-Vacant@{is\-Vacant}}
+
+
+Get the texture list. 
+
+Used to draw the textures. Usually resets the list after it is finished. \hypertarget{classShipMaster_a2225b60d05aa9229f93856ad7b916b58}{\index{Ship\-Master@{Ship\-Master}!is\-Vacant@{is\-Vacant}}
 \index{is\-Vacant@{is\-Vacant}!ShipMaster@{Ship\-Master}}
 \subsubsection[{is\-Vacant}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Master\-::is\-Vacant (
 \begin{DoxyParamCaption}
@@ -323,6 +519,10 @@ Everything that is contained in the local world should call methods through this
 \item[{int}]{z}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a2225b60d05aa9229f93856ad7b916b58}
+
+
+Check if the main map is occupied by an I\-D. 
+
 \hypertarget{classShipMaster_ae2f8c7068a577e8cddabc28583be8cf8}{\index{Ship\-Master@{Ship\-Master}!is\-Vacant@{is\-Vacant}}
 \index{is\-Vacant@{is\-Vacant}!ShipMaster@{Ship\-Master}}
 \subsubsection[{is\-Vacant}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Master\-::is\-Vacant (
@@ -330,6 +530,10 @@ Everything that is contained in the local world should call methods through this
 \item[{{\bf Location}}]{loc}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_ae2f8c7068a577e8cddabc28583be8cf8}
+
+
+Check if the main map is occupied by an I\-D. 
+
 \hypertarget{classShipMaster_aa9e9c11a116929e94bee491ab8dacf49}{\index{Ship\-Master@{Ship\-Master}!place\-Item@{place\-Item}}
 \index{place\-Item@{place\-Item}!ShipMaster@{Ship\-Master}}
 \subsubsection[{place\-Item}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Master\-::place\-Item (
@@ -337,6 +541,20 @@ Everything that is contained in the local world should call methods through this
 \item[{{\bf Item} $\ast$}]{obj}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_aa9e9c11a116929e94bee491ab8dacf49}
+
+
+Place an item. 
+
+When the items become placed, they are removed from the pending items list and added to a spesific room's object list and the placed item list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & \hyperlink{classItem}{Item} to be placed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Was the item placed properly. 
+\end{DoxyReturn}
 \hypertarget{classShipMaster_aceb6ebe9dc8112ad8bcec3598b83b0e9}{\index{Ship\-Master@{Ship\-Master}!place\-Room@{place\-Room}}
 \index{place\-Room@{place\-Room}!ShipMaster@{Ship\-Master}}
 \subsubsection[{place\-Room}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Master\-::place\-Room (
@@ -346,7 +564,11 @@ Everything that is contained in the local world should call methods through this
 \item[{int}]{U\-I\-D}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_aceb6ebe9dc8112ad8bcec3598b83b0e9}
-\hypertarget{classShipMaster_ae90bf5dd5fa1cbf24a4ddbd7b84e3446}{\index{Ship\-Master@{Ship\-Master}!place\-Texture@{place\-Texture}}
+
+
+Probably not needed because of create\-Room. 
+
+Places a room in \hyperlink{classShipMap}{Ship\-Map} \hypertarget{classShipMaster_ae90bf5dd5fa1cbf24a4ddbd7b84e3446}{\index{Ship\-Master@{Ship\-Master}!place\-Texture@{place\-Texture}}
 \index{place\-Texture@{place\-Texture}!ShipMaster@{Ship\-Master}}
 \subsubsection[{place\-Texture}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Master\-::place\-Texture (
 \begin{DoxyParamCaption}
@@ -354,7 +576,11 @@ Everything that is contained in the local world should call methods through this
 \item[{{\bf Location}}]{loc}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_ae90bf5dd5fa1cbf24a4ddbd7b84e3446}
-\hypertarget{classShipMaster_a2e1b2737d8c4ab6ff0c64b046d437718}{\index{Ship\-Master@{Ship\-Master}!update@{update}}
+
+
+Not being used. 
+
+Places an id in the texture matrix, is not used and might not be needed. \hypertarget{classShipMaster_a2e1b2737d8c4ab6ff0c64b046d437718}{\index{Ship\-Master@{Ship\-Master}!update@{update}}
 \index{update@{update}!ShipMaster@{Ship\-Master}}
 \subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-Master\-::update (
 \begin{DoxyParamCaption}
@@ -372,6 +598,13 @@ Update method called from cocos2d's update.
 {}
 \end{DoxyParamCaption}
 )}}\label{classShipMaster_a73b87519cbfc8289f9628695ebcc0cdb}
+
+
+Updates the map representing blocked movement. 
+
+The access map has to be completely rebuilt to be updated. \begin{DoxySeeAlso}{See Also}
+\hyperlink{classShipMap}{Ship\-Map} 
+\end{DoxySeeAlso}
 
 
 \subsection{Member Data Documentation}
