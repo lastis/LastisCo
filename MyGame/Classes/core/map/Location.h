@@ -28,6 +28,7 @@ struct Location
 
     Location& operator= (const Location& obj){
         copy(obj);
+        return *this;
     }
 
     void copy(const Location &obj){

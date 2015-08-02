@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
  
 using namespace cocos2d;
+using namespace network;
  
 Scene* HelloWorld::createScene()
 {
@@ -34,7 +35,9 @@ bool HelloWorld::init()
         return false;
     }
     
-    auto* instance = network::SocketIO::getInstance();
+    SocketIO* instance = SocketIO::getInstance();
+    ServEventHandler handler = ServEventHandler();
+    SIOClient* client = SocketIO::connect("http://127.0.0.1:3000", handler);
 
     time = 0;
     ship = new ShipMaster(3,20,20);

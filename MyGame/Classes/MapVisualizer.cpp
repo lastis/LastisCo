@@ -6,7 +6,7 @@ MapVisualizer::MapVisualizer(ShipMaster* ship, TMXTiledMap* mapTiled, Layer* sce
     : ship(ship), mapTiled(mapTiled), scene(scene), crew(ship->getCrew()),
         itemsToDraw(ship->getTextureList())
 {
-    crewSprites = new Sprite*[MAX_CREW];
+    crewSprites = new Sprite*[globals::MAX_CREW];
     crewCount = 0;
 
     layer1 = mapTiled->getLayer("Layer_1");

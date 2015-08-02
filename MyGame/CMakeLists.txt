@@ -177,6 +177,7 @@ set(GAME_HEADERS
   Classes/core/map/PathNode.h
   Classes/core/map/PriorityQueue.h
   Classes/core/rooms/Room.h
+  Classes/ServEventHandler.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 
